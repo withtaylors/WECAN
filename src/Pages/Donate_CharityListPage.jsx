@@ -15,7 +15,7 @@ function Donate_CharityListPage() {
   const [keyword, setKeyword] = useState(initKeyword || "");
   // useState를 사용하여 charitys 상태와 그 상태를 업데이트하는 함수를 정의
   const charitys = getCharitys(initKeyword); // mock.json에서 가져온 데이터
-
+  //test
   const handleKeywordChange = (e) => setKeyword(e.target.value);
 
   const handleSubmit = (e) => {
