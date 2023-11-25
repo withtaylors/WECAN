@@ -9,7 +9,7 @@ function Join(props) {
       <join.InnerWrapper>
         <join.logo src={Logosrc}></join.logo>
         <join.joinWrapper>
-          <join.title>이메일</join.title>
+          <join.title>이메일!</join.title>
           <join.inputWrapper>
             <join.realinputWrapper placeholder='email@gmail.com'></join.realinputWrapper>
             <join.firstcheckButton>인증하기!</join.firstcheckButton>
