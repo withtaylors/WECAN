@@ -28,7 +28,7 @@ function Join(props) {
           </join.inputWrapper>
         </join.joinWrapper>
         <join.joinWrapper>
-          <join.title>비밀번호 확인</join.title>
+          <join.title>비밀번호 확인!!!</join.title>
           <join.inputWrapper>
             <join.realinputWrapper placeholder='비밀번호를 한번 더 입력해 주세요'></join.realinputWrapper>
           </join.inputWrapper>
