@@ -1,40 +1,40 @@
-import React, { useState } from "react";
-import { Link, useLocation } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { useNavigate } from "react-router-dom";
+import React, { useState } from 'react';
+import { Link, useLocation } from 'react-router-dom';
+import styled, { css } from 'styled-components';
+import { useNavigate } from 'react-router-dom';
 
 const navItems = [
   {
-    label: "챌린저 모집",
-    link: "/recruitment",
+    label: '챌린저 모집',
+    link: '/recruitment',
     subItems: [
-      { label: "전체", link: "/recruitment/all" },
-      { label: "미라클모닝", link: "/recruitment/miracle-morning" },
-      { label: "운동", link: "/recruitment/exercise" },
-      { label: "공부", link: "/recruitment/study" },
-      { label: "기타", link: "/recruitment/other" },
+      { label: '전체', link: '/recruitment/all' },
+      { label: '미라클모닝', link: '/recruitment/miracle-morning' },
+      { label: '운동', link: '/recruitment/exercise' },
+      { label: '공부', link: '/recruitment/study' },
+      { label: '기타', link: '/recruitment/other' },
     ],
   },
   {
-    label: "기부",
-    link: "/donate",
+    label: '기부',
+    link: '/donate',
     subItems: [
-      { label: "기부 단체 찾기", link: "/donation/find-donation" },
-      { label: "기부했어요", link: "/donation/donated" },
-      { label: "후기", link: "donation/review" },
+      { label: '기부 단체 찾기', link: '/donation/find-donation' },
+      { label: '기부했어요', link: '/donation/donated' },
+      { label: '후기', link: 'donation/review' },
     ],
   },
   {
-    label: "굿즈샵",
-    link: "/goodsshop",
+    label: '굿즈샵',
+    link: '/goodsshop',
   },
   {
-    label: "마이페이지",
-    link: "/mypage",
+    label: '마이페이지',
+    link: '/mypage',
   },
 ];
 
-const activeClassName = "active";
+const activeClassName = 'active';
 
 const activeStyle = css`
   color: red;
@@ -60,7 +60,7 @@ const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 50px;
+  height: 70px;
   width: 896px;
   z-index: 50;
   gap: 20px;
@@ -80,7 +80,7 @@ const NavItem = styled.div`
 `;
 
 const Submenu = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   position: absolute;
   top: 200%;
   width: 1000px;
@@ -105,7 +105,7 @@ const TopNav = () => {
     setShowSubmenu(item === showSubmenu ? null : item);
   };
   const handleNavSubItemClick = (subItem) => {
-    alert("페이지 넘어갑니다!");
+    alert('페이지 넘어갑니다!');
     navigate(subItem.link);
   };
 
@@ -121,7 +121,7 @@ const TopNav = () => {
                   <ActiveLink
                     to={subItem.link}
                     className={
-                      location.pathname === subItem.link ? activeClassName : ""
+                      location.pathname === subItem.link ? activeClassName : ''
                     }
                     onClick={() => {
                       handleNavSubItemClick(subItem);
