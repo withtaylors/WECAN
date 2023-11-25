@@ -1,0 +1,41 @@
+.footer {
+  padding: 20px 0 53px;
+  color: #878787;
+  background-color: #fafafa;
+  border-top: 1px solid #cccccc; /* 회색 구분선 */
+}
+
+.WECAN {
+  color: #dd518c;
+  font-family: "Pretendard-SemiBold";
+}
+
+.links {
+  padding: 0;
+  color: #000000;
+  list-style: none;
+}
+
+.links > * {
+  display: inline-block;
+  line-height: 1.64;
+}
+
+.links > :not(:last-child) {
+  margin-right: 10px;
+}
+
+.info {
+  padding: 0;
+  margin-bottom: 36px;
+  list-style: none;
+}
+
+.info > * {
+  display: inline-block;
+  line-height: 1.64;
+}
+
+.info > :not(:last-child) {
+  margin-right: 30px;
+}

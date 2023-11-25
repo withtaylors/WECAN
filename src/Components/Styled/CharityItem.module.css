@@ -1,0 +1,21 @@
+.charityItem .thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 30px 0;
+  min-height: 150px;
+}
+
+.charityItem .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 30px;
+  padding: 5px 15px 5px;
+  background-color: #f9f9f9;
+}
+
+.charityItem .title {
+  font-size: 14px;
+  color: black;
+}

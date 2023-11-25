@@ -1,0 +1,36 @@
+.form {
+  display: flex;
+  height: 49px;
+  border: 1px solid #757575; /* 여기에 테두리를 추가 */
+  border-radius: 24.5px; /* 폼 전체의 둥근 모서리 */
+  margin-bottom: 30px;
+}
+
+.form input {
+  flex: 1 1;
+  padding: 12px 20px;
+  font-size: 14px;
+  font-weight: 400;
+  border: none;
+  border-radius: 24.5px 0 0 24.5px;
+  outline: none;
+}
+
+.form input::placeholder {
+  color: #606060;
+}
+
+.form button[type="submit"] {
+  flex: none;
+  padding: 8px 30px;
+  cursor: pointer;
+  background-color: #fff; /* 배경색 투명 */
+  border: none;
+  border-radius: 0 24.5px 24.5px 0;
+  outline: none;
+}
+
+.form button[type="submit"] img {
+  width: 26px;
+  height: 26px;
+}

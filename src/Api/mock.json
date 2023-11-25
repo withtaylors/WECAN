@@ -1,0 +1,353 @@
+{
+  "charitys": [
+    {
+      "id": "5e71ac5d8b427122575e1d92",
+      "code": "101",
+      "title": "유니세프",
+      "type": 1,
+      "slug": "intro-to-python-programming",
+      "summary": "유니세프는 1946년 ‘차별 없는 구호’의 정신으로 전 세계 어린이를 돕기 위해 설립된 유엔기구입니다. ",
+      "language": "PYTHON",
+      "photoUrl": "python",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e71b88447e1487937461f50",
+            "slug": "getting-started-with-python",
+            "title": "프로그래밍 시작하기 in Python",
+            "summary": "프로그래밍의 진입 장벽이 너무 높게 느껴진다면? 파이썬으로 프로그래밍을 시작하세요! 설치 과정부터 파이썬의 기본적인 개념들까지 모두 알려 드립니다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e71b98d855e806094b57ad0",
+            "slug": "core-concept-of-python-programming",
+            "title": "프로그래밍 핵심 개념 in Python",
+            "summary": "자료형, 추상화, 제어문... 쉽다면 쉬운 개념이지만, 많은 이들이 제대로 알고 있지 못한 프로그래밍 핵심 개념. 여러분은 완벽하게 알고 가시길 바랍니다!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5e71b9ce8b427122577e26f1",
+            "slug": "python-programming-and-data",
+            "title": "프로그래밍과 데이터 in Python",
+            "summary": "프로그래밍이란 결국 데이터를 받아서 처리하는 것인데요. 그렇다면 프로그래밍을 잘하기 위해서는 데이터를 제대로 알아야겠죠? 그 비결을 알려드립니다!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5e71ba1e855e806094b6ea9b",
+            "slug": "making-use-of-python",
+            "title": "파이썬 응용하기",
+            "summary": "파이썬 문법과 프로그래밍 개념은 배웠는데, 어떻게 활용해야 할지 모르겠다고요? 데이터 분석, 로또 시뮬레이션 등 프로젝트를 해 보며 아이디어를 얻어 보세요."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5f44779ba1fe743841ae7939",
+      "code": "111",
+      "title": "월드비전",
+      "type": 1,
+      "slug": "python-intermediate",
+      "summary": "월드비전은 전세계 가장 취약한 아동·가정·지역사회가 빈곤과 불평등에서 벗어나도록 하나님의 사랑을 실천하고 모든 파트너와 함께 지속 가능한 변화를 만들어가는 글로벌 NGO입니다.",
+      "language": "PYTHON",
+      "photoUrl": "python",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5f4478daa1fe743841b42acf",
+            "slug": "python-module-and-package",
+            "title": "파이썬 모듈과 패키지",
+            "summary": "파이썬 실력을 한 단계 향상해 주는 모듈과 패키지, 이번 토픽을 통해 마스터하세요!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5f4872fe372038687eb80444",
+            "slug": "python-environment-for-mac",
+            "title": "파이썬 환경 for Mac",
+            "summary": "파이썬 지금까지는 그냥 설치되는대로 사용해 왔죠? 이번 토픽에서 파이썬 환경에 대해 자세히 알아보세요! "
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e345223b3aa703b8a9a4f38",
+      "code": "121",
+      "title": "푸르메재단",
+      "type": 3,
+      "slug": "object-oriented-programming",
+      "summary": "푸르메재단은 ~",
+      "language": "PYTHON",
+      "photoUrl": "oop",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb41",
+            "slug": "what-is-oop",
+            "title": "객체 지향 프로그래밍이란?",
+            "summary": "객체 지향 프로그래밍, 바로 시작해 봅시다. 여러분도 게임 캐릭터, 블로그 유저 같은 요소들을 객체 지향적으로 설계하고 작성할 수 있습니다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb42",
+            "slug": "four-pillars-of-oop",
+            "title": "객체 지향 프로그래밍의 4개의 기둥",
+            "summary": "객체 지향에는 네 가지 핵심 기둥이 있다는 것 아셨나요? 좋은 객체 지향 프로그래밍에 대한 기준을 세워봅시다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb43",
+            "slug": "solid-principles-of-oop",
+            "title": "견고한 객체 지향 프로그래밍",
+            "summary": "객체 지향 프로그래밍의 마지막 걸음. 코드의 규모가 커질 수록 복잡성은 증가합니다. 객체 지향 코드를 견고하게 관리할 수 있는 방법을 배워 보세요."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e345223b3aa703b8a9a4f37",
+      "code": "122",
+      "title": "동물자유연대",
+      "type": 7,
+      "slug": "algorithms",
+      "summary": "동물자유연대는 ~~",
+      "language": "PYTHON",
+      "photoUrl": "algorithm",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3d",
+            "slug": "what-is-a-good-algorithm",
+            "title": "좋은 알고리즘이란?",
+            "summary": "알고리즘이 정확히 뭘까요? 그렇다면 좋은 알고리즘이란 뭘까요? 알고리즘의 효율성을 평가하는 방법을 배우며 알고리즘 세계에 입문하세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3e",
+            "slug": "recursion",
+            "title": "재귀 함수",
+            "summary": "함수 안에 함수 안에 함수... 뭐지, 인셉션인가? 헷갈리지만 개발자라면 피할 수 없는 재귀 함수! 개념을 정확히 파악하고 연습을 통해 재귀와 친해지세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3f",
+            "slug": "algorithmic-paradigms",
+            "title": "알고리즘 패러다임",
+            "summary": "알고리즘에도 공식이 있다? 그게 바로 알고리즘 패러다임! 여지껏 해 왔던 순진한 방식이 아닌, 정말 효율적인 알고리즘을 생각해 내는 힘을 길러 보세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb40",
+            "slug": "practicing-algorithmic-problem-solving",
+            "title": "문제 해결 능력 기르기",
+            "summary": "개발자 면접을 보면 알고리즘 문제를 낸다던데… 그럼 훈련을 해야겠죠? 실전 문제들을 보고, 분석하는 단계부터 실제 코드를 구현하는 단계까지 모두 연습하세요."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e345223b3aa703b8a9a4f39",
+      "code": "131",
+      "title": "기아 대책",
+      "type": 1,
+      "slug": "data-structures",
+      "summary": "기아대책은 ~",
+      "language": "PYTHON",
+      "photoUrl": "ds",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb45",
+            "slug": "data-structure-basics",
+            "title": "기본 자료 구조들",
+            "summary": "자료 구조, 어디서부터 시작하지? 메모리, 추상 자료형 등 가장 기본부터 공부하세요! 그 후 기본 자료 구조들은 쉽게 이해하실 수 있을 것입니다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb46",
+            "slug": "trees",
+            "title": "트리",
+            "summary": "기본 자료 구조들은 이미 다 완벽하게 파악하셨다고요? 이번에는 좀 더 복잡하지만, 컴퓨터 과학 이곳저곳에서 많이 활용하는 트리를 배우시는 건 어떠신가요?"
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb47",
+            "slug": "graphs",
+            "title": "그래프",
+            "summary": "실세상에 존재하는 데이터들은 대부분 서로 연결되어 있는 경우가 많은데요. 컴퓨터에서 이런 데이터들을 저장하고 사용할 수 있게 해주는 그래프에 대해서 배워봅시다!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e345223b3aa703b8a9a4f32",
+      "code": "311",
+      "title": "카라",
+      "type": 7,
+      "slug": "data-science",
+      "summary": "카라는 ~~",
+      "language": "PYTHON",
+      "photoUrl": "data-science",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb38",
+            "slug": "getting-started-with-data-science",
+            "title": "데이터 사이언스 시작하기",
+            "summary": "데이터 사이언스... 말로만 많이 들었지, 실제 뭔지는 모르겠죠? 데이터 사이언스가 무엇인지 배우고, 데이터 사이언스를 하기 위해 필요한 도구들을 익혀 보세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb39",
+            "slug": "mastering-pandas-dataframe",
+            "title": "DataFrame 다루기",
+            "summary": "엑셀에서는 데이터를 표에 담는다면, 파이썬에서는 DataFrame에 담는다! 데이터 사이언스를 하기 전에, DataFrame을 현란하게 다룰 수 있도록 준비하세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3a",
+            "slug": "data-analysis-and-visualization",
+            "title": "데이터 분석과 시각화",
+            "summary": "데이터를 아무리 많이 모아도, 활용할 줄 모르면 말짱 도루묵! 데이터를 분석해서 의미를 도출하고, 시각적으로 멋지게 표현하는 방법까지 배워 보세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3b",
+            "slug": "improving-data-quality",
+            "title": "데이터 퀄리티 높이기",
+            "summary": "쓰레기를 넣으면 쓰레기가 나온다? 아무리 분석이 훌륭해도 데이터가 별로면 의미 없습니다! 좋은 데이터의 기준을 이해하고, 쓰레기 데이터를 보석으로 재가공하세요."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e345230d909cbb85ba2eb3c",
+            "slug": "collecting-and-creating-data",
+            "title": "데이터 만들기",
+            "summary": "분석을 하기 위해 필요한 데이터를 수집해야겠죠? 웹사이트를 분해하는 코드도 작성하고, 자동으로 웹을 돌아다니면서 정보를 수집하는 프로그램도 만들어 보세요."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e6732574b0b59235a15c86b",
+      "code": "321",
+      "title": "지파운데이션",
+      "type": 5,
+      "slug": "machine-learning",
+      "summary": "지파운데이션은 ~",
+      "language": "PYTHON",
+      "photoUrl": "machine-learning",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e6731d2e1c354224fb88efb",
+            "slug": "pre-machine-learning",
+            "title": "머신 러닝 기본기",
+            "summary": "머신 러닝이란 뭐고, 배우기 전에 미리 알고 있어야 되는 내용은 뭐가 있을까요? 머신 러닝을 본격적으로 시작하기 전에 이번 토픽에서 제대로 짚고 넘어갑시다!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5e6731eafa82385b57335783",
+            "slug": "elementary-supervised-algorithms",
+            "title": "기본 지도 학습 알고리즘들",
+            "summary": "머신 러닝이라는 과목 안에는 기계를 학습시키는 다양한 방법들이 있는데요. 이번 토픽에서는 다양한 알고리즘들 중 가장 기본이 되는 알고리즘들에 대해서 배워봅시다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e67320c4b0b59235a14e8fd",
+            "slug": "optimizing-machine-learning-models",
+            "title": "머신 러닝, 더 빠르고 정확하게",
+            "summary": "머신 러닝은 경험을 통해 프로그램의 성능을 최적화하는 학문인데요. 이번 레슨에서는 좀 더 빠르고 정확하게 프로그램을 학습시키는 방법에 대해서 배워봅시다!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5e6731fce1c354224fb953ba",
+            "slug": "decision-tree-and-ensemble",
+            "title": "결정 트리와 앙상블 기법",
+            "summary": "결정 트리와, 수많은 결정 트리를 합쳐서 좋은 성능의 모델을 만들어내는 앙상블 기반 알고리즘들 대해서 배워봅시다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "5f69873536e82326c31293c7",
+      "code": "331",
+      "title": "굿피플",
+      "type": 5,
+      "slug": "machine-learning-in-practice",
+      "summary": "굿피플은 ~",
+      "language": "PYTHON",
+      "photoUrl": "machine-learning",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5f6987ff36e82326c315f90f",
+            "slug": "recommender-systems",
+            "title": "추천 시스템",
+            "summary": "추천 시스템이란 무엇이고, 우리 생활에 어떤 영향을 미치고 있을까요? 이번 토픽에서 추천 시스템이 우리의 생활을 어떻게 지배하고 있는지를 배워봅시다!"
+          }
+        },
+        {
+          "topic": {
+            "id": "5f6da787dab0f329c5c63eb1",
+            "slug": "natural_language_processing",
+            "title": "자연어 처리",
+            "summary": "자연어란 컴퓨터가 아니라 사람들이 사용하는 언어를 뜻하는데요. 머신 러닝을 사용해서 어떻게 사람들의 언어를 컴퓨터로 처리하는지 배워봅시다!"
+          }
+        }
+      ]
+    },
+    {
+      "id": "5e673408e1c354224fc0c8eb",
+      "code": "336",
+      "title": "여울들",
+      "type": 8,
+      "slug": "deep-learning",
+      "summary": "여울들은 ~",
+      "language": "PYTHON",
+      "photoUrl": "deep-learning",
+      "newReleased": false,
+      "topics": [
+        {
+          "topic": {
+            "id": "5e673393e1c354224fbec491",
+            "slug": "ann-theory",
+            "title": "인공 신경망 이론",
+            "summary": "인공 지능 연구의 핵심인 딥 러닝의 가장 기본이 되는 알고리즘 인공 신경망. 도대체 어떤 원리로 작동하는 걸까요? 이번 토픽에서 자세하고 정확하게 알아봅시다."
+          }
+        },
+        {
+          "topic": {
+            "id": "5e6733a5fa82385b573954da",
+            "slug": "deep-learning-topic-2",
+            "title": "인공 신경망 쉽게 사용하기",
+            "summary": "신경망은 이론만 알고 바로 실전에서 사용하기는 굉장히 어렵습니다. 이번 토픽에서는 라이브러리를 사용해서 신경망을 쉽게 사용하는 방법에 대해서 알아보겠습니다!"
+          }
+        }
+      ]
+    }
+  ]
+}

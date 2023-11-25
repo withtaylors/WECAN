@@ -1,0 +1,16 @@
+.nav {
+  position: relative;
+  z-index: 1;
+  padding: 15px 0;
+  background-color: #fff;
+  box-shadow: var(--box-shadow);
+}
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.logoImage {
+  width: 206px; /* 원하는 너비로 설정 */
+  height: auto; /* 높이는 자동으로 설정하여 비율 유지 */
+}
