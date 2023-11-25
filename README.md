@@ -1,70 +1,115 @@
-# Getting Started with Create React App
+# ITA - WECAN WEB PROJECT
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+잇타 동아리 - WECAN 웹 개발 프로젝트입니다.
+<br>
+<br>
 
-## Available Scripts
+## 🌷 팀원
 
-In the project directory, you can run:
+[🤍박지연](https://github.com/withtaylors)<br>
+[🩵한주리](https://github.com/Hanjuri)<br>
+<br>
+<br>
 
-### `npm start`
+## 🌷 스택
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+![react](https://img.shields.io/badge/react-17.0.2-brightgreen) ![redux](https://img.shields.io/badge/redux-4.0.5-yellowgreen) ![react-redux](https://img.shields.io/badge/react--redux-7.2.3-yellow) ![react-thunk](https://img.shields.io/badge/react--thunk-2.3.0-red)<br>![firebase](https://img.shields.io/badge/firebase-8.3.2-ff69b4) ![axios](https://img.shields.io/badge/axios-0.21.1-important) ![styled-components](https://img.shields.io/badge/styled--components-5.2.3-blueviolet) ![framer-motion](https://img.shields.io/badge/framer--motion-4.1.2-orange)<br>![prop-types](https://img.shields.io/badge/prop--types-15.7.2-success) ![eslint](https://img.shields.io/badge/eslint-7.23.0-9cf) ![prettier](https://img.shields.io/badge/prettier-2.2.1-critical)
+<br>
+<br>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 🌷 프로젝트 소개
 
-### `npm test`
+### 🪻기획 의도
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+      ✔️ 목표를 함께 이룰 수 있는 사람들을 모집하고 목표 달성 실패 시 걷음 벌금을 기부할 수 있게 돕는 서비스
 
-### `npm run build`
+### 🪻구현 기능
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+      ✔️ 로그인
+      ✔️ Todo
+      ✔️ 시간대별 컨텐츠(시간 & 문구)
+      ✔️ 랜덤 이미지 API
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 🪻역할 분배
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+      ✔️ 박지연: 기부 화면, 후기 화면
+      ✔️ 한주리: 로그인, 회원가입, 홈 화면, 챌린저 모집 기능
 
-### `npm run eject`
+<br>
+<br>
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+## 🌷프로젝트 목표
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+### 🪻깃을 통한 팀원간 협업 연습
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+      ✔️ git Wiki
+      ✔️ git Kanban
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 🪻리액트와 친해지기 🤪
 
-## Learn More
+<br>
+<br>
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🌷API
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+###
 
-### Code Splitting
+    ✔️ spring
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+<br>
+<br>
 
-### Analyzing the Bundle Size
+## 🌷프로젝트 구조도
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+```
+├── README.md
+├── node_modules/ # 개발 의존 모듈 집합 디렉토리
+├── package.json
+├── public/ # 정적 리소스 디렉토리
+│   ├── index.html # 애플리케이션 기본 템플릿
+│   └── index.css
+├── src/ # React 애플리케이션 개발 디렉토리
+│   ├── Api
+│   ├── Assets
+│   │    └──Logo
+│   ├── Components
+│   │    ├── Styled
+|   │    │     └── Footer.module.css
+│   │    └── Footer.jsx
+│   │    ├── Menu
+|   │    │     ├── Styled
+|   │    │     │      ├── FirstMenu.module.css
+|   │    │     │      └── SecondMenu.module.css
+│   │    │     ├── FirstMenu.jsx
+│   │    │     └── SecondMenu.jsx
+│   │    └── TopNav
+|   │    │     ├── Styled
+|   │    │     |      └── TopNav.module.css
+|   │    │     └── TopNav.jsx
+|   │    ├── Home
+|   │    │     ├── Styled
+|   │    │     │     └── Home.module.css
+|   │    │     └── Home.jsx
+│   │    ├── Challenge
+|   │    │     ├── Styled
+|   │    │     │     └── Challenge.module.css
+│   │    │     └── Challenge.jsx
+│   │    ├── Review
+|   │    │     ├── Styled
+|   │    │     │     └── Review.module.css
+|   │    │     └── Review.jsx
+|   │    ├── Goods
+|   │    │     ├── Styled
+|   │    │     │     └── Goods.module.css
+|   │    │     └── Goods.jsx
+│   │    └── Mypage
+|   │    │     ├── Styled
+|   │    │     |     └── Mypage.module.css
+|   │    │     └── Mypage.jsx
+│   ├── containers
+│   ├── redux
+│   ├── utils # 유효성 검사
+│   │    └── index.js
+│   └── index.js # 엔트리 파일
+└── yarn.lock
+```
