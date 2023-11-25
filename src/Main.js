@@ -10,7 +10,7 @@ function Main() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<App />}>
+        <Route path="/" element={<Donate_CharityListPage />}>
           <Route index element={<HomePage />} />
           <Route path="donate">
             <Route index element={<Donate_CharityListPage />} />
