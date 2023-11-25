@@ -12,7 +12,7 @@ function Join(props) {
           <join.title>이메일</join.title>
           <join.inputWrapper>
             <join.realinputWrapper placeholder='email@gmail.com'></join.realinputWrapper>
-            <join.firstcheckButton>인증하기</join.firstcheckButton>
+            <join.firstcheckButton>인증하기!</join.firstcheckButton>
           </join.inputWrapper>
         </join.joinWrapper>
         <join.joinWrapper>
