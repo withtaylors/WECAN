@@ -16,7 +16,7 @@ function Join(props) {
           </join.inputWrapper>
         </join.joinWrapper>
         <join.joinWrapper>
-          <join.title>인증번호 입력!!!!</join.title>
+          <join.title>인증번호 입력</join.title>
           <join.inputWrapper>
             <join.realinputWrapper></join.realinputWrapper>
           </join.inputWrapper>
