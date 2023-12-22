@@ -9,12 +9,13 @@ import Recruit from "./Pages/Recruit/Recruit.total.main";
 import Login from "./Pages/Login/Login.main";
 import Join from "./Pages/Join/Join.main";
 
-import Main from "./Main";
 import HomePage from "./Pages/HomePage";
 import Donate_CharityPage from "./Pages/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate_DonatedPage";
 import NotFoundPage from "./Pages/NotFoundPage";
+import styles from "./App.module.css";
+import "./App.font.css";
 
 function App() {
   const MainScreen = styled.div`

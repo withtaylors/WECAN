@@ -1,29 +1,28 @@
-import React from 'react';
-import ReactDOM from 'react-dom/client';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
-import ScrollToTop from './Pages/Common/ScrollToTop';
+import React from "react";
+import ReactDOM from "react-dom/client";
+import "./index.css";
+import App from "./App";
+import reportWebVitals from "./reportWebVitals";
+import ScrollToTop from "./Pages/Common/ScrollToTop";
 import {
   RecoilRoot,
   atom,
   selector,
   useRecoilState,
   useRecoilValue,
-} from 'recoil';
+} from "recoil";
 import {
   BrowserRouter,
   Route,
   Router,
   Routes,
   useNavigate,
-} from 'react-router-dom';
-import '../src/Pages/static/fonts/font.css';
-const root = ReactDOM.createRoot(document.getElementById('root'));
+} from "react-router-dom";
+import "../src/Pages/static/fonts/font.css";
+const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <RecoilRoot>
     <BrowserRouter>
-      <ScrollToTop />
       <App />
     </BrowserRouter>
   </RecoilRoot>
