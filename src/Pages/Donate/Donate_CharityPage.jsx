@@ -1,11 +1,11 @@
 import { Navigate, useParams } from "react-router-dom";
 import styles from "./Styled/Donate_CharityPage.module.css";
 import { useNavigate } from "react-router-dom";
-import Button from "../Components/Button";
-import { addWishlist, getCharityBySlug } from "../Api/getter";
-import Container from "../Components/Container";
-import Card from "../Components/Card";
-import CharityIcon from "../Components/CharityIcon";
+import Button from "../../Components/Button";
+import { addWishlist, getCharityBySlug } from "../../Api/getter";
+import Container from "../../Components/Container";
+import Card from "../../Components/Card";
+import CharityIcon from "../../Components/CharityIcon";
 
 function Donate_Charity() {
   const navigate = useNavigate();

@@ -9,10 +9,10 @@ import Recruit from "./Pages/Recruit/Recruit.total.main";
 import Login from "./Pages/Login/Login.main";
 import Join from "./Pages/Join/Join.main";
 
-import HomePage from "./Pages/HomePage";
-import Donate_CharityPage from "./Pages/Donate_CharityPage";
-import Donate_CharityListPage from "./Pages/Donate_CharityListPage";
-import Donate_DonatedPage from "./Pages/Donate_DonatedPage";
+import Nav from "./Pages/TopNav/NavigationBar";
+import Donate_CharityPage from "./Pages/Donate/Donate_CharityPage";
+import Donate_CharityListPage from "./Pages/Donate/Donate_CharityListPage";
+import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import styles from "./App.module.css";
 import "./App.font.css";
@@ -28,7 +28,6 @@ function App() {
   return (
     <div className="App">
       <TopNav></TopNav>
-
       <MainScreen>
         <Routes>
           <Route path="/login" element={<Login></Login>} />
@@ -40,16 +39,17 @@ function App() {
           <Route path="/recruitment/exercise" />
           <Route path="/recruitment/study" />
           <Route path="/recruitment/other" />
-          <Route path="/donation" />
-          <Route path="/donation/find-donation" />
-          <Route path="/donation/donated" />
-          <Route path="/donation/review" />
-          <Route path="/goodshop" />
-          <Route path="/mypage" />
           <Route path="donate">
             <Route index element={<Donate_CharityListPage />} />
             <Route path=":courseSlug" element={<Donate_CharityPage />} />
           </Route>
+          <Route path="donate/donated">
+            <Route index element={<Donate_DonatedPage />} />
+          </Route>
+          <Route path="/donate/review" />
+          <Route path="/goodshop" />
+          <Route path="/mypage" />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </MainScreen>
     </div>

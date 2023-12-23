@@ -1,23 +1,25 @@
-import React, { useEffect, useState, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
-import * as TopS from './Styled/Top.main.styles';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import TopNav from './TopNav.main';
-import Logosrc from '../../Assets/img/Logo.png';
+import React, { useEffect, useState, useRef } from "react";
+import { useNavigate } from "react-router-dom";
+import * as TopS from "./Styled/Top.main.styles";
+import { useRecoilValue, useSetRecoilState } from "recoil";
+import TopNav from "./TopNav.main";
+import Nav from "./NavigationBar";
+import Logosrc from "../../Assets/img/Logo.png";
+
 function Top() {
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
   };
-  const userInfo = [{ name: '위캔두' }];
+  const userInfo = [{ name: "위캔두" }];
   return (
     <TopS.TopWrapper>
-      <TopS.TopContentWrapper type='main'>
+      <TopS.TopContentWrapper type="main">
         <TopS.TopLogo
           src={Logosrc}
           onClick={(e) => {
-            NavClick(e, '/');
+            NavClick(e, "/");
           }}
         ></TopS.TopLogo>
         <TopS.TopInfoWrapper>
@@ -26,7 +28,7 @@ function Top() {
           </TopS.User>
           <TopS.LogInOut
             onClick={(e) => {
-              NavClick(e, '/login');
+              NavClick(e, "/login");
             }}
           >
             로그인/회원가입
@@ -34,6 +36,7 @@ function Top() {
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
       <TopNav></TopNav>
+      <Nav />
     </TopS.TopWrapper>
   );
 }
