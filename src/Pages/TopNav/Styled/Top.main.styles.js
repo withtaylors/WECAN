@@ -3,19 +3,21 @@ import * as tokens from "../../tokens";
 
 export const TopWrapper = styled.div`
   width: 100%;
-  height: 0x;
+  height: auto;
   z-index: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
+  font-size: 19px;
 `;
 
 export const TopContentWrapper = styled.div`
   width: 100%;
+  height: auto;
   display: flex;
   align-items: end;
   justify-content: space-between;
-  padding-top: 10px;
+  padding-top: 20px;
 `;
 export const TopLogo = styled.img`
   width: 207px;

@@ -8,6 +8,7 @@ import { getCharitys } from "../../Api/getter";
 import searchBarStyles from "../../Components/Styled/SearchBar.module.css";
 import searchIcon from "../../Assets/search.png";
 import TabButton from "../../Components/TabButton";
+import Pagination from "react-js-pagination";
 
 function Donate_CharityListPage() {
   const [searchParam, setSearchParam] = useSearchParams();
@@ -41,49 +42,68 @@ function Donate_CharityListPage() {
     (charity) => activeTab === "tab1" || charity.type === tabTypes[activeTab]
   );
 
+  // 페이지네이션을 위한 상태
+  const [currentPage, setCurrentPage] = useState(1);
+  const itemsPerPage = 9;
+  const indexOfLastItem = currentPage * itemsPerPage;
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+  const currentCharitys = filteredCharitys.slice(
+    indexOfFirstItem,
+    indexOfLastItem
+  );
+
+  const handlePageChange = (pageNumber) => {
+    setCurrentPage(pageNumber);
+  };
+
   return (
-    <div style={{ paddingTop: "50px" }}>
-      <ListPage variant="catalog" title="기부 단체 찾기">
-        <form className={searchBarStyles.form} onSubmit={handleSubmit}>
-          <input
-            name="keyword"
-            value={keyword}
-            onChange={handleKeywordChange}
-            placeholder="검색으로 단체 찾기"
-          ></input>
-          <button type="submit">
-            <img src={searchIcon} alt="검색" />
-          </button>
-        </form>
+    <ListPage variant="catalog" title="기부 단체 찾기">
+      <form className={searchBarStyles.form} onSubmit={handleSubmit}>
+        <input
+          name="keyword"
+          value={keyword}
+          onChange={handleKeywordChange}
+          placeholder="검색으로 단체 찾기"
+        ></input>
+        <button type="submit">
+          <img src={searchIcon} alt="검색" />
+        </button>
+      </form>
 
-        <TabButton activeTab={activeTab} onTabChange={setActiveTab} />
+      <TabButton activeTab={activeTab} onTabChange={setActiveTab} />
 
-        <div className={styles.infoBar}>
-          <p className={styles.count}>총 {filteredCharitys.length}개</p>
-          <p>가나다순</p>
+      <div className={styles.infoBar}>
+        <p className={styles.count}>총 {filteredCharitys.length}개</p>
+        <p>가나다순</p>
+      </div>
+
+      {initKeyword && charitys.length === 0 ? (
+        <Warn
+          className={styles.emptyList}
+          title="조건에 맞는 단체가 없어요."
+          description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
+        />
+      ) : (
+        <div className={styles.charityList}>
+          {charitys.map((charity) => {
+            if (activeTab === "tab1" || charity.type === tabTypes[activeTab]) {
+              return <CharityItem key={charity.id} charity={charity} />;
+            }
+            return null;
+          })}
         </div>
-
-        {initKeyword && charitys.length === 0 ? (
-          <Warn
-            className={styles.emptyList}
-            title="조건에 맞는 단체가 없어요."
-            description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
-          />
-        ) : (
-          <div className={styles.charityList}>
-            {charitys.map((charity) => {
-              if (
-                activeTab === "tab1" ||
-                charity.type === tabTypes[activeTab]
-              ) {
-                return <CharityItem key={charity.id} charity={charity} />;
-              }
-              return null;
-            })}
-          </div>
-        )}
-      </ListPage>
-    </div>
+      )}
+      <Pagination
+        activePage={currentPage}
+        itemsCountPerPage={itemsPerPage}
+        totalItemsCount={filteredCharitys.length}
+        pageRangeDisplayed={5}
+        onChange={handlePageChange}
+        innerClassName={styles.pagination} // Assuming this class is defined in your CSS file
+        itemClass="page-item" // You can define these classes in your CSS file
+        linkClass="page-link" // You can define these classes in your CSS file
+      />
+    </ListPage>
   );
 }
 

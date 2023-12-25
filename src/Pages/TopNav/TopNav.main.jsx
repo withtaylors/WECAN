@@ -21,7 +21,6 @@ const navItems = [
     subItems: [
       { label: "기부 단체 찾기", link: "/donation/find-donation" },
       { label: "기부했어요", link: "/donation/donated" },
-      { label: "후기", link: "donation/review" },
     ],
   },
   {
@@ -31,6 +30,10 @@ const navItems = [
   {
     label: "마이페이지",
     link: "/mypage",
+  },
+  {
+    label: "후기",
+    link: "/review",
   },
 ];
 
@@ -68,7 +71,7 @@ const NavWrapper = styled.div`
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: gray;
-  margin-top: 75px;
+  margin-top: 25px;
 `;
 
 const NavItem = styled.div`
