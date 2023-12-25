@@ -11,7 +11,7 @@ function Donate_CharityPage() {
   const charity = getCharityBySlug(charitySlug);
 
   if (!charity) {
-    return <Navigate to="/charitys" />;
+    return <Navigate to="/donate" />;
   }
 
   const goToCharityLink = () => {
