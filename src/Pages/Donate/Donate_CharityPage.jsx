@@ -4,6 +4,7 @@ import styles from "./Styled/Donate_CharityPage.module.css";
 import Container from "../../Components/Container";
 import Card from "../../Components/Card";
 import CharityIcon from "../../Components/CharityIcon";
+import CharityLink from "../../Components/CharityLink";
 
 function Donate_CharityPage() {
   const { charitySlug } = useParams();
@@ -13,20 +14,31 @@ function Donate_CharityPage() {
     return <Navigate to="/charitys" />;
   }
 
+  const goToCharityLink = () => {
+    window.location.href = charity.link; // or navigate(charity.link) if it's an internal link
+  };
+
   return (
     <>
       <div className={styles.header}>
         <Container className={styles.content}>
-          <CharityIcon photoUrl={charity.photoUrl} />
           <h1 className={styles.title}>{charity.title}</h1>
-          <p className={styles.summary}>{charity.summary}</p>
+          <div className={styles.charityHeader}>
+            <CharityIcon
+              photoUrl={charity.photoUrl}
+              className={styles.charityIcon}
+            />
+            <CharityLink
+              onClick={goToCharityLink}
+              className={styles.linkButton}
+            />
+          </div>
         </Container>
       </div>
       <Container className={styles.topics}>
         {charity.topics.map(({ topic }) => (
           <Card className={styles.topic} key={topic.slug}>
             <h3 className={styles.title}>{topic.title}</h3>
-            <p className={styles.summary}>{topic.summary}</p>
           </Card>
         ))}
       </Container>

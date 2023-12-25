@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
 import ListPage from "../../Components/ListPage";
 import styles from "./Styled/Donate_CharityListPage.module.css";

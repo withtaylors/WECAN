@@ -18,7 +18,7 @@ const TYPE = [
 function CharityItem({ charity }) {
   return (
     <Card className={styles.charityItem}>
-      <Link to={`/charity/${charity.slug}`}>
+      <Link to={`/donate/${charity.slug}`}>
         <div className={styles.thumb}></div>
         <div className={styles.content}>
           <h2 className={styles.title}>{charity.title}</h2>

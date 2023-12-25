@@ -1,7 +1,13 @@
 import React, { useState } from "react";
-import { Link, NavLink, useLocation } from "react-router-dom";
-import styled, { css } from "styled-components";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  ActiveLink,
+  NavWrapper,
+  NavItem,
+  Submenu,
+  SubmenuItem,
+  activeClassName,
+} from "./Styled/TopNav.style.js";
 
 const navItems = [
   {
@@ -37,68 +43,6 @@ const navItems = [
   },
 ];
 
-const activeClassName = "active";
-
-const activeStyle = css`
-  color: red;
-`;
-const ActiveLink = styled(Link).attrs({
-  activeClassName,
-})`
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-
-  &:hover {
-    color: #dd518c;
-  }
-
-  &.${activeClassName} {
-    ${activeStyle}
-  }
-`;
-const NavWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 70px;
-  width: 896px;
-  z-index: 50;
-  gap: 20px;
-  background-color: white;
-  border-style: solid;
-  border-width: 0 0 1px 0;
-  border-color: gray;
-  margin-top: 25px;
-`;
-
-const NavItem = styled.div`
-  position: relative;
-  cursor: pointer;
-  margin-bottom: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
-`;
-
-const Submenu = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
-  position: absolute;
-  top: 200%;
-  width: 1000px;
-
-  flex-direction: row;
-`;
-
-const SubmenuItem = styled.div`
-  padding: 5px;
-  color: white;
-  background-color: white;
-  cursor: pointer;
-  margin-right: 50px;
-`;
-
 const TopNav = () => {
   const location = useLocation();
   const [showSubmenu, setShowSubmenu] = useState(null);
@@ -126,9 +70,6 @@ const TopNav = () => {
                     className={
                       location.pathname === subItem.link ? activeClassName : ""
                     }
-                    onClick={() => {
-                      handleNavSubItemClick(subItem);
-                    }}
                   >
                     {subItem.label}
                   </ActiveLink>
