@@ -2,7 +2,7 @@ import { Navigate, useParams } from "react-router-dom";
 import { getCharityBySlug } from "../../Api/getter";
 import styles from "./Styled/Donate_CharityPage.module.css";
 import Container from "../../Components/Container";
-import Card from "../../Components/Card";
+import Card2 from "../../Components/Card2";
 import CharityIcon from "../../Components/CharityIcon";
 import CharityLink from "../../Components/CharityLink";
 
@@ -37,9 +37,9 @@ function Donate_CharityPage() {
       </div>
       <Container className={styles.topics}>
         {charity.topics.map(({ topic }) => (
-          <Card className={styles.topic} key={topic.slug}>
+          <Card2 className={styles.topic} key={topic.slug}>
             <h3 className={styles.title}>{topic.title}</h3>
-          </Card>
+          </Card2>
         ))}
       </Container>
     </>

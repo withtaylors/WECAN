@@ -18,30 +18,34 @@ import NotFoundPage from "./Pages/NotFoundPage";
 function App() {
   return (
     <Router>
-      <Top />
-      <Routes>
-        <Route path="/login" element={<Login></Login>} />
-        <Route path="/join" element={<Join></Join>} />
-        <Route path="/" element={<Home />} />
-        <Route path="/recruitment" />
-        <Route path="/recruitment/all" element={<Recruit></Recruit>} />
-        <Route path="/recruitment/miracle-morning" />
-        <Route path="/recruitment/exercise" />
-        <Route path="/recruitment/study" />
-        <Route path="/recruitment/other" />
-        <Route path="donate">
-          <Route index element={<Donate_CharityListPage />} />
-          <Route path=":charitySlug" element={<Donate_CharityPage />} />
-        </Route>
-        <Route path="donate/donated">
-          <Route index element={<Donate_DonatedPage />} />
-        </Route>
-        <Route path="/review" />
-        <Route path="/goodshop" />
-        <Route path="/mypage" />
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
-      <Footer />
+      <div className="app-container">
+        <Top />
+        <div className="content">
+          <Routes>
+            <Route path="/login" element={<Login></Login>} />
+            <Route path="/join" element={<Join></Join>} />
+            <Route path="/" element={<Home />} />
+            <Route path="/recruitment" />
+            <Route path="/recruitment/all" element={<Recruit></Recruit>} />
+            <Route path="/recruitment/miracle-morning" />
+            <Route path="/recruitment/exercise" />
+            <Route path="/recruitment/study" />
+            <Route path="/recruitment/other" />
+            <Route path="donate">
+              <Route index element={<Donate_CharityListPage />} />
+              <Route path=":charitySlug" element={<Donate_CharityPage />} />
+            </Route>
+            <Route path="donate/donated">
+              <Route index element={<Donate_DonatedPage />} />
+            </Route>
+            <Route path="/review" />
+            <Route path="/goodshop" />
+            <Route path="/mypage" />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
+        </div>
+        <Footer />
+      </div>
     </Router>
   );
 }

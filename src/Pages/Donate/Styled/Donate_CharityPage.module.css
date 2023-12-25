@@ -9,8 +9,8 @@
 
 .header .title {
   margin: 10px auto 20px;
-  font-size: 22px;
-  font-weight: bold;
+  font-size: 28px;
+  font-weight: medium;
   color: black;
   text-align: left;
 }
@@ -18,7 +18,7 @@
 .charityIcon {
   width: 100px;
   height: auto;
-  border: 1px solid #000;
+  border: solid 1.5px #bbbbbb;
   padding: 20px;
   margin-left: 0;
   border-radius: 8px;
@@ -36,7 +36,7 @@
 }
 
 .topic {
-  padding: 28px 50px;
+  padding: 30px;
 }
 
 .topic:not(:last-child) {
@@ -45,14 +45,8 @@
 
 .topic .title {
   margin: 0 auto 10px;
-  font-size: 18px;
+  font-size: 15px;
   font-weight: 500;
   color: black;
-}
-
-.topic .summary {
-  margin: 0;
-  font-size: 12px;
-  font-weight: 500;
-  color: #878787;
+  align-items: left;
 }
