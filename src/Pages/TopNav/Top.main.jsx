@@ -36,7 +36,6 @@ function Top() {
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
       <TopNav></TopNav>
-      <Nav />
     </TopS.TopWrapper>
   );
 }

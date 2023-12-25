@@ -42,43 +42,48 @@ function Donate_CharityListPage() {
   );
 
   return (
-    <ListPage variant="catalog" title="기부 단체 찾기">
-      <form className={searchBarStyles.form} onSubmit={handleSubmit}>
-        <input
-          name="keyword"
-          value={keyword}
-          onChange={handleKeywordChange}
-          placeholder="검색으로 단체 찾기"
-        ></input>
-        <button type="submit">
-          <img src={searchIcon} alt="검색" />
-        </button>
-      </form>
+    <div style={{ paddingTop: "50px" }}>
+      <ListPage variant="catalog" title="기부 단체 찾기">
+        <form className={searchBarStyles.form} onSubmit={handleSubmit}>
+          <input
+            name="keyword"
+            value={keyword}
+            onChange={handleKeywordChange}
+            placeholder="검색으로 단체 찾기"
+          ></input>
+          <button type="submit">
+            <img src={searchIcon} alt="검색" />
+          </button>
+        </form>
 
-      <TabButton activeTab={activeTab} onTabChange={setActiveTab} />
+        <TabButton activeTab={activeTab} onTabChange={setActiveTab} />
 
-      <div className={styles.infoBar}>
-        <p className={styles.count}>총 {filteredCharitys.length}개</p>
-        <p>가나다순</p>
-      </div>
-
-      {initKeyword && charitys.length === 0 ? (
-        <Warn
-          className={styles.emptyList}
-          title="조건에 맞는 단체가 없어요."
-          description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
-        />
-      ) : (
-        <div className={styles.charityList}>
-          {charitys.map((charity) => {
-            if (activeTab === "tab1" || charity.type === tabTypes[activeTab]) {
-              return <CharityItem key={charity.id} charity={charity} />;
-            }
-            return null;
-          })}
+        <div className={styles.infoBar}>
+          <p className={styles.count}>총 {filteredCharitys.length}개</p>
+          <p>가나다순</p>
         </div>
-      )}
-    </ListPage>
+
+        {initKeyword && charitys.length === 0 ? (
+          <Warn
+            className={styles.emptyList}
+            title="조건에 맞는 단체가 없어요."
+            description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
+          />
+        ) : (
+          <div className={styles.charityList}>
+            {charitys.map((charity) => {
+              if (
+                activeTab === "tab1" ||
+                charity.type === tabTypes[activeTab]
+              ) {
+                return <CharityItem key={charity.id} charity={charity} />;
+              }
+              return null;
+            })}
+          </div>
+        )}
+      </ListPage>
+    </div>
   );
 }
 

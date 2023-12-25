@@ -1,14 +1,11 @@
 import { Navigate, useParams } from "react-router-dom";
+import { getCharityBySlug } from "../../Api/getter";
 import styles from "./Styled/Donate_CharityPage.module.css";
-import { useNavigate } from "react-router-dom";
-import Button from "../../Components/Button";
-import { addWishlist, getCharityBySlug } from "../../Api/getter";
 import Container from "../../Components/Container";
 import Card from "../../Components/Card";
 import CharityIcon from "../../Components/CharityIcon";
 
-function Donate_Charity() {
-  const navigate = useNavigate();
+function Donate_CharityPage() {
   const { charitySlug } = useParams();
   const charity = getCharityBySlug(charitySlug);
 
@@ -16,20 +13,12 @@ function Donate_Charity() {
     return <Navigate to="/charitys" />;
   }
 
-  const handleAddWishlistClick = () => {
-    addWishlist(charity?.slug);
-    navigate("/wishlist");
-  };
-
   return (
     <>
       <div className={styles.header}>
         <Container className={styles.content}>
           <CharityIcon photoUrl={charity.photoUrl} />
           <h1 className={styles.title}>{charity.title}</h1>
-          <Button variant="round" onClick={handleAddWishlistClick}>
-            + 코스 담기
-          </Button>
           <p className={styles.summary}>{charity.summary}</p>
         </Container>
       </div>
@@ -45,4 +34,4 @@ function Donate_Charity() {
   );
 }
 
-export default Donate_Charity;
+export default Donate_CharityPage;
