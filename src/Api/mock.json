@@ -2,6 +2,7 @@
   "charitys": [
     {
       "id": "1",
+      "type": 1,
       "title": "국경없는의사회",
       "slug": "msf",
       "photoUrl": "python",
@@ -17,6 +18,7 @@
     },
     {
       "id": "2",
+      "type": 1,
       "title": "국제구조위원회",
       "slug": "rescue",
       "photoUrl": "python",
@@ -32,6 +34,7 @@
     },
     {
       "id": "3",
+      "type": 6,
       "title": "그린피스",
       "slug": "greenpeace",
       "photoUrl": "oop",
@@ -47,6 +50,7 @@
     },
     {
       "id": "4",
+      "type": 2,
       "title": "꽃밭정이노인복지관",
       "slug": "algorithms",
       "photoUrl": "algorithm",
@@ -62,6 +66,7 @@
     },
     {
       "id": "5",
+      "type": 2,
       "title": "노인지원재단",
       "slug": "verve",
       "photoUrl": "ds",
@@ -77,6 +82,7 @@
     },
     {
       "id": "6",
+      "type": 4,
       "title": "(사)다문화종합복지센터",
       "slug": "mgwc",
       "photoUrl": "data-science",
@@ -92,6 +98,7 @@
     },
     {
       "id": "7",
+      "type": 2,
       "title": "독거노인종합지원센터",
       "slug": "elders",
       "photoUrl": "machine-learning",
@@ -107,6 +114,7 @@
     },
     {
       "id": "8",
+      "type": 7,
       "title": "동물권행동 카라",
       "slug": "ekara",
       "photoUrl": "machine-learning",
@@ -122,6 +130,7 @@
     },
     {
       "id": "9",
+      "type": 7,
       "title": "동물자유연대",
       "slug": "animals",
       "photoUrl": "deep-learning",
@@ -137,6 +146,7 @@
     },
     {
       "id": "10",
+      "type": 3,
       "title": "사랑의 달팽이",
       "slug": "soree119",
       "photoUrl": "deep-learning",
@@ -152,6 +162,7 @@
     },
     {
       "id": "11",
+      "type": 5,
       "title": "세이브더칠드런",
       "slug": "sc",
       "photoUrl": "deep-learning",
@@ -167,6 +178,7 @@
     },
     {
       "id": "12",
+      "type": 1,
       "title": "유엔난민기구",
       "slug": "unhcr",
       "photoUrl": "deep-learning",
@@ -175,13 +187,14 @@
         {
           "topic": {
             "id": "1212",
-            "title": "인공 신경망 이론"
+            "title": "유엔난민기구는 전세계적으로 난민을 보호할 임무를 부여받은 UN입니다. UNHCR의 활동은 난민의 권리와 복지를 보호하는 데 주요 목표를 두고 있습니다. 누구나 비호를 신청할 권리를 누리고, 자발적 본국 귀환, 현지 동화 혹은 제3국 재정착의 방법으로 다른 나라에서 안전한 피난처를 보장받을 수 있도록 UNHCR은 앞장서고 있습니다."
           }
         }
       ]
     },
     {
       "id": "13",
+      "type": 3,
       "title": "장애인먼저실천운동본부",
       "slug": "wefirst",
       "photoUrl": "deep-learning",
@@ -197,6 +210,7 @@
     },
     {
       "id": "14",
+      "type": 5,
       "title": "푸른나무재단",
       "slug": "btf",
       "photoUrl": "deep-learning",
@@ -212,6 +226,7 @@
     },
     {
       "id": "15",
+      "type": 6,
       "title": "푸른아시아",
       "slug": "greenasia",
       "photoUrl": "deep-learning",
@@ -227,6 +242,7 @@
     },
     {
       "id": "16",
+      "type": 3,
       "title": "한국장애인재단",
       "slug": "kfpd",
       "photoUrl": "deep-learning",
@@ -242,6 +258,7 @@
     },
     {
       "id": "17",
+      "type": 5,
       "title": "한국청소년쉼터협의회",
       "slug": "jikimi",
       "photoUrl": "deep-learning",
@@ -257,6 +274,7 @@
     },
     {
       "id": "18",
+      "type": 6,
       "title": "환경재단",
       "slug": "deep-learning",
       "photoUrl": "deep-learning",
