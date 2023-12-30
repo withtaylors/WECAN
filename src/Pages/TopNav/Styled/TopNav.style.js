@@ -79,10 +79,9 @@ export const Submenu = styled.div`
   top: 100%;
   left: 0;
   width: max-content;
-  height: 70px;
+  height: 60px;
   justify-content: center;
   align-items: center;
-
   flex-direction: row;
 `;
 
@@ -91,7 +90,7 @@ export const SubmenuItem = styled.div`
   color: white;
   cursor: pointer;
   margin-right: 50px;
-  font-size: 15px;
+  font-size: 16px;
 `;
 
 ////

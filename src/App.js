@@ -11,6 +11,7 @@ import Home from "./Pages/Home/Home.main";
 import Login from "./Pages/Login/Login.main";
 import Join from "./Pages/Join/Join.main";
 import Recruit from "./Pages/Recruit/Recruit.total.main";
+import ReviewPage from "./Pages/Review/ReviewPage";
 import Donate_CharityPage from "./Pages/Donate/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
@@ -42,7 +43,7 @@ function App() {
               <Route path="donate/donated">
                 <Route index element={<Donate_DonatedPage />} />
               </Route>
-              <Route path="/review" />
+              <Route path="/review" element={<ReviewPage />} />
               <Route path="/shop" />
               <Route path="/mypage" />
               <Route path="*" element={<NotFoundPage />} />

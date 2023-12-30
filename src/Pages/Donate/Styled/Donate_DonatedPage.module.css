@@ -59,3 +59,8 @@
 .pagination li a.active {
   background-color: #ddd;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
