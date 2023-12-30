@@ -1,7 +1,7 @@
-import styled, { css } from 'styled-components';
-import { Link } from 'react-router-dom';
+import styled, { css } from "styled-components";
+import { Link } from "react-router-dom";
 
-export const activeClassName = 'active';
+export const activeClassName = "active";
 
 export const activeStyle = css`
   color: red;
@@ -12,6 +12,8 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
+  font-weight: bold;
+  font-size:19px;
 
   &:hover {
     color: #dd518c;
@@ -26,7 +28,7 @@ export const ActiveLink2 = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
-  font-weight: bold;
+  font-weight: medium;
 
   &:hover {
     color: #dd518c;
@@ -38,8 +40,7 @@ export const ActiveLink2 = styled(Link).attrs({
 `;
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
-  margin-top: 55px;
-  background-color: blue;
+  margin-top: 40px;
 `;
 
 export const NavWrapper = styled.div`
@@ -63,7 +64,6 @@ export const NavItem = styled.div`
   cursor: pointer;
   margin-left: 40px;
   margin-right: 40px;
-  background-color: yellow;
   font-size: 17px;
   font-weight: bold;
   height: 70px;
@@ -74,7 +74,7 @@ export const NavItem = styled.div`
 `;
 
 export const Submenu = styled.div`
-  display: ${(props) => (props.show ? 'flex' : 'none')};
+  display: ${(props) => (props.show ? "flex" : "none")};
   position: absolute;
   top: 100%;
   left: 0;
