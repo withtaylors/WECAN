@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const activeClassName = "active";
+export const activeClassName = 'active';
 
 export const activeStyle = css`
   color: red;
@@ -15,7 +15,7 @@ export const ActiveLink = styled(Link).attrs({
 
   &:hover {
     color: #dd518c;
-  }
+   
 
   &.${activeClassName} {
     ${activeStyle}
@@ -39,6 +39,7 @@ export const ActiveLink2 = styled(Link).attrs({
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
   margin-top: 55px;
+  background-color: beige;
 `;
 
 export const NavWrapper = styled.div`
@@ -50,7 +51,7 @@ export const NavWrapper = styled.div`
   height: 70px;
   width: 896px;
   z-index: 50;
-  gap: 20px;
+  gap: 10px;
   border-style: solid;
   border-width: 0 0 1px 0;
   border-color: gray;
@@ -62,13 +63,25 @@ export const NavItem = styled.div`
   cursor: pointer;
   margin-left: 40px;
   margin-right: 40px;
+  background-color: yellow;
+  font-size: 17px;
+  font-weight: bold;
+  height: 70px;
+  width: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 `;
 
 export const Submenu = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   position: absolute;
-  top: 250%;
+  top: 100%;
+  left: 0;
   width: max-content;
+  height: 70px;
+  justify-content: center;
+  align-items: center;
 
   flex-direction: row;
 `;

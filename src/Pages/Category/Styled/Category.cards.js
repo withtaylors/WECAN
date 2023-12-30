@@ -48,4 +48,5 @@ export const Date = styled.div`
   display: flex;
   justify-content: flex-start;
   margin-left: 20px;
+  text-decoration: none;
 `;
