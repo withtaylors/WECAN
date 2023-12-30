@@ -30,16 +30,16 @@ const navItems = [
     ],
   },
   {
+    label: "후기",
+    link: "/review",
+  },
+  {
     label: "굿즈샵",
     link: "/goodsshop",
   },
   {
     label: "마이페이지",
     link: "/mypage",
-  },
-  {
-    label: "후기",
-    link: "/review",
   },
 ];
 
