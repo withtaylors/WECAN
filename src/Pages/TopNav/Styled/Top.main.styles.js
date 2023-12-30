@@ -1,6 +1,17 @@
 import styled from "styled-components";
 import * as tokens from "../../tokens";
 
+// width: 100vw;
+// height: 94px;
+
+// position: absolute;
+// top: 0;
+// display: flex;
+// flex-direction: column;
+// align-items: center;
+// justify-content: start;
+// z-index: 100;
+// background-color: beige;
 export const TopWrapper = styled.div`
   width: 100%;
   height: auto;

@@ -35,7 +35,6 @@ function Top() {
           </TopS.LogInOut>
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
-      <TopNav></TopNav>
     </TopS.TopWrapper>
   );
 }

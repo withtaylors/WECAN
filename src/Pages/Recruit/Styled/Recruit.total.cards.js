@@ -6,7 +6,7 @@ export const TotalWrapper = styled.div`
   height: 2500px;
   padding-top: 100px;
   display: flex;
-  justify-content: start;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
 `;
@@ -106,3 +106,4 @@ export const PaginationNumber = styled.div`
       color: white;
     `};
 `;
+export const CategoryCardcontainer = styled.div``;

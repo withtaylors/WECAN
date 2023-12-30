@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import "./App.font.css";
 
-// Screen components
 import Top from "./Pages/TopNav/Top.main";
 import Footer from "./Components/Footer";
 import Home from "./Pages/Home/Home.main";
@@ -14,6 +13,7 @@ import Donate_CharityPage from "./Pages/Donate/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
 import NotFoundPage from "./Pages/NotFoundPage";
+import ChallengeInfo from "./Pages/Challenger/Challenger.main";
 
 function App() {
   return (
@@ -30,6 +30,7 @@ function App() {
             <Route path="/recruitment/miracle-morning" />
             <Route path="/recruitment/exercise" />
             <Route path="/recruitment/study" />
+            <Route path="/challenge/:id" element={<ChallengeInfo />} />
             <Route path="/recruitment/other" />
             <Route path="donate">
               <Route index element={<Donate_CharityListPage />} />
