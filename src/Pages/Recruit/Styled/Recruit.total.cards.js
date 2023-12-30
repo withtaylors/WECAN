@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import * as tokens from '../../tokens';
+import styled from "styled-components";
+import * as tokens from "../../tokens";
 
 export const TotalWrapper = styled.div`
   width: 100%;
@@ -20,6 +20,16 @@ export const TotalCardsWrapper = styled.div`
   flex-direction: row;
   flex-wrap: wrap;
   gap: 10px;
+
+  /* 모든 하이퍼링크에 대한 스타일 정의 */
+  a {
+    text-decoration: none;
+    color: inherit;
+
+    &:hover, &:active, &:visited {
+      text-decoration: none;
+      color: inherit; /* 마우스 오버시 및 기타 상태에서도 스타일 유지 */
+    }
 `;
 export const SortContainer = styled.div`
   width: 930px;
@@ -29,11 +39,12 @@ export const SortContainer = styled.div`
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
+  text-decoration: none;
 `;
 
 export const SortText = styled.div`
   font-size: 16px;
-  color: ${(props) => (props.selected ? '#DD518C' : 'black')};
+  color: ${(props) => (props.selected ? "#DD518C" : "black")};
 
   padding: 5px;
 `;
