@@ -39,7 +39,7 @@ export const ActiveLink2 = styled(Link).attrs({
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
   margin-top: 55px;
-  background-color: beige;
+  background-color: blue;
 `;
 
 export const NavWrapper = styled.div`
