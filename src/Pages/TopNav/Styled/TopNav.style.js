@@ -21,6 +21,25 @@ export const ActiveLink = styled(Link).attrs({
     ${activeStyle}
   }
 `;
+export const ActiveLink2 = styled(Link).attrs({
+  activeClassName,
+})`
+  text-decoration: none;
+  color: black;
+  font-weight: bold;
+
+  &:hover {
+    color: #dd518c;
+  }
+
+  &.${activeClassName} {
+    ${activeStyle}
+  }
+`;
+export const NavWrapperTotal = styled.div`
+  margin-bottom: 20px;
+  margin-top: 55px;
+`;
 
 export const NavWrapper = styled.div`
   display: flex;
@@ -61,3 +80,95 @@ export const SubmenuItem = styled.div`
   margin-right: 50px;
   font-size: 15px;
 `;
+
+////
+// const activeClassName = "active";
+
+// const activeStyle = css`
+//   color: red;
+// `;
+// const ActiveLink = styled(Link).attrs({
+//   activeClassName,
+// })`
+//   text-decoration: none;
+//   color: black;
+//   font-weight: bold;
+//   width: 140px;
+//   height: 85px;
+//   display: flex;
+//   align-items: center;
+//   justify-content: center;
+
+//   &:hover {
+//     color: #dd518c;
+//     border-bottom: 4px solid black;
+//   }
+
+//   &.${activeClassName} {
+//     ${activeStyle}
+//   }
+// `;
+// const ActiveLink2 = styled(Link).attrs({
+//   activeClassName,
+// })`
+//   text-decoration: none;
+//   color: black;
+//   font-weight: bold;
+
+//   &:hover {
+//     color: #dd518c;
+//   }
+
+//   &.${activeClassName} {
+//     ${activeStyle}
+//   }
+// `;
+// const NavWrapperTotal = styled.div`
+//   margin-bottom: 20px;
+//   margin-top: 55px;
+// `;
+// const NavWrapper = styled.div`
+//   display: flex;
+//   flex-direction: row;
+//   align-items: center;
+//   justify-content: center;
+//   height: 65px;
+//   width: 896px;
+//   z-index: 50;
+//   gap: 20px;
+//   border-bottom: 2px solid gray;
+// `;
+// const Divider = styled.div`
+//   width: 100%;
+//   height: 10px;
+//   background-color: gray;
+// `;
+
+// const NavItem = styled.div`
+//   position: relative;
+//   cursor: pointer;
+//   margin-bottom: 10px;
+//   margin-left: 40px;
+//   margin-right: 40px;
+//   font-size: 24px;
+//   height: 80px;
+//   display: flex;
+//   align-items: center;
+// `;
+
+// const SubmenuItem = styled.div`
+//   padding: 5px;
+//   color: white;
+//   cursor: pointer;
+//   margin-right: 50px;
+//   font-size: 17px;
+// `;
+// const Submenu = styled.div`
+//   display: ${(props) => (props.show ? "flex" : "none")};
+//   position: absolute;
+//   top: 100%;
+//   left: 0;
+//   width: 1000px;
+//   heigt: 100px;
+//   flex-direction: row;
+// `;
