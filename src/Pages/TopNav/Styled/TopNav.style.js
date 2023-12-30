@@ -12,9 +12,16 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
+  height: 70px;
+  width: 140px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
 
   &:hover {
     color: #dd518c;
+    height: 70px;
+    border-bottom: 4px solid black;
    
 
   &.${activeClassName} {
