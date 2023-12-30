@@ -1,353 +1,318 @@
 {
   "charitys": [
     {
-      "id": "5e71ac5d8b427122575e1d92",
-      "code": "101",
-      "title": "유니세프",
+      "id": "1",
       "type": 1,
-      "slug": "intro-to-python-programming",
-      "summary": "유니세프는 1946년 ‘차별 없는 구호’의 정신으로 전 세계 어린이를 돕기 위해 설립된 유엔기구입니다. ",
-      "language": "PYTHON",
+      "title": "국경없는의사회",
+      "slug": "msf",
       "photoUrl": "python",
-      "newReleased": false,
+      "link": "https://msf.or.kr/",
       "topics": [
         {
           "topic": {
-            "id": "5e71b88447e1487937461f50",
-            "slug": "getting-started-with-python",
-            "title": "프로그래밍 시작하기 in Python",
-            "summary": "프로그래밍의 진입 장벽이 너무 높게 느껴진다면? 파이썬으로 프로그래밍을 시작하세요! 설치 과정부터 파이썬의 기본적인 개념들까지 모두 알려 드립니다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e71b98d855e806094b57ad0",
-            "slug": "core-concept-of-python-programming",
-            "title": "프로그래밍 핵심 개념 in Python",
-            "summary": "자료형, 추상화, 제어문... 쉽다면 쉬운 개념이지만, 많은 이들이 제대로 알고 있지 못한 프로그래밍 핵심 개념. 여러분은 완벽하게 알고 가시길 바랍니다!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5e71b9ce8b427122577e26f1",
-            "slug": "python-programming-and-data",
-            "title": "프로그래밍과 데이터 in Python",
-            "summary": "프로그래밍이란 결국 데이터를 받아서 처리하는 것인데요. 그렇다면 프로그래밍을 잘하기 위해서는 데이터를 제대로 알아야겠죠? 그 비결을 알려드립니다!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5e71ba1e855e806094b6ea9b",
-            "slug": "making-use-of-python",
-            "title": "파이썬 응용하기",
-            "summary": "파이썬 문법과 프로그래밍 개념은 배웠는데, 어떻게 활용해야 할지 모르겠다고요? 데이터 분석, 로또 시뮬레이션 등 프로젝트를 해 보며 아이디어를 얻어 보세요."
+            "id": "11",
+            "title": "국경없는의사회는 국제 인도주의 의료 구호 단체입니다. 의료 지원의 부족, 무력 분쟁, 전염병, 자연재해 등으로 인해 생존의 위협에 처한 사람들을 위해 긴급구호 활동을 펼치고 있습니다. 우리의 모든 의료 지원 활동은 인종, 종교, 성별, 정치적 성향에 따른 어떠한 차별도 없이 이루어집니다."
           }
         }
       ]
     },
     {
-      "id": "5f44779ba1fe743841ae7939",
-      "code": "111",
-      "title": "월드비전",
+      "id": "2",
       "type": 1,
-      "slug": "python-intermediate",
-      "summary": "월드비전은 전세계 가장 취약한 아동·가정·지역사회가 빈곤과 불평등에서 벗어나도록 하나님의 사랑을 실천하고 모든 파트너와 함께 지속 가능한 변화를 만들어가는 글로벌 NGO입니다.",
-      "language": "PYTHON",
+      "title": "국제구조위원회",
+      "slug": "rescue",
       "photoUrl": "python",
-      "newReleased": false,
+      "link": "https://www.rescue.org/kr",
       "topics": [
         {
           "topic": {
-            "id": "5f4478daa1fe743841b42acf",
-            "slug": "python-module-and-package",
-            "title": "파이썬 모듈과 패키지",
-            "summary": "파이썬 실력을 한 단계 향상해 주는 모듈과 패키지, 이번 토픽을 통해 마스터하세요!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5f4872fe372038687eb80444",
-            "slug": "python-environment-for-mac",
-            "title": "파이썬 환경 for Mac",
-            "summary": "파이썬 지금까지는 그냥 설치되는대로 사용해 왔죠? 이번 토픽에서 파이썬 환경에 대해 자세히 알아보세요! "
+            "id": "22",
+            "title": "국제구조위원회는 50개 인상의 국가와 28개의 미국 도시에서 전쟁과 분쟁, 재난과 기후 위기 등의 인도적 위기에 처한 사람들이 생존하고 회복하여 삶을 재건할 수 있도록 돕고 있습니다. "
           }
         }
       ]
     },
     {
-      "id": "5e345223b3aa703b8a9a4f38",
-      "code": "121",
-      "title": "푸르메재단",
-      "type": 3,
-      "slug": "object-oriented-programming",
-      "summary": "푸르메재단은 ~",
-      "language": "PYTHON",
+      "id": "3",
+      "type": 6,
+      "title": "그린피스",
+      "slug": "greenpeace",
       "photoUrl": "oop",
-      "newReleased": false,
+      "link": "https://www.greenpeace.org/korea/",
       "topics": [
         {
           "topic": {
-            "id": "5e345230d909cbb85ba2eb41",
-            "slug": "what-is-oop",
-            "title": "객체 지향 프로그래밍이란?",
-            "summary": "객체 지향 프로그래밍, 바로 시작해 봅시다. 여러분도 게임 캐릭터, 블로그 유저 같은 요소들을 객체 지향적으로 설계하고 작성할 수 있습니다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb42",
-            "slug": "four-pillars-of-oop",
-            "title": "객체 지향 프로그래밍의 4개의 기둥",
-            "summary": "객체 지향에는 네 가지 핵심 기둥이 있다는 것 아셨나요? 좋은 객체 지향 프로그래밍에 대한 기준을 세워봅시다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb43",
-            "slug": "solid-principles-of-oop",
-            "title": "견고한 객체 지향 프로그래밍",
-            "summary": "객체 지향 프로그래밍의 마지막 걸음. 코드의 규모가 커질 수록 복잡성은 증가합니다. 객체 지향 코드를 견고하게 관리할 수 있는 방법을 배워 보세요."
+            "id": "33",
+            "title": "그린피스는 전 지구적인 환경문제의 원인을 밝혀내고, 이를 해결하기 위해 평화적이고 창의적인 방식으로 활동하는 캠페인 단체입니다. 그린피스는 지구를 위한 변화를 만드는 가장 큰 힘은 바로 ‘시민의 힘’이라고 믿습니다."
           }
         }
       ]
     },
     {
-      "id": "5e345223b3aa703b8a9a4f37",
-      "code": "122",
-      "title": "동물자유연대",
-      "type": 7,
+      "id": "4",
+      "type": 2,
+      "title": "꽃밭정이노인복지관",
       "slug": "algorithms",
-      "summary": "동물자유연대는 ~~",
-      "language": "PYTHON",
       "photoUrl": "algorithm",
-      "newReleased": false,
+      "link": "http://kkotbat.or.kr/page.php?idx=0102",
       "topics": [
         {
           "topic": {
-            "id": "5e345230d909cbb85ba2eb3d",
-            "slug": "what-is-a-good-algorithm",
-            "title": "좋은 알고리즘이란?",
-            "summary": "알고리즘이 정확히 뭘까요? 그렇다면 좋은 알고리즘이란 뭘까요? 알고리즘의 효율성을 평가하는 방법을 배우며 알고리즘 세계에 입문하세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb3e",
-            "slug": "recursion",
-            "title": "재귀 함수",
-            "summary": "함수 안에 함수 안에 함수... 뭐지, 인셉션인가? 헷갈리지만 개발자라면 피할 수 없는 재귀 함수! 개념을 정확히 파악하고 연습을 통해 재귀와 친해지세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb3f",
-            "slug": "algorithmic-paradigms",
-            "title": "알고리즘 패러다임",
-            "summary": "알고리즘에도 공식이 있다? 그게 바로 알고리즘 패러다임! 여지껏 해 왔던 순진한 방식이 아닌, 정말 효율적인 알고리즘을 생각해 내는 힘을 길러 보세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb40",
-            "slug": "practicing-algorithmic-problem-solving",
-            "title": "문제 해결 능력 기르기",
-            "summary": "개발자 면접을 보면 알고리즘 문제를 낸다던데… 그럼 훈련을 해야겠죠? 실전 문제들을 보고, 분석하는 단계부터 실제 코드를 구현하는 단계까지 모두 연습하세요."
+            "id": "44",
+            "title": "꽃밭정이노인복지관은 사회복지법인 이랜드복지재단이 전주시로부터 2010년 2월에 위탁받아 운영하고 있는 노인복지 전문기관으로 지역 어르신들의 건강하고 행복한 노후생활을 돕기 위해 다양한 복지서비스를 제공하여 어르신께 감동을 드리는 복지관이 되도록 하겠습니다."
           }
         }
       ]
     },
     {
-      "id": "5e345223b3aa703b8a9a4f39",
-      "code": "131",
-      "title": "기아 대책",
-      "type": 1,
-      "slug": "data-structures",
-      "summary": "기아대책은 ~",
-      "language": "PYTHON",
+      "id": "5",
+      "type": 2,
+      "title": "노인지원재단",
+      "slug": "verve",
       "photoUrl": "ds",
-      "newReleased": false,
+      "link": "https://www.xn--o80b80a105bgta4h07i.org/",
       "topics": [
         {
           "topic": {
-            "id": "5e345230d909cbb85ba2eb45",
-            "slug": "data-structure-basics",
-            "title": "기본 자료 구조들",
-            "summary": "자료 구조, 어디서부터 시작하지? 메모리, 추상 자료형 등 가장 기본부터 공부하세요! 그 후 기본 자료 구조들은 쉽게 이해하실 수 있을 것입니다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb46",
-            "slug": "trees",
-            "title": "트리",
-            "summary": "기본 자료 구조들은 이미 다 완벽하게 파악하셨다고요? 이번에는 좀 더 복잡하지만, 컴퓨터 과학 이곳저곳에서 많이 활용하는 트리를 배우시는 건 어떠신가요?"
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb47",
-            "slug": "graphs",
-            "title": "그래프",
-            "summary": "실세상에 존재하는 데이터들은 대부분 서로 연결되어 있는 경우가 많은데요. 컴퓨터에서 이런 데이터들을 저장하고 사용할 수 있게 해주는 그래프에 대해서 배워봅시다!"
+            "id": "55",
+            "title": "노인지원재단은 효과적인 관심과 지원으로 노인들의 희망과 잠재력을 드높이고 노후의 삶을 품위 있고, 행복하게 만드는 것을 추구합니다. 노후의 질병, 빈곤, 소외 등 노인문제를 해결하는데 주력하고 일할 수 있는 노인들을 사회활동에 적극 참여하도록 함으로써 고령자 자립사회를 앞당기는데 기여하고자 합니다."
           }
         }
       ]
     },
     {
-      "id": "5e345223b3aa703b8a9a4f32",
-      "code": "311",
-      "title": "카라",
-      "type": 7,
-      "slug": "data-science",
-      "summary": "카라는 ~~",
-      "language": "PYTHON",
+      "id": "6",
+      "type": 4,
+      "title": "(사)다문화종합복지센터",
+      "slug": "mgwc",
       "photoUrl": "data-science",
-      "newReleased": false,
+      "link": "http://www.mgwc.or.kr/",
       "topics": [
         {
           "topic": {
-            "id": "5e345230d909cbb85ba2eb38",
-            "slug": "getting-started-with-data-science",
-            "title": "데이터 사이언스 시작하기",
-            "summary": "데이터 사이언스... 말로만 많이 들었지, 실제 뭔지는 모르겠죠? 데이터 사이언스가 무엇인지 배우고, 데이터 사이언스를 하기 위해 필요한 도구들을 익혀 보세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb39",
-            "slug": "mastering-pandas-dataframe",
-            "title": "DataFrame 다루기",
-            "summary": "엑셀에서는 데이터를 표에 담는다면, 파이썬에서는 DataFrame에 담는다! 데이터 사이언스를 하기 전에, DataFrame을 현란하게 다룰 수 있도록 준비하세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb3a",
-            "slug": "data-analysis-and-visualization",
-            "title": "데이터 분석과 시각화",
-            "summary": "데이터를 아무리 많이 모아도, 활용할 줄 모르면 말짱 도루묵! 데이터를 분석해서 의미를 도출하고, 시각적으로 멋지게 표현하는 방법까지 배워 보세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb3b",
-            "slug": "improving-data-quality",
-            "title": "데이터 퀄리티 높이기",
-            "summary": "쓰레기를 넣으면 쓰레기가 나온다? 아무리 분석이 훌륭해도 데이터가 별로면 의미 없습니다! 좋은 데이터의 기준을 이해하고, 쓰레기 데이터를 보석으로 재가공하세요."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e345230d909cbb85ba2eb3c",
-            "slug": "collecting-and-creating-data",
-            "title": "데이터 만들기",
-            "summary": "분석을 하기 위해 필요한 데이터를 수집해야겠죠? 웹사이트를 분해하는 코드도 작성하고, 자동으로 웹을 돌아다니면서 정보를 수집하는 프로그램도 만들어 보세요."
+            "id": "66",
+            "title": "(사)다문화종합복지센터에서는 “다문화가족이 우리 사회의 소중한 구성원”이라는 모토와 ‘상담, 교육, 복지, 봉사’라는 4대 설립 목표를 중심삼고 다문화가정의 아픔은 위로와 치유를 통하여, 다문화가정의 장점은 격려와 자랑을 통하여 정체성을 지키고 더 나아가 한국 사회에 잘 적응할 수 있도록 협력자로서 최선을 다하여 노력하고자 합니다."
           }
         }
       ]
     },
     {
-      "id": "5e6732574b0b59235a15c86b",
-      "code": "321",
-      "title": "지파운데이션",
-      "type": 5,
-      "slug": "machine-learning",
-      "summary": "지파운데이션은 ~",
-      "language": "PYTHON",
+      "id": "7",
+      "type": 2,
+      "title": "독거노인종합지원센터",
+      "slug": "elders",
       "photoUrl": "machine-learning",
-      "newReleased": false,
+      "link": "http://www.1661-2129.or.kr/main/index.do",
       "topics": [
         {
           "topic": {
-            "id": "5e6731d2e1c354224fb88efb",
-            "slug": "pre-machine-learning",
-            "title": "머신 러닝 기본기",
-            "summary": "머신 러닝이란 뭐고, 배우기 전에 미리 알고 있어야 되는 내용은 뭐가 있을까요? 머신 러닝을 본격적으로 시작하기 전에 이번 토픽에서 제대로 짚고 넘어갑시다!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5e6731eafa82385b57335783",
-            "slug": "elementary-supervised-algorithms",
-            "title": "기본 지도 학습 알고리즘들",
-            "summary": "머신 러닝이라는 과목 안에는 기계를 학습시키는 다양한 방법들이 있는데요. 이번 토픽에서는 다양한 알고리즘들 중 가장 기본이 되는 알고리즘들에 대해서 배워봅시다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e67320c4b0b59235a14e8fd",
-            "slug": "optimizing-machine-learning-models",
-            "title": "머신 러닝, 더 빠르고 정확하게",
-            "summary": "머신 러닝은 경험을 통해 프로그램의 성능을 최적화하는 학문인데요. 이번 레슨에서는 좀 더 빠르고 정확하게 프로그램을 학습시키는 방법에 대해서 배워봅시다!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5e6731fce1c354224fb953ba",
-            "slug": "decision-tree-and-ensemble",
-            "title": "결정 트리와 앙상블 기법",
-            "summary": "결정 트리와, 수많은 결정 트리를 합쳐서 좋은 성능의 모델을 만들어내는 앙상블 기반 알고리즘들 대해서 배워봅시다."
+            "id": "77",
+            "title": "독거노인종합지원센터(중앙노인돌봄지원기관)는 압축적 고령화, 핵가족화, 부양의식 및 가치관의 변화 등으로 지원이 필요한 취약노인을 위해 종합적인 서비스 제공을 통해 취약노인보호와 자립지원 등 취약노인의 안정적인 노후생활을 지원하고자 설립되었습니다. "
           }
         }
       ]
     },
     {
-      "id": "5f69873536e82326c31293c7",
-      "code": "331",
-      "title": "굿피플",
-      "type": 5,
-      "slug": "machine-learning-in-practice",
-      "summary": "굿피플은 ~",
-      "language": "PYTHON",
+      "id": "8",
+      "type": 7,
+      "title": "동물권행동 카라",
+      "slug": "ekara",
       "photoUrl": "machine-learning",
-      "newReleased": false,
+      "link": "https://www.ekara.org/",
       "topics": [
         {
           "topic": {
-            "id": "5f6987ff36e82326c315f90f",
-            "slug": "recommender-systems",
-            "title": "추천 시스템",
-            "summary": "추천 시스템이란 무엇이고, 우리 생활에 어떤 영향을 미치고 있을까요? 이번 토픽에서 추천 시스템이 우리의 생활을 어떻게 지배하고 있는지를 배워봅시다!"
-          }
-        },
-        {
-          "topic": {
-            "id": "5f6da787dab0f329c5c63eb1",
-            "slug": "natural_language_processing",
-            "title": "자연어 처리",
-            "summary": "자연어란 컴퓨터가 아니라 사람들이 사용하는 언어를 뜻하는데요. 머신 러닝을 사용해서 어떻게 사람들의 언어를 컴퓨터로 처리하는지 배워봅시다!"
+            "id": "88",
+            "title": "2002년 4월 15일, 아름품을 설립하였습니다. 2006년 카라란 새 이름으로 비영리 시민단체로 등록하고 2010년 3월에는 농림부에 사단법인으로 등록하여 보다 강력하고 효율적인 동물권 활동의 발판을 만들게 되었습니다. 카라는 동물이 인간의 일방적인 착취와 이용에서 벗어나 존엄한 생명으로서 그들 본연의 삶을 영위하고, 모든 생명이 균형과 조화 속에 공존하는 세상을 지향합니다."
           }
         }
       ]
     },
     {
-      "id": "5e673408e1c354224fc0c8eb",
-      "code": "336",
-      "title": "여울들",
-      "type": 8,
-      "slug": "deep-learning",
-      "summary": "여울들은 ~",
-      "language": "PYTHON",
+      "id": "9",
+      "type": 7,
+      "title": "동물자유연대",
+      "slug": "animals",
       "photoUrl": "deep-learning",
-      "newReleased": false,
+      "link": "https://www.animals.or.kr/",
       "topics": [
         {
           "topic": {
-            "id": "5e673393e1c354224fbec491",
-            "slug": "ann-theory",
-            "title": "인공 신경망 이론",
-            "summary": "인공 지능 연구의 핵심인 딥 러닝의 가장 기본이 되는 알고리즘 인공 신경망. 도대체 어떤 원리로 작동하는 걸까요? 이번 토픽에서 자세하고 정확하게 알아봅시다."
-          }
-        },
-        {
-          "topic": {
-            "id": "5e6733a5fa82385b573954da",
-            "slug": "deep-learning-topic-2",
-            "title": "인공 신경망 쉽게 사용하기",
-            "summary": "신경망은 이론만 알고 바로 실전에서 사용하기는 굉장히 어렵습니다. 이번 토픽에서는 라이브러리를 사용해서 신경망을 쉽게 사용하는 방법에 대해서 알아보겠습니다!"
+            "id": "99",
+            "title": "동물자유연대는 인간에 의해 관리되는 모든 동물들이 인도적인 대우를 받게 하고자 하며, 더 나아가 인간에 의해 이용되거나, 삶의 터전을 잃어가는 동물의 수와 종을 줄여나감으로써, 인간과 동물이 생태적/윤리적 조화를 이루며 살아가는 것을 목표로 합니다."
           }
         }
       ]
+    },
+    {
+      "id": "10",
+      "type": 3,
+      "title": "사랑의 달팽이",
+      "slug": "soree119",
+      "photoUrl": "deep-learning",
+      "link": "https://www.soree119.com/",
+      "topics": [
+        {
+          "topic": {
+            "id": "1010",
+            "title": "사랑의달팽이는 청각장애인에게 인공달팽이관 수술 및 보청기를 지원하여 소리를 찾아주고, 소리를 듣게 된 아이들의 사회적응지원과 대중들의 인식개선교육을 수행하는 사회복지단체입니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "11",
+      "type": 5,
+      "title": "세이브더칠드런",
+      "slug": "sc",
+      "photoUrl": "deep-learning",
+      "link": "https://www.sc.or.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "1111",
+            "title": "세이브더칠드런은 인류 최초로 ‘아동 권리’를 주창했으며, 지난 100년간 아동 권리 실현을 위해 일해왔습니다. 우리는 모든 아동이 생존, 보호, 발달 및 참여의 권리를 온전히 누리는 세상을 꿈꿉니다. 우리는 세상이 아동을 대하는 방식에 획기적 변화를 이끌어내고, 아동의 삶의 즉각적이고도 오래 지속되는 변화를 이루어내고자 합니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "12",
+      "type": 1,
+      "title": "유엔난민기구",
+      "slug": "unhcr",
+      "photoUrl": "deep-learning",
+      "link": "https://www.unhcr.or.kr/unhcr/main/index.jsp",
+      "topics": [
+        {
+          "topic": {
+            "id": "1212",
+            "title": "유엔난민기구는 전세계적으로 난민을 보호할 임무를 부여받은 UN입니다. UNHCR의 활동은 난민의 권리와 복지를 보호하는 데 주요 목표를 두고 있습니다. 누구나 비호를 신청할 권리를 누리고, 자발적 본국 귀환, 현지 동화 혹은 제3국 재정착의 방법으로 다른 나라에서 안전한 피난처를 보장받을 수 있도록 UNHCR은 앞장서고 있습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "13",
+      "type": 3,
+      "title": "장애인먼저실천운동본부",
+      "slug": "wefirst",
+      "photoUrl": "deep-learning",
+      "link": "http://www.wefirst.or.kr/main/main.php",
+      "topics": [
+        {
+          "topic": {
+            "id": "1313",
+            "title": "장애인먼저실천운동본부는 UN이 선포한 장애인의 권리선언에 기초하여, 장애인도 기본적 인권을 지닌 시민의 한 사람으로서 스스로 주체성과 자립성을 확립하여, 사회활동에 적극적으로 참여할 수 있는 평등한 사회를 만들기 위해 설립되었습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "14",
+      "type": 5,
+      "title": "푸른나무재단",
+      "slug": "btf",
+      "photoUrl": "deep-learning",
+      "link": "https://btf.or.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "1414",
+            "title": "푸른나무재단(청소년폭력예방재단, 청예단)은 UN경제사회이사회에서 특별협의지위를 부여받은 청소년 NGO입니다. 푸른나무재단은 변함없이 사회적 약자와 고통받는 아이들의 인권을 위해 노력하겠습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "15",
+      "type": 6,
+      "title": "푸른아시아",
+      "slug": "greenasia",
+      "photoUrl": "deep-learning",
+      "link": "https://greenasia.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "1515",
+            "title": "(사)푸른아시아는 지구적 환경과제 중 동아시아의 긴급한 공동 과제인 기후변화에 대응하기 위한 재생에너지에 대한 연구 및 보급, 급속하게 확대되고 있는 사막화와 황사에 대응하기 위한 나무심기사업을 중심과제로 추진하고 있습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "16",
+      "type": 3,
+      "title": "한국장애인재단",
+      "slug": "kfpd",
+      "photoUrl": "deep-learning",
+      "link": "https://kfpd.org/ ",
+      "topics": [
+        {
+          "topic": {
+            "id": "1616",
+            "title": "한국장애인재단은 우리나라 최초의 장애인전문민간공익재단으로 장애인의 사회 참여와 인권 증진을 위해 장애로 인한 차별을 해소하고 지속 가능한 활동을 지원합니다. 차이와 다름이 존중되고 나눔과 공유의 정신이 살아 숨 쉬는 지속 발전 가능한 공동체를 만들어나가는데 기여하고자 설립되었습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "17",
+      "type": 5,
+      "title": "한국청소년쉼터협의회",
+      "slug": "jikimi",
+      "photoUrl": "deep-learning",
+      "link": "http://jikimi.or.kr/index.php",
+      "topics": [
+        {
+          "topic": {
+            "id": "1717",
+            "title": "청소년쉼터는 청소년에 대한 상담, 치료를 제공하고, 학력과 직업능력 개발을 위한 연계체제를 마련하므로 청소년들의 자립과 사회 복귀를 통합적으로 지원할 수 있는 시설로 발전해 나가겠습니다."
+          }
+        }
+      ]
+    },
+    {
+      "id": "18",
+      "type": 6,
+      "title": "환경재단",
+      "slug": "deep-learning",
+      "photoUrl": "deep-learning",
+      "link": "https://www.greenfund.org/",
+      "topics": [
+        {
+          "topic": {
+            "id": "1818",
+            "title": "환경재단은 2002년 설립된 우리나라 최초 환경 전문 공익재단입니다. 환경재단은 지속가능한 지구를 위해 정부, 기업, 시민사회와 함께하는 실천공동체입니다. 우리가 먼저 그린리더가 되고, 그린리더와 연대하며, 함께 그린리더를 육성하겠습니다."
+          }
+        }
+      ]
+    }
+  ],
+  "donated": [
+    {
+      "id": "1",
+      "challengerName": "챌린저1",
+      "date": "2023-01-01",
+      "participants": 100,
+      "charity": "국경없는의사회",
+      "amount": 50000
+    },
+    {
+      "id": "2",
+      "challengerName": "챌린저2",
+      "date": "2023-01-02",
+      "participants": 150,
+      "charity": "국제구조위원회",
+      "amount": 75000
+    },
+    {
+      "id": "3",
+      "challengerName": "챌린저3",
+      "date": "2023-01-09",
+      "participants": 200,
+      "charity": "환경재단",
+      "amount": 100000
     }
   ]
 }

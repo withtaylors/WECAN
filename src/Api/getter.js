@@ -1,5 +1,5 @@
 import mock from "./mock.json";
-const { charitys, questions } = mock;
+const { charitys, questions, donated } = mock;
 
 function filterByKeyword(items, keyword) {
   const lowered = keyword.toLowerCase();
@@ -39,4 +39,17 @@ export function deleteWishlist(charitySlug) {
 
 export function getWishlist() {
   return charitys.filter((charity) => wishlist[charity.slug]);
+}
+
+// 'donated' 관련 함수 추가
+export function getDonated() {
+  return donated;
+}
+
+export function getDonatedById(donatedId) {
+  return donated.find((item) => item.id === donatedId);
+}
+
+export function getDonatedBySlug(donatedSlug) {
+  return donated.find((donate) => donate.slug === donatedSlug);
 }

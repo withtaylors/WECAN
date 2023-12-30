@@ -1,0 +1,52 @@
+.navbar-container {
+  font-family: "Pretendard-Regular";
+}
+
+.navbar,
+.sub-navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #333;
+  overflow: hidden;
+}
+
+.navbar button {
+  background: none;
+  color: white;
+  padding: 14px 20px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.navbar button:hover {
+  background-color: #ddd;
+  color: black;
+}
+
+.sub-navbar {
+  display: none;
+  background-color: #222;
+  padding: 10px 0;
+}
+
+/* When the submenu is visible */
+.navbar-container .is-visible {
+  display: flex;
+}
+
+/* Styling for submenu items */
+.sub-navbar button {
+  background: none;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  outline: none;
+}
+
+.sub-navbar button:hover {
+  background-color: #555;
+  color: white;
+}

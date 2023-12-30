@@ -1,129 +1,50 @@
-import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import styled, { css } from 'styled-components';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
+import {
+  ActiveLink,
+  ActiveLink2,
+  NavWrapperTotal,
+  NavWrapper,
+  NavItem,
+  Submenu,
+  SubmenuItem,
+  activeClassName,
+} from "./Styled/TopNav.style.js";
 
 const navItems = [
   {
-    label: '챌린저 모집',
-    link: '/recruitment',
+    label: "챌린저 모집",
+    link: "/recruitment",
     subItems: [
-      { label: '전체', link: '/recruitment/all' },
-      { label: '미라클모닝', link: '/recruitment/miracle-morning' },
-      { label: '운동', link: '/recruitment/exercise' },
-      { label: '공부', link: '/recruitment/study' },
-      { label: '기타', link: '/recruitment/other' },
+      { label: "전체", link: "/recruitment/all" },
+      { label: "미라클모닝", link: "/recruitment/miracle-morning" },
+      { label: "운동", link: "/recruitment/exercise" },
+      { label: "공부", link: "/recruitment/study" },
+      { label: "기타", link: "/recruitment/other" },
     ],
   },
   {
-    label: '기부',
-    link: '/donate',
+    label: "기부",
+    link: "/donate",
     subItems: [
-      { label: '기부 단체 찾기', link: '/donation/find-donation' },
-      { label: '기부했어요', link: '/donation/donated' },
-      { label: '후기', link: 'donation/review' },
+      { label: "기부 단체 찾기", link: "/donate/find-donate" },
+      { label: "기부했어요", link: "/donate/donated" },
     ],
   },
   {
-    label: '굿즈샵',
-    link: '/goodsshop',
+    label: "후기",
+    link: "/review",
   },
   {
-    label: '마이페이지',
-    link: '/mypage',
+    label: "굿즈샵",
+    link: "/shop",
+  },
+  {
+    label: "마이페이지",
+    link: "/mypage",
   },
 ];
 
-const activeClassName = 'active';
-
-const activeStyle = css`
-  color: red;
-`;
-const ActiveLink = styled(Link).attrs({
-  activeClassName,
-})`
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-  width: 140px;
-  height: 85px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-  &:hover {
-    color: #dd518c;
-    border-bottom: 4px solid black;
-  }
-
-  &.${activeClassName} {
-    ${activeStyle}
-  }
-`;
-const ActiveLink2 = styled(Link).attrs({
-  activeClassName,
-})`
-  text-decoration: none;
-  color: black;
-  font-weight: bold;
-
-  &:hover {
-    color: #dd518c;
-  }
-
-  &.${activeClassName} {
-    ${activeStyle}
-  }
-`;
-const NavWrapperTotal = styled.div`
-  margin-bottom: 20px;
-  margin-top: 55px;
-`;
-const NavWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
-  height: 65px;
-  width: 896px;
-  z-index: 50;
-  gap: 20px;
-  border-bottom: 2px solid gray;
-`;
-const Divider = styled.div`
-  width: 100%;
-  height: 10px;
-  background-color: gray;
-`;
-
-const NavItem = styled.div`
-  position: relative;
-  cursor: pointer;
-  margin-bottom: 10px;
-  margin-left: 40px;
-  margin-right: 40px;
-  font-size: 24px;
-  height: 80px;
-  display: flex;
-  align-items: center;
-`;
-
-const SubmenuItem = styled.div`
-  padding: 5px;
-  color: white;
-  cursor: pointer;
-  margin-right: 50px;
-  font-size: 17px;
-`;
-const Submenu = styled.div`
-  display: ${(props) => (props.show ? 'flex' : 'none')};
-  position: absolute;
-  top: 100%;
-  left: 0;
-  width: 1000px;
-  heigt: 100px;
-  flex-direction: row;
-`;
 const TopNav = () => {
   const location = useLocation();
   const [showSubmenu, setShowSubmenu] = useState(null);
@@ -150,7 +71,7 @@ const TopNav = () => {
   };
 
   const handleNavSubItemClick = (subItem) => {
-    alert('페이지 넘어갑니다!');
+    alert("페이지 넘어갑니다!");
     navigate(subItem.link);
   };
 
@@ -177,7 +98,7 @@ const TopNav = () => {
                       className={
                         location.pathname === subItem.link
                           ? activeClassName
-                          : ''
+                          : ""
                       }
                       onClick={() => {
                         handleNavSubItemClick(subItem);
@@ -193,6 +114,29 @@ const TopNav = () => {
         ))}
       </NavWrapper>
     </NavWrapperTotal>
+    // <NavWrapper>
+    //   {navItems.map((item, index) => (
+    //     <NavItem key={index} onClick={() => handleNavItemClick(item)}>
+    //       <ActiveLink to={item.link}>{item.label}</ActiveLink>
+    //       {item.subItems && item.subItems.length > 0 && (
+    //         <Submenu show={item === showSubmenu}>
+    //           {item.subItems.map((subItem, subIndex) => (
+    //             <SubmenuItem key={subIndex}>
+    //               <ActiveLink
+    //                 to={subItem.link}
+    //                 className={
+    //                   location.pathname === subItem.link ? activeClassName : ""
+    //                 }
+    //               >
+    //                 {subItem.label}
+    //               </ActiveLink>
+    //             </SubmenuItem>
+    //           ))}
+    //         </Submenu>
+    //       )}
+    //     </NavItem>
+    //   ))}
+    // </NavWrapper>
   );
 };
 

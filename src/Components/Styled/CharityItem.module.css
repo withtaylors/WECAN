@@ -19,3 +19,12 @@
   font-size: 14px;
   color: black;
 }
+
+.charityItem a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.charityItem a:visited {
+  color: inherit;
+}
