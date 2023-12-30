@@ -35,7 +35,7 @@ const navItems = [
   },
   {
     label: "굿즈샵",
-    link: "/goodsshop",
+    link: "/shop",
   },
   {
     label: "마이페이지",
