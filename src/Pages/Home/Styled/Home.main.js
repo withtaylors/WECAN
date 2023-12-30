@@ -3,14 +3,11 @@ import * as tokens from '../../tokens';
 
 export const CategoryWrapper = styled.div`
   width: 100%;
-  height: 2500px;
-  padding-top: 100px;
+  height: 3000px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-
-  background-color: white;
 `;
 
 export const ContentWrapper = styled.div`
@@ -58,4 +55,5 @@ export const Banner = styled.div`
   height: 318px;
   background-color: #eaeaea;
   margin-bottom: 64px;
+  margin-top: 50px;
 `;

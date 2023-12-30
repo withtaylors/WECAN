@@ -1,57 +1,85 @@
 import React, { useEffect, useState, useRef } from 'react';
 import * as recruitcards from './Styled/Recruit.total.cards';
 import CategoryCard from '../Category/Category.card';
+import { useNavigate } from 'react-router-dom';
 
 function RecruitTotalCards() {
-  const categories = [
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
-    { title: '달리기', date: '2023-11-01' },
-    { title: '밥 제시간에 먹기', date: '2023-12-02' },
-    { title: '다이어트', date: '2023-10-11' },
-    { title: '일본어 공부', date: '2023-11-01' },
-    { title: '중간고사 A', date: '2023-12-02' },
-    { title: '운동 열심히', date: '2023-10-11' },
+  const array11 = [
+    {
+      id: 0,
+      title: '빨리 달리기',
+      type: '미라클 모닝',
+      photo: '1',
+      date: '2023-11-01',
+      leastnumber: '3',
+      name: '홍길동',
+      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
+    },
+    {
+      id: 1,
+      title: '밥 제시간에 먹기',
+      type: '기타',
+      photo: '1',
+      date: '2023-12-02',
+      leastnumber: '4',
+      name: '홍창기',
+      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
+    },
+    {
+      id: 2,
+      title: '다이어트',
+      type: '기타',
+      photo: '1',
+      date: '2023-10-11',
+      leastnumber: '5',
+      name: '문보경',
+      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
+    },
+    {
+      id: 3,
+      title: '일본어 공부',
+      type: '미라클 모닝',
+      photo: '2',
+      date: '2023-11-01',
+      leastnumber: '4',
+      name: '김현수',
+      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
+    },
+    {
+      id: 4,
+      title: '중간고사 A',
+      type: '공부',
+      photo: '2',
+      date: '2023-12-02',
+      leastnumber: '10',
+      name: '박해민',
+      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
+    },
+    {
+      id: 5,
+      title: '운동 열심히',
+      type: '운동',
+      photo: '1',
+      date: '2023-10-11',
+      leastnumber: '10',
+      name: '박이든',
+      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
+    },
   ];
 
   const handleSortClick = (sortType) => {
     // 정렬 방법을 업데이트
     setSelectedSort(sortType);
     // 여기에서 정렬에 대한 로직을 추가할 수 있습니다.
+  };
+  const navigate = useNavigate();
+  const NavClick = (e, type, index) => {
+    e.preventDefault();
+    navigate(type, {
+      state: {
+        selectedCategoryIndex: index,
+      },
+    });
   };
 
   ///////////////pagination//////////////////
@@ -61,9 +89,9 @@ function RecruitTotalCards() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCategories = categories.slice(indexOfFirstItem, indexOfLastItem);
+  const currentCategories = array11.slice(indexOfFirstItem, indexOfLastItem);
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(categories.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(array11.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
@@ -84,8 +112,8 @@ function RecruitTotalCards() {
           후기순
         </recruitcards.SortText>
       </recruitcards.SortContainer>
-      {currentCategories.map((category, index) => (
-        <CategoryCard key={index} title={category.title} date={category.date} />
+      {currentCategories.map((item, index) => (
+        <CategoryCard key={item.index} data={item} />
       ))}
       <recruitcards.PaginationWrapper>
         {pageNumbers.map((number) => (

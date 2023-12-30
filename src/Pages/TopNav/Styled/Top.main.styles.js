@@ -3,7 +3,7 @@ import * as tokens from '../../tokens';
 
 export const TopWrapper = styled.div`
   width: 100vw;
-  height: 274px;
+  height: 94px;
 
   position: absolute;
   top: 0;
@@ -12,6 +12,7 @@ export const TopWrapper = styled.div`
   align-items: center;
   justify-content: start;
   z-index: 100;
+  background-color: beige;
 `;
 
 export const TopContentWrapper = styled.div`

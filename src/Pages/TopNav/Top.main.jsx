@@ -2,7 +2,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as TopS from './Styled/Top.main.styles';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
-import TopNav from './TopNav.main';
 import Logosrc from '../../Assets/img/Logo.png';
 function Top() {
   const navigate = useNavigate();
@@ -33,7 +32,6 @@ function Top() {
           </TopS.LogInOut>
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
-      <TopNav></TopNav>
     </TopS.TopWrapper>
   );
 }

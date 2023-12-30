@@ -29,20 +29,21 @@ export const title = styled.div`
   align-context: start;
 `;
 export const buttoncruiting = styled.div`
-  height: 27px;
-  width: 220px;
+  height: 45px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #dd518c;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
   margin-left: 350px;
   padding: 10px;
   border-style: solid;
   border-color: #dd518c;
-  border-width: 3px;
+  border-width: 2px;
   border-radius: 30px;
+  box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
 `;
 export const secondblock = styled.div`
   display: flex;

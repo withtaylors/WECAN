@@ -2,20 +2,19 @@ import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRoter as Router, Route, Routes } from "react-router-dom";
 import styled from "styled-components";
-//Screen componets
+import styles from "./App.module.css";
+import "./App.font.css";
 import Home from "./Pages/Home/Home.main";
-import TopNav from "./Pages/TopNav/Top.main";
+import Top from "./Pages/TopNav/Top.main";
 import Recruit from "./Pages/Recruit/Recruit.total.main";
 import Login from "./Pages/Login/Login.main";
 import Join from "./Pages/Join/Join.main";
-
-import HomePage from "./Pages/HomePage";
+import TopNav from "./Pages/TopNav/TopNav.main";
 import Donate_CharityPage from "./Pages/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate_DonatedPage";
 import NotFoundPage from "./Pages/NotFoundPage";
-import styles from "./App.module.css";
-import "./App.font.css";
+import ChallengeInfo from "./Pages/Challenger/Challenger.main";
 
 function App() {
   const MainScreen = styled.div`
@@ -27,7 +26,7 @@ function App() {
   `;
   return (
     <div className="App">
-      <TopNav></TopNav>
+      <Top></Top>
 
       <MainScreen>
         <Routes>
@@ -39,6 +38,7 @@ function App() {
           <Route path="/recruitment/miracle-morning" />
           <Route path="/recruitment/exercise" />
           <Route path="/recruitment/study" />
+          <Route path="/challenge/:id" element={<ChallengeInfo />} />
           <Route path="/recruitment/other" />
           <Route path="/donation" />
           <Route path="/donation/find-donation" />

@@ -1,6 +1,6 @@
 import React from 'react';
 import * as recruittop from './Styled/Recruit.total.cards';
-
+import Questionmark from '../../Assets/img/SearchQuestion.png';
 function RecruitTotalTop(props) {
   return (
     <recruittop.TotalTopWrapper type={props.type}>
@@ -14,7 +14,7 @@ function RecruitTotalTop(props) {
         <recruittop.SearchInputIcon
           type={props.type}
           className={props.className}
-          src='/img/SearchQuestion.png'
+          src={Questionmark}
         />
       </recruittop.SearchWrapper>
     </recruittop.TotalTopWrapper>
