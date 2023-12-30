@@ -25,8 +25,8 @@ const navItems = [
     label: "기부",
     link: "/donate",
     subItems: [
-      { label: "기부 단체 찾기", link: "/donation/find-donation" },
-      { label: "기부했어요", link: "/donation/donated" },
+      { label: "기부 단체 찾기", link: "/donate/find-donate" },
+      { label: "기부했어요", link: "/donate/donated" },
     ],
   },
   {
