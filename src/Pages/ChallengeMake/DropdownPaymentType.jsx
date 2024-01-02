@@ -46,7 +46,7 @@ const DropdownMenu = styled.ul`
   top: 103%;
   width: 100%;
   background-color: #fff;
-  color: gray;
+  color: blue;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
 `;
