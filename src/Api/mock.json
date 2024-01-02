@@ -292,27 +292,12 @@
   "donated": [
     {
       "id": "1",
+      "slug": "2",
       "challengerName": "챌린저1",
       "date": "2023-01-01",
       "participants": 100,
       "charity": "국경없는의사회",
       "amount": 50000
-    },
-    {
-      "id": "2",
-      "challengerName": "챌린저2",
-      "date": "2023-01-02",
-      "participants": 150,
-      "charity": "국제구조위원회",
-      "amount": 75000
-    },
-    {
-      "id": "3",
-      "challengerName": "챌린저3",
-      "date": "2023-01-09",
-      "participants": 200,
-      "charity": "환경재단",
-      "amount": 100000
     }
   ]
 }

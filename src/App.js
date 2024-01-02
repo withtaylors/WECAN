@@ -47,7 +47,8 @@ function App() {
               <Route path='donate/donated'>
                 <Route index element={<Donate_DonatedPage />} />
               </Route>
-              <Route path='/review' />
+
+              <Route path='/review' element={<ReviewPage />} />
               <Route path='/shop' />
               <Route path='/mypage' />
               <Route path='*' element={<NotFoundPage />} />
