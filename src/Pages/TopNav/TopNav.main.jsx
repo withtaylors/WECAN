@@ -71,7 +71,6 @@ const TopNav = () => {
   };
 
   const handleNavSubItemClick = (subItem) => {
-    alert("페이지 넘어갑니다!");
     navigate(subItem.link);
   };
 
