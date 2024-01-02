@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import * as tokens from '../../tokens';
+import styled from "styled-components";
+import * as tokens from "../../tokens";
 
 export const totalWrapper = styled.div`
   width: 100%;

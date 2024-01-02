@@ -1,13 +1,14 @@
-import styled from 'styled-components';
-import * as tokens from '../../tokens';
+import styled from "styled-components";
+import * as tokens from "../../tokens";
 
 export const mainWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 500px;
+  height: auto;
   width: 890px;
   gap: 10px;
   margin-top: 150px;
+  margin-bottom: 150px;
 `;
 export const reviewWrapper = styled.div`
   display: flex;

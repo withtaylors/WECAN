@@ -3,16 +3,16 @@ import * as tokens from "../../tokens";
 
 export const TotalWrapper = styled.div`
   width: 100%;
-  height: 2500px;
-  padding-top: 100px;
+  height: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 150px;
 `;
 export const TotalCardsWrapper = styled.div`
   width: 930px;
-  height: 1600px;
+  height: auto;
   padding-top: 100px;
   display: flex;
   justify-content: center;
@@ -58,7 +58,7 @@ export const TotalTopWrapper = styled.div`
   margin-top: 100px;
 `;
 export const Title = styled.div`
-  font-size: 35px;
+  font-size: 30px;
   font-weight: medium;
 `;
 export const SearchWrapper = styled.div`
@@ -118,3 +118,8 @@ export const PaginationNumber = styled.div`
     `};
 `;
 export const CategoryCardcontainer = styled.div``;
+
+export const center = styled.div`
+  display: flex;
+  justify-content: center;
+`;

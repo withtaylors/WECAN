@@ -1,9 +1,9 @@
-import styled from 'styled-components';
-import * as tokens from '../../tokens';
+import styled from "styled-components";
+import * as tokens from "../../tokens";
 
 export const MainWrapper = styled.div`
   width: 100%;
-  height: 1000px;
+  height: auto;
   padding-top: 100px;
   display: flex;
   justify-content: center;
