@@ -1,5 +1,5 @@
-import styled from 'styled-components';
-import * as tokens from '../../tokens';
+import styled from "styled-components";
+import * as tokens from "../../tokens";
 
 export const CardWrapper = styled.div`
   width: 275px;
@@ -38,11 +38,12 @@ export const Title = styled.div`
   font-size: 15px;
   font-weight: bold;
   color: black;
-
+  text-decoration: none;
   display: flex;
   justify-content: flex-start;
   margin-left: 20px;
 `;
+
 export const Date = styled.div`
   font-size: 10px;
   display: flex;

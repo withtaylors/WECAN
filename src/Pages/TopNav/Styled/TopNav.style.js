@@ -12,11 +12,6 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
-  height: 70px;
-  width: 140px;
-  display: flex;
-  align-items:center;
-  justify-content: center;
 
   &:hover {
     color: #dd518c;
@@ -33,7 +28,7 @@ export const ActiveLink2 = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
-  font-weight: bold;
+  font-weight: medium;
 
   &:hover {
     color: #dd518c;
@@ -45,8 +40,7 @@ export const ActiveLink2 = styled(Link).attrs({
 `;
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
-  margin-top: 55px;
-  background-color: blue;
+  margin-top: 40px;
 `;
 
 export const NavWrapper = styled.div`
@@ -70,7 +64,6 @@ export const NavItem = styled.div`
   cursor: pointer;
   margin-left: 40px;
   margin-right: 40px;
-  background-color: yellow;
   font-size: 17px;
   font-weight: bold;
   height: 70px;
