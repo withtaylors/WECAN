@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import * as challenger from './Styled/Challenger.main';
 import TopNav from '../TopNav/TopNav.main';
 import ChallengeReview from '../Challenger/Challenger.reveiw.main';
@@ -78,6 +78,11 @@ function ChallengeInfo() {
     setProduct(selectedProduct || {});
   }, [id]);
   console.log(product);
+  const navigate = useNavigate();
+  const NavClick = (e, type) => {
+    e.preventDefault();
+    navigate(`${type}`);
+  };
   return (
     <challenger.totalWrapper>
       <TopNav></TopNav>
@@ -93,7 +98,11 @@ function ChallengeInfo() {
               </challenger.infoJoinRateNumber>
               <challenger.infoJoinRateBar></challenger.infoJoinRateBar>
             </challenger.infoJoinRate>
-            <challenger.joinButton>챌린저 함께하기</challenger.joinButton>
+            <challenger.joinButton
+              onClick={(e) => NavClick(e, '/challengemake')}
+            >
+              챌린저 함께하기
+            </challenger.joinButton>
           </challenger.realInfoWrapper>
         </challenger.topInfoWrapper>
         <challenger.infoExplain>

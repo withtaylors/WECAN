@@ -73,6 +73,7 @@ export const LoginButton = styled.div`
   font-size: 18px;
   background-color: #dd518c;
   margin-top: 30px;
+  cursor: pointer;
 `;
 
 export const PasswordWrapper = styled.div`
