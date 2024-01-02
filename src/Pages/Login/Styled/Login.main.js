@@ -2,15 +2,13 @@ import styled from "styled-components";
 import * as tokens from "../../tokens";
 
 export const MainWrapper = styled.div`
-  width: 100%;
-  height: auto;
-  padding-top: 100px;
+  width: auto;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
-
-  background-color: white;
+  min-height: 100vh; /* 전체 뷰포트 높이 */
+  overflow: hidden;
 `;
 
 export const Logo = styled.img`

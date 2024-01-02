@@ -3,8 +3,6 @@ import * as tokens from "../../tokens";
 
 export const totalWrapper = styled.div`
   width: 100%;
-  height: 100%;
-  padding-top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -16,8 +14,8 @@ export const InnerWrapper = styled.div`
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 150px;
-  margin-bottom: 150px;
+  margin-top: 100px;
+  margin-bottom: 100px;
 `;
 
 export const logo = styled.img`
