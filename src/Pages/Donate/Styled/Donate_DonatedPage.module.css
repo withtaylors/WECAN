@@ -22,7 +22,7 @@
 
 .infoBar {
   display: flex;
-  justify-content: space-between; /* 오른쪽 정렬 */
+  justify-content: flex-end; /* 오른쪽 정렬 */
   align-items: center; /* 수직 중앙 정렬 (필요한 경우) */
   margin: 20px 0; /* 상하 마진 조정 */
 }
