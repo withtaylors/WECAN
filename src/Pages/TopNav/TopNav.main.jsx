@@ -113,29 +113,6 @@ const TopNav = () => {
         ))}
       </NavWrapper>
     </NavWrapperTotal>
-    // <NavWrapper>
-    //   {navItems.map((item, index) => (
-    //     <NavItem key={index} onClick={() => handleNavItemClick(item)}>
-    //       <ActiveLink to={item.link}>{item.label}</ActiveLink>
-    //       {item.subItems && item.subItems.length > 0 && (
-    //         <Submenu show={item === showSubmenu}>
-    //           {item.subItems.map((subItem, subIndex) => (
-    //             <SubmenuItem key={subIndex}>
-    //               <ActiveLink
-    //                 to={subItem.link}
-    //                 className={
-    //                   location.pathname === subItem.link ? activeClassName : ""
-    //                 }
-    //               >
-    //                 {subItem.label}
-    //               </ActiveLink>
-    //             </SubmenuItem>
-    //           ))}
-    //         </Submenu>
-    //       )}
-    //     </NavItem>
-    //   ))}
-    // </NavWrapper>
   );
 };
 

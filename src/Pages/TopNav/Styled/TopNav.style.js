@@ -4,7 +4,12 @@ import { Link } from "react-router-dom";
 export const activeClassName = "active";
 
 export const activeStyle = css`
-  color: red;
+  color: #dd518c;
+`;
+
+export const hoveredStyle = css`
+  color: #dd518c;
+  border-bottom-color: black;
 `;
 
 export const ActiveLink = styled(Link).attrs({
@@ -14,10 +19,13 @@ export const ActiveLink = styled(Link).attrs({
   color: black;
   border-bottom: 4px solid transparent;
   padding-bottom: 27px;
+  padding-left: 20px; /* 왼쪽 패딩 추가 */
+  padding-right: 20px; /* 오른쪽 패딩 추가 */
+  display: inline-block; /* 인라인 블록 요소로 설정하여 패딩 적용 */
+  white-space: nowrap; /* 텍스트가 한 줄로 표시되도록 설정 */
 
   &:hover {
-    color: #dd518c;
-    border-bottom-color: black;
+    ${hoveredStyle}
   }
 
   &.${activeClassName} {
@@ -40,6 +48,7 @@ export const ActiveLink2 = styled(Link).attrs({
     ${activeStyle}
   }
 `;
+
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
   margin-top: 60px;
