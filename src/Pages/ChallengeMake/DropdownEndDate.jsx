@@ -65,13 +65,13 @@ const DropdownItem = styled.li`
 
 ////////////////////////////
 
-const DropdownStartDate = ({ onTypeChange }) => {
+const DropdownEndDate = ({ onTypeChange }) => {
   const [isfirstOpen, setIsfirstOpen] = useState(false);
   const [issecondOpen, setIssecondOpen] = useState(false);
   const [isthirdOpen, setIsthirdOpen] = useState(false);
-  const [year, setYear] = useState();
-  const [month, setMonth] = useState();
-  const [day, setDay] = useState();
+  const [endyear, setEndYear] = useState();
+  const [endmonth, setEndMonth] = useState();
+  const [endday, setEndDay] = useState();
   ///////////////////////////////////////
   const years = [24, 25, 26, 27, 28, 29, 30];
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
@@ -87,26 +87,26 @@ const DropdownStartDate = ({ onTypeChange }) => {
 
   const handleFirstItemClick = (item) => {
     console.log(`payment_type: ${item}`);
-    setYear(item);
-    onTypeChange(year, month, day);
+    setEndYear(item);
+    onTypeChange(endyear, endmonth, endday);
   };
   const handleSecondItemClick = (item) => {
     console.log(`payment_type: ${item}`);
-    setMonth(item);
-    onTypeChange(year, month, day);
+    setEndMonth(item);
+    onTypeChange(endyear, endmonth, endday);
   };
   const handleThirdItemClick = (item) => {
     console.log(`payment_type: ${item}`);
-    setDay(item);
-    onTypeChange(year, month, day);
+    setEndDay(item);
+    onTypeChange(endyear, endmonth, endday);
   };
-  console.log({ year, month, day });
+  console.log({ endyear, endmonth, endday });
 
   return (
     <DropdownTotalContainer>
       <DropdownContainer onClick={toggleFirstDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{year}년</ToggleButtontitle>
+          <ToggleButtontitle>{endyear}년</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={isfirstOpen}>
@@ -119,7 +119,7 @@ const DropdownStartDate = ({ onTypeChange }) => {
       </DropdownContainer>
       <DropdownContainer onClick={toggleSecondDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{month}월</ToggleButtontitle>
+          <ToggleButtontitle>{endmonth}월</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={issecondOpen}>
@@ -132,7 +132,7 @@ const DropdownStartDate = ({ onTypeChange }) => {
       </DropdownContainer>
       <DropdownContainer onClick={toggleThirdDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{day}일</ToggleButtontitle>
+          <ToggleButtontitle>{endday}일</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={isthirdOpen}>
@@ -151,4 +151,4 @@ const DropdownStartDate = ({ onTypeChange }) => {
   );
 };
 
-export default DropdownStartDate;
+export default DropdownEndDate;

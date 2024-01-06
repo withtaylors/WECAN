@@ -12,6 +12,10 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
 
   &:hover {
     color: #dd518c;

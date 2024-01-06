@@ -17,7 +17,7 @@ import Donate_DonatedPage from './Pages/Donate/Donate_DonatedPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-
+import ReviewPage from './Pages/Review/ReviewPage';
 function App() {
   return (
     <RecoilRoot>

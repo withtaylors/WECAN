@@ -19,7 +19,7 @@ const ToggleButton = styled.button`
   border: none;
   cursor: pointer;
   margin-left: 10px;
-  width: 130px;
+  width: 110px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
@@ -29,7 +29,7 @@ const ToggleButtontitle = styled.div`
   width: 100px;
 `;
 const ToggleButtonImg = styled.img`
-  margin-left: 15px;
+  margin-left: 35px;
 `;
 
 const DropdownMenu = styled.ul`
@@ -61,9 +61,9 @@ const DropdownItem = styled.li`
 `;
 ////////////////////////////
 
-const Dropdowntype = ({ onTypeChange }) => {
+const DropdownDonateField = ({ onTypeChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [type, setType] = useState();
+  const [donateField, setDonateField] = useState();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
@@ -71,32 +71,47 @@ const Dropdowntype = ({ onTypeChange }) => {
 
   const handleItemClick = (item) => {
     console.log(`Selected item: ${item}`);
-    setType(item);
+    setDonateField(item);
     onTypeChange(item);
   };
-
-  const arraychallengetype = {
-    miracle_morning: '미라클 모닝',
-    health: '건강',
-    study: '공부',
+  const arrayDonateField = {
+    universe: '지구촌',
+    Elder: '어르신',
+    disable: '장애인',
+    multiculture: '다문화',
+    child: '아동 청소년',
+    environment: '환경',
+    animal: '동물',
     etc: '기타',
   };
 
   return (
     <DropdownContainer onClick={toggleDropdown}>
       <ToggleButton>
-        <ToggleButtontitle>{arraychallengetype[type]}</ToggleButtontitle>
+        <ToggleButtontitle> {arrayDonateField[donateField]}</ToggleButtontitle>
       </ToggleButton>
       <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
       <DropdownMenu isOpen={isOpen}>
-        <DropdownItem onClick={() => handleItemClick('miracle_morning')}>
-          미라클 모닝
+        <DropdownItem onClick={() => handleItemClick('universe')}>
+          지구촌
         </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('health')}>
-          건강
+        <DropdownItem onClick={() => handleItemClick('Elder')}>
+          어르신
         </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('study')}>
-          공부
+        <DropdownItem onClick={() => handleItemClick('disable')}>
+          장애인
+        </DropdownItem>
+        <DropdownItem onClick={() => handleItemClick('multiculture')}>
+          다문화
+        </DropdownItem>
+        <DropdownItem onClick={() => handleItemClick('child')}>
+          아동 청소년
+        </DropdownItem>
+        <DropdownItem onClick={() => handleItemClick('environment')}>
+          환경
+        </DropdownItem>
+        <DropdownItem onClick={() => handleItemClick('animal')}>
+          동물
         </DropdownItem>
         <DropdownItem onClick={() => handleItemClick('etc')}>기타</DropdownItem>
       </DropdownMenu>
@@ -104,4 +119,4 @@ const Dropdowntype = ({ onTypeChange }) => {
   );
 };
 
-export default Dropdowntype;
+export default DropdownDonateField;

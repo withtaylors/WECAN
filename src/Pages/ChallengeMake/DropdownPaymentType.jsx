@@ -19,23 +19,17 @@ const ToggleButton = styled.button`
   border: none;
   cursor: pointer;
   margin-left: 10px;
-  width: 90%;
+  width: 130px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+  cursor: pointer;
 `;
 const ToggleButtontitle = styled.div`
-  width: 90px;
-
-  display: flex;
-  flex-direction: flex-start;
+  width: 100px;
 `;
 const ToggleButtonImg = styled.img`
-  margin-left: 50px;
-`;
-const ToggleButtonWrapper = styled.div`
-  margin-left: 5px;
-  cursor: pointer;
+  margin-left: 15px;
 `;
 
 const DropdownMenu = styled.ul`
@@ -46,14 +40,14 @@ const DropdownMenu = styled.ul`
   top: 103%;
   width: 100%;
   background-color: #fff;
-  color: blue;
+  color: gray;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   display: ${(props) => (props.isOpen ? 'block' : 'none')};
 `;
 
 const DropdownItem = styled.li`
-  z-index: 1;
   position: relative;
+  z-index: 1;
   padding: 10px;
   cursor: pointer;
   border-right: 1px gray solid;
@@ -63,43 +57,43 @@ const DropdownItem = styled.li`
   &:hover {
     background-color: pink;
   }
+  cursor: pointer;
 `;
 ////////////////////////////
 
-const DropdownPaymentType = ({ onTypeChange }) => {
+const DropdownPaymenttype = ({ onTypeChange }) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [paymentType, setpaymentType] = useState();
+  const [paymentType, setPaymentType] = useState();
 
   const toggleDropdown = () => {
     setIsOpen(!isOpen);
   };
 
-  const handleItemClick = (item, e) => {
-    e.stopPropagation(); // 클릭 이벤트 전파 방지
-    console.log(`payment_type: ${item}`);
-    setpaymentType(item);
+  const handleItemClick = (item) => {
+    console.log(`Selected item: ${item}`);
+    setPaymentType(item);
     onTypeChange(item);
-    setIsOpen(false); // DropdownItem 클릭 후 메뉴 닫기
+  };
+
+  const arraychallengetype = {
+    personal: '개인',
+    team: '팀',
   };
 
   return (
-    <DropdownContainer>
-      <ToggleButtonWrapper>
-        <ToggleButton onClick={toggleDropdown}>
-          <ToggleButtontitle>기부 방식</ToggleButtontitle>
-          <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
-        </ToggleButton>
-      </ToggleButtonWrapper>
+    <DropdownContainer onClick={toggleDropdown}>
+      <ToggleButton>
+        <ToggleButtontitle>{arraychallengetype[paymentType]}</ToggleButtontitle>
+      </ToggleButton>
+      <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
       <DropdownMenu isOpen={isOpen}>
-        <DropdownItem onClick={(e) => handleItemClick('personal', e)}>
+        <DropdownItem onClick={() => handleItemClick('personal')}>
           개인
         </DropdownItem>
-        <DropdownItem onClick={(e) => handleItemClick('team', e)}>
-          단체
-        </DropdownItem>
+        <DropdownItem onClick={() => handleItemClick('team')}>팀</DropdownItem>
       </DropdownMenu>
     </DropdownContainer>
   );
 };
 
-export default DropdownPaymentType;
+export default DropdownPaymenttype;
