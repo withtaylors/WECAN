@@ -1,14 +1,15 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import styles from "./Styled/ShopPage.module.css";
+import { Carousel } from "react-responsive-carousel";
+import styles from "./Styled/Shop_MainPage.module.css";
 import CarouselStyles from "./Styled/carousel.min.css";
 
-import ShopPage_emoji from "../../Components/ShopPage_emoji";
-import TopNav from "../../Pages/TopNav/TopNav.main";
-import { Carousel } from "react-responsive-carousel";
 import imageData from "../../Api/data";
-import ShopItem_emoji from "../../Components/ShopItem_emoji";
-import { getShop_es } from "../../Api/getter";
+import { getShops } from "../../Api/getter";
+
+import TopNav from "../TopNav/TopNav.main";
+import ShopListPage from "../../Components/ShopListPage";
+import ShopItem from "../../Components/ShopItem";
 
 const renderSlides = imageData.map((image) => (
   <div key={image.alt}>
@@ -16,12 +17,13 @@ const renderSlides = imageData.map((image) => (
   </div>
 ));
 
-const ReviewPage = () => {
+const Shop_MainPage = () => {
+  const handleKeywordChange = (e) => setKeyword(e.target.value);
   const [searchParam, setSearchParam] = useSearchParams();
   const initKeyword = searchParam.get("keyword");
   const [keyword, setKeyword] = useState(initKeyword || "");
-  // useState를 사용하여 charitys 상태와 그 상태를 업데이트하는 함수를 정의
-  const shop_es = getShop_es(initKeyword); // mock.json에서 가져온 데이터
+  // useState를 사용하여 shop상태와 그 상태를 업데이트하는 함수를 정의
+  const shops = getShops(initKeyword); // mock.json에서 가져온 데이터
 
   const [currentIndex, setCurrentIndex] = useState();
   function handleChange(index) {
@@ -48,27 +50,24 @@ const ReviewPage = () => {
       </div>
       <div>
         <div>
-          <ShopPage_emoji variant="catalog" title="이모티콘">
-            <div className={styles.charityList}>
-              {shop_es.map((shop_e) => {
-                return <ShopItem_emoji key={shop_e.id} shop_e={shop_e} />;
+          <ShopListPage variant="catalog" title="이모티콘">
+            <div className={styles.shopList}>
+              {shops.map((shop) => {
+                return <ShopItem key={shop.id} shop={shop} />;
               })}
             </div>
-          </ShopPage_emoji>
-        </div>
-
-        <div>
-          <ShopPage_emoji variant="catalog" title="아이템">
-            <div className={styles.charityList}>
-              {shop_es.map((shop_e) => {
-                return <ShopItem_emoji key={shop_e.id} shop_e={shop_e} />;
+          </ShopListPage>
+          <ShopListPage variant="catalog" title="아이템">
+            <div className={styles.shopList}>
+              {shops.map((shop) => {
+                return <ShopItem key={shop.id} shop={shop} />;
               })}
             </div>
-          </ShopPage_emoji>
+          </ShopListPage>
         </div>
       </div>
     </>
   );
 };
 
-export default ReviewPage;
+export default Shop_MainPage;

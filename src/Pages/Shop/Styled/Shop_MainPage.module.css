@@ -11,6 +11,18 @@
   width: 30%;
 }
 
+.shopList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 840px) {
+  .shopList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
 .charityList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);

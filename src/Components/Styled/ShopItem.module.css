@@ -1,12 +1,12 @@
-.charityItem .thumb {
+.shopItem .thumb {
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: left;
+  justify-content: left;
   padding: 30px 0;
-  min-height: 150px;
+  min-height: 130px;
 }
 
-.charityItem .content {
+.shopItem .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -16,16 +16,16 @@
   border-radius: 0px 0px 11px 11px;
 }
 
-.charityItem .title {
+.shopItem .title {
   font-size: 14px;
   color: black;
 }
 
-.charityItem a {
+.shopItem a {
   text-decoration: none;
   color: inherit;
 }
 
-.charityItem a:visited {
+.shopItem a:visited {
   color: inherit;
 }
