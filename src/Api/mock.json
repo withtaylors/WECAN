@@ -329,5 +329,23 @@
         "level": "EARTH"
       }
     }
+  ],
+  "shop_es": [
+    {
+      "id": "1",
+      "type": 1,
+      "title": "상품명",
+      "slug": "msf",
+      "photoUrl": "1",
+      "link": "https://msf.or.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "11",
+            "title": "설명"
+          }
+        }
+      ]
+    }
   ]
 }

@@ -2,3 +2,23 @@
   display: flex;
   justify-content: center;
 }
+
+.carouselsy {
+  width: 30%;
+}
+
+.carousel .slider-wrapper {
+  width: 30%;
+}
+
+.charityList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+@media (max-width: 840px) {
+  .charityList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
