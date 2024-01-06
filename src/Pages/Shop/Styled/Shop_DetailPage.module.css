@@ -1,0 +1,52 @@
+.header {
+  background-color: #fff;
+}
+
+.header .content {
+  padding: 65px 10px 20px;
+  text-align: left;
+}
+
+.header .title {
+  margin: 10px auto 20px;
+  font-size: 28px;
+  font-weight: medium;
+  color: black;
+  text-align: left;
+}
+
+.shopIcon {
+  width: 100px;
+  height: auto;
+  border: solid 1.5px #bbbbbb;
+  padding: 20px;
+  margin-left: 0;
+  border-radius: 8px;
+  align-self: flex-end;
+}
+
+.shopHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.topics {
+  margin: 30px auto 100px;
+}
+
+.topic {
+  padding: 30px;
+}
+
+.topic:not(:last-child) {
+  margin-bottom: 20px;
+}
+
+.topic .title {
+  margin: 0 auto 10px;
+  font-size: 15px;
+  font-weight: 500;
+  color: black;
+  align-items: left;
+}

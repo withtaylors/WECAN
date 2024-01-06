@@ -1,0 +1,26 @@
+/* MainButton.module.css */
+.mainButton {
+  padding: 10px 20px;
+  background-color: #fff;
+  border: 1.5px solid #000;
+  border-radius: 20px;
+  font-size: 15px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.3s ease;
+
+  /* Additional styles for hover state */
+  &:hover {
+    background-color: #f7f7f7;
+  }
+
+  /* Additional styles for active state */
+  &:active {
+    background-color: #e7e7e7;
+  }
+
+  /* Additional styles for focus state */
+  &:focus {
+    border-color: #555;
+  }
+}

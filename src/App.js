@@ -20,7 +20,8 @@ import Donate_CharityPage from "./Pages/Donate/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
 import ReviewPage from "./Pages/Review/ReviewPage";
-import ShopPage from "./Pages/Shop/Shop_MainPage";
+import Shop_MainPage from "./Pages/Shop/Shop_MainPage";
+import Shop_DetailPage from "./Pages/Shop/Shop_DetailPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ChallengeInfo from "./Pages/Challenger/Challenger.main";
 import ChallengeMakeMain from "./Pages/ChallengeMake/ChallengeMake.main";
@@ -55,8 +56,8 @@ function App() {
               </Route>
               <Route path="/review" element={<ReviewPage />} />
               <Route path="/shop">
-                <Route index element={<ShopPage />} />
-                <Route path=":shopSlug" element={<Donate_CharityPage />} />
+                <Route index element={<Shop_MainPage />} />
+                <Route path=":shopSlug" element={<Shop_DetailPage />} />
               </Route>
               <Route path="/mypage" />
               <Route path="*" element={<NotFoundPage />} />
