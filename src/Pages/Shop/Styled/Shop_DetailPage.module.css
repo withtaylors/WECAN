@@ -16,13 +16,23 @@
 }
 
 .shopIcon {
-  width: 100px;
-  height: auto;
-  border: solid 1.5px #bbbbbb;
+  width: 300px;
+  height: 200px;
+  /* border: solid 1.5px #bbbbbb; */
+  background-color: #eaeaea;
   padding: 20px;
   margin-left: 0;
-  border-radius: 8px;
+  border-radius: 10px;
   align-self: flex-end;
+}
+
+.shopDetailImg {
+  width: 1000px;
+  height: 500px;
+  background-color: #eaeaea;
+  padding: 20px;
+  margin-left: 0;
+  border-radius: 10px;
 }
 
 .shopHeader {
@@ -49,4 +59,9 @@
   font-weight: 500;
   color: black;
   align-items: left;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }

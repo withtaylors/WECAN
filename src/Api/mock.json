@@ -342,7 +342,42 @@
         {
           "topic": {
             "id": "11",
-            "title": "설명"
+            "title": "설명",
+            "cost": "300"
+          }
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "type": 2,
+      "title": "아이템2",
+      "slug": "msf",
+      "photoUrl": "2",
+      "link": "https://msf.or.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "22",
+            "title": "설명",
+            "cost": "300"
+          }
+        }
+      ]
+    },
+    {
+      "id": "3",
+      "type": 3,
+      "title": "상품명",
+      "slug": "msf",
+      "photoUrl": "1",
+      "link": "https://msf.or.kr/",
+      "topics": [
+        {
+          "topic": {
+            "id": "11",
+            "title": "설명",
+            "cost": "300"
           }
         }
       ]
@@ -358,7 +393,8 @@
         {
           "topic": {
             "id": "11",
-            "title": "설명"
+            "title": "설명",
+            "cost": "300"
           }
         }
       ]
@@ -374,7 +410,8 @@
         {
           "topic": {
             "id": "11",
-            "title": "설명"
+            "title": "설명",
+            "cost": "300"
           }
         }
       ]
@@ -390,39 +427,8 @@
         {
           "topic": {
             "id": "11",
-            "title": "설명"
-          }
-        }
-      ]
-    },
-    {
-      "id": "1",
-      "type": 1,
-      "title": "상품명",
-      "slug": "msf",
-      "photoUrl": "1",
-      "link": "https://msf.or.kr/",
-      "topics": [
-        {
-          "topic": {
-            "id": "11",
-            "title": "설명"
-          }
-        }
-      ]
-    },
-    {
-      "id": "1",
-      "type": 1,
-      "title": "상품명",
-      "slug": "msf",
-      "photoUrl": "1",
-      "link": "https://msf.or.kr/",
-      "topics": [
-        {
-          "topic": {
-            "id": "11",
-            "title": "설명"
+            "title": "설명",
+            "cost": "300"
           }
         }
       ]

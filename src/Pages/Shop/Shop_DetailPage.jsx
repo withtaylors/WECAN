@@ -1,41 +1,45 @@
 import { Navigate, useParams } from "react-router-dom";
 import styles from "./Styled/Shop_DetailPage.module.css";
 
-import { getCharityBySlug } from "../../Api/getter";
+import { getShopBySlug } from "../../Api/getter";
 
+import TopNav from "../TopNav/TopNav.main";
 import Container from "../../Components/Container";
 import Card_Shop from "../../Components/Card_Shop";
 import ShopIcon from "../../Components/ShopIcon";
 import ShopLink from "../../Components/ShopLink";
 
 function Shop_DetailPage() {
-  const { charitySlug } = useParams();
-  const charity = getCharityBySlug(charitySlug);
+  const { shopSlug } = useParams();
+  const shop = getShopBySlug(shopSlug);
 
-  if (!charity) {
+  if (!shop) {
     return <Navigate to="/shop" />;
   }
 
-  const goToCharityLink = () => {
-    window.location.href = charity.link;
+  const goToShopLink = () => {
+    window.location.href = shop.link;
   };
 
   return (
     <>
+      <div className={styles.center}>
+        <TopNav></TopNav>
+      </div>
       <div className={styles.header}>
         <Container className={styles.content}>
-          <h1 className={styles.title}>{charity.title}</h1>
-          <div className={styles.charityHeader}>
-            <ShopIcon
-              photoUrl={charity.photoUrl}
-              className={styles.charityIcon}
-            />
-            <ShopLink onClick={goToCharityLink} className={styles.linkButton} />
+          <div className={styles.shopHeader}>
+            <ShopIcon photoUrl={shop.photoUrl} className={styles.shopIcon} />
+            <div>
+              <h1 className={styles.title}>{shop.title}</h1> <p>by.</p>
+              <ShopLink onClick={goToShopLink} className={styles.linkButton} />
+            </div>
           </div>
+          <ShopIcon photoUrl={shop.photoUrl} className={styles.shopDetailImg} />
         </Container>
       </div>
       <Container className={styles.topics}>
-        {charity.topics.map(({ topic }) => (
+        {shop.topics.map(({ topic }) => (
           <Card_Shop className={styles.topic} key={topic.slug}>
             <h3 className={styles.title}>{topic.title}</h3>
           </Card_Shop>
