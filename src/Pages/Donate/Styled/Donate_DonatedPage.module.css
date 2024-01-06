@@ -1,7 +1,8 @@
 .charityList {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
+  column-gap: 30px;
+  row-gap: 100px;
 }
 
 @media (max-width: 840px) {
