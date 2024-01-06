@@ -76,7 +76,7 @@ export const NavItem = styled.div`
   cursor: pointer;
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 19px;
+  font-size: 20px;
   font-style: bold;
   height: 50px;
   width: 100px;

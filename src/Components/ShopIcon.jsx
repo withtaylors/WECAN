@@ -52,7 +52,7 @@ const ICONS = {
 function ShopIcon({ className, photoUrl = "default" }) {
   return (
     <img
-      className={classNames(styles.charityIcon, className)}
+      className={classNames(styles.shopIcon, className)}
       src={ICONS[photoUrl]}
       alt={photoUrl}
     />

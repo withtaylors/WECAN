@@ -50,3 +50,8 @@
   color: black;
   align-items: left;
 }
+
+.center {
+  display: flex;
+  justify-content: center;
+}
