@@ -19,6 +19,7 @@ import Recruit from "./Pages/Recruit/Recruit.total.main";
 import Donate_CharityPage from "./Pages/Donate/Donate_CharityPage";
 import Donate_CharityListPage from "./Pages/Donate/Donate_CharityListPage";
 import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
+import Donate_DonatedPage2 from "./Pages/Donate/Donate_DonatedPage2";
 import ReviewPage from "./Pages/Review/ReviewPage";
 import ShopPage from "./Pages/Shop/ShopPage";
 import NotFoundPage from "./Pages/NotFoundPage";

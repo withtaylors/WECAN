@@ -289,7 +289,7 @@
       ]
     }
   ],
-  "donated": [
+  "donatation": [
     {
       "id": "1",
       "slug": "2",
@@ -298,6 +298,36 @@
       "participants": 100,
       "charity": "국경없는의사회",
       "amount": 50000
+    }
+  ],
+  "donated": [
+    {
+      "id": "616825",
+      "title": "특정 인덱스에 있는 컴포넌트만 바꾸기",
+      "content": "제가 커뮤니티 사이트를 개발하는 중인데 일부 글만 다르게 컴포넌트를 렌더링해주고 싶습니다 (예를들면 짝수 번째만 다른 걸 보여준다던지 한다는 거요) 어떻게 하나요?",
+      "answers": [
+        {
+          "createdAt": "2021-10-14T16:34:20.477Z",
+          "updatedAt": "2021-10-14T16:34:20.477Z",
+          "content": "뒤에서 배우실 건데요.. map 함수 콜백에서 리턴할 때 조건문으로 다르게 리턴하시면 됩니당. 저도 그런 식으로 했었어여",
+          "writer": {
+            "name": "잭 도시",
+            "profile": {
+              "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/7/78/Jack_Dorsey_2014_%28cropped%29.jpg/440px-Jack_Dorsey_2014_%28cropped%29.jpg"
+            },
+            "level": "UNIVERSE"
+          }
+        }
+      ],
+      "createdAt": "2021-10-14T12:42:25.27Z",
+      "updatedAt": "2021-10-14T16:34:20.478Z",
+      "writer": {
+        "name": "아론 슈워츠",
+        "profile": {
+          "photo": "https://upload.wikimedia.org/wikipedia/commons/thumb/0/06/Aaron_Swartz_profile.jpg/440px-Aaron_Swartz_profile.jpg"
+        },
+        "level": "EARTH"
+      }
     }
   ]
 }

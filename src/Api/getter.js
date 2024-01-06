@@ -1,5 +1,5 @@
 import mock from "./mock.json";
-const { charitys, questions, donated } = mock;
+const { charitys, questions, donated, donates } = mock;
 
 function filterByKeyword(items, keyword) {
   const lowered = keyword.toLowerCase();
@@ -52,4 +52,13 @@ export function getDonatedById(donatedId) {
 
 export function getDonatedBySlug(donatedSlug) {
   return donated.find((donate) => donate.slug === donatedSlug);
+}
+
+export function getDonates(keyword) {
+  if (!keyword) return donates;
+  return filterByKeyword(donates, keyword);
+}
+
+export function getDonateById(donateId) {
+  return questions.find((donate) => donate.id === donateId);
 }
