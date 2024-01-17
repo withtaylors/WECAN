@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import DonateListPage from "../../Components/DonateListPage";
+import DonateListPage from "./DonateListPage";
 import styles from "./Styled/Donate_CharityListPage.module.css";
 import Warn from "../../Components/Warn";
 import CharityItem from "../../Components/CharityItem";

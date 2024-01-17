@@ -2,46 +2,55 @@
   {
     "id": 1,
     "imageSrc": "1.png",
-    "challengeName": "5시 미라클모닝"
+    "challengeName": "5시 미라클모닝",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 2,
     "imageSrc": "2.png",
-    "challengeName": "텀블러 사용 인증 챌린지"
+    "challengeName": "텀블러 사용 인증 챌린지",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 3,
     "imageSrc": "3.png",
-    "challengeName": "요가 꾸준히 하실분"
+    "challengeName": "요가 꾸준히 하실분",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 4,
     "imageSrc": "4.png",
-    "challengeName": "1일 1스케치 공유해요"
+    "challengeName": "1일 1스케치 공유해요",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 5,
     "imageSrc": "5.png",
-    "challengeName": "하체 스트레칭 인증"
+    "challengeName": "하체 스트레칭 인증",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 6,
     "imageSrc": "6.png",
-    "challengeName": "컴활 공부 인증"
+    "challengeName": "컴활 공부 인증",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 7,
     "imageSrc": "7.png",
-    "challengeName": "러닝 인증해요"
+    "challengeName": "러닝 인증해요",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 8,
     "imageSrc": "8.png",
-    "challengeName": "주 3회 러닝 1km"
+    "challengeName": "주 3회 러닝 1km",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   },
   {
     "id": 9,
     "imageSrc": "9.png",
-    "challengeName": "하체 스트레칭 인증방"
+    "challengeName": "하체 스트레칭 인증방",
+    "explanation": "챌린저 진행 날짜 : 11.01.01 ~ 23.02.22\n챌린저 참여수 : 30명\n기부 단체 : 단체명\n기부 금액 : 70000원"
   }
 ]

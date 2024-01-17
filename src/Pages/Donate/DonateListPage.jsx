@@ -1,6 +1,5 @@
-import React from "react";
 import classNames from "classnames";
-import Container from "./Container";
+import Container from "../../Components/Container";
 import styles from "./Styled/DonateListPage.module.css";
 
 function DonateListPage({

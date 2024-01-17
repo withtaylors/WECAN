@@ -13,4 +13,4 @@ function DonatedItem2({ donate }) {
   );
 }
 
-export default DonatedItem;
+export default DonatedItem2;
