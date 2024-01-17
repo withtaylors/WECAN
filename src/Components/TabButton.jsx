@@ -1,4 +1,3 @@
-import React, { useState } from "react";
 import styles from "./Styled/TabButton.module.css";
 
 import earthImage from "../Assets/img/donation/earth.png";

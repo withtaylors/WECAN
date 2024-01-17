@@ -45,7 +45,7 @@ function Donate_CharityListPage() {
 
   // 페이지네이션을 위한 상태
   const [currentPage, setCurrentPage] = useState(1);
-  const itemsPerPage = 9;
+  const itemsPerPage = 18;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
   const currentCharitys = filteredCharitys.slice(
@@ -90,23 +90,12 @@ function Donate_CharityListPage() {
             description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
           />
         ) : (
-          <div className={styles.charityList}>
-            {charitys.map((charity) => {
-              if (
-                activeTab === "tab1" ||
-                charity.type === tabTypes[activeTab]
-              ) {
-                return (
-                  <div className={styles.charityList}>
-                    {currentCharitys.map((charity) => (
-                      <CharityItem key={charity.id} charity={charity} />
-                    ))}
-                  </div>
-                );
-              }
-              return null;
-            })}
-          </div>
+<div className={styles.charityList}>
+  {currentCharitys.map((charity) => (
+    <CharityItem key={charity.id} charity={charity} />
+  ))}
+</div>
+
         )}
       </DonateListPage>
     </>

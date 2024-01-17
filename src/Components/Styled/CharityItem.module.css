@@ -1,6 +1,5 @@
 .charityItem .thumb {
   position: relative;
-  display: flex;
   align-items: center;
   justify-content: center;
   min-height: 150px;
@@ -14,7 +13,8 @@
   width : 251px;
   margin-left: 1px;
   min-height: 20px;
-  padding: 3px 13px 3px;
+  padding-left: 4px;
+  padding-bottom: 4px;
   background-color: rgba(92, 92, 92, 0.2);
   border-radius: 0px 0px 12px 12px;
   position: relative;
@@ -25,6 +25,7 @@
 .charityItem .title {
   font-size: 14px;
   color: black;
+  padding-left: 15px;
 }
 
 .charityItem a {
