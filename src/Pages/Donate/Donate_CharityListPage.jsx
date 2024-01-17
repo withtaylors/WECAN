@@ -96,7 +96,13 @@ function Donate_CharityListPage() {
                 activeTab === "tab1" ||
                 charity.type === tabTypes[activeTab]
               ) {
-                return <CharityItem key={charity.id} charity={charity} />;
+                return (
+                  <div className={styles.charityList}>
+                    {currentCharitys.map((charity) => (
+                      <CharityItem key={charity.id} charity={charity} />
+                    ))}
+                  </div>
+                );
               }
               return null;
             })}
