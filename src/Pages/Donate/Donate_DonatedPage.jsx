@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
-import ListPage from "../../Components/ListPage";
+import DonateListPage from "../../Components/DonateListPage";
 import styles from "./Styled/Donate_DonatedPage.module.css";
 import Warn from "../../Components/Warn";
 import DonatedItem from "../../Components/DonatedItem";
@@ -11,16 +11,6 @@ import Button from "react-bootstrap/Button";
 import CharityItem from "../../Components/CharityItem";
 import { getCharitys } from "../../Api/getter";
 import axios from "axios";
-
-// function Donate_DonatedPage() {
-//   const [searchParam, setSearchParam] = useSearchParams();
-//   const initKeyword = searchParam.get("keyword");
-//   const [keyword, setKeyword] = useState(initKeyword || "");
-//   const [donated, setDonated] = useState([]); // 상태를 배열로 초기화
-//   const [loading, setLoading] = useState(true); // 로딩 상태 관리
-//   const [error, setError] = useState(null); // 에러 상태 관리
-//   // Collapse 상태 관리를 위한 state 추가
-//   const [open, setOpen] = useState(false);
 
 // useEffect(() => {
 //   // 백엔드에서 기부 데이터 가져오기
@@ -45,39 +35,6 @@ import axios from "axios";
 //   return <div>Error: {error.message}</div>; // 에러가 발생했을 때 표시될 요소
 // }
 
-//   return (
-//     <>
-//       <div className={styles.center}>
-//         <TopNav></TopNav>
-//       </div>
-//       <ListPage variant="catalog" title="기부했어요">
-//         <div className={styles.infoBar}>
-//           <p>최신순</p>
-//         </div>
-
-//         <div className={styles.donateList}>
-//           {donated.map((item) => (
-//             <div key={item.id}>
-//               <Button
-//                 onClick={() => setOpen(!open)}
-//                 aria-controls="example-collapse-text"
-//                 aria-expanded={open}
-//               >
-//                 {open ? "숨기기 ^" : "자세히 보기 v"}
-//               </Button>
-//               <Collapse in={open}>
-//                 <div id="example-collapse-text">
-//                   <DonatedItem donate={item} />
-//                 </div>
-//               </Collapse>
-//             </div>
-//           ))}
-//         </div>
-//       </ListPage>
-//     </>
-//   );
-// }
-
 function Donate_DonatedPage() {
   const [searchParam, setSearchParam] = useSearchParams();
   const initKeyword = searchParam.get("keyword");
@@ -91,7 +48,7 @@ function Donate_DonatedPage() {
         <TopNav></TopNav>
       </div>
 
-      <ListPage variant="catalog" title="기부했어요">
+      <DonateListPage variant="catalog" title="기부했어요">
         <div className={styles.infoBar}>
           <p>최신순</p>
         </div>
@@ -100,7 +57,7 @@ function Donate_DonatedPage() {
             return <DonatedItem key={charity.id} charity={charity} />;
           })}
         </div>
-      </ListPage>
+      </DonateListPage>
     </>
   );
 }

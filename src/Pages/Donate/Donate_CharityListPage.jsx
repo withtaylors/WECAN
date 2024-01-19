@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useSearchParams } from "react-router-dom";
-import ListPage from "../../Components/ListPage";
+import DonateListPage from "../../Components/DonateListPage";
 import styles from "./Styled/Donate_CharityListPage.module.css";
 import Warn from "../../Components/Warn";
 import CharityItem from "../../Components/CharityItem";
@@ -63,7 +63,7 @@ function Donate_CharityListPage() {
         <TopNav></TopNav>
       </div>
 
-      <ListPage variant="catalog" title="기부 단체 찾기">
+      <DonateListPage variant="catalog" title="기부 단체 찾기">
         <form className={searchBarStyles.form} onSubmit={handleSubmit}>
           <input
             name="keyword"
@@ -102,17 +102,7 @@ function Donate_CharityListPage() {
             })}
           </div>
         )}
-        <Pagination
-          activePage={currentPage}
-          itemsCountPerPage={itemsPerPage}
-          totalItemsCount={filteredCharitys.length}
-          pageRangeDisplayed={5}
-          onChange={handlePageChange}
-          innerClassName={styles.pagination} // Assuming this class is defined in your CSS file
-          itemClass="page-item" // You can define these classes in your CSS file
-          linkClass="page-link" // You can define these classes in your CSS file
-        />
-      </ListPage>
+      </DonateListPage>
     </>
   );
 }

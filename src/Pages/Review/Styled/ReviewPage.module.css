@@ -25,3 +25,7 @@
   border-color: transparent #01a9db transparent transparent;
   transform: translateY(-50%);
 }
+
+.container {
+  margin-bottom: 100px;
+}

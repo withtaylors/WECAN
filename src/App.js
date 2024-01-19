@@ -6,6 +6,7 @@ import {
   useLocation,
 } from 'react-router-dom';
 import { RecoilRoot } from 'recoil';
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 
 import './App.css';
 import './App.font.css';
@@ -19,48 +20,56 @@ import Recruit from './Pages/Recruit/Recruit.total.main';
 import Donate_CharityPage from './Pages/Donate/Donate_CharityPage';
 import Donate_CharityListPage from './Pages/Donate/Donate_CharityListPage';
 import Donate_DonatedPage from './Pages/Donate/Donate_DonatedPage';
-import Donate_DonatedPage2 from './Pages/Donate/Donate_DonatedPage2';
 import ReviewPage from './Pages/Review/ReviewPage';
-import ShopPage from './Pages/Shop/ShopPage';
+import Shop_MainPage from './Pages/Shop/Shop_MainPage';
+import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
+
+const queryClient = new QueryClient();
 
 function App() {
   return (
     <RecoilRoot>
       <Router>
         <div className='app-container'>
-          <Navigation />
-          <div className='content'>
-            <Routes>
-              <Route path='/login' element={<Login></Login>} />
-              <Route path='/join' element={<Join></Join>} />
-              <Route path='/' element={<Home />} />
-              <Route path='/recruitment' element={<Recruit></Recruit>} />
-              <Route path='/recruitment/all' element={<Recruit></Recruit>} />
-              <Route path='/recruitment/miracle-morning' />
-              <Route path='/recruitment/exercise' />
-              <Route path='/recruitment/study' />
-              <Route path='/challenge/:id' element={<ChallengeInfo />} />
-              <Route
-                path='/challengemake'
-                element={<ChallengeMakeMain></ChallengeMakeMain>}
-              />
-              <Route path='donate'>
-                <Route index element={<Donate_CharityListPage />} />
-                <Route path=':charitySlug' element={<Donate_CharityPage />} />
-              </Route>
-              <Route path='donate/donated'>
-                <Route index element={<Donate_DonatedPage />} />
-              </Route>
-              <Route path='/review' element={<ReviewPage />} />
-              <Route path='/shop' element={<ShopPage />} />
-              <Route path='/mypage' />
-              <Route path='*' element={<NotFoundPage />} />
-            </Routes>
-          </div>
-          <ConditionalFooter />
+          <QueryClientProvider client={queryClient}>
+            <Navigation />
+            <div className='content'>
+              <Routes>
+                <Route path='/login' element={<Login></Login>} />
+                <Route path='/join' element={<Join></Join>} />
+                <Route path='/' element={<Home />} />
+                <Route path='/recruitment' element={<Recruit></Recruit>} />
+                <Route path='/recruitment/all' element={<Recruit></Recruit>} />
+                <Route path='/recruitment/miracle-morning' />
+                <Route path='/recruitment/exercise' />
+                <Route path='/recruitment/study' />
+                <Route path='/challenge/:id' element={<ChallengeInfo />} />
+                <Route
+                  path='/challengemake'
+                  element={<ChallengeMakeMain></ChallengeMakeMain>}
+                />
+                <Route path='donate'>
+                  <Route index element={<Donate_CharityListPage />} />
+                  <Route path=':charitySlug' element={<Donate_CharityPage />} />
+                </Route>
+                <Route path='donate/donated'>
+                  <Route index element={<Donate_DonatedPage />} />
+                </Route>
+                <Route path='/review' element={<ReviewPage />} />
+                <Route path='/shop'>
+                  <Route index element={<Shop_MainPage />} />
+                  <Route path=':shopSlug' element={<Shop_DetailPage />} />
+                </Route>
+                <Route path='/mypage' />
+                <Route path='*' element={<NotFoundPage />} />
+              </Routes>
+            </div>
+            <ConditionalFooter />
+          </QueryClientProvider>
+          >>>>>>> d368b90e88ed5aeedf8d7ad604a14d5eb9fcec59
         </div>
       </Router>
     </RecoilRoot>
