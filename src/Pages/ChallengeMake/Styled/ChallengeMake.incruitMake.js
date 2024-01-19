@@ -37,6 +37,13 @@ export const contentlineWrapper = styled.div`
   display: flex;
   align-items: center;
 `;
+export const contentlineWrapper2 = styled.div`
+  width: 740px;
+  height: 100px;
+  border-bottom: 2px solid gray;
+  display: flex;
+  align-items: center;
+`;
 export const subtitle = styled.div`
   width: 200px;
   height: 100%;
@@ -46,6 +53,11 @@ export const subtitle = styled.div`
   border-right: 2px solid gray;
 `;
 export const subcontent = styled.div``;
+export const subsubcontent = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+`;
 export const teamNumberWrapper = styled.div`
   display: flex;
   align-items: center;

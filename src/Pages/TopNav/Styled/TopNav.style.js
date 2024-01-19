@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const activeClassName = "active";
+export const activeClassName = 'active';
 
 export const activeStyle = css`
   color: #dd518c;
@@ -17,6 +17,7 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
+
   border-bottom: 4px solid transparent;
   padding-bottom: 27px;
   padding-left: 20px; /* 왼쪽 패딩 추가 */
@@ -85,7 +86,7 @@ export const NavItem = styled.div`
 `;
 
 export const Submenu = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   position: absolute;
   top: 100%;
   left: 0;
