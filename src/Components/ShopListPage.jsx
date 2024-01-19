@@ -1,8 +1,8 @@
 import classNames from "classnames";
 import Container from "./Container";
-import styles from "./Styled/ListPage.module.css";
+import styles from "./Styled/ShopListPage.module.css";
 
-function ListPage({
+function ShopListPage({
   variant = "catalog",
   title = "",
   description = "",
@@ -21,4 +21,4 @@ function ListPage({
   );
 }
 
-export default ListPage;
+export default ShopListPage;

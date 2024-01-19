@@ -1,0 +1,33 @@
+.bg {
+  display: flex;
+  align-items: left;
+  justify-content: left;
+  padding: 50px 0px 40px 520px;
+}
+
+.bg.catalog {
+  background-color: #ffffff;
+}
+
+.bg.community {
+  background-color: #ffffff;
+}
+
+.heading {
+  margin: 50px 0 5px;
+  font-size: 22px;
+  font-weight: 600;
+}
+
+.catalog .heading {
+  color: #000000;
+}
+
+.community .heading,
+.community .description {
+  color: #000000;
+}
+
+.container {
+  margin-bottom: 70px;
+}
