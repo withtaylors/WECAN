@@ -25,7 +25,7 @@ export const InputWrapper = styled.div`
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  border: 2px solid gray;
+  border: 1px solid #999999;
 
   margin-top: 20px;
 `;
@@ -33,7 +33,7 @@ export const InputWrapper = styled.div`
 export const InputBox = styled.input`
   font-family: Pretendard;
   width: 400px;
-  height: 27px;
+  height: 33px;
   margin-top: 13px;
   margin-left: 10px;
   margin-bottom: 10px;
@@ -56,12 +56,16 @@ export const IdMemmoryButton = styled.button`
   width: 26px;
   height: 26px;
   font-size: 15px;
-  border: 1px solid gray;
-  background-color: white;
+  border: none;
+  background-color: gray;
   border-radius: 50px;
   padding: 5px;
   margin-left: 5px;
   margin-right: 10px;
+  cursor: pointer;
+  &:focus {
+    background-color: #dd518c;
+  }
 `;
 export const LoginButton = styled.div`
   width: 425px;
@@ -71,8 +75,13 @@ export const LoginButton = styled.div`
   align-items: center;
   justify-content: center;
   font-size: 18px;
+  font-weight: bold;
+  color: black;
   background-color: #dd518c;
   margin-top: 30px;
+  &:hover {
+    color: white;
+  }
   cursor: pointer;
 `;
 

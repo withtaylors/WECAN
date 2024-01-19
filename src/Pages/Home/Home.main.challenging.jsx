@@ -1,9 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as challenging from './Styled/Home.main.challenging';
 import CategoryCard from '../Category/Category.card';
+import request from '../../Api/request';
+import { refreshToken } from '../../Api/request';
+import { ACCESS_TOKEN } from '../../Api/request';
+import axios from 'axios';
 
 function ChallengeCruiting() {
+  const [isSuccess, setIsSuccess] = useState(null);
+
   const categories = [
     { title: '챌린지 1', date: '2023-11-01' },
     { title: '챌린지 2', date: '2023-12-02' },
@@ -14,23 +20,50 @@ function ChallengeCruiting() {
     e.preventDefault();
     navigate(`${type}`);
   };
+  /////////////////////////////////////////////////////////////////////
+  const baseURL = 'http://3.35.3.205:8080';
+  ////////////////////////////////////////////////////
+  const [loading, setLoading] = useState(false);
+  const [challengeThree, setChallengeThree] = useState([]);
+  useEffect(() => {
+    const fetchChallengeThree = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${baseURL}/recruits/home`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        });
+        console.log('홈 챌린지 3개 불러오기:', response);
+        setChallengeThree(response.data.data);
+        console.log(challengeThree);
+      } catch (error) {
+        console.error('홈 챌린지 3개 불러오기 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChallengeThree();
+  }, []);
+  console.log(challengeThree);
 
   return (
     <challenging.challengeWrapper>
       <challenging.firstblock>
         <challenging.top>
           <challenging.title>현재 모집 중인 챌린지</challenging.title>
-          <challenging.buttoncruiting>
+          <challenging.buttoncruiting
+            onClick={(e) => {
+              NavClick(e, '/challengemake');
+            }}
+          >
             챌린저 모집하기
           </challenging.buttoncruiting>
         </challenging.top>
         <challenging.secondblock>
-          {categories.map((category, index) => (
-            <CategoryCard
-              key={index}
-              title={category.title}
-              date={category.date}
-            />
+          {challengeThree.map((item) => (
+            <CategoryCard key={item.index} data={item} />
           ))}
         </challenging.secondblock>
         <challenging.thirdblock>

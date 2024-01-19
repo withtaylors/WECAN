@@ -1,8 +1,9 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState, useRef, useId } from 'react';
 import * as login from './Styled/Login.main.js';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Logosrc from '../../Assets/img/Logo.png';
+import checkimg from '../../Assets/img/check.png';
 import request from './../../Api/request';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from './../../Api/request.js';
 import { useRecoilState } from 'recoil';
@@ -28,6 +29,7 @@ function Login(props) {
     e.preventDefault();
     navigate(`${type}`);
   };
+  const baseURL = 'http://3.35.3.205:8080';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
   const [name, setName] = useState('로그인');
@@ -47,15 +49,25 @@ function Login(props) {
     };
 
     try {
-      const response = await request.post('/user/sign-up', requestData);
-      const { accessToken, refreshToken } = response.data;
-
-      localStorage.setItem(ACCESS_TOKEN, accessToken);
-      localStorage.setItem(REFRESH_TOKEN, refreshToken);
-
+      const response = await axios.post(`${baseURL}/user/sign-in`, requestData);
       setIsSuccess(true);
       alert('로그인에 성공했습니다.');
       navigate('/');
+      console.log('로그인 처리 내용:', response);
+      console.log('유저이름:', response.data.data.nickName);
+      const nickName = response.data.data.nickName;
+      if (nickName) {
+        localStorage.setItem('user-name', nickName);
+      }
+      const userId = response.data.data.userId;
+      console.log('유저아이디:', userId);
+      if (userId) {
+        localStorage.setItem('user-id', userId);
+      }
+      const accessToken = response.data.data.authToken.accessToken;
+      if (accessToken) {
+        localStorage.setItem('login-token', accessToken);
+      }
     } catch (error) {
       console.error('로그인 실패:', error);
       setIsSuccess(false);
@@ -94,7 +106,9 @@ function Login(props) {
         ></login.InputBox>
       </login.InputWrapper>
       <login.IdMemmory>
-        <login.IdMemmoryButton>!</login.IdMemmoryButton>
+        <login.IdMemmoryButton>
+          <img src={checkimg}></img>
+        </login.IdMemmoryButton>
         아이디 기억하기
       </login.IdMemmory>
       <login.LoginButton onClick={handleLogin}>로그인</login.LoginButton>

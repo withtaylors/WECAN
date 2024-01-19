@@ -45,6 +45,7 @@ export const ActiveLink2 = styled(Link).attrs({
 export const NavWrapperTotal = styled.div`
   margin-bottom: 20px;
   margin-top: 40px;
+  width: 1200px;
 `;
 
 export const NavWrapper = styled.div`
@@ -54,7 +55,7 @@ export const NavWrapper = styled.div`
   align-items: center;
   justify-content: center;
   height: 70px;
-  width: 896px;
+
   z-index: 50;
   gap: 10px;
   border-style: solid;
@@ -68,10 +69,10 @@ export const NavItem = styled.div`
   cursor: pointer;
   margin-left: 40px;
   margin-right: 40px;
-  font-size: 17px;
+  font-size: 20px;
   font-weight: bold;
   height: 70px;
-  width: 100px;
+  width: 200px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,7 +84,7 @@ export const Submenu = styled.div`
   top: 100%;
   left: 0;
   width: max-content;
-  height: 60px;
+  height: 70px;
   justify-content: center;
   align-items: center;
   flex-direction: row;
@@ -94,7 +95,7 @@ export const SubmenuItem = styled.div`
   color: white;
   cursor: pointer;
   margin-right: 50px;
-  font-size: 16px;
+  font-size: 18px;
 `;
 
 ////

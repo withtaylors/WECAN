@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import {
   ActiveLink,
   ActiveLink2,
@@ -9,39 +9,39 @@ import {
   Submenu,
   SubmenuItem,
   activeClassName,
-} from "./Styled/TopNav.style.js";
+} from './Styled/TopNav.style.js';
 
 const navItems = [
   {
-    label: "챌린저 모집",
-    link: "/recruitment",
+    label: '챌린저 모집',
+    link: '/recruitment/all',
     subItems: [
-      { label: "전체", link: "/recruitment/all" },
-      { label: "미라클모닝", link: "/recruitment/miracle-morning" },
-      { label: "운동", link: "/recruitment/exercise" },
-      { label: "공부", link: "/recruitment/study" },
-      { label: "기타", link: "/recruitment/other" },
+      { label: '전체', link: '/recruitment/all' },
+      { label: '미라클모닝', link: '/recruitment/miracle-morning' },
+      { label: '운동', link: '/recruitment/exercise' },
+      { label: '공부', link: '/recruitment/study' },
+      { label: '기타', link: '/recruitment/other' },
     ],
   },
   {
-    label: "기부",
-    link: "/donate",
+    label: '기부',
+    link: '/donate',
     subItems: [
-      { label: "기부 단체 찾기", link: "/donate/find-donate" },
-      { label: "기부했어요", link: "/donate/donated" },
+      { label: '기부 단체 찾기', link: '/donate' },
+      { label: '기부했어요', link: '/donate/donated' },
     ],
   },
   {
-    label: "후기",
-    link: "/review",
+    label: '후기',
+    link: '/review',
   },
   {
-    label: "굿즈샵",
-    link: "/shop",
+    label: '굿즈샵',
+    link: '/shop',
   },
   {
-    label: "마이페이지",
-    link: "/mypage",
+    label: '마이페이지',
+    link: '/mypage',
   },
 ];
 
@@ -97,7 +97,7 @@ const TopNav = () => {
                       className={
                         location.pathname === subItem.link
                           ? activeClassName
-                          : ""
+                          : ''
                       }
                       onClick={() => {
                         handleNavSubItemClick(subItem);

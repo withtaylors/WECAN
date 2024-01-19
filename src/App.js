@@ -18,6 +18,9 @@ import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 import ReviewPage from './Pages/Review/ReviewPage';
+import Mypage from './Pages/MyPage/Mypage.main';
+import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
+import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
 function App() {
   return (
     <RecoilRoot>
@@ -47,10 +50,13 @@ function App() {
               <Route path='donate/donated'>
                 <Route index element={<Donate_DonatedPage />} />
               </Route>
-
               <Route path='/review' element={<ReviewPage />} />
               <Route path='/shop' />
-              <Route path='/mypage' />
+              <Route path='/mypage' element={<Mypage></Mypage>} />
+              <Route
+                path='/mypage/infochange'
+                element={<InfoChange></InfoChange>}
+              />
               <Route path='*' element={<NotFoundPage />} />
             </Routes>
           </div>

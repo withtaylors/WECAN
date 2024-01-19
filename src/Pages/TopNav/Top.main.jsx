@@ -12,7 +12,16 @@ function Top() {
     e.preventDefault();
     navigate(`${type}`);
   };
-  const userInfo = [{ name: '위캔두' }];
+  const userName = localStorage.getItem('user-name');
+  const token = localStorage.getItem('login-token');
+  const [isTokenValid, setIsTokenValid] = useState(true);
+
+  useEffect(() => {
+    if (!token) {
+      setIsTokenValid(false);
+    }
+  }, [token]);
+
   return (
     <TopS.TopWrapper>
       <TopS.TopContentWrapper type='main'>
@@ -23,16 +32,22 @@ function Top() {
           }}
         ></TopS.TopLogo>
         <TopS.TopInfoWrapper>
-          <TopS.User>
-            <TopS.RealName>위캔두</TopS.RealName>님 환영합니다
-          </TopS.User>
-          <TopS.LogInOut
-            onClick={(e) => {
-              NavClick(e, '/login');
-            }}
-          >
-            로그인/회원가입
-          </TopS.LogInOut>
+          {isTokenValid ? (
+            <>
+              <TopS.User>
+                <TopS.RealName>{userName}</TopS.RealName>님 환영합니다
+              </TopS.User>
+              <TopS.LogInOut
+                onClick={(e) => {
+                  NavClick(e, '/login');
+                }}
+              >
+                로그인/회원가입
+              </TopS.LogInOut>
+            </>
+          ) : (
+            <div>토큰 만료</div>
+          )}
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
     </TopS.TopWrapper>
