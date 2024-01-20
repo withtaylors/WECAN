@@ -3,5 +3,65 @@
   border-radius: 11px;
   border: solid 1px rgba(93, 93, 93, 0.2);
   /* 색상 #5d5d5d의 불투명도를 20%로 설정 */
-  box-shadow: var(--box-shadow);
+  box-shadow: inset 0 -3px #dcdcdc;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column; /* 아이템들을 수직 정렬 */
+  align-items: center; /* 가로 중앙 정렬 */
+  padding-top: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
+  cursor: pointer;
+}
+
+.thumb {
+  width: 150px; /* 이미지 크기 조정 */
+  margin-bottom: 16px; /* 이미지 아래에 여백 추가 */
+}
+
+.titleArrowWrapper {
+  display: flex;
+  justify-content: space-between; /* 양쪽으로 요소를 밀어냄*/
+  align-items: center;
+  width: 100%; /* 전체 너비를 사용 */
+  padding: 0 16px; /* 좌우 패딩을 추가 */
+}
+
+.title {
+  flex-grow: 1;
+  font-size: 13px;
+  margin-bottom: 16px; /* 제목 아래에 여백 추가 */
+}
+
+.cardContent {
+  padding-right: 16px;
+  padding-bottom: 16px;
+  padding-left: 16px;
+  font-size: 11px;
+  color: rgba(0, 0, 0, 0.8);
+  transition: max-height 0.3s ease; /* 높이 변화에 부드러운 전환 효과 적용 */
+  max-height: 0; /* 기본적으로 내용이 보이지 않도록 설정 */
+}
+
+/* isOpen이 true일 때 적용될 스타일 */
+.cardContentOpen {
+  max-height: 100px; /* 기본적으로 내용이 보이지 않도록 설정 */
+}
+
+/* isOpen이 false일 때 적용될 스타일 (선택적) */
+.cardContentClosed {
+  max-height: 0; /* 내용이 보이지 않도록 설정 */
+}
+
+.arrow {
+  /* 화살표가 항상 12px로 설정되도록 변경 */
+  width: 12px;
+  transition: transform 0.1s ease; /* 부드러운 전환 효과 */
+}
+
+/* 화살표가 회전하는 클래스 추가 */
+.rotateArrow {
+  transform: rotate(180deg);
 }
