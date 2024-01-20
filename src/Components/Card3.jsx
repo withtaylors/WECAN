@@ -1,16 +1,13 @@
-// Card3.jsx
 import classNames from 'classnames';
-import { useState } from 'react';
-import styles from './Styled/Card3.module.css'; // 경로가 올바른지 확인
+import styles from './Styled/Card3.module.css';
 import icoArrowDown from '../Assets/img/donated/arrow.png';
 
-function Card3({ title, content, imageSrc }) {
-  const [isOpen, setIsOpen] = useState(false);
-  const contentLines = content.split('\n'); // \n을 기준으로 문자열을 분리합니다.
+function Card3({ title, content, imageSrc, isOpen, onToggle }) {
+  const contentLines = content.split('\n');
 
   return (
-    <div className={styles.card}>
-      <div className={styles.cardHeader} onClick={() => setIsOpen(!isOpen)}>
+    <div className={classNames(styles.card, { [styles.cardNoMargin]: isOpen })}>
+      <div className={styles.cardHeader}>
         <img
           className={classNames(styles.thumb, styles.center)}
           src={imageSrc}
@@ -24,19 +21,18 @@ function Card3({ title, content, imageSrc }) {
             })}
             src={icoArrowDown}
             alt="상세 정보 토글"
+            onClick={onToggle}
           />
         </div>
       </div>
       <div
         className={classNames(styles.cardContent, {
-          [styles.cardContentOpen]: isOpen,
+          [styles.cardContentOpen]: isOpen, // isOpen이 true일 때 cardContentOpen 클래스 적용
+          [styles.cardContentClosed]: !isOpen, // isOpen이 false일 때 cardContentClosed 클래스 적용
         })}
       >
-        {isOpen &&
-          contentLines.map((line, index) => (
-            <p key={index}>{line}</p> // 각 줄을 <p> 태그로 감쌉니다.
-          ))}
-      </div>{' '}
+        {isOpen && contentLines.map((line, index) => <p key={index}>{line}</p>)}
+      </div>
     </div>
   );
 }

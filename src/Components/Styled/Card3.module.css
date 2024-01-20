@@ -4,6 +4,12 @@
   border: solid 1px rgba(93, 93, 93, 0.2);
   /* 색상 #5d5d5d의 불투명도를 20%로 설정 */
   box-shadow: inset 0 -3px #dcdcdc;
+  align-self: start;
+  margin-bottom: 110px;
+}
+
+.cardNoMargin {
+  margin-bottom: 10px;
 }
 
 .cardHeader {
@@ -11,28 +17,26 @@
   flex-direction: column; /* 아이템들을 수직 정렬 */
   align-items: center; /* 가로 중앙 정렬 */
   padding-top: 16px;
-  padding-right: 16px;
-  padding-left: 16px;
-  cursor: pointer;
+  padding-right: 10px;
+  padding-left: 10px;
 }
 
 .thumb {
-  width: 150px; /* 이미지 크기 조정 */
-  margin-bottom: 16px; /* 이미지 아래에 여백 추가 */
+  width: 190px; /* 이미지 크기 조정 */
+  height: 267px;
 }
 
 .titleArrowWrapper {
   display: flex;
   justify-content: space-between; /* 양쪽으로 요소를 밀어냄*/
   align-items: center;
-  width: 100%; /* 전체 너비를 사용 */
-  padding: 0 16px; /* 좌우 패딩을 추가 */
+  width: 80%; /* 전체 너비를 사용 */
+  padding: 10px 16px; /* 좌우 패딩을 추가 */
 }
 
 .title {
   flex-grow: 1;
-  font-size: 13px;
-  margin-bottom: 16px; /* 제목 아래에 여백 추가 */
+  font-size: 11px;
 }
 
 .cardContent {
@@ -40,25 +44,34 @@
   padding-bottom: 16px;
   padding-left: 16px;
   font-size: 11px;
-  color: rgba(0, 0, 0, 0.8);
-  transition: max-height 0.3s ease; /* 높이 변화에 부드러운 전환 효과 적용 */
+  color: rgba(0, 0, 0, 0.7);
   max-height: 0; /* 기본적으로 내용이 보이지 않도록 설정 */
+  overflow: hidden;
+  padding: 0 32px; /* 이 부분을 추가 */
+}
+
+.cardContent p {
+  margin-top: 3px;
+  margin-bottom: 3px;
 }
 
 /* isOpen이 true일 때 적용될 스타일 */
 .cardContentOpen {
-  max-height: 100px; /* 기본적으로 내용이 보이지 않도록 설정 */
+  max-height: 1000px; /* 충분히 큰 값으로 설정하여 모든 내용이 보이도록 함 */
+  padding-bottom: 16px; /* 내용이 확장될 때만 padding-bottom 적용 */
 }
 
 /* isOpen이 false일 때 적용될 스타일 (선택적) */
 .cardContentClosed {
   max-height: 0; /* 내용이 보이지 않도록 설정 */
+  padding-bottom: 0; /* 내용이 축소될 때는 padding-bottom 제거 */
 }
 
 .arrow {
   /* 화살표가 항상 12px로 설정되도록 변경 */
-  width: 12px;
+  width: 11px;
   transition: transform 0.1s ease; /* 부드러운 전환 효과 */
+  cursor: pointer;
 }
 
 /* 화살표가 회전하는 클래스 추가 */
