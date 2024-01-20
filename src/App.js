@@ -27,6 +27,9 @@ import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 import ChatPage from './Pages/Chat/ChatPage';
+import Mypage from './Pages/MyPage/Mypage.main';
+import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
+import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
 
 const queryClient = new QueryClient();
 
@@ -42,7 +45,7 @@ function App() {
                 <Route path="/login" element={<Login></Login>} />
                 <Route path="/join" element={<Join></Join>} />
                 <Route path="/" element={<Home />} />
-                <Route path="/recruitment" element={<Recruit></Recruit>} />
+                <Route path="/recruitment" />
                 <Route path="/recruitment/all" element={<Recruit></Recruit>} />
                 <Route path="/recruitment/miracle-morning" />
                 <Route path="/recruitment/exercise" />
@@ -52,6 +55,7 @@ function App() {
                   path="/challengemake"
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
+                <Route path="/recruitment/other" />
                 <Route path="donate">
                   <Route index element={<Donate_CharityListPage />} />
                   <Route path=":charitySlug" element={<Donate_CharityPage />} />
@@ -64,7 +68,11 @@ function App() {
                   <Route index element={<Shop_MainPage />} />
                   <Route path=":shopSlug" element={<Shop_DetailPage />} />
                 </Route>
-                <Route path="/mypage" />
+                <Route path="/mypage" element={<Mypage></Mypage>} />
+                <Route
+                  path="/mypage/infochange"
+                  element={<InfoChange></InfoChange>}
+                />
                 <Route path="/chat" element={<ChatPage />} />
                 <Route path="*" element={<NotFoundPage />} />
               </Routes>

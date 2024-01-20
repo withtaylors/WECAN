@@ -86,21 +86,18 @@ const DropdownEndDate = ({ onTypeChange }) => {
   };
 
   const handleFirstItemClick = (item) => {
-    console.log(`payment_type: ${item}`);
     setEndYear(item);
     onTypeChange(endyear, endmonth, endday);
   };
   const handleSecondItemClick = (item) => {
-    console.log(`payment_type: ${item}`);
     setEndMonth(item);
     onTypeChange(endyear, endmonth, endday);
   };
   const handleThirdItemClick = (item) => {
-    console.log(`payment_type: ${item}`);
     setEndDay(item);
     onTypeChange(endyear, endmonth, endday);
   };
-  console.log({ endyear, endmonth, endday });
+  
 
   return (
     <DropdownTotalContainer>

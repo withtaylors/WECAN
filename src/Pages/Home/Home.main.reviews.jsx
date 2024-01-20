@@ -1,25 +1,50 @@
-import React from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 import * as reviews from './Styled/Home.main.reviews';
 import bubbleCommentImage from '../../Assets/img/bubbleComment.png';
+import profileimg from '../../Assets/img/Group 36.png';
 function HomeReviews() {
   const review = [
     { name: '챌린저11', content: '너무너무 만족합니다' },
     { name: '챌린저22', content: '팀원들이 모두 잘해줬습니다' },
     { name: '챌린저33', content: '안녕하세요' },
   ];
+  //////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////////////
+  const baseURL = 'http://3.35.3.205:8080';
+  ////////////////////////////////////////////////////
+  const [loading, setLoading] = useState(false);
+  const [challengeThree, setChallengeThree] = useState([]);
+  useEffect(() => {
+    const fetchChallengeThree = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${baseURL}/reviews/latest`, {});
+        console.log('홈 후기 3개 불러오기:', response);
+        setChallengeThree(response.data.data);
+        console.log(challengeThree);
+      } catch (error) {
+        console.error('홈 후기 3개 불러오기 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChallengeThree();
+  }, []);
   return (
     <reviews.mainWrapper>
       <reviews.title>챌린저들의 후기</reviews.title>
       <reviews.reviewWrapper>
-        {review.map((reviewer, index) => (
+        {challengeThree.map((item, index) => (
           <reviews.reviewblock>
             <reviews.profil>
-              <reviews.photo></reviews.photo>
-              <reviews.name>{reviewer.name}</reviews.name>
+              <reviews.photo src={profileimg}></reviews.photo>
+              <reviews.name>{item.nickName}</reviews.name>
             </reviews.profil>
             <reviews.comment>
               <reviews.img src={bubbleCommentImage}></reviews.img>
-              <reviews.content>{reviewer.content}</reviews.content>
+              <reviews.content>{item.content}</reviews.content>
             </reviews.comment>
           </reviews.reviewblock>
         ))}

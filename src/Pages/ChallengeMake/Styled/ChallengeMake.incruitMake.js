@@ -11,6 +11,7 @@ export const totalWrapper = styled.div`
   margin-top: 30px;
   display: flex;
   align-items: flex-start;
+  margin-top: 100px;
 `;
 export const title = styled.div`
   width: 221px;
@@ -52,7 +53,10 @@ export const subtitle = styled.div`
   justify-content: flex-start;
   border-right: 2px solid gray;
 `;
-export const subcontent = styled.div``;
+export const subcontent = styled.div`
+  display: flex;
+  flex-direction: row;
+`;
 export const subsubcontent = styled.div`
   display: flex;
   flex-direction: column;
@@ -80,4 +84,86 @@ export const teamNumberNotify = styled.div`
   font-size: 9px;
   margin-top: 15px;
   margin-left: 15px;
+`;
+export const teamNumberNotify2 = styled.div`
+  width: 60px;
+  height: 10px;
+  color: #979797;
+  font-size: 9px;
+  margin-top: 25px;
+  margin-left: 8px;
+`;
+export const weekdaysWrapper = styled.div`
+  width: 300px;
+  height: 40px;
+  display:flex;
+  flex-direction column;
+  gap: 3px;
+  margin-left: 130px;
+`;
+export const weekdayButton = styled.div`
+  width: 37px;
+  height: 40px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid gray;
+  cursor: pointer;
+`;
+export const realWrapper2 = styled.div`
+  width: 100%;
+  height: 651px;
+  border-radius: 25px;
+  flex-direction: column;
+  border: 2px solid gray;
+  margin-top: 35px;
+`;
+export const explainTitle = styled.input`
+  width: 90%;
+  height: 50px;
+  margin-top: 10px;
+  font-size: 30px;
+  border: none;
+  outline: none;
+  font-family: 'Pretendard';
+
+  &:focus {
+    border: none;
+    outline: none;
+    font-family: 'Pretendard';
+  }
+`;
+export const explainTitleWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 2px solid gray;
+`;
+
+export const realExplain = styled.textarea`
+  width: 90%;
+  height: 80%;
+  border: none;
+  outline: none;
+  font-size: 20px;
+  margin-top: 10px;
+  color: gray;
+  font-family: 'Pretendard';
+
+  &:focus {
+    border: none;
+    outline: none;
+    color: black;
+    font-family: 'Pretendard';
+  }
+`;
+
+export const explainTextWrapper = styled.div`
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-item: center;
+  justify-content: center;
 `;

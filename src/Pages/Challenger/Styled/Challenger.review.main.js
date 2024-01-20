@@ -53,12 +53,56 @@ export const reviewNumber2 = styled.div`
 `;
 export const textWriting = styled.div`
   width: 802px;
-  height: 117px;
+  height: 243px;
   border-radius: 25px;
   border: 1px solid gray;
-`;
-export const textWritingReal = styled.div`
-  margin: 20px;
   display: flex;
-  flex-direction: flex-start;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
+export const textWritingReal = styled.textarea`
+  width: 95%;
+  height: 90px;
+  margin-top: 10px;
+  font-size: 20px;
+  border: none;
+  outline: none;
+  font-family: 'Pretendard';
+
+  &:focus {
+    border: none;
+    outline: none;
+    font-family: 'Pretendard';
+  }
+`;
+
+export const textUpdateWrapper = styled.div`
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid gray;
+  margin-top: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+`;
+
+export const textUpdateButton = styled.div`
+  width: 63px;
+  height: 30px;
+  border-radius: 20px;
+  border: 1px solid gray;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  color: gray;
+  margin-right: 20px;
+  cursor: pointer;
+`;
+
+export const myprofileWrapper = styled.div`
+  width: 95%;
+  display: flex;
+  justify-content: flex-start;
 `;

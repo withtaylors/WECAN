@@ -1,7 +1,7 @@
-import styled, { css } from "styled-components";
-import { Link } from "react-router-dom";
+import styled, { css } from 'styled-components';
+import { Link } from 'react-router-dom';
 
-export const activeClassName = "active";
+export const activeClassName = 'active';
 
 export const activeStyle = css`
   color: #dd518c;
@@ -86,7 +86,7 @@ export const NavItem = styled.div`
 `;
 
 export const Submenu = styled.div`
-  display: ${(props) => (props.show ? "flex" : "none")};
+  display: ${(props) => (props.show ? 'flex' : 'none')};
   position: absolute;
   top: 100%;
   left: 0;
@@ -102,5 +102,5 @@ export const SubmenuItem = styled.div`
   color: white;
   cursor: pointer;
   margin-right: 50px;
-  font-size: 16px;
+  font-size: 18px;
 `;
