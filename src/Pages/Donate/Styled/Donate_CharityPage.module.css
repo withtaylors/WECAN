@@ -18,9 +18,7 @@
 .charityIcon {
   width: 100px;
   height: auto;
-  border: solid 1.5px #bbbbbb;
-  padding: 20px;
-  margin-left: 0;
+
   border-radius: 8px;
   align-self: flex-end;
 }
@@ -49,4 +47,9 @@
   font-weight: 500;
   color: black;
   align-items: left;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
 }
