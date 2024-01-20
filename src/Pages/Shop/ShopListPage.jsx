@@ -1,11 +1,11 @@
-import classNames from "classnames";
-import Container from "./Container";
-import styles from "./Styled/ShopListPage.module.css";
+import classNames from 'classnames';
+import Container from '../../Components/Container';
+import styles from './Styled/ShopListPage.module.css';
 
 function ShopListPage({
-  variant = "catalog",
-  title = "",
-  description = "",
+  variant = 'catalog',
+  title = '',
+  description = '',
   children,
 }) {
   return (
