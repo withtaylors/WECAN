@@ -30,14 +30,11 @@ function MyFinished() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `${baseURL}/challenge/completed/user/${userId}`,
-          {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-            },
-          }
-        );
+        const response = await axios.get(`${baseURL}/challenge/completed`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        });
         console.log('챌린지 완료 목록 불러오기:', response);
         setChallengeLiked(response.data.data);
         console.log(challengeLiked);

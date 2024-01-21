@@ -65,7 +65,7 @@ const DropdownItem = styled.li`
 
 ////////////////////////////
 
-const DropdownStartDate = ({ onTypeChange }) => {
+const DropdownStartDate = ({ onChange }) => {
   const [isfirstOpen, setIsfirstOpen] = useState(false);
   const [issecondOpen, setIssecondOpen] = useState(false);
   const [isthirdOpen, setIsthirdOpen] = useState(false);
@@ -73,8 +73,18 @@ const DropdownStartDate = ({ onTypeChange }) => {
   const [month, setMonth] = useState();
   const [day, setDay] = useState();
   ///////////////////////////////////////
-  const years = [24, 25, 26, 27, 28, 29, 30];
+  const years = [2024, 2025, 2026, 2027, 2028, 2029, 2030];
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  /////////////////////////////////////////////////////////
+  const formatDate = (year, month, day) => {
+    // 날짜를 두 자릿수로 포맷
+    const formattedMonth = `${month}`.padStart(2, '0');
+    const formattedDay = `${day}`.padStart(2, '0');
+
+    // 문자열로 반환
+    return `${year}-${formattedMonth}-${formattedDay}`;
+  };
+
   const toggleFirstDropdown = () => {
     setIsfirstOpen(!isfirstOpen);
   };
@@ -87,15 +97,23 @@ const DropdownStartDate = ({ onTypeChange }) => {
 
   const handleFirstItemClick = (item) => {
     setYear(item);
-    onTypeChange(year, month, day);
+    const formattedStartDate = formatDate(item, month, day);
+    console.log(formattedStartDate);
+    onChange(formattedStartDate);
   };
+
   const handleSecondItemClick = (item) => {
     setMonth(item);
-    onTypeChange(year, month, day);
+    const formattedStartDate = formatDate(year, item, day);
+    console.log(formattedStartDate);
+    onChange(formattedStartDate);
   };
+
   const handleThirdItemClick = (item) => {
     setDay(item);
-    onTypeChange(year, month, day);
+    const formattedStartDate = formatDate(year, month, item);
+    console.log(formattedStartDate);
+    onChange(formattedStartDate);
   };
 
   return (

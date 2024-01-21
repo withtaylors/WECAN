@@ -1,3 +1,4 @@
+import React from 'react';
 import {
   BrowserRouter as Router,
   Routes,
@@ -45,16 +46,18 @@ function App() {
                 <Route path="/login" element={<Login></Login>} />
                 <Route path="/join" element={<Join></Join>} />
                 <Route path="/" element={<Home />} />
-                <Route path="/recruitment" />
+                <Route path="/recruitment" element={<Recruit></Recruit>} />
                 <Route path="/recruitment/all" element={<Recruit></Recruit>} />
                 <Route path="/recruitment/miracle-morning" />
                 <Route path="/recruitment/exercise" />
                 <Route path="/recruitment/study" />
                 <Route path="/challenge/:id" element={<ChallengeInfo />} />
+
                 <Route
                   path="/challengemake"
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
+
                 <Route path="/recruitment/other" />
                 <Route path="donate">
                   <Route index element={<Donate_CharityListPage />} />

@@ -105,6 +105,10 @@ export const candyButton = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    background-color: #dd518c;
+    color: white;
+  }
 `;
 export const myItemButton = styled.div`
   width: 195px;
@@ -117,4 +121,8 @@ export const myItemButton = styled.div`
   align-items: center;
   justify-content: center;
   cursor: pointer;
+  &:hover {
+    background-color: #dd518c;
+    color: white;
+  }
 `;

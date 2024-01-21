@@ -1,15 +1,15 @@
-import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import { Carousel } from "react-responsive-carousel";
-import styles from "./Styled/Shop_MainPage.module.css";
-import CarouselStyles from "./Styled/carousel.min.css";
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import { Carousel } from 'react-responsive-carousel';
+import styles from './Styled/Shop_MainPage.module.css';
+import CarouselStyles from './Styled/carousel.min.css';
 
-import imageData from "../../Api/data";
-import { getShops } from "../../Api/getter";
+import imageData from '../../Api/shop_banner';
+import { getShops } from '../../Api/getter';
 
-import TopNav from "../TopNav/TopNav.main";
-import ShopListPage from "../../Components/ShopListPage";
-import ShopItem from "../../Components/ShopItem";
+import TopNav from '../TopNav/TopNav.main';
+import ShopListPage from './ShopListPage';
+import ShopItem from '../../Components/ShopItem';
 
 const renderSlides = imageData.map((image) => (
   <div key={image.alt}>
@@ -20,8 +20,8 @@ const renderSlides = imageData.map((image) => (
 const Shop_MainPage = () => {
   const handleKeywordChange = (e) => setKeyword(e.target.value);
   const [searchParam, setSearchParam] = useSearchParams();
-  const initKeyword = searchParam.get("keyword");
-  const [keyword, setKeyword] = useState(initKeyword || "");
+  const initKeyword = searchParam.get('keyword');
+  const [keyword, setKeyword] = useState(initKeyword || '');
   // useState를 사용하여 shop상태와 그 상태를 업데이트하는 함수를 정의
   const shops = getShops(initKeyword); // mock.json에서 가져온 데이터
 
