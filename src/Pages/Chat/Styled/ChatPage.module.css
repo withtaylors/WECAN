@@ -1,5 +1,32 @@
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #f0f0f0;
+}
+
+.leftContainer,
+.chatRoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 600px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.challengeInfo {
+  /* 챌린지 정보 스타일 */
+  margin-bottom: 10px; /* 달력과의 간격 */
+  width: 100%;
+}
+
 .calendarContainer {
-  margin: 100px 200px;
+  margin-right: 20px; /* 캘린더와 채팅룸 사이 간격 */
 }
 
 .chat-room {
@@ -8,6 +35,16 @@
   border-radius: 8px;
   background-color: #f0f0f0;
 }
+/* 
+.chatRoom {
+  width: 25%;
+  height: 50%;
+  overflow-y: auto;
+  padding: 10px;
+  margin-left: 20px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+} */
 
 .message {
   padding: 8px 10px;
@@ -16,6 +53,11 @@
   max-width: 60%;
   word-wrap: break-word;
   line-height: 1.4;
+}
+
+.messagesContainer {
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 .message.mine {
@@ -34,10 +76,11 @@
   padding: 10px;
 }
 
-.input-area {
+.inputArea {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 10px;
+  background-color: #ffffff; /* Set the background color to white */
 }
 
 .input-area input {

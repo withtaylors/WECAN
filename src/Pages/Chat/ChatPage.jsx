@@ -84,14 +84,22 @@ const ChatPage = ({ userId, userNickName }) => {
   };
 
   return (
-    <div className={styles.calendarContainer}>
-      <div>
-        <Calendar
-          onChange={handleDateChange}
-          value={selectedDate}
-          minDate={new Date(data.startDate)}
-          maxDate={today}
-        />
+    <div className={styles.container}>
+      <div className={styles.leftContainer}>
+        <div className={styles.challengeInfo}>
+          <h2>{data.title}</h2>
+          <p>달성률: {data.successRate}%</p>
+          {/* 여기에 다른 챌린지 정보를 추가할 수 있습니다 */}
+        </div>
+        <div className={styles.calendarContainer}>
+          <Calendar
+            onChange={handleDateChange}
+            value={selectedDate}
+            minDate={new Date(data.startDate)}
+            maxDate={today}
+            formatDay={(locale, date) => date.getDate().toString()}
+          />
+        </div>
       </div>
       <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
         <div>
@@ -99,11 +107,11 @@ const ChatPage = ({ userId, userNickName }) => {
           <p>{selectedDate.toDateString()}</p>
         </div>
       </Modal>
-      <div className="chat-room">
-        {/* <h2>{data.title}</h2>
+      <div className={styles.chatRoom}>
+        <h2>{data.title}</h2>
         <p>Start Date: {data.startDate}</p>
         <p>End Date: {data.endDate}</p>
-        <p>Success Rate: {data.successRate}</p> */}
+        <p>Success Rate: {data.successRate}</p>
         <div className={styles.messagesContainer}>
           {messages.map((msg, index) => (
             <div

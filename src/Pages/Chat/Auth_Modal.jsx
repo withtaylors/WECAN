@@ -9,9 +9,9 @@ const Auth_Modal = ({
   onUseCoupon,
   onUploadPhoto,
   onDislikePhoto,
+  messages = [],
 }) => {
   const [image, setImage] = useState(null);
-
   if (!isOpen) return null;
 
   const handleImageChange = (e) => {
@@ -33,34 +33,41 @@ const Auth_Modal = ({
         <button className={styles.closeButton} onClick={onClose}>
           X
         </button>
-        <div className={styles.modalContent}>
-          <div className={styles.dateHeader}>{formatDate(date)}</div>
-          <div className={styles.messageContent}>
-            {couponUsed ? (
-              <div className={styles.couponMessage}>쿠폰 사용완료!</div>
-            ) : (
-              <button className={styles.couponButton} onClick={onUseCoupon}>
-                쿠폰 사용하기
+        <div className={styles.dateHeader}>{formatDate(date)}</div>
+        <div className={styles.photoUploadSection}>
+          {image && (
+            <img src={image} alt="Uploaded" className={styles.uploadedImage} />
+          )}
+          <input type="file" onChange={handleImageChange} />
+        </div>
+        <div className={styles.messagesList}>
+          {messages.map((message, index) => (
+            <div key={index} className={styles.messageItem}>
+              <span>{message.text}</span>
+              <button
+                className={styles.dislikeButton}
+                onClick={() => onDislikePhoto(message.id)}
+              >
+                싫어요
               </button>
-            )}
-            <div className={styles.photoUploadSection}>
-              <input type="file" onChange={handleImageChange} />
-              {image && (
-                <img
-                  src={image}
-                  alt="Uploaded"
-                  className={styles.uploadedImage}
-                />
-              )}
             </div>
-            <button className={styles.dislikeButton} onClick={onDislikePhoto}>
-              싫어요
+          ))}
+        </div>
+        <div className={styles.buttonGroup}>
+          {couponUsed ? (
+            <div className={styles.couponMessage}>쿠폰 사용완료!</div>
+          ) : (
+            <button className={styles.couponButton} onClick={onUseCoupon}>
+              쿠폰 사용하기
             </button>
-          </div>
+          )}
+          <label htmlFor="upload" className={styles.uploadLabel}>
+            사진 업로드하기
+          </label>
+          <input type="file" id="upload" hidden onChange={handleImageChange} />
         </div>
       </div>
     </div>
   );
 };
-
 export default Auth_Modal;
