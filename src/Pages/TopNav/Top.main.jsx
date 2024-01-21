@@ -3,7 +3,6 @@ import { useNavigate } from 'react-router-dom';
 import * as TopS from './Styled/Top.main.styles';
 import { useRecoilValue, useSetRecoilState } from 'recoil';
 import TopNav from './TopNav.main';
-import Nav from './NavigationBar';
 import Logosrc from '../../Assets/img/Logo.png';
 
 function Top() {
@@ -48,6 +47,16 @@ function Top() {
           ) : (
             <div>토큰 만료</div>
           )}
+          <TopS.User>
+            <TopS.RealName>위캔두</TopS.RealName>님 환영합니다
+          </TopS.User>
+          <TopS.LogInOut
+            onClick={(e) => {
+              NavClick(e, '/login');
+            }}
+          >
+            로그인/회원가입
+          </TopS.LogInOut>
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
     </TopS.TopWrapper>

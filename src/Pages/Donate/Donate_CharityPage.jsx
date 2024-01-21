@@ -5,6 +5,7 @@ import Container from "../../Components/Container";
 import Card2 from "../../Components/Card2";
 import CharityIcon from "../../Components/CharityIcon";
 import CharityLink from "../../Components/CharityLink";
+import TopNav from "../../Pages/TopNav/TopNav.main";
 
 function Donate_CharityPage() {
   const { charitySlug } = useParams();
@@ -20,6 +21,9 @@ function Donate_CharityPage() {
 
   return (
     <>
+      <div className={styles.center}>
+        <TopNav></TopNav>
+      </div>
       <div className={styles.header}>
         <Container className={styles.content}>
           <h1 className={styles.title}>{charity.title}</h1>
