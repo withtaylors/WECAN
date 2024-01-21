@@ -61,7 +61,7 @@ const DropdownItem = styled.li`
 `;
 ////////////////////////////
 
-const DropdownPaymenttype = ({ onTypeChange }) => {
+const DropdownPaymenttype = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [paymentType, setPaymentType] = useState();
 
@@ -72,7 +72,7 @@ const DropdownPaymenttype = ({ onTypeChange }) => {
   const handleItemClick = (item) => {
     console.log(`Selected item: ${item}`);
     setPaymentType(item);
-    onTypeChange(item);
+    onChange(item);
   };
 
   const arraychallengetype = {

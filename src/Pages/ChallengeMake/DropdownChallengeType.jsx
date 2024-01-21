@@ -61,7 +61,7 @@ const DropdownItem = styled.li`
 `;
 ////////////////////////////
 
-const Dropdowntype = ({ onTypeChange }) => {
+const Dropdowntype = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [type, setType] = useState();
 
@@ -72,7 +72,7 @@ const Dropdowntype = ({ onTypeChange }) => {
   const handleItemClick = (item) => {
     console.log(`Selected item: ${item}`);
     setType(item);
-    onTypeChange(item);
+    onChange(item);
   };
 
   const arraychallengetype = {

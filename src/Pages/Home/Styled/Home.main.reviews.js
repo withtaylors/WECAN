@@ -67,15 +67,16 @@ export const thirdblock = styled.div`
   margin-top: 20px;
 `;
 export const buttoninfo = styled.div`
-  height: 20px;
+  height: 10px;
   width: 100px;
   height: 41px;
   background-color: white;
   color: #dd518c;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 30px;
-  border: 0.5px solid gray;
+  border: 1px solid #cacbd3;
+  cursor: pointer;
 `;

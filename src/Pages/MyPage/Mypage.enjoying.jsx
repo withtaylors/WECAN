@@ -30,14 +30,11 @@ function MyEnjoying() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `${baseURL}/challenge/active/user/${userId}`,
-          {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-            },
-          }
-        );
+        const response = await axios.get(`${baseURL}/challenge/active`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        });
         console.log('챌린지 참여중 목록 불러오기:', response);
         setChallengeLiked(response.data.data);
         console.log('참여중:', challengeLiked);

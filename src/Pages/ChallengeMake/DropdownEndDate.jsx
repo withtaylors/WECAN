@@ -65,16 +65,25 @@ const DropdownItem = styled.li`
 
 ////////////////////////////
 
-const DropdownEndDate = ({ onTypeChange }) => {
+const DropdownEndDate = ({ onChange }) => {
   const [isfirstOpen, setIsfirstOpen] = useState(false);
   const [issecondOpen, setIssecondOpen] = useState(false);
   const [isthirdOpen, setIsthirdOpen] = useState(false);
-  const [endyear, setEndYear] = useState();
-  const [endmonth, setEndMonth] = useState();
-  const [endday, setEndDay] = useState();
+  const [year, setYear] = useState();
+  const [month, setMonth] = useState();
+  const [day, setDay] = useState();
   ///////////////////////////////////////
-  const years = [24, 25, 26, 27, 28, 29, 30];
+  const years = [2024, 2025, 2026, 2027, 2028, 2029, 2030];
   const months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  ///////////////////////////////////////////////////////
+  const formatDate = (year, month, day) => {
+    // 날짜를 두 자릿수로 포맷
+    const formattedMonth = `${month}`.padStart(2, '0');
+    const formattedDay = `${day}`.padStart(2, '0');
+
+    // 문자열로 반환
+    return `${year}-${formattedMonth}-${formattedDay}`;
+  };
   const toggleFirstDropdown = () => {
     setIsfirstOpen(!isfirstOpen);
   };
@@ -86,24 +95,31 @@ const DropdownEndDate = ({ onTypeChange }) => {
   };
 
   const handleFirstItemClick = (item) => {
-    setEndYear(item);
-    onTypeChange(endyear, endmonth, endday);
+    setYear(item);
+    const formattedEndDate = formatDate(item, month, day);
+    console.log(formattedEndDate);
+    onChange(formattedEndDate);
   };
+
   const handleSecondItemClick = (item) => {
-    setEndMonth(item);
-    onTypeChange(endyear, endmonth, endday);
+    setMonth(item);
+    const formattedEndDate = formatDate(year, item, day);
+    console.log(formattedEndDate);
+    onChange(formattedEndDate);
   };
+
   const handleThirdItemClick = (item) => {
-    setEndDay(item);
-    onTypeChange(endyear, endmonth, endday);
+    setDay(item);
+    const formattedEndDate = formatDate(year, month, item);
+    console.log(formattedEndDate);
+    onChange(formattedEndDate);
   };
-  
 
   return (
     <DropdownTotalContainer>
       <DropdownContainer onClick={toggleFirstDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{endyear}년</ToggleButtontitle>
+          <ToggleButtontitle>{year}년</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={isfirstOpen}>
@@ -116,7 +132,7 @@ const DropdownEndDate = ({ onTypeChange }) => {
       </DropdownContainer>
       <DropdownContainer onClick={toggleSecondDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{endmonth}월</ToggleButtontitle>
+          <ToggleButtontitle>{month}월</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={issecondOpen}>
@@ -129,7 +145,7 @@ const DropdownEndDate = ({ onTypeChange }) => {
       </DropdownContainer>
       <DropdownContainer onClick={toggleThirdDropdown}>
         <ToggleButton>
-          <ToggleButtontitle>{endday}일</ToggleButtontitle>
+          <ToggleButtontitle>{day}일</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
         </ToggleButton>
         <DropdownMenu isOpen={isthirdOpen}>
