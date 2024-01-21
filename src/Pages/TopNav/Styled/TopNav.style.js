@@ -17,7 +17,7 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
-  height: 40px;
+
   border-bottom: 4px solid transparent;
   padding-bottom: 23px;
   padding-left: 20px; /* 왼쪽 패딩 추가 */
@@ -64,7 +64,6 @@ export const NavWrapper = styled.div`
   justify-content: center;
   height: 50px;
   width: 896px;
-  height: 70px;
   z-index: 50;
   gap: 10px;
   border-style: solid;
