@@ -27,7 +27,6 @@ import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 
-import ReviewPage from './Pages/Review/ReviewPage';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
@@ -78,7 +77,6 @@ function App() {
             </div>
             <ConditionalFooter />
           </QueryClientProvider>
-          >>>>>>> d368b90e88ed5aeedf8d7ad604a14d5eb9fcec59 >>>>>>> main
         </div>
       </Router>
     </RecoilRoot>

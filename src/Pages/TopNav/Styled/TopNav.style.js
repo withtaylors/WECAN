@@ -17,7 +17,7 @@ export const ActiveLink = styled(Link).attrs({
 })`
   text-decoration: none;
   color: black;
-
+  height: 40px;
   border-bottom: 4px solid transparent;
   padding-bottom: 23px;
   padding-left: 20px; /* 왼쪽 패딩 추가 */

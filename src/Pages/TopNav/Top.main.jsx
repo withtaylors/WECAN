@@ -47,16 +47,6 @@ function Top() {
           ) : (
             <div>토큰 만료</div>
           )}
-          <TopS.User>
-            <TopS.RealName>위캔두</TopS.RealName>님 환영합니다
-          </TopS.User>
-          <TopS.LogInOut
-            onClick={(e) => {
-              NavClick(e, '/login');
-            }}
-          >
-            로그인/회원가입
-          </TopS.LogInOut>
         </TopS.TopInfoWrapper>
       </TopS.TopContentWrapper>
     </TopS.TopWrapper>
