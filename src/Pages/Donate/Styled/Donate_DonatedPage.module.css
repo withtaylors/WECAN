@@ -2,7 +2,8 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   column-gap: 30px;
-  row-gap: 100px;
+  align-items: start;
+  grid-auto-rows: auto; /* 각 행의 높이를 그리드 아이템의 높이에 따라 자동으로 설정 */
 }
 
 @media (max-width: 840px) {

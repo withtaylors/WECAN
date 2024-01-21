@@ -8,7 +8,8 @@ import DropdownPaymentType from './DropdownPaymentType.jsx';
 import DropdownStartDate from './DropdownStartDate.jsx';
 import DropdownEndDate from './DropdownEndDate.jsx';
 import DropdownDonateField from './DropdownDonateField.jsx';
-function ChallengeIncruitMake() {
+function ChallengeIncruitMake({ onUpdateSelectedValues }) {
+  /////////////////////////////////////////////////////////
   const [selectedType, setSelectedType] = useState();
   const [selectedYear, setSelectedYear] = useState();
   const [selectedMonth, setSelectedMonth] = useState();
@@ -17,6 +18,10 @@ function ChallengeIncruitMake() {
   const [selectedfDonatefield, setSelectedDonateField] = useState();
   const [selectedDonateName, setSelectedDonateName] = useState();
   const [teamNumber, setTeamNumber] = useState(5);
+  const [candyNumber, setCandyNumber] = useState(5);
+  const [selectedWeekday, setSelectedWeekday] = useState();
+  const [inputTeamNumber, setInputTeamNumber] = useState(''); // 입력값을 받기 위한 state
+  const [inputCandyNumber, setInputCandyNumber] = useState(''); // 입력값을 받기 위한 state
   // Dropdowntype 컴포넌트에서 선택한 유형을 처리하는 함수
   const handleTypeChange = (type) => {
     setSelectedType(type);
@@ -30,7 +35,7 @@ function ChallengeIncruitMake() {
   const handlePaymentChange = (payment) => {
     setSelectedPayment(payment);
   };
-  const [inputTeamNumber, setInputTeamNumber] = useState(''); // 입력값을 받기 위한 state
+
   const handleStartDateChange = (year, month, day) => {
     setSelectedYear(year);
     setSelectedMonth(month);
@@ -48,6 +53,38 @@ function ChallengeIncruitMake() {
       setTeamNumber(parseInt(inputTeamNumber, 10));
     }
   };
+
+  const handleSetWeekdayChange = (weekday) => {
+    setSelectedWeekday(weekday);
+  };
+
+  const weekdays = ['월', '화', '수', '목', '금', '토', '일'];
+
+  const handleSetCandyNumber = () => {
+    if (inputCandyNumber !== '') {
+      setCandyNumber(parseInt(inputCandyNumber, 10));
+    }
+  };
+  const handleInputCandyNumberChange = (event) => {
+    const value = event.target.value;
+    // 숫자만 입력되도록 제한
+    if (/^[0-9]*$/.test(value)) {
+      setInputCandyNumber(value);
+    }
+  };
+
+  const selectedValues = [
+    selectedType,
+    selectedPayment,
+    selectedfDonatefield,
+    selectedDonateName,
+    teamNumber,
+    selectedWeekday,
+    candyNumber,
+  ];
+  useEffect(() => {
+    onUpdateSelectedValues(selectedValues);
+  }, [selectedValues, onUpdateSelectedValues]);
 
   return (
     <chgincruit.totalWrapper>
@@ -115,13 +152,36 @@ function ChallengeIncruitMake() {
         </chgincruit.contentlineWrapper>
         <chgincruit.contentlineWrapper>
           <chgincruit.subtitle>챌린지 인증 요일</chgincruit.subtitle>
-          <chgincruit.subcontent></chgincruit.subcontent>
+          <chgincruit.subcontent>
+            <chgincruit.weekdaysWrapper>
+              {weekdays.map((weekday) => (
+                <chgincruit.weekdayButton
+                  key={weekday} // React에서 반복 요소에는 key 속성을 제공해야 합니다.
+                  onClick={() => handleSetWeekdayChange(`${weekday}`)}
+                >
+                  {weekday}
+                </chgincruit.weekdayButton>
+              ))}
+            </chgincruit.weekdaysWrapper>
+            <chgincruit.teamNumberNotify2>
+              *중복 선택 가능
+            </chgincruit.teamNumberNotify2>
+          </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
         <chgincruit.contentlineWrapper>
           <chgincruit.subtitle>벌금 선택하기</chgincruit.subtitle>
           <chgincruit.subcontent>
             <chgincruit.teamNumberWrapper>
-              캔디<chgincruit.teamNumber></chgincruit.teamNumber>개
+              <label>
+                캔디
+                <chgincruit.teamNumber
+                  type='text'
+                  value={inputCandyNumber}
+                  onChange={handleInputCandyNumberChange}
+                ></chgincruit.teamNumber>
+                개
+              </label>
+              <button onClick={handleSetCandyNumber}>설정</button>
             </chgincruit.teamNumberWrapper>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
@@ -143,11 +203,9 @@ function ChallengeIncruitMake() {
           </chgincruit.subsubcontent>
         </chgincruit.contentlineWrapper2>
       </chgincruit.realWrapper>
-      {selectedType}
-      {selectedPayment}
-      {selectedfDonatefield}
-      {selectedDonateName}
-      {teamNumber}
+      {selectedValues.map((value, index) => (
+        <div key={index}>{value}</div>
+      ))}
     </chgincruit.totalWrapper>
   );
 }

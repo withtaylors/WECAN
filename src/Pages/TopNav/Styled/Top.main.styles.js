@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import * as tokens from "../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../tokens';
 
 // width: 100vw;
 // height: 94px;
@@ -31,11 +31,11 @@ export const TopContentWrapper = styled.div`
   padding-top: 20px;
 `;
 export const TopLogo = styled.img`
-  width: 207px;
-  margin-left: 10vw;
+  width: 200px;
   text-align: left;
   cursor: pointer;
   color: #dd518c;
+  margin-left: 200px;
 
   ${tokens.typography.display_1};
 `;
@@ -45,7 +45,7 @@ export const TopInfoWrapper = styled.span`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-right: 10vw;
+  margin-right: 200px;
 
   ${tokens.typography.s_title};
 `;

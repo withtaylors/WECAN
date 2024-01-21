@@ -38,12 +38,14 @@ export const profil = styled.div`
   width: 83px;
 `;
 export const name = styled.div`
-  font-size: 10px;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
-export const photo = styled.div`
+export const photo = styled.img`
   height: 84px;
   width: 83px;
-  background-color: gray;
   border-radius: 50%;
 `;
 export const comment = styled.div`
@@ -56,6 +58,7 @@ export const content = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   font-size: 20px;
+  width: 90%;
 `;
 export const thirdblock = styled.div`
   display: flex;

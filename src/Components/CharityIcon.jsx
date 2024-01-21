@@ -1,52 +1,44 @@
 import classNames from "classnames";
-import algorithm from "../Assets/icon--algorithm.svg";
-import automation from "../Assets/icon--automation.svg";
-import computerArchitecture from "../Assets/icon--computer-architecture.svg";
-import dataScience from "../Assets/icon--data-science.svg";
-import deepLearning from "../Assets/icon--deep-learning.svg";
-import defaultIcon from "../Assets/icon--default.svg";
-import django from "../Assets/icon--django.svg";
-import ds from "../Assets/icon--ds.svg";
-import fourthRevolution from "../Assets/icon--fourth-revolution.svg";
-import git from "../Assets/icon--git.svg";
-import introToComputer from "../Assets/icon--intro-to-computer.svg";
-import java from "../Assets/icon--java.svg";
-import jquery from "../Assets/icon--jquery.svg";
-import js from "../Assets/icon--js.svg";
-import machineLearning from "../Assets/icon--machine-learning.svg";
-import nodeJs from "../Assets/icon--node-js.svg";
-import oop from "../Assets/icon--oop.svg";
-import python from "../Assets/icon--python.svg";
-import react from "../Assets/icon--react.svg";
-import sql from "../Assets/icon--sql.svg";
-import unix from "../Assets/icon--unix.svg";
-import webPublishing from "../Assets/icon--web-publishing.svg";
-
 import styles from "./Styled/CharityIcon.module.css";
 
+import img1 from "../Assets/img/donation/1.png";
+import img2 from "../Assets/img/donation/2.png";
+import img3 from "../Assets/img/donation/3.png";
+import img4 from "../Assets/img/donation/4.png";
+import img5 from "../Assets/img/donation/5.png";
+import img6 from "../Assets/img/donation/6.png";
+import img7 from "../Assets/img/donation/7.png";
+import img8 from "../Assets/img/donation/8.png";
+import img9 from "../Assets/img/donation/9.png";
+import img10 from "../Assets/img/donation/10.png";
+import img11 from "../Assets/img/donation/11.png";
+import img12 from "../Assets/img/donation/12.png";
+import img13 from "../Assets/img/donation/13.png";
+import img14 from "../Assets/img/donation/14.png";
+import img15 from "../Assets/img/donation/15.png";
+import img16 from "../Assets/img/donation/16.png";
+import img17 from "../Assets/img/donation/17.png";
+import img18 from "../Assets/img/donation/18.png";
+
 const ICONS = {
-  algorithm: algorithm,
-  automation: automation,
-  "computer-architecture": computerArchitecture,
-  "data-science": dataScience,
-  "deep-learning": deepLearning,
-  default: defaultIcon,
-  django: django,
-  ds: ds,
-  "fourth-revolution": fourthRevolution,
-  git: git,
-  "intro-to-computer": introToComputer,
-  java: java,
-  jquery: jquery,
-  js: js,
-  "machine-learning": machineLearning,
-  "node-js": nodeJs,
-  oop: oop,
-  python: python,
-  react: react,
-  sql: sql,
-  unix: unix,
-  "web-publishing": webPublishing,
+  img1: img1,
+  img2: img2,
+  img3: img3,
+  img4: img4,
+  img5: img5,
+  img6: img6,
+  img7: img7,
+  img8: img8,
+  img9: img9,
+  img10: img10,
+  img11: img11,
+  img12: img12,
+  img13: img13,
+  img14: img14,
+  img15: img15,
+  img16: img16,
+  img17: img17,
+  img18: img18,
 };
 
 function CharityIcon({ className, photoUrl = "default" }) {
