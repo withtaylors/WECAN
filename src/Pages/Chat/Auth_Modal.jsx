@@ -10,20 +10,20 @@ const Auth_Modal = ({
   onUploadPhoto,
   onDislikePhoto,
 }) => {
-  const [image, setImage] = useState(null); // State to hold the uploaded image
+  const [image, setImage] = useState(null);
 
   if (!isOpen) return null;
 
   const handleImageChange = (e) => {
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
-      setImage(URL.createObjectURL(img)); // Set image URL for preview
-      onUploadPhoto(img); // Call the upload photo function
+      setImage(URL.createObjectURL(img));
+      onUploadPhoto(img);
     }
   };
 
   const formatDate = (date) => {
-    // Format the date as '1월 27일'
+    if (!date) return '';
     return `${date.getMonth() + 1}월 ${date.getDate()}일`;
   };
 

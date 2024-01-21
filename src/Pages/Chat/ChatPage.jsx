@@ -14,7 +14,7 @@ const ChatPage = ({ userId, userNickName }) => {
     startDate: '',
     endDate: '',
     successRate: '',
-    chattingRoomId: null,
+    chattingRoomId: 13,
     chattingList: [],
   });
 
@@ -65,9 +65,9 @@ const ChatPage = ({ userId, userNickName }) => {
 
       const chatMessage = {
         type: 'TALK',
-        roomId: data.chattingRoomId,
-        userId: userId,
-        nickName: userNickName,
+        roomId: 13,
+        userId: 3,
+        nickName: '수진',
         message: inputMessage,
         time: currentTime,
       };
@@ -84,8 +84,8 @@ const ChatPage = ({ userId, userNickName }) => {
   };
 
   return (
-    <div>
-      <div className={styles.calendarContainer}>
+    <div className={styles.calendarContainer}>
+      <div>
         <Calendar
           onChange={handleDateChange}
           value={selectedDate}
@@ -93,17 +93,17 @@ const ChatPage = ({ userId, userNickName }) => {
           maxDate={today}
         />
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
         <div>
           <h3>Selected Date</h3>
           <p>{selectedDate.toDateString()}</p>
         </div>
       </Modal>
       <div className="chat-room">
-        <h2>{data.title}</h2>
+        {/* <h2>{data.title}</h2>
         <p>Start Date: {data.startDate}</p>
         <p>End Date: {data.endDate}</p>
-        <p>Success Rate: {data.successRate}</p>
+        <p>Success Rate: {data.successRate}</p> */}
         <div className={styles.messagesContainer}>
           {messages.map((msg, index) => (
             <div
