@@ -29,13 +29,13 @@ export const title = styled.div`
   align-context: start;
 `;
 export const buttoncruiting = styled.div`
-  height: 45px;
-  width: 200px;
+  height: 30px;
+  width: 173px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #dd518c;
-  font-size: 18px;
+  font-size: 21px;
   font-weight: bold;
   margin-left: 350px;
   padding: 10px;
@@ -44,6 +44,7 @@ export const buttoncruiting = styled.div`
   border-width: 2px;
   border-radius: 30px;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
 `;
 export const secondblock = styled.div`
   display: flex;

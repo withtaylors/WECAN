@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import * as challenger from './Styled/Challenger.main';
 import TopNav from '../TopNav/TopNav.main';
 import ChallengeReview from '../Challenger/Challenger.reveiw.main';
-
+import axios from 'axios';
 function ChallengeInfo() {
   const array11 = [
     {
@@ -69,32 +69,63 @@ function ChallengeInfo() {
   ];
   const { id } = useParams();
   const [product, setProduct] = useState(array11[0]);
+  const baseURL = 'http://3.35.3.205:8080';
 
+  /////////////////////////////////////////////////
+  const [loading, setLoading] = useState(false);
+  const [challengeInfo, setChallengeInfo] = useState([]);
   useEffect(() => {
+    const fetchChallengeInfo = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${baseURL}/recruit/${id}`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        });
+        console.log('해당 챌린지 정보:', response);
+        setChallengeInfo(response.data.data);
+        console.log(challengeInfo);
+      } catch (error) {
+        console.error('챌린지 정보를 가져오는데 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChallengeInfo();
+  }, []);
+  /////////////////////////////////
+
+  /*useEffect(() => {
     // id에 해당하는 제품을 찾아서 상태를 업데이트
-    const selectedProduct = array11.find(
+    const selectedProduct = challengeInfo.find(
       (item) => item.id === parseInt(id, 10)
     );
     setProduct(selectedProduct || {});
   }, [id]);
-  console.log(product);
+  console.log(product);*/
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
   };
+  ///////////////////////////////////////
+  console.log(challengeInfo);
   return (
     <challenger.totalWrapper>
       <TopNav></TopNav>
       <challenger.InfoWrapper>
         <challenger.topInfoWrapper>
-          <challenger.firstPicture></challenger.firstPicture>
+          <challenger.firstPicture
+            src={challengeInfo.coverImage}
+          ></challenger.firstPicture>
           <challenger.realInfoWrapper>
-            <challenger.infoType>{product.type}</challenger.infoType>
-            <challenger.infoTitle>{product.title}</challenger.infoTitle>
+            <challenger.infoType>{challengeInfo.type}</challenger.infoType>
+            <challenger.infoTitle>{challengeInfo.title}</challenger.infoTitle>
             <challenger.infoJoinRate>
               <challenger.infoJoinRateNumber>
-                최소 인원수 {product.leastnumber}명
+                최소 인원수 {challengeInfo.minPeople}명
               </challenger.infoJoinRateNumber>
               <challenger.infoJoinRateBar></challenger.infoJoinRateBar>
             </challenger.infoJoinRate>
@@ -107,7 +138,7 @@ function ChallengeInfo() {
         </challenger.topInfoWrapper>
         <challenger.infoExplain>
           <challenger.infoExplainContext>
-            {product.text}
+            {challengeInfo.content}
           </challenger.infoExplainContext>
         </challenger.infoExplain>
       </challenger.InfoWrapper>

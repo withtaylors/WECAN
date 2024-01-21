@@ -1,0 +1,20 @@
+[
+  {
+    "id": 1,
+    "user": "Alice",
+    "message": "안녕하세요!",
+    "timestamp": "2024-01-18T10:00:00Z"
+  },
+  {
+    "id": 2,
+    "user": "Bob",
+    "message": "안녕하세요, Alice!",
+    "timestamp": "2024-01-18T10:05:00Z"
+  },
+  {
+    "id": 3,
+    "user": "Alice",
+    "message": "오늘 날짜의 채팅 데이터 예제입니다.",
+    "timestamp": "2024-01-18T10:10:00Z"
+  }
+]

@@ -103,5 +103,5 @@ export const SubmenuItem = styled.div`
   color: white;
   cursor: pointer;
   margin-right: 50px;
-  font-size: 16px;
+  font-size: 18px;
 `;

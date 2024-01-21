@@ -1,0 +1,62 @@
+.calendarContainer {
+  margin: 100px 200px;
+}
+
+.chat-room {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
+  background-color: #f0f0f0;
+}
+
+.message {
+  padding: 8px 10px;
+  margin-bottom: 4px;
+  border-radius: 15px;
+  max-width: 60%;
+  word-wrap: break-word;
+  line-height: 1.4;
+}
+
+.message.mine {
+  background-color: #dcf8c6;
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.message-nickName {
+  font-weight: bold;
+}
+
+.messages-container {
+  overflow-y: auto;
+  height: 300px;
+  padding: 10px;
+}
+
+.input-area {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.input-area input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.input-area button {
+  padding: 10px 15px;
+  background-color: #34b7f1;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.input-area button:hover {
+  background-color: #2aabd2;
+}

@@ -23,7 +23,7 @@ export const topInfoWrapper = styled.div`
   flex-direction: row;
 `;
 
-export const firstPicture = styled.div`
+export const firstPicture = styled.img`
   width: 390px;
   height: 287px;
   border-radius: 25px;

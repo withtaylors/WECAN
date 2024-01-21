@@ -1,17 +1,24 @@
-import React, { useState } from "react";
-import styles from "./Styled/TabButton.module.css"; // CSS 모듈 import
+import styles from "./Styled/TabButton.module.css";
+
+import earthImage from "../Assets/img/donation/earth.png";
+import oldImage from "../Assets/img/donation/old.png";
+import dsImage from "../Assets/img/donation/ds.png";
+import pplImage from "../Assets/img/donation/ppl.png";
+import babyImage from "../Assets/img/donation/baby.png";
+import greenImage from "../Assets/img/donation/green.png";
+import animalImage from "../Assets/img/donation/animal.png";
 
 const TabButton = ({ activeTab, onTabChange }) => {
   const tabs = [
-    { id: "tab1", name: "전체" },
-    { id: "tab2", name: "지구촌" },
-    { id: "tab3", name: "어르신" },
-    { id: "tab4", name: "장애인" },
-    { id: "tab5", name: "다문화" },
-    { id: "tab6", name: "아동/청소년" },
-    { id: "tab7", name: "환경" },
-    { id: "tab8", name: "동물" },
-    { id: "tab9", name: "기타" },
+    { id: "tab1", name: "전체", image: "" },
+    { id: "tab2", name: "지구촌", image: earthImage },
+    { id: "tab3", name: "어르신", image: oldImage },
+    { id: "tab4", name: "장애인", image: dsImage },
+    { id: "tab5", name: "다문화", image: pplImage },
+    { id: "tab6", name: "아동/청소년", image: babyImage },
+    { id: "tab7", name: "환경", image: greenImage },
+    { id: "tab8", name: "동물", image: animalImage },
+    { id: "tab9", name: "기타", image: "" },
   ];
 
   return (
@@ -24,7 +31,8 @@ const TabButton = ({ activeTab, onTabChange }) => {
           }`}
           onClick={() => onTabChange(tab.id)}
         >
-          <span className={styles.circleIcon}></span> {tab.name}
+          {tab.image && <img src={tab.image} className={styles.icon} />}
+          {tab.name}
         </button>
       ))}
     </div>

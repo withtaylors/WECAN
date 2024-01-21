@@ -1,25 +1,24 @@
-import styled from "styled-components";
-import * as tokens from "../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../tokens';
 
 export const TotalWrapper = styled.div`
   width: 100%;
-  height: auto;
+  height: 2500px;
+  padding-top: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 150px;
 `;
 export const TotalCardsWrapper = styled.div`
-  width: 930px;
-  height: auto;
-  padding-top: 100px;
+  width: 1440px;
+  height: 1600px;
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
-  gap: 10px;
+
 
   /* 모든 하이퍼링크에 대한 스타일 정의 */
   a {
@@ -32,9 +31,8 @@ export const TotalCardsWrapper = styled.div`
     }
 `;
 export const SortContainer = styled.div`
-  width: 930px;
+  width: 1170px;
   height: 50px;
-  background-color: white;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -44,9 +42,10 @@ export const SortContainer = styled.div`
 
 export const SortText = styled.div`
   font-size: 16px;
-  color: ${(props) => (props.selected ? "#DD518C" : "black")};
+  color: ${(props) => (props.selected ? '#DD518C' : 'black')};
 
   padding: 5px;
+  cursor: pointer;
 `;
 export const TotalTopWrapper = styled.div`
   width: 100%;
@@ -58,11 +57,11 @@ export const TotalTopWrapper = styled.div`
   margin-top: 100px;
 `;
 export const Title = styled.div`
-  font-size: 30px;
-  font-weight: medium;
+  font-size: 35px;
+  font-weight: bold;
 `;
 export const SearchWrapper = styled.div`
-  width: 738px;
+  width: 1000px;
   height: 49px;
   display: flex;
   align-items: center;
@@ -75,7 +74,7 @@ export const SearchWrapper = styled.div`
 
 export const SearchInputBox = styled.input`
   font-family: Pretendard;
-  width: 670px;
+  width: 900px;
   height: 27px;
   margin-top: 13px;
   margin-left: 10px;
@@ -88,6 +87,7 @@ export const SearchInputBox = styled.input`
 export const SearchInputIcon = styled.img`
   width: 30px;
   height: 30px;
+  cursor: pointer;
 `;
 
 export const PaginationWrapper = styled.div`
@@ -119,7 +119,11 @@ export const PaginationNumber = styled.div`
 `;
 export const CategoryCardcontainer = styled.div``;
 
-export const center = styled.div`
-  display: flex;
-  justify-content: center;
+export const ChallengeMakeButton = styled.img`
+  width: 95px;
+  height: 95px;
+  border-radius: 50%;
+  position: fixed;
+  top: 600px;
+  right: 200px;
 `;

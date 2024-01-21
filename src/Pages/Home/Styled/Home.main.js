@@ -1,9 +1,9 @@
-import styled from "styled-components";
-import * as tokens from "../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../tokens';
 
 export const CategoryWrapper = styled.div`
   width: 100%;
-  height: auto;
+  height: 100%;
   display: flex;
   justify-content: flex-start;
   align-items: center;
@@ -26,7 +26,7 @@ export const LinkWrapper = styled.div`
   margin-left: 1300px;
   width: 120px;
   ${(props) =>
-    props.type === "store"
+    props.type === 'store'
       ? `
 			top: 1600px;`
       : `
@@ -38,7 +38,7 @@ export const LinkSpan = styled.span`
   font-family: Pretendard;
   color: #666666;
   ${(props) =>
-    props.type === "more"
+    props.type === 'more'
       ? `
 				width: 90px;
 				height: 24px;
@@ -55,5 +55,5 @@ export const Banner = styled.div`
   height: 318px;
   background-color: #eaeaea;
   margin-bottom: 64px;
-  margin-top: 50px;
+  margin-top: 30px;
 `;

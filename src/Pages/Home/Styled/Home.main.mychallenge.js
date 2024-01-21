@@ -8,6 +8,7 @@ export const totalWrapper = styled.div`
   width: 890px;
   gap: 10px;
   margin-bottom: 65px;
+  margin-top: 65px;
 `;
 export const title = styled.div`
   font-size: 24px;
