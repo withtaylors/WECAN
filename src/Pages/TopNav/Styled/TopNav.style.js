@@ -64,7 +64,10 @@ export const NavWrapper = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 70px;
+
+  height: 50px;
+  width: 896px;
+
   z-index: 50;
   gap: 10px;
   border-style: solid;
@@ -79,9 +82,11 @@ export const NavItem = styled.div`
   margin-left: 40px;
   margin-right: 40px;
   font-size: 20px;
+
   font-weight: bold;
   height: 70px;
   width: 200px;
+
   display: flex;
   justify-content: center;
   align-items: center;
@@ -93,7 +98,9 @@ export const Submenu = styled.div`
   top: 100%;
   left: 0;
   width: max-content;
+
   height: 70px;
+
   justify-content: center;
   align-items: center;
   flex-direction: row;

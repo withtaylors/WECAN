@@ -28,6 +28,9 @@ import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 
 import ReviewPage from './Pages/Review/ReviewPage';
+
+import ChatPage from './Pages/Chat/ChatPage';
+
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
@@ -52,10 +55,13 @@ function App() {
                 <Route path='/recruitment/exercise' />
                 <Route path='/recruitment/study' />
                 <Route path='/challenge/:id' element={<ChallengeInfo />} />
+
                 <Route
                   path='/challengemake'
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
+
+                <Route path='/recruitment/other' />
                 <Route path='donate'>
                   <Route index element={<Donate_CharityListPage />} />
                   <Route path=':charitySlug' element={<Donate_CharityPage />} />
@@ -68,17 +74,20 @@ function App() {
                   <Route index element={<Shop_MainPage />} />
                   <Route path=':shopSlug' element={<Shop_DetailPage />} />
                 </Route>
+
                 <Route path='/mypage' element={<Mypage></Mypage>} />
                 <Route
                   path='/mypage/infochange'
                   element={<InfoChange></InfoChange>}
                 />
+
+                <Route path='/chat' element={<ChatPage />} />
+
                 <Route path='*' element={<NotFoundPage />} />
               </Routes>
             </div>
             <ConditionalFooter />
           </QueryClientProvider>
-          >>>>>>> d368b90e88ed5aeedf8d7ad604a14d5eb9fcec59 >>>>>>> main
         </div>
       </Router>
     </RecoilRoot>

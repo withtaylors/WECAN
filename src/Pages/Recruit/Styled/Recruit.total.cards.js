@@ -3,18 +3,17 @@ import * as tokens from '../../tokens';
 
 export const TotalWrapper = styled.div`
   width: 100%;
-  height: auto;
+  height: 2500px;
+  padding-top: 100px;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
-  margin-bottom: 150px;
 `;
 export const TotalCardsWrapper = styled.div`
 
   width: 1440px;
-  height: auto;
-  padding-top: 100px;
+  height: 1600px;
 
   display: flex;
   justify-content: center;

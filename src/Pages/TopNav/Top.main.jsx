@@ -11,6 +11,7 @@ function Top() {
     e.preventDefault();
     navigate(`${type}`);
   };
+
   const userName = localStorage.getItem('user-name');
   const token = localStorage.getItem('login-token');
   const [isTokenValid, setIsTokenValid] = useState(true);
