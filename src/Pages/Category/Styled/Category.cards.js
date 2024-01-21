@@ -12,6 +12,9 @@ export const CardWrapper = styled.div`
   background-color: white;
   margin: 12px;
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+  &:hover {
+    background-color: #dd518c;
+  }
 `;
 export const DonationWrapper = styled.div`
   width: 275px;

@@ -10,15 +10,15 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
   const [title, setTitle] = useState('');
   const [file, setFile] = useState('');
   const [content, setContent] = useState('');
-  const writtenValues1 = [title, content];
+  const writtenValues = { title, content };
 
   const handleSave = () => {
     setTitle(tempTitle);
     setContent(tempContent);
   };
   useEffect(() => {
-    onUpdateWrittenValues(writtenValues1);
-  }, [writtenValues1, onUpdateWrittenValues]);
+    onUpdateWrittenValues(writtenValues);
+  }, [writtenValues, onUpdateWrittenValues]);
   return (
     <chgincruit.totalWrapper>
       <chgincruit.title>글 작성하기</chgincruit.title>
