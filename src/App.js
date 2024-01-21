@@ -27,6 +27,7 @@ import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 import ChatPage from './Pages/Chat/ChatPage';
+import ReviewPage from './Pages/Review/ReviewPage';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
@@ -37,47 +38,46 @@ function App() {
   return (
     <RecoilRoot>
       <Router>
-        <div className='app-container'>
+        <div className="app-container">
           <QueryClientProvider client={queryClient}>
             <Navigation />
-            <div className='content'>
+            <div className="content">
               <Routes>
-                <Route path='/login' element={<Login></Login>} />
-                <Route path='/join' element={<Join></Join>} />
-                <Route path='/' element={<Home />} />
-                <Route path='/recruitment' element={<Recruit></Recruit>} />
-                <Route path='/recruitment/all' element={<Recruit></Recruit>} />
-                <Route path='/recruitment/miracle-morning' />
-                <Route path='/recruitment/exercise' />
-                <Route path='/recruitment/study' />
-                <Route path='/challenge/:id' element={<ChallengeInfo />} />
+                <Route path="/login" element={<Login></Login>} />
+                <Route path="/join" element={<Join></Join>} />
+                <Route path="/" element={<Home />} />
+                <Route path="/recruitment" element={<Recruit></Recruit>} />
+                <Route path="/recruitment/all" element={<Recruit></Recruit>} />
+                <Route path="/recruitment/miracle-morning" />
+                <Route path="/recruitment/exercise" />
+                <Route path="/recruitment/study" />
+                <Route path="/challenge/:id" element={<ChallengeInfo />} />
 
                 <Route
-                  path='/challengemake'
+                  path="/challengemake"
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
 
-                <Route path='/recruitment/other' />
-                <Route path='donate'>
+                <Route path="/recruitment/other" />
+                <Route path="donate">
                   <Route index element={<Donate_CharityListPage />} />
-                  <Route path=':charitySlug' element={<Donate_CharityPage />} />
+                  <Route path=":charitySlug" element={<Donate_CharityPage />} />
                 </Route>
-                <Route path='donate/donated'>
+                <Route path="donate/donated">
                   <Route index element={<Donate_DonatedPage />} />
                 </Route>
-                <Route path='/review' element={<ReviewPage />} />
-                <Route path='/shop'>
+                <Route path="/review" element={<ReviewPage />} />
+                <Route path="/shop">
                   <Route index element={<Shop_MainPage />} />
-                  <Route path=':shopSlug' element={<Shop_DetailPage />} />
+                  <Route path=":shopSlug" element={<Shop_DetailPage />} />
                 </Route>
-
-                <Route path='/mypage' element={<Mypage></Mypage>} />
+                <Route path="/mypage" element={<Mypage></Mypage>} />
                 <Route
-                  path='/mypage/infochange'
+                  path="/mypage/infochange"
                   element={<InfoChange></InfoChange>}
                 />
-                <Route path='/chat' element={<ChatPage />} />
-                <Route path='*' element={<NotFoundPage />} />
+                <Route path="/chat" element={<ChatPage />} />
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </div>
             <ConditionalFooter />

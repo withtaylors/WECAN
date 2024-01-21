@@ -15,7 +15,7 @@ const DropdownContainer = styled.div`
 
 const ToggleButton = styled.button`
   color: black;
-  background-color: beige;
+  background-color: white;
   border: none;
   cursor: pointer;
   margin-left: 10px;
@@ -27,11 +27,10 @@ const ToggleButton = styled.button`
 `;
 const ToggleButtontitle = styled.div`
   width: 100px;
-  background-color: yellow;
+  background-color: white;
 `;
 const ToggleButtonImg = styled.img`
   margin-left: 35px;
-  background-color: blue;
 `;
 
 const DropdownMenu = styled.ul`
@@ -57,13 +56,13 @@ const DropdownItem = styled.li`
   border-bottom: 1px gray solid;
   background-color: white;
   &:hover {
-    background-color: pink;
+    background-color: #dd518c;
   }
   cursor: pointer;
 `;
 ////////////////////////////
 
-const DropdownDonateField = ({ onTypeChange }) => {
+const DropdownDonateField = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [donateName, setDonateName] = useState();
 
@@ -74,48 +73,30 @@ const DropdownDonateField = ({ onTypeChange }) => {
   const handleItemClick = (item) => {
     console.log(`Selected item: ${item}`);
     setDonateName(item);
-    onTypeChange(item);
+    onChange(item);
   };
-  const arrayDonateField = {
-    universe: '지구촌',
-    Elder: '어르신',
-    disable: '장애인',
-    multiculture: '다문화',
-    child: '아동 청소년',
-    environment: '환경',
-    animal: '동물',
-    etc: '기타',
+  const arrayDonateName = {
+    국경없는이사회: '국경없는이사회',
+    국제구조위원회: '국제구조위원회',
+    그린피스: '그린피스',
   };
 
   return (
     <DropdownContainer onClick={toggleDropdown}>
       <ToggleButton>
-        <ToggleButtontitle> {arrayDonateField[donateField]}</ToggleButtontitle>
+        <ToggleButtontitle> {arrayDonateName[donateName]}</ToggleButtontitle>
       </ToggleButton>
       <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
       <DropdownMenu isOpen={isOpen}>
-        <DropdownItem onClick={() => handleItemClick('universe')}>
-          지구촌
+        <DropdownItem onClick={() => handleItemClick('국경없는이사회')}>
+          국경없는이사회
         </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('Elder')}>
-          어르신
+        <DropdownItem onClick={() => handleItemClick('국제구조위원회')}>
+          국제구조위원회
         </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('disable')}>
-          장애인
+        <DropdownItem onClick={() => handleItemClick('그린피스')}>
+          그린피스
         </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('multiculture')}>
-          다문화
-        </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('child')}>
-          아동 청소년
-        </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('environment')}>
-          환경
-        </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('animal')}>
-          동물
-        </DropdownItem>
-        <DropdownItem onClick={() => handleItemClick('etc')}>기타</DropdownItem>
       </DropdownMenu>
     </DropdownContainer>
   );

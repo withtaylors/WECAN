@@ -61,7 +61,7 @@ const DropdownItem = styled.li`
 `;
 ////////////////////////////
 
-const DropdownDonateField = ({ onTypeChange }) => {
+const DropdownDonateField = ({ onChange }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [donateField, setDonateField] = useState();
 
@@ -72,7 +72,7 @@ const DropdownDonateField = ({ onTypeChange }) => {
   const handleItemClick = (item) => {
     console.log(`Selected item: ${item}`);
     setDonateField(item);
-    onTypeChange(item);
+    onChange(item);
   };
   const arrayDonateField = {
     universe: '지구촌',

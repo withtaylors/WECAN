@@ -3,16 +3,19 @@ import * as tokens from '../../tokens';
 
 export const TotalWrapper = styled.div`
   width: 100%;
-  height: 2500px;
-  padding-top: 100px;
+  height: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 150px;
 `;
 export const TotalCardsWrapper = styled.div`
+
   width: 1440px;
-  height: 1600px;
+  height: auto;
+  padding-top: 100px;
+
   display: flex;
   justify-content: center;
   align-items: flex-start;
@@ -126,4 +129,9 @@ export const ChallengeMakeButton = styled.img`
   position: fixed;
   top: 600px;
   right: 200px;
+`;
+
+export const center = styled.div`
+  display: flex;
+  justify-content: center;
 `;

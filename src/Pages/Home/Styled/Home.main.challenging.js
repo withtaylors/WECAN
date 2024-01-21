@@ -29,14 +29,14 @@ export const title = styled.div`
   align-context: start;
 `;
 export const buttoncruiting = styled.div`
-  height: 30px;
-  width: 173px;
+  height: 35px;
+  width: 180px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #dd518c;
   font-size: 21px;
-  font-weight: bold;
+  font-weight: 1000;
   margin-left: 350px;
   padding: 10px;
   border-style: solid;
@@ -45,6 +45,11 @@ export const buttoncruiting = styled.div`
   border-radius: 30px;
   box-shadow: 0px 2px 1px rgba(0, 0, 0, 0.2);
   cursor: pointer;
+  &:hover {
+    background-color: #dd518c;
+    color: white;
+    border-color: #dd518c;
+  }
 `;
 export const secondblock = styled.div`
   display: flex;
@@ -58,15 +63,16 @@ export const thirdblock = styled.div`
   margin-top: 32px;
 `;
 export const buttoninfo = styled.div`
-  height: 20px;
+  height: 10px;
   width: 100px;
   height: 41px;
   background-color: white;
   color: #dd518c;
-  font-size: 18px;
+  font-size: 20px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 30px;
-  border: 0.5px solid gray;
+  border: 1px solid #cacbd3;
+  cursor: pointer;
 `;
