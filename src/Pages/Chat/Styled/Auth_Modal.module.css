@@ -1,0 +1,74 @@
+.modalOverlay {
+  position: fixed; /* Fixed position */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Translucent background */
+  display: flex;
+  justify-content: center; /* Center modal horizontally */
+  align-items: center; /* Center modal vertically */
+  z-index: 1000; /* Make sure it's on top of other elements */
+}
+
+.modal {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  z-index: 1001; /* Above the overlay */
+  max-width: 500px; /* Your desired max width */
+  width: 100%; /* Responsive width */
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for better styling */
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modalContent {
+  padding: 20px;
+}
+
+.dateHeader {
+  font-size: 1.2em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.messageContent {
+  background: white;
+  border-radius: 10px;
+  padding: 15px;
+  position: relative;
+}
+
+.couponMessage {
+  margin-bottom: 10px;
+}
+
+.couponButton,
+.dislikeButton {
+  padding: 10px 20px;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.photoUploadSection {
+  margin-bottom: 10px;
+}
+
+.uploadedImage {
+  width: 100%; /* Adjust as necessary */
+  border-radius: 10px;
+  margin-top: 10px;
+}

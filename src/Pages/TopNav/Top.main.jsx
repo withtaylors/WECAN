@@ -23,7 +23,7 @@ function Top() {
 
   return (
     <TopS.TopWrapper>
-      <TopS.TopContentWrapper type='main'>
+      <TopS.TopContentWrapper type="main">
         <TopS.TopLogo
           src={Logosrc}
           onClick={(e) => {

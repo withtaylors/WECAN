@@ -1,59 +1,24 @@
-import React, { useState, useEffect } from "react";
-import Card3 from "./Card3";
-import styles from "./Styled/DonatedItem.module.css";
-import icoArrowDown from "../Assets/img/donated/arrow.png";
-import donated from "../Api/donated.json";
+import React, { useState } from 'react';
+import Card3 from './Card3';
 
-function DonatedItem({ donate }) {
-  const [showCate, setShowCate] = useState(false);
-  const [imageSrc, setImageSrc] = useState([]);
+function DonatedItem({ id, challengeName, explanation, imageSrc }) {
+  // 이 컴포넌트의 토글 상태를 위한 상태 훅 추가
+  const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    const loadImage = async (item) => {
-      try {
-        const module = await import(`../Assets/img/donated/${item.imageSrc}`);
-        setImageSrc((prevImages) => [...prevImages, module.default]);
-      } catch (error) {
-        console.error("Error loading image:", error);
-      }
-    };
-
-    donated.forEach((item) => loadImage(item));
-
-    // Clean up to avoid memory leaks if the component unmounts
-    return () => {
-      setImageSrc([]);
-    };
-  }, []);
+  // Card3 컴포넌트의 토글을 처리하는 함수
+  const handleToggle = () => {
+    setIsOpen(!isOpen);
+  };
 
   return (
-    <>
-      {donated.map((item, index) => (
-        <Card3 key={item.id} className={styles.donateItem}>
-          <img
-            className={styles.thumb}
-            src={imageSrc[index]}
-            alt={`Challenge ${item.id}`}
-          />
-          <div className={styles.content}>
-            <div
-              className={`select-box ${showCate ? "open" : ""}`}
-              onClick={() => setShowCate(!showCate)}
-            >
-              <div className={styles.titleWrapper}>
-                챌린지명 : {item.challengeName}
-                <h2 className={styles.title}></h2>
-                <img
-                  src={icoArrowDown}
-                  alt="Arrow Down"
-                  className={showCate ? styles.rotateArrow : ""}
-                />
-              </div>
-            </div>
-          </div>
-        </Card3>
-      ))}
-    </>
+    <Card3
+      key={id}
+      title={`챌린지명: ${challengeName}`}
+      content={explanation}
+      imageSrc={imageSrc}
+      isOpen={isOpen}
+      onToggle={handleToggle}
+    />
   );
 }
 
