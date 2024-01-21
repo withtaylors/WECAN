@@ -14,17 +14,17 @@ const ChatPage = ({ userId, userNickName }) => {
     startDate: '',
     endDate: '',
     successRate: '',
-    chattingRoomId: 13,
+    chattingRoomId: null,
     chattingList: [],
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
     setIsModalOpen(true);
   };
   const closeModal = () => {
-    setIsModalOpen(false); // Function to close modal
+    setIsModalOpen(false);
   };
 
   const [stompClient, setStompClient] = useState(null);
@@ -65,9 +65,9 @@ const ChatPage = ({ userId, userNickName }) => {
 
       const chatMessage = {
         type: 'TALK',
-        roomId: 13,
-        userId: 3,
-        nickName: '수진',
+        roomId: data.chattingRoomId,
+        userId: userId,
+        nickName: userNickName,
         message: inputMessage,
         time: currentTime,
       };
