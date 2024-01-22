@@ -8,12 +8,17 @@ import DropdownPaymentType from './DropdownPaymentType.jsx';
 import DropdownStartDate from './DropdownStartDate.jsx';
 import DropdownEndDate from './DropdownEndDate.jsx';
 import DropdownDonateField from './DropdownDonateField.jsx';
+import DropdownDonateName from './DropdownDonatename.jsx';
 function ChallengeIncruitMake({ onUpdateSelectedValues }) {
   /////////////////////////////////////////////////////////
   const [selectedType, setSelectedType] = useState();
-  const [selectedYear, setSelectedYear] = useState();
-  const [selectedMonth, setSelectedMonth] = useState();
-  const [selectedDay, setSelectedDay] = useState();
+  const [endDate, setEndDate] = useState({
+    year: null,
+    month: null,
+    day: null,
+  });
+  const [formattedStartDate, setFormattedStartDate] = useState('');
+  const [formattedEndDate, setFormattedEndDate] = useState('');
   const [selectedPayment, setSelectedPayment] = useState();
   const [selectedfDonatefield, setSelectedDonateField] = useState();
   const [selectedDonateName, setSelectedDonateName] = useState();
@@ -35,11 +40,12 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
   const handlePaymentChange = (payment) => {
     setSelectedPayment(payment);
   };
+  const handleStartDateChange = (formattedStartDate) => {
+    setFormattedStartDate(formattedStartDate);
+  };
 
-  const handleStartDateChange = (year, month, day) => {
-    setSelectedYear(year);
-    setSelectedMonth(month);
-    setSelectedDay(day);
+  const handleEndDateChange = (formattedEndDate) => {
+    setFormattedEndDate(formattedEndDate);
   };
   const handleInputTeamNumberChange = (event) => {
     const value = event.target.value;
@@ -73,7 +79,7 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
     }
   };
 
-  const selectedValues = [
+  const selectedValues = {
     selectedType,
     selectedPayment,
     selectedfDonatefield,
@@ -81,11 +87,14 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
     teamNumber,
     selectedWeekday,
     candyNumber,
-  ];
-  useEffect(() => {
-    onUpdateSelectedValues(selectedValues);
-  }, [selectedValues, onUpdateSelectedValues]);
+    formattedStartDate,
+    formattedEndDate,
+  };
 
+  useEffect(() => {
+    onUpdateSelectedValues(selectedValues, formattedStartDate);
+  }, [selectedValues, formattedStartDate, onUpdateSelectedValues]);
+  //////////////////////////////////////////////////////////
   return (
     <chgincruit.totalWrapper>
       <chgincruit.title>챌린저 모집하기</chgincruit.title>
@@ -95,7 +104,7 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
           <chgincruit.subcontent>
             <DropdownChallengeType
               type={selectedType}
-              onTypeChange={handleTypeChange}
+              onChange={handleTypeChange}
             />
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
@@ -123,22 +132,14 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
           <chgincruit.subtitle>챌린지 시작일</chgincruit.subtitle>
           <chgincruit.subcontent>
             <DropdownStartDate
-              year={selectedYear}
-              month={selectedMonth}
-              day={selectedDay}
-              onTypeChange={handleStartDateChange}
+              onChange={handleStartDateChange}
             ></DropdownStartDate>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
         <chgincruit.contentlineWrapper>
           <chgincruit.subtitle>챌린지 종료일</chgincruit.subtitle>
           <chgincruit.subcontent>
-            <DropdownEndDate
-              year={selectedYear}
-              month={selectedMonth}
-              day={selectedDay}
-              onTypeChange={handleStartDateChange}
-            ></DropdownEndDate>
+            <DropdownEndDate onChange={handleEndDateChange}></DropdownEndDate>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
         <chgincruit.contentlineWrapper>
@@ -146,7 +147,7 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
           <chgincruit.subcontent>
             <DropdownPaymentType
               type={selectedType}
-              onTypeChange={handlePaymentChange}
+              onChange={handlePaymentChange}
             ></DropdownPaymentType>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
@@ -189,23 +190,22 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
           <chgincruit.subtitle>기부 단체 선택하기</chgincruit.subtitle>
           <chgincruit.subsubcontent>
             <chgincruit.subcontent>
-              <DropdownDonateField
+              <DropdownDonateName
                 type={selectedfDonatefield}
-                onTypeChange={handleDonanteFieldChange}
-              ></DropdownDonateField>
+                onChange={handleDonanteFieldChange}
+              ></DropdownDonateName>
             </chgincruit.subcontent>
             <chgincruit.subcontent>
               <DropdownDonateField
                 type={selectedDonateName}
-                onTypeChange={handleDonateNameChange}
+                onChange={handleDonateNameChange}
               ></DropdownDonateField>
             </chgincruit.subcontent>
           </chgincruit.subsubcontent>
         </chgincruit.contentlineWrapper2>
       </chgincruit.realWrapper>
-      {selectedValues.map((value, index) => (
-        <div key={index}>{value}</div>
-      ))}
+      {formattedStartDate}
+      {formattedEndDate}
     </chgincruit.totalWrapper>
   );
 }
