@@ -109,9 +109,6 @@ const ChatPage = ({ userId, userNickName }) => {
       </Modal>
       <div className={styles.chatRoom}>
         <h2>{data.title}</h2>
-        <p>Start Date: {data.startDate}</p>
-        <p>End Date: {data.endDate}</p>
-        <p>Success Rate: {data.successRate}</p>
         <div className={styles.messagesContainer}>
           {messages.map((msg, index) => (
             <div
