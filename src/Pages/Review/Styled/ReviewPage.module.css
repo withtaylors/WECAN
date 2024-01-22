@@ -2,30 +2,3 @@
   display: flex;
   justify-content: center;
 }
-
-.bubble_left {
-  position: relative;
-  background: #fff;
-  border-radius: 0.4em;
-  width: 200px;
-  height: auto;
-  padding: 20px;
-  color: black;
-  font-size: 16px;
-}
-
-.bubble-left::before {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: -20px;
-  width: 0;
-  height: 0;
-  border: 10px solid;
-  border-color: transparent #01a9db transparent transparent;
-  transform: translateY(-50%);
-}
-
-.container {
-  margin-bottom: 100px;
-}
