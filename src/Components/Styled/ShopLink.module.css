@@ -1,17 +1,20 @@
 /* MainButton.module.css */
 .mainButton {
-  padding: 10px 20px;
+  padding: 15px 30px;
+  color: #dd518c;
   background-color: #fff;
-  border: 1.5px solid #000;
-  border-radius: 20px;
-  font-size: 15px;
+  border: 1.5px solid #dd518c;
+  border-radius: 30px;
+  font-size: 20px;
+  font-weight: bold;
   cursor: pointer;
   outline: none;
-  transition: all 0.3s ease;
+  transition: all 0.2s ease;
 
   /* Additional styles for hover state */
   &:hover {
-    background-color: #f7f7f7;
+    background-color: #dd518c;
+    color: white;
   }
 
   /* Additional styles for active state */

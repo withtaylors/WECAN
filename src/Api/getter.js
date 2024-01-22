@@ -1,5 +1,5 @@
-import mock from "./mock.json";
-const { charitys, questions, donated, donates, shops } = mock;
+import mock from './mock.json';
+const { charitys, questions, donated, donates, shops, coupons } = mock;
 
 function filterByKeyword(items, keyword) {
   const lowered = keyword.toLowerCase();
@@ -24,24 +24,6 @@ export function getQuestions(keyword) {
 
 export function getQuestionById(questionId) {
   return questions.find((question) => question.id === questionId);
-}
-
-// 'wishlist' 관련 함수 추가
-const WISHLIST_KEY = "codethat-wishlist";
-const wishlist = JSON.parse(localStorage.getItem(WISHLIST_KEY) || "{}");
-
-export function addWishlist(charitySlug) {
-  wishlist[charitySlug] = true;
-  localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
-}
-
-export function deleteWishlist(charitySlug) {
-  delete wishlist[charitySlug];
-  localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist));
-}
-
-export function getWishlist() {
-  return charitys.filter((charity) => wishlist[charity.slug]);
 }
 
 // 'donated' 관련 함수 추가
@@ -74,4 +56,14 @@ export function getShops(keyword) {
 
 export function getShopBySlug(shopSlug) {
   return shops.find((shop) => shop.slug === shopSlug);
+}
+
+// 'coupons' 관련 함수 추가
+export function getCoupons(keyword) {
+  if (!keyword) return coupons;
+  return filterByKeyword(coupons, keyword);
+}
+
+export function getCouponBySlug(couponSlug) {
+  return coupons.find((coupon) => coupon.slug === couponSlug);
 }

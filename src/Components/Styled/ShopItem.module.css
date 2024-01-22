@@ -1,24 +1,31 @@
 .shopItem .thumb {
-  display: flex;
-  align-items: left;
-  justify-content: left;
-  padding: 30px 0;
-  min-height: 130px;
+  position: relative;
+  align-items: center;
+  justify-content: center;
+  min-height: 150px;
+  z-index: 0;
 }
 
 .shopItem .content {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  min-height: 30px;
-  padding: 5px 15px 5px;
-  background-color: #f9f9f9;
-  border-radius: 0px 0px 11px 11px;
+  width: 251px;
+  margin-left: 1px;
+  min-height: 20px;
+  padding-left: 4px;
+  padding-bottom: 4px;
+  background-color: rgba(92, 92, 92, 0.2);
+  border-radius: 0px 0px 12px 12px;
+  position: relative;
+  z-index: 1;
+  bottom: 50px;
 }
 
 .shopItem .title {
   font-size: 14px;
   color: black;
+  padding-left: 15px;
 }
 
 .shopItem a {

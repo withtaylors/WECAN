@@ -3,6 +3,11 @@ import axios from 'axios';
 import { useRecoilState } from 'recoil';
 import { userState } from '../Login/Recoil/Recoil.auth.state';
 
+import styles from './Styled/ReviewPage.module.css';
+import TopNav from '../../Pages/TopNav/TopNav.main';
+import Container from '../../Components/Container';
+import icoArrowDown from '../../Assets/img/donated/arrow.png';
+
 function ReviewPage() {
   const [challenges, setChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(null);
@@ -77,26 +82,49 @@ function ReviewPage() {
   };
 
   return (
-    <div>
-      {challenges.map((challenge) => (
-        <div key={challenge.id} onClick={() => setSelectedChallenge(challenge)}>
-          {challenge.name}
+    <>
+      <div className={styles.center}>
+        <TopNav></TopNav>
+      </div>
+      <div className={styles.title}>
+        <p>후기</p>
+      </div>
+
+      <div className="review-container">
+        <div className="header">
+          <div className="header_title">내가 참여한 챌린지</div>
+          <div>^</div>
         </div>
-      ))}
-      <textarea
-        value={review}
-        onChange={(e) => setReview(e.target.value)}
-        placeholder="후기를 작성해주세요"
-        disabled={!user.isLoggedIn || !selectedChallenge} // user 객체에서 로그인 상태 확인
-      />
-      <button
-        onClick={handleSubmitReview}
-        disabled={!user.isLoggedIn || isLoading} // user 객체에서 로그인 상태 확인
-      >
-        등록
-      </button>
-      {!user.isLoggedIn && <div>챌린지 참여 후 후기 작성이 가능합니다.</div>}
-    </div>
+        <div className="challenge-list">
+          {challenges.map((challenge) => (
+            <div
+              key={challenge.id}
+              onClick={() => setSelectedChallenge(challenge)}
+            >
+              {challenge.name}
+            </div>
+          ))}
+        </div>
+        <div className="input-area">
+          <textarea
+            value={review}
+            onChange={(e) => setReview(e.target.value)}
+            placeholder={
+              user.isLoggedIn
+                ? '후기를 작성해주세요'
+                : '챌린지 참여 후 후기 작성이 가능합니다.'
+            }
+            disabled={!user.isLoggedIn || !selectedChallenge}
+          />
+          <button
+            onClick={handleSubmitReview}
+            disabled={!user.isLoggedIn || isLoading}
+          >
+            등록
+          </button>
+        </div>
+      </div>
+    </>
   );
 }
 

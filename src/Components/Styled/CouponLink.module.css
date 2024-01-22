@@ -7,13 +7,11 @@
   font-size: 15px;
   cursor: pointer;
   outline: none;
-  transition: all 0.1s ease;
+  transition: all 0.3s ease;
 
   /* Additional styles for hover state */
   &:hover {
-    background-color: #dd518c;
-    color: white;
-    border: white;
+    background-color: #f7f7f7;
   }
 
   /* Additional styles for active state */

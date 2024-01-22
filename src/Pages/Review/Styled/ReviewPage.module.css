@@ -2,3 +2,15 @@
   display: flex;
   justify-content: center;
 }
+
+.title {
+  font-size: 30px;
+  display: flex;
+  justify-content: center;
+  margin-top: 80px;
+}
+
+.review-container {
+  display: flex;
+  justify-content: center;
+}
