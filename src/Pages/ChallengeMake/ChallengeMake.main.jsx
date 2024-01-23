@@ -5,7 +5,7 @@ import * as chgmake from './Styled/ChallengeMake.main.js';
 import Chgincruit from './ChallengeMake.incruitMake';
 import ChgExplain from './ChallengeMake.Explain.jsx';
 import axios from 'axios';
-import filesample from '../../Assets/img/Banners/Banner1.png';
+import filesample from '../../Assets/img/bestSample.png';
 
 function ChallengeMake() {
   const [selectedValues, setSelectedValues] = useState([]);

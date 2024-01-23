@@ -3,7 +3,7 @@ import * as Category from './Styled/Category.cards';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 import scheduleimg from '../../Assets/img/schedule.png';
-import LikeButton from './LikeButton';
+
 function CategoryCard(props) {
   const navigate = useNavigate(); // useNavigate를 직접 여기서 사용
 
@@ -30,15 +30,8 @@ function CategoryCard(props) {
       <Category.ContentWrapper>
         <Category.ContentInfo>
           <Category.Title>{title}</Category.Title>
-          <Category.Date>
-            <Category.dateLogo src={scheduleimg}></Category.dateLogo>
-            {date}
-          </Category.Date>
         </Category.ContentInfo>
       </Category.ContentWrapper>
-      <Category.LikeButtonWrapper>
-        <LikeButton id={props.data.id}></LikeButton>
-      </Category.LikeButtonWrapper>
     </Category.CardWrapper>
   );
 }
