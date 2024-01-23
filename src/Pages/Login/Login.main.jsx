@@ -7,7 +7,7 @@ import checkimg from '../../Assets/img/check.png';
 import request from './../../Api/request';
 import { ACCESS_TOKEN, REFRESH_TOKEN } from './../../Api/request.js';
 import { useRecoilState } from 'recoil';
-import { userState } from './Recoil/Recoil.auth.state';
+import { isSuccessState } from './Recoil/Recoil.auth.state';
 
 function Login(props) {
   const NavClick = (e, type) => {
@@ -15,7 +15,7 @@ function Login(props) {
     navigate(`${type}`);
   };
   const baseURL = 'http://3.35.3.205:8080';
-  const [user, setUser] = useRecoilState(userState);
+  const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
   const [name, setName] = useState('로그인');
   const navigate = useNavigate();
@@ -35,29 +35,33 @@ function Login(props) {
 
     try {
       const response = await axios.post(`${baseURL}/user/sign-in`, requestData);
-      // 로그인 상태 업데이트
-      setUser({
-        isLoggedIn: true,
-        token: response.data.data.authToken.accessToken,
-        userId: response.data.data.userId,
-        nickName: response.data.data.nickName,
-      });
-      // 성공 알림 및 홈 페이지로 이동
+      setIsSuccess(true);
       alert('로그인에 성공했습니다.');
       navigate('/');
+      console.log('로그인 처리 내용:', response);
+      console.log('유저이름:', response.data.data.nickName);
+      const nickName = response.data.data.nickName;
+      if (nickName) {
+        localStorage.setItem('user-name', nickName);
+      }
+      const userId = response.data.data.userId;
+      console.log('유저아이디:', userId);
+      if (userId) {
+        localStorage.setItem('user-id', userId);
+      }
+      const accessToken = response.data.data.authToken.accessToken;
+      if (accessToken) {
+        localStorage.setItem('login-token', accessToken);
+      }
     } catch (error) {
-      // 실패 알림
       console.error('로그인 실패:', error);
+      setIsSuccess(false);
       alert('등록되지 않은 회원이거나 비밀번호가 틀렸습니다.');
-      // 실패 상태 업데이트
-      setUser((prevState) => ({ ...prevState, isLoggedIn: false }));
     }
   };
-
   const handleKakaoLogin = async () => {
     window.location.href = 'http://3.35.3.205:8080/oauth/kakao';
   };
-
   const handleSignup = () => {
     navigate('/agree', {
       state: {

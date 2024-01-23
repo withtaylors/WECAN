@@ -23,7 +23,6 @@ import Donate_DonatedPage from './Pages/Donate/Donate_DonatedPage';
 import ReviewPage from './Pages/Review/ReviewPage';
 import Shop_MainPage from './Pages/Shop/Shop_MainPage';
 import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
-// import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
@@ -32,7 +31,10 @@ import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import KakaoRedirect from './Pages/Login/KakaoRedirect.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
-
+import ChallengeMiracle from './Pages/Recruit/Recruit.total.miracle';
+import ChallengeStudy from './Pages/Recruit/Recruit.total.study';
+import ChallengeExercise from './Pages/Recruit/Recruit.total.exercise';
+import ChallengeEtc from './Pages/Recruit/Recruit.total.etc';
 const queryClient = new QueryClient();
 
 function App() {
@@ -49,9 +51,22 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/recruitment" element={<Recruit></Recruit>} />
                 <Route path="/recruitment/all" element={<Recruit></Recruit>} />
-                <Route path="/recruitment/miracle-morning" />
-                <Route path="/recruitment/exercise" />
-                <Route path="/recruitment/study" />
+                <Route
+                  path="/recruitment/miracle-morning"
+                  element={<ChallengeMiracle></ChallengeMiracle>}
+                />
+                <Route
+                  path="/recruitment/exercise"
+                  element={<ChallengeExercise></ChallengeExercise>}
+                />
+                <Route
+                  path="/recruitment/study"
+                  element={<ChallengeStudy></ChallengeStudy>}
+                />
+                <Route
+                  path="/recruitment/etc"
+                  element={<ChallengeEtc></ChallengeEtc>}
+                />
                 <Route path="/challenge/:id" element={<ChallengeInfo />} />
 
                 <Route

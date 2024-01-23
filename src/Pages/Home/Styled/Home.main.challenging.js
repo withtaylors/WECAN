@@ -4,14 +4,12 @@ import * as tokens from '../../tokens';
 export const challengeWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  height: 770px;
   width: 890px;
-  gap: 10px;
 `;
 export const firstblock = styled.div`
   display: flex;
   flex-direction: column;
-  height: 490px;
+  height: 450px;
 `;
 export const top = styled.div`
   display: flex;
@@ -19,6 +17,8 @@ export const top = styled.div`
   height: 53px;
   width: 100%;
   z-index: 1;
+  align-items: center;
+  margin-bottom: 10px;
 `;
 export const title = styled.div`
   font-size: 24px;
@@ -27,9 +27,10 @@ export const title = styled.div`
   width: 450px;
   display: flex;
   align-context: start;
+  margin-left: 10px;
 `;
 export const buttoncruiting = styled.div`
-  height: 35px;
+  height: 28px;
   width: 180px;
   display: flex;
   align-items: center;
@@ -37,7 +38,7 @@ export const buttoncruiting = styled.div`
   color: #dd518c;
   font-size: 21px;
   font-weight: 1000;
-  margin-left: 350px;
+  margin-left: 210px;
   padding: 10px;
   border-style: solid;
   border-color: #dd518c;
@@ -53,7 +54,7 @@ export const buttoncruiting = styled.div`
 `;
 export const secondblock = styled.div`
   display: flex;
-  height: 280px;
+  width: 100%;
 `;
 
 export const thirdblock = styled.div`

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 export const TotalWrapper = styled.div`
   width: 905px;
   height: 330px;
-  margin-top: 20px;
+  margin-top: 10px;
 `;
 
 export const BannerWrap = styled.div``;

@@ -4,8 +4,9 @@ import CategoryCard from '../Category/Category.card';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import challengeMake from '../../Assets/img/challengemake.png';
+import RecruitTop from './Recruit.totoal.main.top';
 
-function RecruitTotalCards() {
+function RecruitMiracleCards() {
   const baseURL = 'http://3.35.3.205:8080';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
@@ -24,11 +25,11 @@ function RecruitTotalCards() {
             },
           }
         );
-        console.log('챌린지 목록(인기순)-초기:', response);
+        console.log('챌린지 목록 미라클 (인기순)-초기:', response);
         setChallengeArray(response.data.data.content);
         console.log(challengeArray);
       } catch (error) {
-        console.error('챌린지 목록을 가져오는데 실패', error);
+        console.error('챌린지 목록 미라클을 가져오는데 실패', error);
       } finally {
         setLoading(false);
       }
@@ -50,9 +51,8 @@ function RecruitTotalCards() {
       console.log('챌린지 목록(인기순):', response);
       setChallengeArrayPopular(response.data.data.content);
       setSelectedSort('인기순');
-      setChallengeArray(challengeArrayPopular);
     } catch (error) {
-      console.error('챌린지 목록(인기순)을 가져오는데 실패', error);
+      console.error('챌린지 목록을 가져오는데 실패', error);
     } finally {
       setLoading(false);
     }
@@ -61,7 +61,7 @@ function RecruitTotalCards() {
   const sortLeast = async () => {
     try {
       const response = await axios.get(
-        `${baseURL}/recruits?page=0&sort=startDate,desc`,
+        `${baseURL}/recruits?page=0&sort=heartNum,desc`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -71,7 +71,6 @@ function RecruitTotalCards() {
       console.log('챌린지 목록(최신순):', response);
       setChallengeArrayLeast(response.data.data.content);
       setSelectedSort('최신순');
-      setChallengeArray(challengeArrayLeast);
     } catch (error) {
       console.error('챌린지 목록(최신순)을 가져오는데 실패', error);
     } finally {
@@ -88,6 +87,9 @@ function RecruitTotalCards() {
       },
     });
   };
+  const miracleChallenge = challengeArray.filter(
+    (challenge) => challenge.category === 'miracle_morning'
+  );
 
   ///////////////pagination//////////////////
   const [selectedSort, setSelectedSort] = useState();
@@ -96,33 +98,34 @@ function RecruitTotalCards() {
 
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCategories = challengeArray.slice(
+  const currentCategories = miracleChallenge.slice(
     indexOfFirstItem,
     indexOfLastItem
   );
   const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(challengeArray.length / itemsPerPage); i++) {
+  for (let i = 1; i <= Math.ceil(miracleChallenge.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
 
   return (
     <recruitcards.TotalWrapper>
+      <RecruitTop></RecruitTop>
+      <recruitcards.SortContainer>
+        <recruitcards.SortText
+          onClick={sortPopular}
+          selected={selectedSort === '인기순'}
+        >
+          인기순
+        </recruitcards.SortText>
+        <recruitcards.SortText> | </recruitcards.SortText>
+        <recruitcards.SortText
+          onClick={sortLeast}
+          selected={selectedSort === '최신순'}
+        >
+          최신순
+        </recruitcards.SortText>
+      </recruitcards.SortContainer>
       <recruitcards.TotalCardsWrapper>
-        <recruitcards.SortContainer>
-          <recruitcards.SortText
-            onClick={sortPopular}
-            selected={selectedSort === '인기순'}
-          >
-            인기순
-          </recruitcards.SortText>
-          <recruitcards.SortText> | </recruitcards.SortText>
-          <recruitcards.SortText
-            onClick={sortLeast}
-            selected={selectedSort === '최신순'}
-          >
-            최신순
-          </recruitcards.SortText>
-        </recruitcards.SortContainer>
         <recruitcards.ChallengeMakeButton
           src={challengeMake}
           onClick={(e) => NavClick(e, '/challengemake')}
@@ -146,4 +149,4 @@ function RecruitTotalCards() {
   );
 }
 
-export default RecruitTotalCards;
+export default RecruitMiracleCards;

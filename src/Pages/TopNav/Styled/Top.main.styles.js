@@ -61,12 +61,17 @@ export const LogInOut = styled.div`
   border-radius: 25px;
   border: 1.5px solid #dd518c;
   cursor: pointer;
+  &:hover {
+    background-color: #dd518c;
+    color: white;
+  }
 `;
 export const User = styled.div`
-  width: 164px;
   height: 25px;
   display: flex;
   flex-direction: row;
+
+  margin-right: 30px;
 `;
 
 export const RealName = styled.div`

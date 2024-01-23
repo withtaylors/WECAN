@@ -6,6 +6,7 @@ import request from '../../Api/request';
 import { refreshToken } from '../../Api/request';
 import { ACCESS_TOKEN } from '../../Api/request';
 import axios from 'axios';
+import GoodsCard from '../Category/Goods.card';
 
 function ChallengeCruiting() {
   const [isSuccess, setIsSuccess] = useState(null);
@@ -46,7 +47,29 @@ function ChallengeCruiting() {
 
     fetchChallengeThree();
   }, []);
-  console.log(challengeThree);
+  ////////////////////////////////////////////////////////////////
+  const [goodsThree, setGoodsThree] = useState([]);
+  useEffect(() => {
+    const fetchGoodsThree = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(`${baseURL}/shop/home`, {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        });
+        console.log('굿즈 3개 불러오기:', response);
+        setGoodsThree(response.data.data);
+        console.log(goodsThree);
+      } catch (error) {
+        console.error('굿즈 3개 불러오기 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchGoodsThree();
+  }, []);
 
   return (
     <challenging.challengeWrapper>
@@ -82,17 +105,19 @@ function ChallengeCruiting() {
           <challenging.title>굿즈샵</challenging.title>
         </challenging.top>
         <challenging.secondblock>
-          {categories.map((category, index) => (
-            <CategoryCard
-              key={index}
-              title={category.title}
-              date={category.date}
-            />
+          {goodsThree.map((item) => (
+            <GoodsCard key={item.id} data={item} />
           ))}
         </challenging.secondblock>
         <challenging.thirdblock>
           {' '}
-          <challenging.buttoninfo>더보기{'->'}</challenging.buttoninfo>
+          <challenging.buttoninfo
+            onClick={(e) => {
+              NavClick(e, '/shop');
+            }}
+          >
+            더보기{'->'}
+          </challenging.buttoninfo>
         </challenging.thirdblock>
       </challenging.firstblock>
     </challenging.challengeWrapper>

@@ -20,7 +20,7 @@ const navItems = [
       { label: '미라클모닝', link: '/recruitment/miracle-morning' },
       { label: '운동', link: '/recruitment/exercise' },
       { label: '공부', link: '/recruitment/study' },
-      { label: '기타', link: '/recruitment/other' },
+      { label: '기타', link: '/recruitment/etc' },
     ],
   },
   {
