@@ -3,9 +3,7 @@ import * as tokens from '../../tokens';
 
 export const CategoryWrapper = styled.div`
   width: 100%;
-
-  height: 100%;
-
+  height: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;

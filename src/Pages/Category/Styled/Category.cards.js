@@ -11,9 +11,9 @@ export const CardWrapper = styled.div`
   border-radius: 16px;
   background-color: white;
   margin: 12px;
-  box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
+  box-shadow: 2px 4px 5px 3px rgba(0, 0, 0, 0.2);
   &:hover {
-    background-color: #dd518c;
+    box-shadow: 6px 6px 5px 5px rgba(0, 0, 0, 0.2);
   }
 `;
 export const DonationWrapper = styled.div`
@@ -30,10 +30,9 @@ export const DonationWrapper = styled.div`
   box-shadow: 2px 4px 5px rgba(0, 0, 0, 0.2);
 `;
 export const ImageWrapper = styled.img`
-  width: 220px;
+  width: 242px;
   height: 178px;
   border-radius: 14px;
-  background-color: #d2d2d2;
 `;
 export const DonationImageWrapper = styled.img`
   width: 205px;
@@ -47,16 +46,22 @@ export const ContentWrapper = styled.div`
   display: flex;
   flex-direction: row;
   text-decoration: none;
-  margin-top: 20px;
+  margin-top: 15px;
+`;
+export const LikeButtonWrapper = styled.div`
+  width: 242px;
+  height: 22px;
+  display: flex;
+  justify-content: flex-end;
 `;
 export const ContentInfo = styled.div`
-  width: 207px;
+  width: 200px;
   display: flex;
   flex-direction: column;
   text-decoration: none;
 `;
 export const Title = styled.div`
-  font-size: 15px;
+  font-size: 16px;
   font-weight: bold;
   color: black;
   text-decoration: none;

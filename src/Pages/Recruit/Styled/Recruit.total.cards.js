@@ -3,23 +3,25 @@ import * as tokens from '../../tokens';
 
 export const TotalWrapper = styled.div`
   width: 100%;
-  height: 2500px;
-  padding-top: 100px;
+  height: auto;
   display: flex;
   justify-content: flex-start;
   align-items: center;
   flex-direction: column;
+  margin-bottom: 150px;
 `;
 export const TotalCardsWrapper = styled.div`
 
-  width: 1440px;
-  height: 1600px;
-
+  width: 1100px;
+  height: auto;
+  margin-top: 80px;
   display: flex;
   justify-content: center;
   align-items: flex-start;
   flex-direction: row;
   flex-wrap: wrap;
+
+  gap: 20px;
 
 
   /* 모든 하이퍼링크에 대한 스타일 정의 */
@@ -33,7 +35,8 @@ export const TotalCardsWrapper = styled.div`
     }
 `;
 export const SortContainer = styled.div`
-  width: 1170px;
+  width: 915px;
+
   height: 50px;
   display: flex;
   flex-direction: row;
@@ -60,24 +63,23 @@ export const TotalTopWrapper = styled.div`
 `;
 export const Title = styled.div`
   font-size: 35px;
-  font-weight: bold;
 `;
 export const SearchWrapper = styled.div`
-  width: 1000px;
+  width: 910px;
   height: 49px;
   display: flex;
   align-items: center;
   justify-content: center;
   border-radius: 25px;
-  border: 2px solid gray;
+  border: 1px solid gray;
 
   margin-top: 20px;
 `;
 
 export const SearchInputBox = styled.input`
   font-family: Pretendard;
-  width: 900px;
-  height: 27px;
+  width: 800px;
+  height: 35px;
   margin-top: 13px;
   margin-left: 10px;
   margin-bottom: 10px;

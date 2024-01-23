@@ -18,13 +18,13 @@ const ChatPage = ({ userId, userNickName }) => {
     chattingList: [],
   });
 
-  const [isModalOpen, setIsModalOpen] = useState(false); // State to manage modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
     setIsModalOpen(true);
   };
   const closeModal = () => {
-    setIsModalOpen(false); // Function to close modal
+    setIsModalOpen(false);
   };
 
   const [stompClient, setStompClient] = useState(null);
@@ -84,26 +84,31 @@ const ChatPage = ({ userId, userNickName }) => {
   };
 
   return (
-    <div>
-      <div className={styles.calendarContainer}>
-        <Calendar
-          onChange={handleDateChange}
-          value={selectedDate}
-          minDate={new Date(data.startDate)}
-          maxDate={today}
-        />
+    <div className={styles.container}>
+      <div className={styles.leftContainer}>
+        <div className={styles.challengeInfo}>
+          <h2>{data.title}</h2>
+          <p>달성률: {data.successRate}%</p>
+          {/* 여기에 다른 챌린지 정보를 추가할 수 있습니다 */}
+        </div>
+        <div className={styles.calendarContainer}>
+          <Calendar
+            onChange={handleDateChange}
+            value={selectedDate}
+            minDate={new Date(data.startDate)}
+            maxDate={today}
+            formatDay={(locale, date) => date.getDate().toString()}
+          />
+        </div>
       </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal}>
+      <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
         <div>
           <h3>Selected Date</h3>
           <p>{selectedDate.toDateString()}</p>
         </div>
       </Modal>
-      <div className="chat-room">
+      <div className={styles.chatRoom}>
         <h2>{data.title}</h2>
-        <p>Start Date: {data.startDate}</p>
-        <p>End Date: {data.endDate}</p>
-        <p>Success Rate: {data.successRate}</p>
         <div className={styles.messagesContainer}>
           {messages.map((msg, index) => (
             <div

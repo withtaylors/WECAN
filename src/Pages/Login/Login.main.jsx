@@ -10,21 +10,6 @@ import { useRecoilState } from 'recoil';
 import { isSuccessState } from './Recoil/Recoil.auth.state';
 
 function Login(props) {
-  ////API////
-  /* const handleLogin = async () => {
-    try {
-      const response = await axios.post('3.37.87.249:8080' + '/user/sign-in', {
-        email: email,
-        password: password,
-        // 추가로 보낼 필요가 있는 다른 데이터가 있다면 추가할 수 있습니다.
-      });
-    } catch (error) {
-      // 로그인이 실패하면 처리
-      console.error('정보 넘어가지 않음', error);
-      // 실패에 대한 사용자 피드백 등을 처리할 수 있습니다.
-    }
-  };*/
-
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
@@ -74,7 +59,9 @@ function Login(props) {
       alert('등록되지 않은 회원이거나 비밀번호가 틀렸습니다.');
     }
   };
-
+  const handleKakaoLogin = async () => {
+    window.location.href = 'http://3.35.3.205:8080/oauth/kakao';
+  };
   const handleSignup = () => {
     navigate('/agree', {
       state: {
@@ -89,8 +76,8 @@ function Login(props) {
       <login.Logo src={Logosrc}></login.Logo>
       <login.InputWrapper>
         <login.InputBox
-          placeholder='ID'
-          type='id'
+          placeholder="ID"
+          type="id"
           className={props.className}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -98,7 +85,7 @@ function Login(props) {
       </login.InputWrapper>
       <login.InputWrapper>
         <login.InputBox
-          placeholder='PW'
+          placeholder="PW"
           type={props.type}
           className={props.className}
           value={password}
@@ -127,7 +114,9 @@ function Login(props) {
         <login.Line1></login.Line1>
         <login.Line1></login.Line1>
       </login.Lines>
-      <login.kakaoButton>카카오로 로그인하기</login.kakaoButton>
+      <login.kakaoButton onClick={handleKakaoLogin}>
+        카카오로 로그인하기
+      </login.kakaoButton>
     </login.MainWrapper>
   );
 }

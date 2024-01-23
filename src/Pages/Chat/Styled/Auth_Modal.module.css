@@ -1,32 +1,50 @@
 .modalOverlay {
-  position: fixed; /* Fixed position */
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: rgba(0, 0, 0, 0.5); /* Translucent background */
+  backdrop-filter: blur(5px);
+  background-color: rgba(0, 0, 0, 0.4);
   display: flex;
-  justify-content: center; /* Center modal horizontally */
-  align-items: center; /* Center modal vertically */
-  z-index: 1000; /* Make sure it's on top of other elements */
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
 }
 
 .modal {
   background: white;
   padding: 20px;
-  border-radius: 5px;
-  z-index: 1001; /* Above the overlay */
-  max-width: 500px; /* Your desired max width */
-  width: 100%; /* Responsive width */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Optional: for better styling */
+  border-radius: 30px;
+  z-index: 1001;
+  max-width: 500px;
+  width: 350px;
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
+  overflow: hidden;
+  justify-content: space-between; /* 내용물을 상, 중, 하로 분리 */
+  position: relative; /* buttonGroup의 절대 위치 기준점을 제공 */
+  min-height: 500px;
+}
+
+.buttonGroup {
+  display: flex;
+  flex-direction: row; /* 버튼들을 가로로 배치 */
+  position: absolute; /* 부모 요소(.modal)의 위치에 상대적으로 위치 */
+  bottom: 0; /* 모달의 하단에 붙임 */
+  left: 0; /* 모달의 왼쪽 경계에 붙임 */
+  right: 0; /* 모달의 오른쪽 경계에 붙임 */
+  display: flex;
+  justify-content: space-between; /* 버튼들이 양쪽에 붙도록 설정 */
+  background-color: #fff; /* 배경색 설정, 필요에 따라 변경 가능 */
+  border-top: 1px solid #ccc; /* 상단에 구분선 추가, 필요에 따라 변경 가능 */
 }
 
 .closeButton {
   position: absolute;
-  top: 10px;
-  right: 10px;
+  top: 15px;
+  right: 15px;
   border: none;
   background: none;
   font-size: 1.5rem;
@@ -34,13 +52,22 @@
 }
 
 .modalContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
 }
 
 .dateHeader {
-  font-size: 1.2em;
+  width: 70px;
+  margin: 0 auto; /* 상하 마진은 0, 좌우 마진은 자동으로 설정하여 가운데 정렬 */
+  font-size: 15px;
   margin-bottom: 20px;
   text-align: center;
+  background-color: #d9d9d9;
+  color: black;
+  border-radius: 15px;
+  padding: 5px 10px;
 }
 
 .messageContent {
@@ -57,18 +84,62 @@
 .couponButton,
 .dislikeButton {
   padding: 10px 20px;
-  margin-bottom: 10px;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  background-color: #fff;
+  width: 50%;
 }
 
 .photoUploadSection {
   margin-bottom: 10px;
+  flex-direction: column-reverse; /* 버튼을 이미지 아래로 이동 */
+  align-items: center; /* 센터 정렬 */
+}
+
+.photoUploadButton {
 }
 
 .uploadedImage {
-  width: 100%; /* Adjust as necessary */
+  width: 95%;
   border-radius: 10px;
   margin-top: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.uploadLabel {
+  padding: 20px 10px;
+  cursor: pointer;
+  margin-bottom: 0;
+  width: 50%;
+  text-align: center;
+}
+
+.uploadLabel:hover {
+  background-color: #ececec;
+}
+
+button:hover {
+  background-color: #ececec;
+}
+
+input[type='file'] {
+  display: none;
+}
+
+.messagesList {
+  margin-top: 20px;
+  width: 100%; /* 전체 너비를 사용하도록 조정 */
+}
+
+.messageItem {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
+.dislikeButton {
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
 }
