@@ -23,6 +23,7 @@ import Donate_DonatedPage from './Pages/Donate/Donate_DonatedPage';
 import ReviewPage from './Pages/Review/ReviewPage';
 import Shop_MainPage from './Pages/Shop/Shop_MainPage';
 import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
+import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
@@ -53,12 +54,10 @@ function App() {
                 <Route path="/recruitment/exercise" />
                 <Route path="/recruitment/study" />
                 <Route path="/challenge/:id" element={<ChallengeInfo />} />
-
                 <Route
                   path="/challengemake"
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
-
                 <Route path="/recruitment/other" />
                 <Route path="donate">
                   <Route index element={<Donate_CharityListPage />} />
@@ -72,7 +71,10 @@ function App() {
                   <Route index element={<Shop_MainPage />} />
                   <Route path=":shopSlug" element={<Shop_DetailPage />} />
                 </Route>
-
+                <Route path="/coupon">
+                  <Route index element={<Shop_MainPage />} />
+                  <Route path=":couponSlug" element={<Coupon_DetailPage />} />
+                </Route>
                 <Route path="/mypage" element={<Mypage></Mypage>} />
                 <Route
                   path="/mypage/infochange"

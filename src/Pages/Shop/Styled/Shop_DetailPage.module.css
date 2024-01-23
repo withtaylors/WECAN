@@ -92,4 +92,11 @@
 .temp h3 {
   color: #dd518c;
   font-size: 21px;
+  display: flex;
+}
+
+.cost {
+  color: black;
+  font-weight: bold;
+  margin-right: 10px;
 }
