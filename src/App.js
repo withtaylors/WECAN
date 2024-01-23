@@ -29,6 +29,7 @@ import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
 import ChatPage from './Pages/Chat/ChatPage';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
+import Candy from './Pages/MyPage/Candy/Candy.main';
 import KakaoRedirect from './Pages/Login/KakaoRedirect.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
 import ChallengeMiracle from './Pages/Recruit/Recruit.total.miracle';
@@ -92,6 +93,7 @@ function App() {
                   path="/mypage/infochange"
                   element={<InfoChange></InfoChange>}
                 />
+                <Route path="/mypage/candy" element={<Candy></Candy>} />
                 <Route path="/chat" element={<ChatPage />} />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route

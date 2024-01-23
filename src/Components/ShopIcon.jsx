@@ -3,7 +3,7 @@ import styles from './Styled/ShopIcon.module.css';
 
 import img1 from '../Assets/img/Shop/1.png';
 import img2 from '../Assets/img/Shop/2.png';
-import img3 from '../Assets/img/Shop/4.png';
+import img3 from '../Assets/img/Shop/3.png';
 import img4 from '../Assets/img/Shop/4.png';
 import img5 from '../Assets/img/Shop/5.png';
 import img6 from '../Assets/img/Shop/6.png';
