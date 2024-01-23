@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import * as tokens from "../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../tokens';
 
 export const mainWrapper = styled.div`
   display: flex;
@@ -7,7 +7,7 @@ export const mainWrapper = styled.div`
   height: auto;
   width: 890px;
   gap: 10px;
-  margin-top: 150px;
+  margin-top: px;
   margin-bottom: 150px;
 `;
 export const reviewWrapper = styled.div`
@@ -18,6 +18,7 @@ export const reviewWrapper = styled.div`
   margin-left: 61px;
   margin-top: 50px;
 `;
+
 export const title = styled.div`
   font-size: 24px;
   font-weight: bold;
@@ -30,6 +31,13 @@ export const reviewblock = styled.div`
   height: 98px;
   width: 813px;
 `;
+export const reviewblock2 = styled.div`
+  display: flex;
+  flex-direction: row;
+  height: 98px;
+  width: 813px;
+  transform: scaleX(-1);
+`;
 
 export const profil = styled.div`
   display: flex;
@@ -37,21 +45,37 @@ export const profil = styled.div`
   height: 110px;
   width: 83px;
 `;
+export const profil2 = styled.div`
+  display: flex;
+  flex-direction: column;
+  height: 110px;
+  width: 83px;
+  transform: scaleX(-1);
+`;
 export const name = styled.div`
   font-size: 15px;
   display: flex;
   align-items: center;
   justify-content: center;
 `;
+
 export const photo = styled.img`
   height: 84px;
   width: 83px;
   border-radius: 50%;
 `;
+
 export const comment = styled.div`
   position: relative;
 `;
+export const comment2 = styled.div`
+  position: relative;
+  transform: scaleX(-1);
+`;
 export const img = styled.img``;
+export const img2 = styled.img`
+  transform: scaleX(-1);
+`;
 export const content = styled.div`
   position: absolute;
   top: 40%;

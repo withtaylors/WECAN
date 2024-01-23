@@ -64,7 +64,6 @@ export const NavWrapper = styled.div`
   justify-content: center;
   height: 50px;
   width: 896px;
-  height: 70px;
   z-index: 50;
   gap: 10px;
   border-style: solid;

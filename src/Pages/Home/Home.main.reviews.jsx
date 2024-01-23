@@ -9,7 +9,7 @@ function HomeReviews() {
     { name: '챌린저22', content: '팀원들이 모두 잘해줬습니다' },
     { name: '챌린저33', content: '안녕하세요' },
   ];
-  //////////////////////////////////////////////////////
+
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
   ////////////////////////////////////////////////////
@@ -32,22 +32,53 @@ function HomeReviews() {
 
     fetchChallengeThree();
   }, []);
+
   return (
     <reviews.mainWrapper>
       <reviews.title>챌린저들의 후기</reviews.title>
       <reviews.reviewWrapper>
-        {challengeThree.map((item, index) => (
-          <reviews.reviewblock>
-            <reviews.profil>
-              <reviews.photo src={profileimg}></reviews.photo>
-              <reviews.name>{item.nickName}</reviews.name>
-            </reviews.profil>
-            <reviews.comment>
-              <reviews.img src={bubbleCommentImage}></reviews.img>
-              <reviews.content>{item.content}</reviews.content>
-            </reviews.comment>
-          </reviews.reviewblock>
-        ))}
+        <reviews.reviewblock>
+          <reviews.profil>
+            <reviews.photo src={profileimg}></reviews.photo>
+            <reviews.name>
+              {challengeThree && challengeThree[0]?.nickName}
+            </reviews.name>
+          </reviews.profil>
+          <reviews.comment>
+            <reviews.img src={bubbleCommentImage}></reviews.img>
+            <reviews.content>
+              {challengeThree && challengeThree[0]?.content}
+            </reviews.content>
+          </reviews.comment>
+        </reviews.reviewblock>
+        <reviews.reviewblock2>
+          <reviews.profil2>
+            <reviews.photo src={profileimg}></reviews.photo>
+            <reviews.name>
+              {challengeThree && challengeThree[1]?.nickName}
+            </reviews.name>
+          </reviews.profil2>
+          <reviews.comment2>
+            <reviews.img2 src={bubbleCommentImage}></reviews.img2>
+            <reviews.content>
+              {challengeThree && challengeThree[1]?.content}
+            </reviews.content>
+          </reviews.comment2>
+        </reviews.reviewblock2>
+        <reviews.reviewblock>
+          <reviews.profil>
+            <reviews.photo src={profileimg}></reviews.photo>
+            <reviews.name>
+              {challengeThree && challengeThree[2]?.nickName}
+            </reviews.name>
+          </reviews.profil>
+          <reviews.comment>
+            <reviews.img src={bubbleCommentImage}></reviews.img>
+            <reviews.content>
+              {challengeThree && challengeThree[2]?.content}
+            </reviews.content>
+          </reviews.comment>
+        </reviews.reviewblock>
       </reviews.reviewWrapper>
       <reviews.thirdblock>
         <reviews.buttoninfo>더보기 {'->'}</reviews.buttoninfo>

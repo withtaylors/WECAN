@@ -29,8 +29,8 @@ import ChallengeMakeMain from "./Pages/ChallengeMake/ChallengeMake.main";
 import ChatPage from "./Pages/Chat/ChatPage";
 import Mypage from "./Pages/MyPage/Mypage.main";
 import InfoChange from "./Pages/MyPage/InfoChange/InfoChange.main";
-import KakaoRedirect from "./Pages/Login/KakaoRedirect.main";
 import { Info } from "./Pages/Challenger/Styled/Challenger.review.main";
+import KakaoRedirect from "./Pages/Login/KakaoRedirect.main";
 import TossWidget from "./Pages/Toss/Toss.main";
 
 const queryClient = new QueryClient();
@@ -72,18 +72,19 @@ function App() {
                   <Route index element={<Shop_MainPage />} />
                   <Route path=":shopSlug" element={<Shop_DetailPage />} />
                 </Route>
+
                 <Route path="/mypage" element={<Mypage></Mypage>} />
                 <Route
                   path="/mypage/infochange"
                   element={<InfoChange></InfoChange>}
                 />
                 <Route path="/chat" element={<ChatPage />} />
-                <Route path="*" element={<NotFoundPage />} />
                 <Route
                   path="/login/oauth/kakao"
                   element={<KakaoRedirect />}
                 ></Route>
                 <Route path="/toss" element={<TossWidget />}></Route>
+                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </div>
             <ConditionalFooter />

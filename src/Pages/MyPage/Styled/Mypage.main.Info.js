@@ -21,11 +21,11 @@ export const ProfileWrapper = styled.div`
   flex-direction: column;
 `;
 export const ProfileRealWrapper = styled.div`
-  width: 390px;
+  width: 500px;
   height: 190px;
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   margin-left: 30px;
 `;
 export const ProfilefixingWrapper = styled.div`
@@ -44,7 +44,7 @@ export const ProfileImg = styled.img`
   height: 157px;
 `;
 export const ProfileTextWrapper = styled.div`
-  width: 194px;
+  width: 250px;
   height: 90px;
 
   margin-left: 26px;
@@ -54,14 +54,14 @@ export const userNameWrapper = styled.div`
   flex-direction: row;
 `;
 export const userName = styled.div`
-  width: 95%;
+  width: 100%;
   height: 47px;
   font-size: 38px;
 
   margin-bottom: 10px;
 `;
 export const userName2 = styled.div`
-  width: 95%;
+  width: 100%;
   height: 47px;
   font-size: 38px;
   font-weight: bold;

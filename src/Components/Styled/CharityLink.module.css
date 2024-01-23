@@ -7,7 +7,7 @@
   font-size: 15px;
   cursor: pointer;
   outline: none;
-  transition: all 0.2s ease;
+  transition: all 0.1s ease;
 
   /* Additional styles for hover state */
   &:hover {
