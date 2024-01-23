@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useRecoilState } from 'recoil';
-import { userState } from '../Login/Recoil/Recoil.auth.state';
+import { isSuccessState } from '../Login/Recoil/Recoil.auth.state';
 
 import styles from './Styled/ReviewPage.module.css';
 import TopNav from '../../Pages/TopNav/TopNav.main';
@@ -12,7 +12,7 @@ function ReviewPage() {
   const [challenges, setChallenges] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(null);
   const [review, setReview] = useState('');
-  const [user] = useRecoilState(userState); // 로그인한 사용자 상태
+  const [user] = useRecoilState(isSuccessState); // 로그인한 사용자 상태
   const [isLoading, setIsLoading] = useState(false);
   const baseURL = 'http://3.35.3.205:8080';
 
@@ -21,7 +21,7 @@ function ReviewPage() {
       setIsLoading(true);
       axios
         .get(`${baseURL}/challenges`, {
-          headers: { Authorization: `Bearer ${userState.token}` },
+          headers: { Authorization: `Bearer ${isSuccessState.token}` },
         })
         .then((response) => {
           setChallenges(response.data);
