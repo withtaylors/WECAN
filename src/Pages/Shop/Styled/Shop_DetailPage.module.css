@@ -100,3 +100,14 @@
   font-weight: bold;
   margin-right: 10px;
 }
+
+.centerdetail {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 100px;
+}
+
+.centerdetail img {
+  width: 650px;
+}
