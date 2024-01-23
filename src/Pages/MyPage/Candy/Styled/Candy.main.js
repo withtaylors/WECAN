@@ -42,6 +42,10 @@ export const PurchaseWrapper = styled.div`
   text-align: center;
   align-items: center;
   justify-content: center;
+
+  @media (max-width: 1500px) {
+    width: 50%;
+  }
 `;
 
 export const ProfileWrapper = styled.div`
@@ -50,6 +54,7 @@ export const ProfileWrapper = styled.div`
   align-items: center;
   justify-content: center;
 `;
+
 export const UserNameContainer = styled.div`
   display: flex;
   align-items: center;
@@ -57,10 +62,12 @@ export const UserNameContainer = styled.div`
   font-size: 16px;
   justify-content: center;
 `;
+
 export const UserName = styled.h2`
   font-size: 16px;
   font-weight: bold;
 `;
+
 export const UserNameKeyWord = styled.div`
   display: flex;
   flex-direction: row;
@@ -69,6 +76,7 @@ export const UserNameKeyWord = styled.div`
 export const UserCandyCount = styled.p`
   font-size: 1.25rem;
 `;
+
 export const CandyKeyword = styled.span`
   color: #dd518c;
   font-weight: bold;
