@@ -17,7 +17,7 @@ function Donate_DonatedPage() {
   const [searchParam, setSearchParam] = useSearchParams();
   const initKeyword = searchParam.get('keyword');
   const [keyword, setKeyword] = useState(initKeyword || '');
-  const charitys = getCharitys(initKeyword); // mock.json에서 가져온 데이터
+  const charitys = getCharitys(initKeyword);
   const [images, setImages] = useState({});
 
   useEffect(() => {

@@ -4,7 +4,7 @@ import * as mylike from './Styled/Mypage.main.liked';
 import TopNav from '../TopNav/TopNav.main';
 import DonationCard from '../Category/Donation.card';
 import axios from 'axios';
-
+import DonatedItem from '../../Components/DonatedItem';
 function MyDonation() {
   const samples = [
     { title: '챌린지 1', challengePeriod: '2023-11-01' },
@@ -25,7 +25,7 @@ function MyDonation() {
 
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
-  const [challengeLiked, setChallengeLiked] = useState([]);
+  const [donated, setDonated] = useState([]);
   useEffect(() => {
     const fetchChallengeThree = async () => {
       setLoading(true);
@@ -36,8 +36,8 @@ function MyDonation() {
           },
         });
         console.log('기부 증서 목록 불러오기:', response);
-        setChallengeLiked(response.data.data.responses);
-        console.log(challengeLiked);
+        setDonated(response.data.data.responses);
+        console.log(donated);
       } catch (error) {
         console.error('기부 증서 목록 불러오기 실패', error);
       } finally {
@@ -56,7 +56,7 @@ function MyDonation() {
   const itemsPerPage = 3;
   const indexOfLastItem = currentPage * itemsPerPage;
   const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentItems = samples.slice(indexOfFirstItem, indexOfLastItem);
+  const currentItems = donated.slice(indexOfFirstItem, indexOfLastItem);
   return (
     <mylike.DonationTotalWrapper>
       <mylike.PageButton onClick={() => handlePageChange(currentPage - 1)}>
@@ -65,8 +65,14 @@ function MyDonation() {
       <mylike.RealWrapper>
         <mylike.title>기부 내역 모아보기</mylike.title>
         <mylike.donationcardsWrapper>
-          {currentItems.map((item, index) => (
-            <DonationCard key={index} data={item} />
+          {currentItems.map((charity) => (
+            <DonatedItem
+              key={charity.id}
+              id={charity.id}
+              challengeName={charity.title}
+              explanation={charity.explanation}
+              imageSrc={charity.imgEndpoint}
+            />
           ))}
         </mylike.donationcardsWrapper>
       </mylike.RealWrapper>

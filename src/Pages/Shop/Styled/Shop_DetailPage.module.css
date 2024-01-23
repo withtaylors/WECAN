@@ -10,18 +10,32 @@
 .header .title {
   margin: 10px auto 20px;
   font-size: 28px;
-  font-weight: medium;
+  font-weight: 500;
   color: black;
   text-align: left;
 }
 
+.challengename {
+  display: flex;
+  flex-direction: row;
+  text-align: center;
+}
+
+.challengename p {
+  display: flex;
+  margin: 0;
+  margin-top: 23px;
+  margin-left: 25px;
+}
+
+.detail {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .shopIcon {
   width: 300px;
-  height: 200px;
-  /* border: solid 1.5px #bbbbbb; */
-  background-color: #eaeaea;
-  padding: 20px;
-  margin-left: 0;
+  height: auto;
   border-radius: 10px;
   align-self: flex-end;
 }
@@ -38,9 +52,13 @@
 .shopHeader {
   display: flex;
   justify-content: space-between;
-  align-items: flex-end;
 }
 
+.bottom {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
 .topics {
   margin: 30px auto 100px;
 }
@@ -64,4 +82,14 @@
 .center {
   display: flex;
   justify-content: center;
+}
+
+.temp {
+  display: flex;
+  flex-direction: column;
+}
+
+.temp h3 {
+  color: #dd518c;
+  font-size: 21px;
 }

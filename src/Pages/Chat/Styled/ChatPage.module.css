@@ -1,12 +1,65 @@
-.calendarContainer {
-  margin: 100px 200px;
+.container {
+  display: flex;
+  justify-content: center; /* Aligns children (leftContainer and chatRoom) to the center */
+  align-items: flex-start;
+  height: 100vh;
+  padding: 20px;
+  margin-top: 80px;
+  background-color: #f0f0f0;
 }
 
-.chat-room {
-  margin: 10px;
-  padding: 10px;
+.leftContainer,
+.chatRoom {
+  padding: 40px;
+}
+
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%; /* Adjust the width to give more space around the containers */
+  margin-right: 10px; /* Space between leftContainer and chatRoom */
+  height: calc(
+    100vh - 160px
+  ); /* Adjust the height considering padding and margin-top */
+  background-color: #ffffff;
   border-radius: 8px;
-  background-color: #f0f0f0;
+  overflow: hidden;
+  padding: 20px; /* Add padding inside the leftContainer */
+}
+
+.chatRoom {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 45%; /* Same width as leftContainer for balance */
+  margin-left: 10px; /* Space between leftContainer and chatRoom */
+  height: calc(100vh - 160px); /* Same height as leftContainer */
+  background-color: #ffffff;
+  border-radius: 8px;
+  overflow: hidden;
+  padding: 20px; /* Add padding inside the chatRoom */
+}
+
+.challengeInfo {
+  /* 챌린지 정보 스타일 */
+  margin-bottom: 10px; /* 달력과의 간격 */
+  width: 100%;
+}
+.challengeInfo h2 {
+  font-size: 28px; /* Increased from 24px */
+  font-weight: bold; /* Make it bold */
+}
+
+.challengeInfo p {
+  margin: 10px 0; /* Space between title and success rate */
+  color: #666; /* Lighter text color for the success rate */
+  font-size: 20px; /* Smaller font size for the success rate */
+}
+
+.calendarContainer {
+  width: 100%;
+  padding: 10px;
 }
 
 .message {
@@ -18,10 +71,9 @@
   line-height: 1.4;
 }
 
-.message.mine {
-  background-color: #dcf8c6;
-  margin-left: auto;
-  margin-right: 0;
+.messagesContainer {
+  overflow-y: auto;
+  flex-grow: 1;
 }
 
 .message-nickName {
@@ -34,10 +86,11 @@
   padding: 10px;
 }
 
-.input-area {
+.inputArea {
   display: flex;
   justify-content: space-between;
-  padding: 10px 0;
+  padding: 10px;
+  background-color: #ffffff; /* Set the background color to white */
 }
 
 .input-area input {
@@ -53,10 +106,26 @@
   background-color: #34b7f1;
   color: white;
   border: none;
-  border-radius: 4px;
+  border-radius: 20px;
   cursor: pointer;
+  font-size: 18px;
 }
 
 .input-area button:hover {
   background-color: #2aabd2;
+}
+
+/* 현재 사용자의 메시지 스타일 */
+.message.mine {
+  background-color: #ffeb3b; /* 노란색 배경 */
+  color: black; /* 텍스트 색상 */
+  margin-left: auto; /* 오른쪽 정렬 */
+  border-radius: 12px 0 12px 12px; /* 왼쪽 모서리에 둥근 모서리 적용 */
+}
+
+.otherUser {
+  background-color: #e0e0e0; /* 회색 배경 */
+  color: black; /* 텍스트 색상 */
+  margin-right: auto; /* 왼쪽 정렬 */
+  border-radius: 0 12px 12px 12px; /* 오른쪽 모서리에 둥근 모서리 적용 */
 }

@@ -1,20 +1,20 @@
-import React, { useState } from "react";
-import { useSearchParams } from "react-router-dom";
-import DonateListPage from "./DonateListPage";
-import styles from "./Styled/Donate_CharityListPage.module.css";
-import Warn from "../../Components/Warn";
-import CharityItem from "../../Components/CharityItem";
-import { getCharitys } from "../../Api/getter";
-import searchBarStyles from "../../Components/Styled/SearchBar.module.css";
-import searchIcon from "../../Assets/search.png";
-import TabButton from "../../Components/TabButton";
-import Pagination from "react-js-pagination";
-import TopNav from "../../Pages/TopNav/TopNav.main";
+import React, { useState } from 'react';
+import { useSearchParams } from 'react-router-dom';
+import DonateListPage from './DonateListPage';
+import styles from './Styled/Donate_CharityListPage.module.css';
+import Warn from '../../Components/Warn';
+import CharityItem from '../../Components/CharityItem';
+import { getCharitys } from '../../Api/getter';
+import searchBarStyles from '../../Components/Styled/SearchBar.module.css';
+import searchIcon from '../../Assets/search.png';
+import TabButton from '../../Components/TabButton';
+import Pagination from 'react-js-pagination';
+import TopNav from '../../Pages/TopNav/TopNav.main';
 
 function Donate_CharityListPage() {
   const [searchParam, setSearchParam] = useSearchParams();
-  const initKeyword = searchParam.get("keyword");
-  const [keyword, setKeyword] = useState(initKeyword || "");
+  const initKeyword = searchParam.get('keyword');
+  const [keyword, setKeyword] = useState(initKeyword || '');
   // useState를 사용하여 charitys 상태와 그 상태를 업데이트하는 함수를 정의
   const charitys = getCharitys(initKeyword); // mock.json에서 가져온 데이터
   //test
@@ -25,7 +25,7 @@ function Donate_CharityListPage() {
     setSearchParam(keyword ? { keyword } : {});
   };
 
-  const [activeTab, setActiveTab] = useState("tab1");
+  const [activeTab, setActiveTab] = useState('tab1');
 
   const tabTypes = {
     tab1: null,
@@ -40,7 +40,7 @@ function Donate_CharityListPage() {
   };
 
   const filteredCharitys = charitys.filter(
-    (charity) => activeTab === "tab1" || charity.type === tabTypes[activeTab]
+    (charity) => activeTab === 'tab1' || charity.type === tabTypes[activeTab]
   );
 
   // 페이지네이션을 위한 상태
@@ -90,12 +90,11 @@ function Donate_CharityListPage() {
             description="올바른 검색어가 맞는지 다시 한 번 확인해 주세요."
           />
         ) : (
-<div className={styles.charityList}>
-  {currentCharitys.map((charity) => (
-    <CharityItem key={charity.id} charity={charity} />
-  ))}
-</div>
-
+          <div className={styles.charityList}>
+            {currentCharitys.map((charity) => (
+              <CharityItem key={charity.id} charity={charity} />
+            ))}
+          </div>
         )}
       </DonateListPage>
     </>
