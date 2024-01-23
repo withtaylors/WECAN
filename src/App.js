@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import {
   BrowserRouter as Router,
   Routes,
@@ -31,6 +31,7 @@ import Mypage from "./Pages/MyPage/Mypage.main";
 import InfoChange from "./Pages/MyPage/InfoChange/InfoChange.main";
 import KakaoRedirect from "./Pages/Login/KakaoRedirect.main";
 import { Info } from "./Pages/Challenger/Styled/Challenger.review.main";
+import TossWidget from "./Pages/Toss/Toss.main";
 
 const queryClient = new QueryClient();
 
@@ -82,6 +83,7 @@ function App() {
                   path="/login/oauth/kakao"
                   element={<KakaoRedirect />}
                 ></Route>
+                <Route path="/toss" element={<TossWidget />}></Route>
               </Routes>
             </div>
             <ConditionalFooter />
