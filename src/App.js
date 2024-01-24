@@ -61,7 +61,11 @@ getToken(messaging, { vapidKey: 'BPpWppf9pzrB-RB5QQJG3srwzNLsMWswruVXBZpkN2_hsFY
     });
 //포그라운드 메시지 수신
 onMessage(messaging, (payload) => {
-  console.log("Message received. ", payload);
+  const notificationOptions = {
+    body: payload.notification.body,
+    badge: "https://cdn.discordapp.com/attachments/1198333678305157143/1198561733879549992/dc824826bc0482c9.png?ex=65bf5a99&is=65ace599&hm=728ce0a712db36a502ca420d62cea18a0e86bb2bd7f9430d6fa9b9e4deaeab2c&",
+  };
+  new Notification(payload.notification.title, notificationOptions)
 });
 function App() {
   return (
