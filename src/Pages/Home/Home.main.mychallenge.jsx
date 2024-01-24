@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import * as myjoin from './Styled/Home.main.mychallenge';
 import axios from 'axios';
 import logoutimg from '../../Assets/img/Banners/logoutbanner.png';
 import righticon from '../../Assets/img/righticon.png';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
 function HomeMyChallenge() {
   const baseURL = 'http://3.35.3.205:8080';
   const [myChallenge, setMyChallenge] = useState([]);
@@ -59,7 +62,21 @@ function HomeMyChallenge() {
   };
   const currentChallenge = myChallenge[currentIndex];
 
-  // 렌더링
+  ////////////////////////////////////////////////////////
+  const navigate = useNavigate();
+  const NavClick = (e, type, index, challenge) => {
+    e.preventDefault();
+    console.log(e, type, challenge);
+    navigate(type, {
+      state: {
+        selectedChallenge: challenge,
+      },
+    });
+  };
+
+  const StyledLink = styled(Link)`
+    text-decoration: none;
+  `;
   return (
     <myjoin.totalWrapper>
       <myjoin.title>내가 참여중인 챌린지</myjoin.title>
@@ -83,10 +100,13 @@ function HomeMyChallenge() {
               {currentChallenge && currentChallenge.challengePeriod}
               <myjoin.challengeLeftDate>D-{4}</myjoin.challengeLeftDate>
               <myjoin.challengeButtonWrapper>
-                <myjoin.challengeAdmitButton>
-                  인증하러 가기{' '}
-                  <myjoin.rightimg src={righticon}></myjoin.rightimg>
-                </myjoin.challengeAdmitButton>
+                <StyledLink
+                  to={`/chat/${currentChallenge && currentChallenge.id}`}
+                >
+                  <myjoin.challengeAdmitButton>
+                    인증하러 가기{' ->'}
+                  </myjoin.challengeAdmitButton>
+                </StyledLink>
               </myjoin.challengeButtonWrapper>
             </myjoin.mainInfo>
           </myjoin.subCardWrapper>

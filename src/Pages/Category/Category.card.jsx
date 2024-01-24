@@ -22,6 +22,7 @@ function CategoryCard(props) {
   const id = props.data && props.data.id;
   const imgsrc =
     (props.data && props.data.coverImage) || (props.data && props.data.img);
+  const isLike = props.data && props.data.heart;
   return (
     <Category.CardWrapper>
       <Link to={`/challenge/${id}`}>
@@ -37,7 +38,7 @@ function CategoryCard(props) {
         </Category.ContentInfo>
       </Category.ContentWrapper>
       <Category.LikeButtonWrapper>
-        <LikeButton id={props.data.id}></LikeButton>
+        <LikeButton id={props.data.id} isLike={isLike}></LikeButton>
       </Category.LikeButtonWrapper>
     </Category.CardWrapper>
   );

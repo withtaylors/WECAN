@@ -121,7 +121,9 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
                 ></chgincruit.teamNumber>
                 명 이상
               </label>
-              <button onClick={handleSetTeamNumber}>설정</button>
+              <chgincruit.setButton2 onClick={handleSetTeamNumber}>
+                설정
+              </chgincruit.setButton2>
               <chgincruit.teamNumberNotify>
                 *최소 5명 이상
               </chgincruit.teamNumberNotify>
@@ -182,7 +184,9 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
                 ></chgincruit.teamNumber>
                 개
               </label>
-              <button onClick={handleSetCandyNumber}>설정</button>
+              <chgincruit.setButton onClick={handleSetCandyNumber}>
+                설정
+              </chgincruit.setButton>
             </chgincruit.teamNumberWrapper>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>

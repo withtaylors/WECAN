@@ -10,44 +10,12 @@ import axios from 'axios';
 import request from '../../Api/request.js';
 
 function ChallengeReview() {
-  const array22 = [
-    {
-      id: 0,
-      name: '홍길동',
-      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
-    },
-    {
-      id: 0,
-      name: '홍창기',
-      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
-    },
-    {
-      id: 1,
-      name: '문보경',
-      text: '함께 하고 싶습니다!',
-    },
-    {
-      id: 1,
-      name: '김현수',
-      text: '만족스럽지 않습니다!',
-    },
-    {
-      id: 2,
-      name: '박해민',
-      text: '다시 도전하고 싶습니다',
-    },
-    {
-      id: 2,
-      name: '박이든',
-      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
-    },
-  ];
   //////////////////////////////////////////////////////
   const { id } = useParams();
   const [groupedArray, setGroupedArray] = useState([]);
   const [content, setContent] = useState();
   const baseURL = 'http://3.35.3.205:8080';
-
+  const userName = localStorage.getItem('user-name');
   /////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeInfo, setChallengeInfo] = useState([]);
@@ -127,6 +95,7 @@ function ChallengeReview() {
         <challengerReview.Info>
           <challengerReview.Likes>
             <challengerReview.photo0 src={heartImg}></challengerReview.photo0>
+            {challengeInfo.heartNum} 개
           </challengerReview.Likes>
           <challengerReview.reviewNumber1>
             <challengerReview.photo1
@@ -136,7 +105,11 @@ function ChallengeReview() {
           </challengerReview.reviewNumber1>
         </challengerReview.Info>
         <challengerReview.reviewNumber2>
-          댓글{challengeInfo.comments && challengeInfo.comments.length}개
+          댓글
+          <challengerReview.reviewNumberreal>
+            {challengeInfo.comments && challengeInfo.comments.length}
+          </challengerReview.reviewNumberreal>
+          개
         </challengerReview.reviewNumber2>
       </challengerReview.Top>
       {challengeInfo.comments &&
@@ -160,8 +133,7 @@ function ChallengeReview() {
           <challengereview.profileWrapper>
             <challengereview.photo></challengereview.photo>
             <challengereview.profileReal>
-              <challengereview.name></challengereview.name>
-              <challengereview.date></challengereview.date>
+              <challengereview.name>{userName}</challengereview.name>
             </challengereview.profileReal>
           </challengereview.profileWrapper>
         </challengerReview.myprofileWrapper>

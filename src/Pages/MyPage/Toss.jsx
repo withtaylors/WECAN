@@ -1,18 +1,18 @@
 import React, { useState } from 'react';
+import { loadTossPayments } from 'toss-payments';
 
 const Payment = () => {
-	const [name, setName] = React.useState("");
+  const [name, setName] = React.useState('');
 
   const clientKey = process.env.REACT_APP_CLIENT_KEY;
 
   const tossPay = () => {
-    
     //orderId가 필요해서 만든 랜덤 아이디값
-    const random = new Date().getTime() + Math.random()
-    const randomId = btoa(random)
+    const random = new Date().getTime() + Math.random();
+    const randomId = btoa(random);
 
     if (radio === '가상계좌') {
-      loadTossPayments(clientKey).then(tossPayments => {
+      loadTossPayments(clientKey).then((tossPayments) => {
         // 카드 결제 메서드 실행
         tossPayments.requestPayment(`${radio}`, {
           amount: 1, // 가격
@@ -25,10 +25,10 @@ const Payment = () => {
           cashReceipt: {
             type: '소득공제',
           },
-        })
-      })
+        });
+      });
     } else {
-      loadTossPayments(clientKey).then(tossPayments => {
+      loadTossPayments(clientKey).then((tossPayments) => {
         // 카드 결제 메서드 실행
         tossPayments.requestPayment(`${radio}`, {
           amount: 1, // 가격
@@ -37,10 +37,10 @@ const Payment = () => {
           customerName: `${name}`, // 판매자, 판매처 이름
           successUrl: 'http://localhost:3000/success', // 성공시 리다이렉트 주소
           failUrl: 'http://localhost:3000/failed', // 실패시 리다이렉트 주소
-        })
-      })
+        });
+      });
     }
-  }
+  };
+};
 
-
-  export defualt Toss.jsx
+export default Payment;

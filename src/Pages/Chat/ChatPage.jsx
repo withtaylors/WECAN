@@ -1,23 +1,59 @@
 import React, { useState, useEffect } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import styles from './Styled/ChatPage.module.css';
 import Modal from './Auth_Modal';
+import axios from 'axios';
 
-const ChatPage = ({ userId, userNickName }) => {
+const ChatPage = () => {
+  const { challengeId } = useParams();
+  const baseURL = 'http://3.35.3.205:8080';
+  const userName = localStorage.getItem('user-name');
+  const userId = localStorage.getItem('user-id');
+  const userIdLong = parseInt(userId, 10);
+  //////////////////////////////////////////////////////
+  const [loading, setLoading] = useState(false);
+  const [chattingInfo, setchattingInfo] = useState([]);
+  useEffect(() => {
+    const fetchChallengeThree = async () => {
+      setLoading(true);
+      try {
+        const response = await axios.get(
+          `${baseURL}/challenge/info/${challengeId}`,
+          {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+            },
+          }
+        );
+        console.log('채팅방 정보:', response);
+        setchattingInfo(response.data.data);
+      } catch (error) {
+        console.error('채팅방 정보 불러오기 실패', error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchChallengeThree();
+  }, []);
+
+  //////////////////////////////////////////////////////
   const today = new Date();
   today.setHours(23, 59, 59, 999);
+  const chattingRoomId = chattingInfo.chattingRoomId;
+  ///////////////////////////////////////////////////////
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [data, setData] = useState({
     title: '',
     startDate: '',
     endDate: '',
     successRate: '',
-    chattingRoomId: null,
+    chattingRoomId: chattingInfo.chattingRoomId,
     chattingList: [],
   });
-
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
@@ -44,10 +80,21 @@ const ChatPage = ({ userId, userNickName }) => {
       console.log('STOMP Connection');
 
       // 채팅방 구독
-      stomp.subscribe('/sub/chat/room/' + data.chattingRoomId, (chat) => {
+      stomp.subscribe(`/sub/chat/room/` + { chattingRoomId }, (chat) => {
         const content = JSON.parse(chat.body);
+        console.log('Received Message:', content);
         setMessages((prev) => [...prev, content]);
+        console.log(content);
       });
+    };
+    stomp.onWebSocketClose = (event) => {
+      console.error('WebSocket Closed:', event);
+      // 웹소켓이 닫힌 경우 재연결 노력 등을 수행할 수 있습니다.
+    };
+
+    stomp.onWebSocketError = (event) => {
+      console.error('WebSocket Error:', event);
+      // 웹소켓 에러 처리를 수행할 수 있습니다.
     };
 
     setStompClient(stomp);
@@ -56,8 +103,28 @@ const ChatPage = ({ userId, userNickName }) => {
       stomp.deactivate();
     };
   }, [data.chattingRoomId]);
+  ///////////////////////////////////////////////
+  const fetchChattingRoomInfo = async () => {
+    setLoading(true);
+    try {
+      const response = await axios.get(
+        `${baseURL}/challenge/info/${challengeId}`,
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        }
+      );
+      console.log('채팅방 정보:', response);
+      setchattingInfo(response.data.data);
+    } catch (error) {
+      console.error('채팅방 정보 불러오기 실패', error);
+    } finally {
+      setLoading(false);
+    }
+  };
 
-  //채팅 메세지 전송
+  ///////////채팅 메세지 전송
   const sendMessage = () => {
     if (stompClient && inputMessage) {
       const now = new Date();
@@ -65,9 +132,9 @@ const ChatPage = ({ userId, userNickName }) => {
 
       const chatMessage = {
         type: 'TALK',
-        roomId: data.chattingRoomId,
-        userId: userId,
-        nickName: userNickName,
+        roomId: chattingInfo.chattingRoomId,
+        userId: userIdLong,
+        nickName: userName,
         message: inputMessage,
         time: currentTime,
       };
@@ -77,8 +144,9 @@ const ChatPage = ({ userId, userNickName }) => {
         headers: {},
         body: JSON.stringify(chatMessage),
       });
-
+      /////////////////////////////////////////////////////////
       console.log('Message sent:', chatMessage);
+      fetchChattingRoomInfo();
       setInputMessage('');
     }
   };
@@ -110,21 +178,23 @@ const ChatPage = ({ userId, userNickName }) => {
       <div className={styles.chatRoom}>
         <h2>{data.title}</h2>
         <div className={styles.messagesContainer}>
-          {messages.map((msg, index) => (
-            <div
-              key={index}
-              className={`${styles.message} ${
-                msg.userId === userId ? styles.mine : ''
-              }`}
-            >
-              <span className={styles.messageNickName}>{msg.nickName}</span>:{' '}
-              {msg.message}
-            </div>
-          ))}
+          {chattingInfo &&
+            chattingInfo.chattingList &&
+            chattingInfo.chattingList.map((msg, index) => (
+              <div
+                key={index}
+                className={`${styles.message} ${
+                  msg.userId === userId ? styles.mine : ''
+                }`}
+              >
+                <span className={styles.messageNickName}>{msg.nickName}</span>:{' '}
+                {msg.message}
+              </div>
+            ))}
         </div>
         <div className={styles.inputArea}>
           <input
-            type="text"
+            type='text'
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             className={styles.input}
