@@ -1,7 +1,8 @@
+import React from 'react';
 import { Navigate, useParams } from 'react-router-dom';
 import styles from './Styled/Shop_DetailPage.module.css';
 
-import { getShopBySlug } from '../../Api/getter';
+import { getShopBySlug, getCouponBySlug } from '../../Api/getter';
 
 import TopNav from '../TopNav/TopNav.main';
 import Container from '../../Components/Container';
@@ -36,7 +37,11 @@ function Shop_DetailPage() {
               </div>
               <div className={styles.temp}>
                 {shop.topics.map(({ topic }) => (
-                  <h3>{topic.cost} CANDY</h3>
+                  <div key={topic.slug}>
+                    <h3>
+                      <div className={styles.cost}>{topic.cost}</div> CANDY
+                    </h3>
+                  </div>
                 ))}
                 <ShopLink
                   onClick={goToShopLink}
@@ -49,10 +54,20 @@ function Shop_DetailPage() {
       </div>
       <Container className={styles.topics}>
         {shop.topics.map(({ topic }) => (
-          <Card_Shop className={styles.topic} key={topic.slug}>
-            <h3 className={styles.detail}>아이템 소개 및 설명</h3>
-            <h3 className={styles.title}>{topic.title}</h3>
-          </Card_Shop>
+          <div>
+            <div className={styles.centerdetail}>
+              {topic.photoUrl && (
+                <ShopIcon
+                  photoUrl={topic.photoUrl}
+                  className={styles.charityIcon}
+                />
+              )}
+            </div>
+            <Card_Shop className={styles.topic}>
+              <h3 className={styles.detail}>아이템 소개 및 설명</h3>
+              <h3 className={styles.title}>{topic.title}</h3>
+            </Card_Shop>
+          </div>
         ))}
       </Container>
     </>

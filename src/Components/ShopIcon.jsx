@@ -7,6 +7,7 @@ import img3 from '../Assets/img/Shop/3.png';
 import img4 from '../Assets/img/Shop/4.png';
 import img5 from '../Assets/img/Shop/5.png';
 import img6 from '../Assets/img/Shop/6.png';
+import detail from '../Assets/img/Shop/detail.png';
 
 const ICONS = {
   1: img1,
@@ -15,6 +16,7 @@ const ICONS = {
   4: img4,
   5: img5,
   6: img6,
+  detail: detail,
 };
 
 function ShopIcon({ className, photoUrl = 'default' }) {
