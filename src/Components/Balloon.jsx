@@ -1,12 +1,13 @@
 import React from 'react';
 import styled from 'styled-components';
+import rightBalloonImage from '../Assets/img/leftmsg.png';
+import leftBalloonImage from '../Assets/img/leftmsg.png';
 
 const Balloon = ({ challengeName, content, isTailRight }) => {
   return (
-    <BalloonWrapper>
+    <BalloonWrapper isTailRight={isTailRight}>
       <span>{challengeName}</span>
       <p>{content}</p>
-      <BalloonTail $isTailRight={isTailRight} />
     </BalloonWrapper>
   );
 };
@@ -14,11 +15,13 @@ const Balloon = ({ challengeName, content, isTailRight }) => {
 const BalloonWrapper = styled.div`
   position: relative;
   display: inline-block;
-  padding: 18px 24px;
-  border-radius: 28px;
-  background-color: #f6f6f6;
+  padding: 45px 40px;
   border-color: #ddd;
   width: 350px;
+  background-image: url(${(props) =>
+    props.isTailRight ? rightBalloonImage : leftBalloonImage});
+  background-size: cover;
+  background-repeat: no-repeat;
 
   > span {
     font-weight: bold;

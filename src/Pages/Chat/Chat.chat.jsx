@@ -6,6 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import * as calendar from './Styled/Chat.calendar';
 import Modal from './Auth_Modal';
 import axios from 'axios';
+import * as SockJS from 'sockjs-client';
 
 const ChatChat = () => {
   const { challengeId } = useParams();
@@ -70,7 +71,7 @@ const ChatChat = () => {
 
   useEffect(() => {
     // WebSocket 및 STOMP 설정
-    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
+    const websocket = new SockJS('http://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });

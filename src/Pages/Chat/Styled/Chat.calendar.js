@@ -23,14 +23,12 @@ export const challengeInfoWrapper = styled.div`
 `;
 
 export const challengename = styled.div`
-  width: 464px;
   height: 42px;
   font-size: 35px;
   font-weight: bold;
 `;
 
 export const date = styled.div`
-  width: 258px;
   height: 24px;
   font-size: 19px;
   font-color: #303030;

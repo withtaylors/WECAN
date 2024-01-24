@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
 import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
+// import 'react-calendar/dist/Calendar.css';
+import styles from './Styled/ChatDesign.module.css';
 import * as calendar from './Styled/Chat.calendar';
 import Modal from './Auth_Modal';
 import axios from 'axios';
@@ -36,6 +37,33 @@ const ChatCalendar = () => {
     setIsModalOpen(false);
   };
 
+  useEffect(() => {
+    const fetchChallengeData = async () => {
+      try {
+        const response = await axios.get(
+          `${baseURL}/challenge/info/${challengeId}`,
+          {
+            headers: {
+              Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+            },
+          }
+        );
+        const challengeData = response.data.data;
+        setData({
+          ...data,
+          title: challengeData.title,
+          startDate: challengeData.startDate,
+          endDate: challengeData.endDate,
+          successRate: challengeData.successRate,
+        });
+      } catch (error) {
+        console.error('챌린지 데이터 불러오기 실패', error);
+      }
+    };
+
+    fetchChallengeData();
+  }, [challengeId]);
+
   return (
     <calendar.TotalWrapper>
       <calendar.InfoWrapper>
@@ -43,18 +71,23 @@ const ChatCalendar = () => {
           <calendar.challengename>
             Challenge {data.title}{' '}
           </calendar.challengename>
-          <calendar.date> 진행날짜 {}</calendar.date>
+          <calendar.date>
+            {' '}
+            진행날짜 {data.startDate} - {data.endDate}
+          </calendar.date>
         </calendar.challengeInfoWrapper>
-        <calendar.successrate>달성률 {}%</calendar.successrate>
+        <calendar.successrate>달성률 {data.successRate}</calendar.successrate>
       </calendar.InfoWrapper>
-      <calendar.calendar>
+      <calendar.calendar className="myCalendar">
         <Calendar
+          className={styles.calendardesign}
           onChange={handleDateChange}
           value={selectedDate}
           minDate={new Date(data.startDate)}
           maxDate={today}
           formatDay={(locale, date) => date.getDate().toString()}
         />
+
         <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
           <div>
             <h3>Selected Date</h3>

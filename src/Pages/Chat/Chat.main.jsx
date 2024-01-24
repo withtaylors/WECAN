@@ -8,6 +8,7 @@ import Modal from './Auth_Modal';
 import ChatChat from './Chat.chat';
 import ChatCalendar from './Chat.calendar';
 import axios from 'axios';
+import * as SockJS from 'sockjs-client';
 
 const ChatMain = () => {
   const { challengeId } = useParams();
@@ -72,7 +73,7 @@ const ChatMain = () => {
 
   useEffect(() => {
     // WebSocket 및 STOMP 설정
-    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
+    const websocket = new SockJS('http://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
