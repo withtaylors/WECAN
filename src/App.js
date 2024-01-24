@@ -29,9 +29,9 @@ import ChallengeMakeMain from "./Pages/ChallengeMake/ChallengeMake.main";
 import ChatPage from "./Pages/Chat/ChatPage";
 import Mypage from "./Pages/MyPage/Mypage.main";
 import InfoChange from "./Pages/MyPage/InfoChange/InfoChange.main";
-import { Info } from "./Pages/Challenger/Styled/Challenger.review.main";
+import Candy from "./Pages/MyPage/Candy/Candy.main";
 import KakaoRedirect from "./Pages/Login/KakaoRedirect.main";
-import TossWidget from "./Pages/Toss/Toss.main";
+import { Info } from "./Pages/Challenger/Styled/Challenger.review.main";
 
 const queryClient = new QueryClient();
 
@@ -78,13 +78,13 @@ function App() {
                   path="/mypage/infochange"
                   element={<InfoChange></InfoChange>}
                 />
+                <Route path="/mypage/candy" element={<Candy></Candy>} />
                 <Route path="/chat" element={<ChatPage />} />
+                {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route
                   path="/login/oauth/kakao"
                   element={<KakaoRedirect />}
                 ></Route>
-                <Route path="/toss" element={<TossWidget />}></Route>
-                <Route path="*" element={<NotFoundPage />} />
               </Routes>
             </div>
             <ConditionalFooter />

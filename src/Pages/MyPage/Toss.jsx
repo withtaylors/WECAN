@@ -41,6 +41,7 @@ const Payment = () => {
       })
     }
   }
+}
 
 
-  export defualt Toss.jsx
+export defualt Toss.jsx

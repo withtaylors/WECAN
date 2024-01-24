@@ -39,7 +39,13 @@ function MypageInfo() {
         </myinfo.ProfileRealWrapper>
       </myinfo.ProfileWrapper>
       <myinfo.rightWrapper>
-        <myinfo.candyButton>캔디 충전하기</myinfo.candyButton>
+        <myinfo.candyButton
+          onClick={(e) => {
+            NavClick(e, '/mypage/candy');
+          }}
+        >
+          캔디 충전하기
+        </myinfo.candyButton>
         <myinfo.myItemButton>나의 아이템 모아보기</myinfo.myItemButton>
       </myinfo.rightWrapper>
     </myinfo.TotalWrapper>
