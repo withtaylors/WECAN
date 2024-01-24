@@ -7,125 +7,269 @@ import styles from './Styled/ReviewPage.module.css';
 import TopNav from '../../Pages/TopNav/TopNav.main';
 import Container from '../../Components/Container';
 import icoArrowDown from '../../Assets/img/donated/arrow.png';
+import personImg from '../../Assets/person.png';
+import styled from 'styled-components';
+import { getChallengesList, getReviews, postReview } from '../../Api/reviewApi';
+import Balloon from '../../Components/Balloon';
+import Pagination from './pagination';
+
+const initReview = {
+  challengeId: -1,
+  title: '',
+  content: '',
+};
 
 function ReviewPage() {
   const [challenges, setChallenges] = useState([]);
+  const [reviewList, setReviewList] = useState([]);
   const [selectedChallenge, setSelectedChallenge] = useState(null);
-  const [review, setReview] = useState('');
-  const [user] = useRecoilState(isSuccessState); // 로그인한 사용자 상태
-  const [isLoading, setIsLoading] = useState(false);
-  const baseURL = 'http://3.35.3.205:8080';
+  const [writeReview, setWriteReview] = useState(initReview);
+  const [curPage, setCurPage] = useState(1);
+  const articlePerPage = 4; // 화면에 리뷰 표시 할 갯수
 
+  const getToken = localStorage.getItem('login-token');
   useEffect(() => {
-    if (user.isLoggedIn) {
-      setIsLoading(true);
-      axios
-        .get(`${baseURL}/challenges`, {
-          headers: { Authorization: `Bearer ${isSuccessState.token}` },
-        })
-        .then((response) => {
-          setChallenges(response.data);
-        })
-        .catch((error) => {
-          console.error('Failed to fetch challenges:', error.message);
-          console.log(error.config); // 요청 구성 정보를 확인
-          if (error.response) {
-            // 요청은 이루어졌으나, 서버가 2xx 범위가 아닌 상태 코드로 응답
-            console.log(error.response.status);
-            console.log(error.response.data);
-          } else if (error.request) {
-            // 요청이 이루어 졌으나 응답을 받지 못함
-            console.log(error.request);
-          } else {
-            // 요청을 설정하는 중에 문제가 발생
-            console.log('Error', error.message);
-          }
-        })
-        .finally(() => setIsLoading(false));
+    if (getToken) {
+      getChallengesList(getToken).then((res) => {
+        if (res) {
+          setChallenges(res);
+        }
+      });
     }
-  }, [user, baseURL]); // 의존성 배열에 user 추가
+    getReviews().then((res) => setReviewList(res));
+  }, [getToken]); // 의존성 배열에 user 추가
+  const handleRefreshReview = () => {
+    getReviews().then((res) => setReviewList(res));
+  };
 
-  const handleSubmitReview = async () => {
-    if (!user.isLoggedIn) {
-      // user 객체에서 로그인 상태 확인
-      alert('로그인이 필요합니다.');
-      return;
-    }
-
-    if (!selectedChallenge) {
+  const handleClickEnteredBtn = async () => {
+    if (writeReview.challengeId === -1) {
       alert('챌린지를 선택해주세요.');
       return;
     }
-
-    setIsLoading(true);
-    try {
-      const response = await axios.post(
-        `${baseURL}/reviews`,
-        {
-          challengeId: selectedChallenge.id,
-          content: review,
-        },
-        {
-          headers: { Authorization: `Bearer ${user.token}` }, // user 객체에서 token 사용
-        }
-      );
-      console.log(response.data);
-      alert('후기가 등록되었습니다.');
-      setReview('');
-      setSelectedChallenge(null);
-    } catch (error) {
-      console.error('Failed to submit review:', error);
-      alert('후기 등록에 실패했습니다.');
-    } finally {
-      setIsLoading(false);
+    if (writeReview.content.length <= 9) {
+      alert('10글자 이상의 후기만 등록이 가능합니다.');
+      return;
+    }
+    const res = await postReview(getToken, writeReview);
+    if (res) {
+      alert('후기가 작성되었습니다.');
+      await handleRefreshReview();
+      setWriteReview(initReview);
     }
   };
 
-  return (
-    <>
-      <div className={styles.center}>
-        <TopNav></TopNav>
-      </div>
-      <div className={styles.title}>
-        <p>후기</p>
-      </div>
+  console.log(writeReview);
+  const textareaPlaceholder = getToken
+    ? '후기를 작성해주세요'
+    : '챌린지 참여 후 후기 작성이 가능합니다.';
 
-      <div className="review-container">
-        <div className="header">
-          <div className="header_title">내가 참여한 챌린지</div>
-          <div>^</div>
-        </div>
-        <div className="challenge-list">
-          {challenges.map((challenge) => (
-            <div
-              key={challenge.id}
-              onClick={() => setSelectedChallenge(challenge)}
-            >
-              {challenge.name}
-            </div>
+  const filteredReviewList = reviewList.slice(
+    (curPage - 1) * articlePerPage,
+    articlePerPage * curPage
+  );
+
+  return (
+    <Wrap>
+      <TopNavWrap>
+        <TopNav />
+      </TopNavWrap>
+      <HeaderWrap>
+        <span>후기</span>
+      </HeaderWrap>
+
+      <EnteredChallengeWrap>
+        <EnteredSelect
+          onChange={(e) =>
+            setWriteReview((prev) => ({
+              ...prev,
+              challengeId: Number(e.target.value),
+            }))
+          }
+        >
+          <optgroup label="내가 참여한 챌린지" style={{ display: 'none' }}>
+            <option value={0}>내가 참여한 챌린지</option>
+          </optgroup>
+          {challenges.map((item) => (
+            <option key={item.id} value={item.id}>
+              {item.title}
+            </option>
           ))}
-        </div>
-        <div className="input-area">
-          <textarea
-            value={review}
-            onChange={(e) => setReview(e.target.value)}
-            placeholder={
-              user.isLoggedIn
-                ? '후기를 작성해주세요'
-                : '챌린지 참여 후 후기 작성이 가능합니다.'
-            }
-            disabled={!user.isLoggedIn || !selectedChallenge}
-          />
-          <button
-            onClick={handleSubmitReview}
-            disabled={!user.isLoggedIn || isLoading}
-          >
-            등록
-          </button>
-        </div>
-      </div>
-    </>
+        </EnteredSelect>
+        <EnteredTextArea
+          placeholder={textareaPlaceholder}
+          disabled={!getToken}
+          value={writeReview.content}
+          onChange={(e) =>
+            setWriteReview((prev) => ({
+              ...prev,
+              content: e.target.value,
+            }))
+          }
+        />
+        <EnteredBtn disabled={!getToken} onClick={handleClickEnteredBtn}>
+          등록
+        </EnteredBtn>
+      </EnteredChallengeWrap>
+      <ReviewWrap>
+        {filteredReviewList.map((item, idx) => {
+          if (idx % 2 === 0) {
+            return (
+              <Review>
+                <PersonImgWrap>
+                  <img src={personImg} alt="person" />
+                  <span>{item.nickName}</span>
+                </PersonImgWrap>
+                <Balloon
+                  challengeName={item.challengeName}
+                  content={item.content}
+                  isTailRight={true}
+                />
+              </Review>
+            );
+          }
+          return (
+            <Review>
+              <Balloon
+                challengeName={item.challengeName}
+                content={item.content}
+                isTailRight={false}
+              />
+              <PersonImgWrap>
+                <img src={personImg} alt="person" />
+                <span>{item.nickName}</span>
+              </PersonImgWrap>
+            </Review>
+          );
+        })}
+      </ReviewWrap>
+
+      <Pagination
+        curPage={curPage}
+        data={reviewList}
+        articlePerPage={articlePerPage}
+        setCurPage={setCurPage}
+      />
+    </Wrap>
   );
 }
+
+const Wrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+`;
+
+const TopNavWrap = styled.div`
+  display: flex;
+  justify-content: center;
+`;
+
+const HeaderWrap = styled.div`
+  display: flex;
+  justify-content: center;
+  margin-top: 60px;
+
+  > span {
+    font-size: 30px;
+  }
+`;
+
+const EnteredChallengeWrap = styled.div`
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+`;
+
+const EnteredSelect = styled.select`
+  width: 700px;
+  height: 50px;
+  background-color: black;
+  color: #ffffff;
+  padding: 0 20px;
+  border-top-left-radius: 8px;
+  border-top-right-radius: 8px;
+  margin-top: 30px;
+  font-size: 16px;
+  font-family: Pretendard-Regular;
+  > option {
+    background-color: #ffffff;
+    color: black;
+    font-size: 15px;
+  }
+`;
+
+const EnteredTextArea = styled.textarea`
+  width: calc(694px - 28px);
+  height: 90px;
+  resize: none;
+  padding: 16px 16px 32px 16px;
+  font-size: 14.5px;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  outline: none;
+  font-family: Pretendard-Regular;
+
+  &:disabled {
+    background-color: initial;
+    color: initial;
+  }
+`;
+
+const EnteredBtn = styled.button`
+  position: absolute;
+  bottom: 10px;
+  margin-left: 610px;
+  border-radius: 24px;
+  border: 1px solid black;
+  background-color: transparent;
+  padding: 2px 11px;
+  z-index: 999;
+  cursor: pointer;
+
+  &:disabled {
+    background-color: initial;
+    color: initial;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
+  }
+`;
+
+const ReviewWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+  width: 700px;
+  padding: 60px 0 30px 0;
+  min-height: 520px;
+
+  > div:nth-child(2n - 1) {
+    align-self: flex-start;
+  }
+
+  > div:nth-child(2n) {
+    align-self: flex-end;
+  }
+`;
+
+const PersonImgWrap = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+  font-weight: 500;
+  gap: 6px;
+`;
+
+const Review = styled.div`
+  display: flex;
+  gap: 16px;
+`;
 
 export default ReviewPage;

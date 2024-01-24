@@ -118,6 +118,7 @@ export const challengeAdmitButton = styled.div`
     border: 2px solid #dd518c;
   }
 `;
+
 export const rightimg = styled.img`
   margin-left: 5px;
 `;

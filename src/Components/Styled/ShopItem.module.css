@@ -8,7 +8,8 @@
 
 .shopItem .content {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
   justify-content: space-between;
   width: 252px;
   margin-left: 2px;
@@ -35,4 +36,14 @@
 
 .shopItem a:visited {
   color: inherit;
+}
+
+.shopItem .details {
+  display: flex;
+  align-items: center;
+  margin-right: 20px;
+}
+
+.shopItem .cost {
+  margin-right: 7px;
 }

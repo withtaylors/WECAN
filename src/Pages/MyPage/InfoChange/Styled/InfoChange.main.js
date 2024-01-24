@@ -9,7 +9,7 @@ export const TotalWrapper = styled.div`
   flex-direction: column;
 `;
 export const TotalSubWrapper = styled.div`
-  width: 1200px;
+  width: 896px;
   height: 630px;
   margin-top: 100px;
   display: flex;

@@ -5,70 +5,7 @@ import TopNav from '../TopNav/TopNav.main';
 import ChallengeReview from '../Challenger/Challenger.reveiw.main';
 import axios from 'axios';
 function ChallengeInfo() {
-  const array11 = [
-    {
-      id: 0,
-      title: '빨리 달리기',
-      type: '미라클 모닝',
-      photo: '1',
-      date: '2023-11-01',
-      leastnumber: '3',
-      name: '홍길동',
-      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
-    },
-    {
-      id: 1,
-      title: '밥 제시간에 먹기',
-      type: '기타',
-      photo: '1',
-      date: '2023-12-02',
-      leastnumber: '4',
-      name: '홍창기',
-      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
-    },
-    {
-      id: 2,
-      title: '다이어트',
-      type: '기타',
-      photo: '1',
-      date: '2023-10-11',
-      leastnumber: '5',
-      name: '문보경',
-      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
-    },
-    {
-      id: 3,
-      title: '일본어 공부',
-      type: '미라클 모닝',
-      photo: '2',
-      date: '2023-11-01',
-      leastnumber: '4',
-      name: '김현수',
-      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
-    },
-    {
-      id: 4,
-      title: '중간고사 A',
-      type: '공부',
-      photo: '2',
-      date: '2023-12-02',
-      leastnumber: '10',
-      name: '박해민',
-      text: '너무너무 만족합니다..다시 한번 하고 싶어요!',
-    },
-    {
-      id: 5,
-      title: '운동 열심히',
-      type: '운동',
-      photo: '1',
-      date: '2023-10-11',
-      leastnumber: '10',
-      name: '박이든',
-      text: '안녕하세요! 챌린지는 ~에 진행될 예정입니다.. 구체적인 사안은 추후에 정해요!',
-    },
-  ];
   const { id } = useParams();
-  const [product, setProduct] = useState(array11[0]);
   const baseURL = 'http://3.35.3.205:8080';
 
   /////////////////////////////////////////////////
@@ -111,7 +48,38 @@ function ChallengeInfo() {
     navigate(`${type}`);
   };
   ///////////////////////////////////////
-  console.log(challengeInfo);
+  const [isJoined, setIsJoined] = useState(false);
+
+  useEffect(() => {
+    if (challengeInfo.participate !== undefined) {
+      setIsJoined(challengeInfo.participate);
+    }
+  }, [challengeInfo.participate]);
+
+  const handleJoin = async () => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/recruit/participation`,
+        { recruitId: id },
+        {
+          headers: {
+            'Content-Type': 'application/json',
+            Authorization: `Bearer ` + localStorage.getItem('login-token'),
+          },
+        }
+      );
+
+      console.log(response);
+
+      // 참여 상태를 토글
+      setIsJoined((prevIsJoined) => !prevIsJoined);
+    } catch (error) {
+      console.error('참여 신청 중 에러', error);
+    }
+  };
+  console.log(isJoined);
+  //////////////////////////////////////
+
   return (
     <challenger.totalWrapper>
       <TopNav></TopNav>
@@ -129,11 +97,15 @@ function ChallengeInfo() {
               </challenger.infoJoinRateNumber>
               <challenger.infoJoinRateBar></challenger.infoJoinRateBar>
             </challenger.infoJoinRate>
-            <challenger.joinButton
-              onClick={(e) => NavClick(e, '/challengemake')}
-            >
-              챌린저 함께하기
-            </challenger.joinButton>
+            {isJoined ? (
+              <challenger.joinButton2 onClick={handleJoin}>
+                챌린저 참여 완료
+              </challenger.joinButton2>
+            ) : (
+              <challenger.joinButton onClick={handleJoin}>
+                챌린저 함께하기
+              </challenger.joinButton>
+            )}
           </challenger.realInfoWrapper>
         </challenger.topInfoWrapper>
         <challenger.infoExplain>

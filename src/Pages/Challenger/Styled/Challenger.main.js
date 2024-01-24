@@ -73,7 +73,7 @@ export const joinButton = styled.div`
   width: 100%;
   height: 60px;
   border-radius: 36px;
-  border: 2px solid;
+  border: 3px solid;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -81,6 +81,20 @@ export const joinButton = styled.div`
   font-weight: bold;
   margin-top: 36px;
   color: #dd518c;
+  cursor: pointer;
+`;
+export const joinButton2 = styled.div`
+  width: 100%;
+  height: 60px;
+  border-radius: 36px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 28px;
+  font-weight: bold;
+  margin-top: 36px;
+  color: white;
+  background-color: #dd518c;
   cursor: pointer;
 `;
 export const infoExplain = styled.div`

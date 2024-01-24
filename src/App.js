@@ -23,15 +23,20 @@ import Donate_DonatedPage from "./Pages/Donate/Donate_DonatedPage";
 import ReviewPage from "./Pages/Review/ReviewPage";
 import Shop_MainPage from "./Pages/Shop/Shop_MainPage";
 import Shop_DetailPage from "./Pages/Shop/Shop_DetailPage";
+import Coupon_DetailPage from "./Pages/Shop/Coupon_DetailPage";
 import NotFoundPage from "./Pages/NotFoundPage";
 import ChallengeInfo from "./Pages/Challenger/Challenger.main";
 import ChallengeMakeMain from "./Pages/ChallengeMake/ChallengeMake.main";
-import ChatPage from "./Pages/Chat/ChatPage";
+import ChatPage from "./Pages/Chat/Chat.main";
 import Mypage from "./Pages/MyPage/Mypage.main";
 import InfoChange from "./Pages/MyPage/InfoChange/InfoChange.main";
 import Candy from "./Pages/MyPage/Candy/Candy.main";
 import KakaoRedirect from "./Pages/Login/KakaoRedirect.main";
 import { Info } from "./Pages/Challenger/Styled/Challenger.review.main";
+import ChallengeMiracle from "./Pages/Recruit/Recruit.total.miracle";
+import ChallengeStudy from "./Pages/Recruit/Recruit.total.study";
+import ChallengeExercise from "./Pages/Recruit/Recruit.total.exercise";
+import ChallengeEtc from "./Pages/Recruit/Recruit.total.etc";
 import TossWidget from "./Pages/Toss/Toss.main";
 
 const queryClient = new QueryClient();
@@ -50,11 +55,23 @@ function App() {
                 <Route path="/" element={<Home />} />
                 <Route path="/recruitment" element={<Recruit></Recruit>} />
                 <Route path="/recruitment/all" element={<Recruit></Recruit>} />
-                <Route path="/recruitment/miracle-morning" />
-                <Route path="/recruitment/exercise" />
-                <Route path="/recruitment/study" />
+                <Route
+                  path="/recruitment/miracle-morning"
+                  element={<ChallengeMiracle></ChallengeMiracle>}
+                />
+                <Route
+                  path="/recruitment/exercise"
+                  element={<ChallengeExercise></ChallengeExercise>}
+                />
+                <Route
+                  path="/recruitment/study"
+                  element={<ChallengeStudy></ChallengeStudy>}
+                />
+                <Route
+                  path="/recruitment/etc"
+                  element={<ChallengeEtc></ChallengeEtc>}
+                />
                 <Route path="/challenge/:id" element={<ChallengeInfo />} />
-
                 <Route
                   path="/challengemake"
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
@@ -73,18 +90,21 @@ function App() {
                   <Route index element={<Shop_MainPage />} />
                   <Route path=":shopSlug" element={<Shop_DetailPage />} />
                 </Route>
-
+                <Route path="/coupon">
+                  <Route index element={<Shop_MainPage />} />
+                  <Route path=":couponSlug" element={<Coupon_DetailPage />} />
+                </Route>
                 <Route path="/mypage" element={<Mypage></Mypage>} />
                 <Route
                   path="/mypage/infochange"
                   element={<InfoChange></InfoChange>}
                 />
                 <Route path="/mypage/candy" element={<Candy></Candy>} />
+                <Route path="/chat" element={<ChatPage />} />
                 <Route
                   path="/mypage/candy/tosspage"
                   element={<TossWidget></TossWidget>}
                 />
-                <Route path="/chat" element={<ChatPage />} />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route
                   path="/login/oauth/kakao"

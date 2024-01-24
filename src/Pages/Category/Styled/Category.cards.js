@@ -50,7 +50,7 @@ export const ContentWrapper = styled.div`
 `;
 export const LikeButtonWrapper = styled.div`
   width: 242px;
-  height: 22px;
+  height: 24px;
   display: flex;
   justify-content: flex-end;
 `;
