@@ -1,30 +1,30 @@
-import React, { useEffect, useState, useRef, useId } from 'react';
-import * as login from './Styled/Login.main.js';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import Logosrc from '../../Assets/img/Logo.png';
-import checkimg from '../../Assets/img/check.png';
-import request from './../../Api/request';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from './../../Api/request.js';
-import { useRecoilState } from 'recoil';
-import { isSuccessState } from './Recoil/Recoil.auth.state';
+import React, { useEffect, useState, useRef, useId } from "react";
+import * as login from "./Styled/Login.main.js";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Logosrc from "../../Assets/img/Logo.png";
+import checkimg from "../../Assets/img/check.png";
+import request from "./../../Api/request";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "./../../Api/request.js";
+import { useRecoilState } from "recoil";
+import { isSuccessState } from "./Recoil/Recoil.auth.state";
 
 function Login(props) {
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
   };
-  const baseURL = 'http://3.35.3.205:8080';
+  const baseURL = "http://3.35.3.205:8080";
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
-  const [type, setType] = useState('login');
-  const [name, setName] = useState('로그인');
+  const [type, setType] = useState("login");
+  const [name, setName] = useState("로그인");
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   const Change = () => {
-    setType('find');
-    setName('비밀번호 찾기');
+    setType("find");
+    setName("비밀번호 찾기");
   };
 
   const handleLogin = async () => {
@@ -36,37 +36,49 @@ function Login(props) {
     try {
       const response = await axios.post(`${baseURL}/user/sign-in`, requestData);
       setIsSuccess(true);
-      alert('로그인에 성공했습니다.');
-      navigate('/');
-      console.log('로그인 처리 내용:', response);
-      console.log('유저이름:', response.data.data.nickName);
+      alert("로그인에 성공했습니다.");
+      navigate("/");
+      console.log("로그인 처리 내용:", response);
+      console.log("유저이름:", response.data.data.nickName);
       const nickName = response.data.data.nickName;
       if (nickName) {
-        localStorage.setItem('user-name', nickName);
+        localStorage.setItem("user-name", nickName);
       }
       const userId = response.data.data.userId;
-      console.log('유저아이디:', userId);
+      console.log("유저아이디:", userId);
       if (userId) {
-        localStorage.setItem('user-id', userId);
+        localStorage.setItem("user-id", userId);
       }
       const accessToken = response.data.data.authToken.accessToken;
       if (accessToken) {
-        localStorage.setItem('login-token', accessToken);
+        localStorage.setItem("login-token", accessToken);
+      }
+      const candy = response.data.data.candy;
+      if (candy) {
+        localStorage.setItem("user-candy", candy);
+      }
+      const email = response.data.data.email;
+      if (email) {
+        localStorage.setItem("user-email", email);
+      }
+      const phone = response.data.data.phone;
+      if (phone) {
+        localStorage.setItem("user-phone", phone);
       }
     } catch (error) {
-      console.error('로그인 실패:', error);
+      console.error("로그인 실패:", error);
       setIsSuccess(false);
-      alert('등록되지 않은 회원이거나 비밀번호가 틀렸습니다.');
+      alert("등록되지 않은 회원이거나 비밀번호가 틀렸습니다.");
     }
   };
   const handleKakaoLogin = async () => {
-    window.location.href = 'http://3.35.3.205:8080/oauth/kakao';
+    window.location.href = "http://3.35.3.205:8080/oauth/kakao";
   };
   const handleSignup = () => {
-    navigate('/agree', {
+    navigate("/agree", {
       state: {
-        email: '',
-        type: 'general',
+        email: "",
+        type: "general",
       },
     });
   };
@@ -104,7 +116,7 @@ function Login(props) {
         <login.PwInfo>|</login.PwInfo>
         <login.PwInfo
           onClick={(e) => {
-            NavClick(e, '/join');
+            NavClick(e, "/join");
           }}
         >
           회원가입
