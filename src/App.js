@@ -1,4 +1,6 @@
 import React from "react";
+import { initializeApp } from "firebase/app";
+import { getMessaging, getToken, onMessage  } from "firebase/messaging";
 import {
   BrowserRouter as Router,
   Routes,
@@ -40,7 +42,27 @@ import ChallengeEtc from "./Pages/Recruit/Recruit.total.etc";
 import TossWidget from "./Pages/Toss/Toss.main";
 
 const queryClient = new QueryClient();
+const firebaseConfig = {
+  apiKey: "AIzaSyBqlJafy3TZ_S2W9uHqGO5warC8ZbDfewg",
+  authDomain: "wecan-6752c.firebaseapp.com",
+  projectId: "wecan-6752c",
+  storageBucket: "wecan-6752c.appspot.com",
+  messagingSenderId: "358108176427",
+  appId: "1:358108176427:web:f1f476df99158cfc29ca6e",
+  measurementId: "G-XCBNQLE1VV"
+};
 
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const messaging = getMessaging(app);
+getToken(messaging, { vapidKey: 'BPpWppf9pzrB-RB5QQJG3srwzNLsMWswruVXBZpkN2_hsFYXi-JfnEEn9FfYKlpH1Wnn4q7M2cNQyoHjyLSIPYU' })
+    .catch((err) => {
+      console.log('An error occurred while retrieving token. ', err);
+    });
+//포그라운드 메시지 수신
+onMessage(messaging, (payload) => {
+  console.log("Message received. ", payload);
+});
 function App() {
   return (
     <RecoilRoot>
