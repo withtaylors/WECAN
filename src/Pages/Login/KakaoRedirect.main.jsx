@@ -32,8 +32,6 @@ const KakaoRedirect = () => {
         localStorage.setItem("login-token", accessToken);
       }
       const candy = response.data.candy;
-      console.log(response.data);
-      console.log("유저 캔디:", candy);
       if (candy) {
         localStorage.setItem("user-candy", candy);
       }
