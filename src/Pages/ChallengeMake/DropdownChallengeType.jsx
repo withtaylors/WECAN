@@ -11,6 +11,9 @@ const DropdownContainer = styled.div`
   border: 1px solid gray;
   align-items: center;
   margin-left: 130px;
+  &:hover {
+    background-color: white;
+  }
 `;
 
 const ToggleButton = styled.button`
@@ -24,9 +27,15 @@ const ToggleButton = styled.button`
   align-items: center;
   justify-content: flex-start;
   cursor: pointer;
+  &:hover {
+    background-color: white;
+  }
 `;
 const ToggleButtontitle = styled.div`
   width: 100px;
+  &:hover {
+    background-color: white;
+  }
 `;
 const ToggleButtonImg = styled.img`
   margin-left: 15px;
@@ -55,7 +64,7 @@ const DropdownItem = styled.li`
   border-bottom: 1px gray solid;
   background-color: white;
   &:hover {
-    background-color: pink;
+    color: #dd518c;
   }
   cursor: pointer;
 `;

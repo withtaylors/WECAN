@@ -40,6 +40,7 @@ function Login(props) {
       navigate('/');
       console.log('로그인 처리 내용:', response);
       console.log('유저이름:', response.data.data.nickName);
+      console.log('캔디', response.data.data.candy);
       const nickName = response.data.data.nickName;
       if (nickName) {
         localStorage.setItem('user-name', nickName);
@@ -52,6 +53,11 @@ function Login(props) {
       const accessToken = response.data.data.authToken.accessToken;
       if (accessToken) {
         localStorage.setItem('login-token', accessToken);
+      }
+      const candy = response.data.data.candy;
+      console.log('테스트', candy);
+      if (candy) {
+        localStorage.setItem('candy!', candy);
       }
     } catch (error) {
       console.error('로그인 실패:', error);
@@ -76,8 +82,8 @@ function Login(props) {
       <login.Logo src={Logosrc}></login.Logo>
       <login.InputWrapper>
         <login.InputBox
-          placeholder="ID"
-          type="id"
+          placeholder='ID'
+          type='id'
           className={props.className}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -85,7 +91,7 @@ function Login(props) {
       </login.InputWrapper>
       <login.InputWrapper>
         <login.InputBox
-          placeholder="PW"
+          placeholder='PW'
           type={props.type}
           className={props.className}
           value={password}

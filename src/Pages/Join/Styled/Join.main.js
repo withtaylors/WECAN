@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import * as tokens from "../../tokens";
+import styled from 'styled-components';
+import * as tokens from '../../tokens';
 
 export const totalWrapper = styled.div`
   width: 100%;
@@ -82,11 +82,21 @@ export const agreementpink = styled.div`
   margin-left: 9px;
 `;
 export const agreementcheck = styled.div`
-  width: 24px;
+  width: 22px;
+  height: 22px;
   border-radius: 50px;
-  background-color: #dd518c;
-  color: white;
+  background-color: wite;
+  color: #dd518c;
+  border: 2px solid #dd518c;
+  font-weight: bold;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &:hover {
+    background-color: #dd518c;
+    color: white;
+  }
 `;
 export const agreementmore = styled.div`
   width: 44px;

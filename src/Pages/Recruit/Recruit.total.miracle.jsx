@@ -5,7 +5,8 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import challengeMake from '../../Assets/img/challengemake.png';
 import RecruitTop from './Recruit.totoal.main.top';
-
+import Chatting from '../Chat/Chat.chatting';
+import Chat from '../Chat/Chat.chat';
 function RecruitMiracleCards() {
   const baseURL = 'http://3.35.3.205:8080';
   const [loading, setLoading] = useState(false);

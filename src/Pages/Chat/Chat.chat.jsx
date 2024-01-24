@@ -1,15 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import * as chat from './Styled/Chat.chatting';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import styles from './Styled/ChatPage.module.css';
-import Modal from './Auth_Modal';
-import axios from 'axios';
-import Chatting from './Chat.chatting';
-import Chat from './Chat.chat';
 
-const ChatPage = () => {
+import axios from 'axios';
+import smile from '../../Assets/img/smile.png';
+import sendButton from '../../Assets/img/sendbutton.png';
+import Chatting from './Chat.chatting';
+import * as SockJS from 'sockjs-client';
+function Chat() {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
   const userName = localStorage.getItem('user-name');
@@ -41,13 +40,11 @@ const ChatPage = () => {
 
     fetchChallengeThree();
   }, []);
-
   //////////////////////////////////////////////////////
   const today = new Date();
   today.setHours(23, 59, 59, 999);
   const chattingRoomId = chattingInfo.chattingRoomId;
   ///////////////////////////////////////////////////////
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const [data, setData] = useState({
     title: '',
     startDate: '',
@@ -56,22 +53,13 @@ const ChatPage = () => {
     chattingRoomId: chattingInfo.chattingRoomId,
     chattingList: [],
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleDateChange = (newDate) => {
-    setSelectedDate(newDate);
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   const [stompClient, setStompClient] = useState(null);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
-    // WebSocket 및 STOMP 설정
-    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
+    // SockJS 및 STOMP 설정
+    const websocket = new SockJS('http://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -127,7 +115,7 @@ const ChatPage = () => {
   };
 
   ///////////채팅 메세지 전송
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (stompClient && inputMessage) {
       const now = new Date();
       const currentTime = now.toISOString();
@@ -147,69 +135,38 @@ const ChatPage = () => {
         body: JSON.stringify(chatMessage),
       });
       /////////////////////////////////////////////////////////
-      console.log('Message sent:', chatMessage);
-      fetchChattingRoomInfo();
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      await fetchChattingRoomInfo();
       setInputMessage('');
+      console.log('Message sent:', chatMessage);
     }
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.leftContainer}>
-        <div className={styles.challengeInfo}>
-          <h2>{data.title}</h2>
-          <p>달성률: {data.successRate}%</p>
-          {/* 여기에 다른 챌린지 정보를 추가할 수 있습니다 */}
-        </div>
-        <div className={styles.calendarContainer}>
-          <Calendar
-            onChange={handleDateChange}
-            value={selectedDate}
-            minDate={new Date(data.startDate)}
-            maxDate={today}
-            formatDay={(locale, date) => date.getDate().toString()}
-          />
-        </div>
-      </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
-        <div>
-          <h3>Selected Date</h3>
-          <p>{selectedDate.toDateString()}</p>
-        </div>
-      </Modal>
-      <div className={styles.chatRoom}>
-        <h2>{data.title}</h2>
-        <div className={styles.messagesContainer}>
-          {chattingInfo &&
-            chattingInfo.chattingList &&
-            chattingInfo.chattingList.map((msg, index) => (
-              <div
-                key={index}
-                className={`${styles.message} ${
-                  msg.userId === userId ? styles.mine : ''
-                }`}
-              >
-                <span className={styles.messageNickName}>{msg.nickName}</span>:{' '}
-                {msg.message}
-              </div>
-            ))}
-        </div>
-        <Chat></Chat>
-        <Chatting></Chatting>
-        <div className={styles.inputArea}>
-          <input
-            type='text'
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            className={styles.input}
-          />
-          <button onClick={sendMessage} className={styles.sendButton}>
-            Send
-          </button>
-        </div>
-      </div>
-    </div>
+    <chat.totalWrapper>
+      <chat.messagesWrapper>
+        {chattingInfo &&
+          chattingInfo.chattingList &&
+          chattingInfo.chattingList.map((msg, index) => (
+            <Chatting key={index} data={msg}></Chatting>
+          ))}
+      </chat.messagesWrapper>
+      <chat.inputWrapper>
+        <chat.smileImg src={smile}></chat.smileImg>
+        <chat.realInputWrapper
+          type='text'
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+        ></chat.realInputWrapper>
+        <chat.sendButtonWrapper>
+          <chat.sendButoon
+            src={sendButton}
+            onClick={sendMessage}
+          ></chat.sendButoon>
+        </chat.sendButtonWrapper>
+      </chat.inputWrapper>
+    </chat.totalWrapper>
   );
-};
+}
 
-export default ChatPage;
+export default Chat;

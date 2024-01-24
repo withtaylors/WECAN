@@ -9,6 +9,8 @@ function RecruitTotalCards() {
   const baseURL = 'http://3.35.3.205:8080';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
+  const [currentPage, setCurrentPage] = useState(0);
+  const [selectedSort, setSelectedSort] = useState();
   const [challengeArrayPopular, setChallengeArrayPopular] = useState([]);
   const [challengeArrayLeast, setChallengeArrayLeast] = useState([]);
   /////////////////////////////////////////////////////////
@@ -17,7 +19,7 @@ function RecruitTotalCards() {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${baseURL}/recruits?page=0&sort=heartNum,desc`,
+          `${baseURL}/recruits?page=${currentPage}&sort=heartNum,desc`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -35,7 +37,7 @@ function RecruitTotalCards() {
     };
 
     fetchChallengeArray();
-  }, []);
+  }, [currentPage]);
   ////////////////////////////////////////////////////////
   const sortPopular = async () => {
     try {
@@ -90,20 +92,9 @@ function RecruitTotalCards() {
   };
 
   ///////////////pagination//////////////////
-  const [selectedSort, setSelectedSort] = useState();
-  const itemsPerPage = 20; // 한 페이지에 표시할 아이템 수
-  const [currentPage, setCurrentPage] = useState(1);
-
-  const indexOfLastItem = currentPage * itemsPerPage;
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-  const currentCategories = challengeArray.slice(
-    indexOfFirstItem,
-    indexOfLastItem
-  );
-  const pageNumbers = [];
-  for (let i = 1; i <= Math.ceil(challengeArray.length / itemsPerPage); i++) {
-    pageNumbers.push(i);
-  }
+  const changePage = (newPage) => {
+    setCurrentPage(newPage);
+  };
 
   return (
     <recruitcards.TotalWrapper>
@@ -125,22 +116,31 @@ function RecruitTotalCards() {
         </recruitcards.SortContainer>
         <recruitcards.ChallengeMakeButton
           src={challengeMake}
-          onClick={(e) => NavClick(e, '/challengemake')}
         ></recruitcards.ChallengeMakeButton>
-        {currentCategories.map((item, index) => (
-          <CategoryCard key={item.index} data={item} />
-        ))}
+        {challengeArray &&
+          challengeArray.map((item, index) => (
+            <CategoryCard key={item.index} data={item} />
+          ))}
       </recruitcards.TotalCardsWrapper>
       <recruitcards.PaginationWrapper>
-        {pageNumbers.map((number) => (
-          <recruitcards.PaginationNumber
-            key={number}
-            onClick={() => setCurrentPage(number)}
-            active={currentPage === number}
-          >
-            {number}
-          </recruitcards.PaginationNumber>
-        ))}
+        <recruitcards.PaginationButton
+          onClick={() => changePage(0)}
+          selected={currentPage === 0}
+        >
+          1
+        </recruitcards.PaginationButton>
+        <recruitcards.PaginationButton
+          onClick={() => changePage(1)}
+          selected={currentPage === 1}
+        >
+          2
+        </recruitcards.PaginationButton>
+        <recruitcards.PaginationButton
+          onClick={() => changePage(2)}
+          selected={currentPage === 2}
+        >
+          3
+        </recruitcards.PaginationButton>
       </recruitcards.PaginationWrapper>
     </recruitcards.TotalWrapper>
   );

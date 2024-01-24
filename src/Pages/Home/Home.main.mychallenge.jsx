@@ -101,7 +101,9 @@ function HomeMyChallenge() {
               <myjoin.challengeLeftDate>D-{4}</myjoin.challengeLeftDate>
               <myjoin.challengeButtonWrapper>
                 <StyledLink
-                  to={`/chat/${currentChallenge && currentChallenge.id}`}
+                  to={`/chattingroom/${
+                    currentChallenge && currentChallenge.id
+                  }`}
                 >
                   <myjoin.challengeAdmitButton>
                     인증하러 가기{' ->'}
