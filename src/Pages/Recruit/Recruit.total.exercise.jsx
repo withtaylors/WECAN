@@ -25,11 +25,11 @@ function RecruitExerciseCards() {
             },
           }
         );
-        console.log('챌린지 목록 미라클 (인기순)-초기:', response);
+        console.log('챌린지 목록 운동 (인기순)-초기:', response);
         setChallengeArray(response.data.data.content);
         console.log(challengeArray);
       } catch (error) {
-        console.error('챌린지 목록 미라클을 가져오는데 실패', error);
+        console.error('챌린지 목록 운동을 가져오는데 실패', error);
       } finally {
         setLoading(false);
       }
@@ -89,7 +89,7 @@ function RecruitExerciseCards() {
   };
   ///////////////////////////////////////////////
   const exerciseChallenge = challengeArray.filter(
-    (challenge) => challenge.category === 'exercise'
+    (challenge) => challenge.category === 'health'
   );
 
   ///////////////pagination//////////////////

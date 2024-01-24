@@ -48,8 +48,16 @@ export const photo1 = styled.img`
   margin-right: 7px;
 `;
 export const reviewNumber2 = styled.div`
-  width: 60px;
-  height: 29px;
+  width: 100px;
+  font-size: 18px;
+  margin-top: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+export const reviewNumberreal = styled.div`
+  color: #5fb7bb;
+  margin: 3px;
 `;
 export const textWriting = styled.div`
   width: 802px;
@@ -60,6 +68,7 @@ export const textWriting = styled.div`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  margin-top: 30px;
 `;
 export const textWritingReal = styled.textarea`
   width: 95%;

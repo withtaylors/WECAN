@@ -77,6 +77,26 @@ export const teamNumber = styled.input`
   margin: 10px;
   font-size: 15px;
 `;
+export const setButton = styled.button`
+  margin-left: 10px;
+
+  border-radius: 5px;
+  border: 1px solid gray;
+  &:focus {
+    background-color: #f9dee9;
+    border: 1px solid #e06398;
+  }
+`;
+export const setButton2 = styled.button`
+  margin-left: 10px;
+
+  border-radius: 5px;
+  border: 1px solid gray;
+  &:focus {
+    background-color: #f9dee9;
+    border: 1px solid #e06398;
+  }
+`;
 export const teamNumberNotify = styled.div`
   width: 60px;
   height: 10px;
@@ -110,6 +130,10 @@ export const weekdayButton = styled.div`
   justify-content: center;
   border: 1px solid gray;
   cursor: pointer;
+  &:hover {
+    background-color: #f9dee9;
+    border: 1px solid #e06398;
+  }
 `;
 export const realWrapper2 = styled.div`
   width: 100%;

@@ -11,29 +11,26 @@ export const totalWrapper = styled.div`
   justify-content: center;
 `;
 export const profileWrapper = styled.div`
-  width: 125px;
   height: 46px;
   display: flex;
   flex-direction: row;
 `;
 
 export const photo = styled.div`
-  width: 37px;
-  height: 37px;
+  width: 40px;
+  height: 40px;
   background-color: gray;
   border-radius: 50px;
 `;
 
 export const profileReal = styled.div`
-  width: 75px;
   height: 100%;
   margin-left: 5px;
 `;
 
 export const name = styled.div`
-  width: 40px;
-  height: 18px;
   font-weight: bold;
+  font-size: 20px;
 `;
 
 export const date = styled.div`
