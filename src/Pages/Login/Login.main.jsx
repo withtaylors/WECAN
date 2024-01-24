@@ -54,6 +54,14 @@ function Login(props) {
       if (accessToken) {
         localStorage.setItem('login-token', accessToken);
       }
+      const email = response.data.data.email;
+      if (email) {
+        localStorage.setItem('user-email', email);
+      }
+      const phone = response.data.data.phone;
+      if (phone) {
+        localStorage.setItem('user-phone', phone);
+      }
       const candy = response.data.data.candy;
       console.log('테스트', candy);
       if (candy) {
