@@ -27,7 +27,7 @@ import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-import ChatPage from './Pages/Chat/ChatPage';
+import ChatPage from './Pages/Chat/Chat.main';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import Candy from './Pages/MyPage/Candy/Candy.main';

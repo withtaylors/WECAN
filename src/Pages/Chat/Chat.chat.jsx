@@ -3,17 +3,17 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
-import styles from './Styled/ChatPage.module.css';
+import * as calendar from './Styled/Chat.calendar';
 import Modal from './Auth_Modal';
 import axios from 'axios';
-import * as SockJS from 'sockjs-client';
 
-const ChatPage = () => {
+const ChatChat = () => {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
+
   //////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [chattingInfo, setchattingInfo] = useState([]);
@@ -69,8 +69,8 @@ const ChatPage = () => {
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
-    // SockJS 및 STOMP 설정
-    const websocket = new SockJS('http://3.35.3.205:8080/ws');
+    // WebSocket 및 STOMP 설정
+    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -152,61 +152,7 @@ const ChatPage = () => {
     }
   };
 
-  return (
-    <div className={styles.container}>
-      <div className={styles.leftContainer}>
-        <div className={styles.challengeInfo}>
-          <h2>{data.title}</h2>
-          <p>달성률: {data.successRate}%</p>
-          {/* 여기에 다른 챌린지 정보를 추가할 수 있습니다 */}
-        </div>
-        <div className={styles.calendarContainer}>
-          <Calendar
-            onChange={handleDateChange}
-            value={selectedDate}
-            minDate={new Date(data.startDate)}
-            maxDate={today}
-            formatDay={(locale, date) => date.getDate().toString()}
-          />
-        </div>
-      </div>
-      <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
-        <div>
-          <h3>Selected Date</h3>
-          <p>{selectedDate.toDateString()}</p>
-        </div>
-      </Modal>
-      <div className={styles.chatRoom}>
-        <h2>{data.title}</h2>
-        <div className={styles.messagesContainer}>
-          {chattingInfo &&
-            chattingInfo.chattingList &&
-            chattingInfo.chattingList.map((msg, index) => (
-              <div
-                key={index}
-                className={`${styles.message} ${
-                  msg.userId === userId ? styles.mine : ''
-                }`}
-              >
-                <span className={styles.messageNickName}>{msg.nickName}</span>:{' '}
-                {msg.message}
-              </div>
-            ))}
-        </div>
-        <div className={styles.inputArea}>
-          <input
-            type="text"
-            value={inputMessage}
-            onChange={(e) => setInputMessage(e.target.value)}
-            className={styles.input}
-          />
-          <button onClick={sendMessage} className={styles.sendButton}>
-            Send
-          </button>
-        </div>
-      </div>
-    </div>
-  );
+  return <calendar.TotalWrapper></calendar.TotalWrapper>;
 };
 
-export default ChatPage;
+export default ChatChat;
