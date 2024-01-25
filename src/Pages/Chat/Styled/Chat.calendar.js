@@ -24,14 +24,15 @@ export const challengeInfoWrapper = styled.div`
 
 export const challengename = styled.div`
   height: 42px;
-  font-size: 35px;
+  font-size: 32px;
   font-weight: bold;
+  color: #303030;
 `;
 
 export const date = styled.div`
   height: 24px;
   font-size: 19px;
-  font-color: #303030;
+  color: #303030;
   margin-top: 10px;
 `;
 
