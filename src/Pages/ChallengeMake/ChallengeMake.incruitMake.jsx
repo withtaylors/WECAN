@@ -121,9 +121,9 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
                 ></chgincruit.teamNumber>
                 명 이상
               </label>
-              <chgincruit.setButton2 onClick={handleSetTeamNumber}>
+              <chgincruit.setButton onClick={handleSetTeamNumber}>
                 설정
-              </chgincruit.setButton2>
+              </chgincruit.setButton>
               <chgincruit.teamNumberNotify>
                 *최소 5명 이상
               </chgincruit.teamNumberNotify>
@@ -161,6 +161,13 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
                 <chgincruit.weekdayButton
                   key={weekday} // React에서 반복 요소에는 key 속성을 제공해야 합니다.
                   onClick={() => handleSetWeekdayChange(`${weekday}`)}
+                  style={{
+                    backgroundColor:
+                      selectedWeekday === weekday ? ' #f9dee9' : 'initial',
+                    color: selectedWeekday === weekday ? '#e06398' : 'gray',
+                    borderColor:
+                      selectedWeekday == weekday ? '#e06398' : 'gray',
+                  }}
                 >
                   {weekday}
                 </chgincruit.weekdayButton>

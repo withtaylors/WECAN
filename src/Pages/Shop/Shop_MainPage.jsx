@@ -37,7 +37,7 @@ const Shop_MainPage = () => {
       <div className={styles.center}>
         <TopNav></TopNav>
       </div>
-      <div className="flex justify-center items-center py-5 px-3">
+      <div className='flex justify-center items-center py-5 px-3'>
         <Carousel
           showArrows={false}
           autoPlay={true}
@@ -45,21 +45,21 @@ const Shop_MainPage = () => {
           showThumbs={false}
           selectedItem={imageData[currentIndex]}
           onChange={handleChange}
-          className="carouselsy"
+          className='carouselsy'
         >
           {renderSlides}
         </Carousel>
       </div>
       <div>
         <div>
-          <ShopListPage variant="catalog" title="이모티콘">
+          <ShopListPage variant='catalog' title='이모티콘'>
             <div className={styles.shopList}>
               {shops.map((shop) => {
                 return <ShopItem key={shop.id} shop={shop} />;
               })}
             </div>
           </ShopListPage>
-          <ShopListPage variant="catalog" title="쿠폰">
+          <ShopListPage variant='catalog' title='쿠폰'>
             <div className={styles.shopList}>
               {coupons.map((coupon) => {
                 return <CouponItem key={coupon.id} coupon={coupon} />;

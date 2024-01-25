@@ -7,6 +7,10 @@ import settingicon from '../../Assets/img/Vector.png';
 
 function MypageInfo() {
   const userName = localStorage.getItem('user-name');
+  const candyNumber = localStorage.getItem('candy!');
+  const candyNum = parseInt(candyNumber, 10);
+  console.log('캔디 갯수:', candyNum);
+  console.log(userName);
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
@@ -32,7 +36,7 @@ function MypageInfo() {
               <myinfo.userName2>님</myinfo.userName2>
             </myinfo.userNameWrapper>
             <myinfo.candyNumberWrapper>
-              <myinfo.candyNumber>{200}</myinfo.candyNumber>
+              <myinfo.candyNumber>{candyNumber}</myinfo.candyNumber>
               <myinfo.candy>CANDY</myinfo.candy>
             </myinfo.candyNumberWrapper>
           </myinfo.ProfileTextWrapper>
@@ -46,7 +50,13 @@ function MypageInfo() {
         >
           캔디 충전하기
         </myinfo.candyButton>
-        <myinfo.myItemButton>나의 아이템 모아보기</myinfo.myItemButton>
+        <myinfo.myItemButton
+          onClick={(e) => {
+            NavClick(e, '/chattingroom');
+          }}
+        >
+          나의 아이템 모아보기
+        </myinfo.myItemButton>
       </myinfo.rightWrapper>
     </myinfo.TotalWrapper>
   );

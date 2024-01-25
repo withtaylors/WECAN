@@ -6,7 +6,8 @@ import 'react-calendar/dist/Calendar.css';
 import styles from './Styled/ChatPage.module.css';
 import Modal from './Auth_Modal';
 import axios from 'axios';
-import * as SockJS from 'sockjs-client';
+import Chatting from './Chat.chatting';
+import Chat from './Chat.chat';
 
 const ChatPage = () => {
   const { challengeId } = useParams();
@@ -69,8 +70,8 @@ const ChatPage = () => {
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
-    // SockJS 및 STOMP 설정
-    const websocket = new SockJS('http://3.35.3.205:8080/ws');
+    // WebSocket 및 STOMP 설정
+    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -193,9 +194,11 @@ const ChatPage = () => {
               </div>
             ))}
         </div>
+        <Chat></Chat>
+        <Chatting></Chatting>
         <div className={styles.inputArea}>
           <input
-            type="text"
+            type='text'
             value={inputMessage}
             onChange={(e) => setInputMessage(e.target.value)}
             className={styles.input}

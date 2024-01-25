@@ -10,8 +10,15 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
   const [title, setTitle] = useState('');
   const [file, setFile] = useState('');
   const [content, setContent] = useState('');
+  const [image, setImage] = useState(null);
   const writtenValues = { title, content };
-
+  ///////////////////////////////////////////////////////
+  const handleImageChange = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let img = e.target.files[0];
+      setImage(URL.createObjectURL(img));
+    }
+  };
   const handleSave = () => {
     setTitle(tempTitle);
     setContent(tempContent);
@@ -21,7 +28,20 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
   }, [writtenValues, onUpdateWrittenValues]);
   return (
     <chgincruit.totalWrapper>
-      <chgincruit.title>글 작성하기</chgincruit.title>
+      <chgincruit.topWrapper>
+        <chgincruit.title>글 작성하기</chgincruit.title>
+        <chgincruit.uploadPicture onClick={handleImageChange}>
+          <input
+            type='file'
+            accept='image/*'
+            style={{ display: 'none' }}
+            onChange={handleImageChange}
+            id='imageInput'
+          />
+          <label htmlFor='imageInput'>대표 이미지 설정하기</label>
+        </chgincruit.uploadPicture>
+      </chgincruit.topWrapper>
+      {image && <img src={image} alt='Uploaded Preview' />}
       <chgincruit.realWrapper2>
         <chgincruit.explainTitleWrapper>
           <chgincruit.explainTitle
