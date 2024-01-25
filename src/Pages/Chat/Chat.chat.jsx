@@ -14,7 +14,6 @@ function Chat() {
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
-
   //////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [chattingInfo, setchattingInfo] = useState([]);
@@ -41,7 +40,6 @@ function Chat() {
 
     fetchChallengeThree();
   }, []);
-
   //////////////////////////////////////////////////////
   const today = new Date();
   today.setHours(23, 59, 59, 999);
@@ -62,7 +60,6 @@ function Chat() {
   useEffect(() => {
     // SockJS 및 STOMP 설정
     const websocket = new SockJS('http://3.35.3.205:8080/ws');
-
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -118,9 +115,7 @@ function Chat() {
   };
 
   ///////////채팅 메세지 전송
-
   const sendMessage = async () => {
-    n;
     if (stompClient && inputMessage) {
       const now = new Date();
       const currentTime = now.toISOString();
