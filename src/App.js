@@ -29,7 +29,7 @@ import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
 import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-import ChatPage from './Pages/Chat/Chat.main';
+import ChatPage from './Pages/Chat/Chat.calendar';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import Candy from './Pages/MyPage/Candy/Candy.main';
@@ -40,6 +40,7 @@ import ChallengeMiracle from './Pages/Recruit/Recruit.total.miracle';
 import ChallengeStudy from './Pages/Recruit/Recruit.total.study';
 import ChallengeExercise from './Pages/Recruit/Recruit.total.exercise';
 import ChallengeEtc from './Pages/Recruit/Recruit.total.etc';
+import TossWidget from './Pages/Toss/Toss.main';
 
 const queryClient = new QueryClient();
 const firebaseConfig = {
@@ -139,6 +140,10 @@ function App() {
                   path="/login/oauth/kakao"
                   element={<KakaoRedirect />}
                 ></Route>
+                <Route
+                  path="/mypage/candy/tosspage"
+                  element={<TossWidget></TossWidget>}
+                />
               </Routes>
             </div>
             <ConditionalFooter />
