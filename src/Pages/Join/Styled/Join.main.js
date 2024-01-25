@@ -26,10 +26,11 @@ export const logo = styled.img`
 `;
 export const joinWrapper = styled.div`
   width: 451px;
-  height: 87px;
+
   display: flex;
   flex-direction: column;
   margin-top: 17px;
+  background-color: beige;
 `;
 export const title = styled.div`
   width: 120px;
@@ -46,7 +47,17 @@ export const inputWrapper = styled.div`
   align-items: center;
   justify-content: flex-start;
   border-radius: 25px;
-  border: 0.25px solid gray;
+  border: 1px solid gray;
+  margin-top: 11px;
+`;
+export const inputWrapper2 = styled.div`
+  width: 451px;
+  height: 58px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  border-radius: 25px;
+  border: 1px solid #dd518c;
   margin-top: 11px;
 `;
 export const realinputWrapper = styled.input`
@@ -160,4 +171,22 @@ export const thirdtcheckButton = styled.div`
   border-radius: 25px;
   margin-left: 75px;
   cursor: pointer;
+`;
+export const passwordEqual = styled.div`
+  width: 100%;
+  height: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: gray;
+`;
+export const passwordEqual2 = styled.div`
+  width: 100%;
+  height: 20px;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  color: #dd518c;
 `;

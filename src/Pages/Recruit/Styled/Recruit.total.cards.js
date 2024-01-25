@@ -120,6 +120,7 @@ export const ChallengeMakeButton = styled.img`
   position: fixed;
   top: 600px;
   right: 200px;
+  cursor: pointer;
 `;
 
 export const center = styled.div`

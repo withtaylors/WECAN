@@ -3,6 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import * as join from './Styled/Join.main';
 import axios from 'axios';
 import Logosrc from '../../Assets/img/Logo.png';
+import Timer from './Timer.main';
+import { set } from 'lodash';
 
 function Join() {
   const navigate = useNavigate();
@@ -17,6 +19,7 @@ function Join() {
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [isValid, setIsValid] = useState('');
   const baseURL = 'http://3.35.3.205:8080';
+  const [isTimerActive, setIsTimerActive] = useState(false);
 
   const handleSendingCertificate = async () => {
     try {
@@ -31,6 +34,7 @@ function Join() {
         }
       );
       alert('인증번호가 메일로 전달되었습니다!');
+      setIsTimerActive(true);
       console.log('인증메일 보내기 성공:', response.data);
     } catch (error) {
       // 회원가입 실패 시 에러 처리
@@ -58,6 +62,8 @@ function Join() {
       console.log('인증 성공:', response.data);
       setIsValid(response.data.success);
       console.log(isValid);
+      alert('인증 완료!');
+      setIsTimerActive(false);
     } catch (error) {
       // 회원가입 실패 시 에러 처리
       console.error('인증 실패:', error);
@@ -114,6 +120,7 @@ function Join() {
               인증하기
             </join.firstcheckButton>
           </join.inputWrapper>
+          {isTimerActive && <Timer initialMinutes={5} initialSeconds={30} />}
         </join.joinWrapper>
 
         <join.joinWrapper>
@@ -121,23 +128,44 @@ function Join() {
           <join.inputWrapper>
             <join.realinputWrapper
               placeholder='영어 대소문자/숫자/특수문자 포함 8~20자'
-              type='password'
               value={password}
               onChange={(e) => setPassword(e.target.value)}
             ></join.realinputWrapper>
           </join.inputWrapper>
         </join.joinWrapper>
+
         <join.joinWrapper>
-          <join.title>비밀번호 확인</join.title>
-          <join.inputWrapper>
-            <join.realinputWrapper
-              placeholder='비밀번호를 한번 더 입력해 주세요'
-              type='password'
-              value={confirmPassword}
-              onChange={(e) => setConfirmPassword(e.target.value)}
-            ></join.realinputWrapper>
-          </join.inputWrapper>
+          {password == confirmPassword ? (
+            <>
+              <join.title>비밀번호 확인</join.title>
+              <join.inputWrapper>
+                <join.realinputWrapper
+                  placeholder='비밀번호를 한번 더 입력해 주세요'
+                  type='password'
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                ></join.realinputWrapper>
+              </join.inputWrapper>
+              <join.passwordEqual>비밀번호가 일치합니다.</join.passwordEqual>
+            </>
+          ) : (
+            <>
+              <join.title>비밀번호 확인</join.title>
+              <join.inputWrapper2>
+                <join.realinputWrapper
+                  placeholder='비밀번호를 한번 더 입력해 주세요'
+                  type='password'
+                  value={confirmPassword}
+                  onChange={(e) => setConfirmPassword(e.target.value)}
+                ></join.realinputWrapper>
+              </join.inputWrapper2>
+              <join.passwordEqual>
+                비밀번호가 일치하지 않습니다.
+              </join.passwordEqual>
+            </>
+          )}
         </join.joinWrapper>
+
         <join.joinWrapper>
           <join.title>이름</join.title>
           <join.inputWrapper>

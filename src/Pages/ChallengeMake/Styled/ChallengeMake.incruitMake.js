@@ -2,7 +2,7 @@ import styled from 'styled-components';
 import * as tokens from '../../tokens';
 
 export const totalWrapper = styled.div`
-  width: 810px;
+  width: 900px;
   height: 800px;
   display: flex;
   flex-direction: column;
@@ -88,6 +88,12 @@ export const setButton = styled.button`
     border: 1px solid #e06398;
   }
 `;
+export const setButtonWrapper = styled.div`
+  width: 580px;
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+`;
 
 export const teamNumberNotify = styled.div`
   width: 60px;
@@ -127,13 +133,18 @@ export const weekdayButton = styled.div`
     border: 1px solid #e06398;
   }
 `;
+export const bodyWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  margin-top: 20px;
+  gap: 35px;
+`;
 export const realWrapper2 = styled.div`
-  width: 100%;
+  width: 580px;
   height: 651px;
   border-radius: 25px;
   flex-direction: column;
   border: 2px solid gray;
-  margin-top: 35px;
 `;
 export const explainTitle = styled.input`
   width: 90%;
@@ -160,7 +171,7 @@ export const explainTitleWrapper = styled.div`
 
 export const realExplain = styled.textarea`
   width: 90%;
-  height: 80%;
+  height: 95%;
   border: none;
   outline: none;
   font-size: 20px;
@@ -178,8 +189,9 @@ export const realExplain = styled.textarea`
 
 export const explainTextWrapper = styled.div`
   width: 100%;
-  height: 100%;
+  height: 90%;
   display: flex;
+
   align-item: center;
   justify-content: center;
 `;
@@ -191,19 +203,40 @@ export const topWrapper = styled.div`
   flex-direction: row;
 `;
 export const uploadPicture = styled.div`
-  border: 2px solid gray;
-  border-radius: 20px;
+  border-top: 1px solid white;
+
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 20px;
-  font-weight: bold;
-  color: gray;
-  width: 200px;
+  color: white;
+  width: 295px;
   margin-left: 380px;
   &:hover {
     color: #dd518c;
-    border: 2px solid #dd518c;
+    border-top: 1px solid #dd518c;
   }
   cursor: pointer;
+  position: absolute;
+  margin-left: 2px;
+  margin-top: 190px;
+`;
+export const settingImgWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  height: 220px;
+  background-color: gray;
+  border-radius: 15px;
+`;
+export const settingImg = styled.img`
+  width: 300px;
+  height: 220px;
+  border-radius: 15px;
+  position: absolute;
+`;
+export const imglabel = styled.label`
+  font-size: 15px;
+  font-weight: bold;
+  margin-top: 3px;
 `;

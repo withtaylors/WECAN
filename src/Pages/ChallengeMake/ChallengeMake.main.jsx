@@ -5,7 +5,6 @@ import * as chgmake from './Styled/ChallengeMake.main.js';
 import Chgincruit from './ChallengeMake.incruitMake';
 import ChgExplain from './ChallengeMake.Explain.jsx';
 import axios from 'axios';
-import filesample from '../../Assets/img/bestSample.png';
 
 function ChallengeMake() {
   const [selectedValues, setSelectedValues] = useState([]);
@@ -20,7 +19,7 @@ function ChallengeMake() {
 
   const handleMake = async () => {
     const baseURL = 'http://3.35.3.205:8080';
-    const response = await fetch(filesample);
+    const response = await fetch(writtenValues.img);
     const blob = await response.blob();
     const jsonData = {
       charityName: null,
@@ -32,7 +31,7 @@ function ChallengeMake() {
       checkDay: selectedValues.selectedWeekday,
       paymentType: selectedValues.selectedPayment,
       content: writtenValues.content,
-      coverImage: new File([blob], filesample, { type: 'image/png' }),
+      coverImage: new File([blob], writtenValues.image, { type: 'image/png' }),
       fine: selectedValues.candyNumber,
     };
     console.log('jasonData', jsonData);

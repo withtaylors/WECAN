@@ -116,6 +116,7 @@ function RecruitTotalCards() {
         </recruitcards.SortContainer>
         <recruitcards.ChallengeMakeButton
           src={challengeMake}
+          onClick={(e) => NavClick(e, '/challengemake')}
         ></recruitcards.ChallengeMakeButton>
         {challengeArray &&
           challengeArray.map((item, index) => (
