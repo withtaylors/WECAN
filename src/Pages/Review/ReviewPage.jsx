@@ -1,12 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import axios from 'axios';
-import { useRecoilState } from 'recoil';
-import { isSuccessState } from '../Login/Recoil/Recoil.auth.state';
-
-import styles from './Styled/ReviewPage.module.css';
+import { useState, useEffect } from 'react';
 import TopNav from '../../Pages/TopNav/TopNav.main';
-import Container from '../../Components/Container';
-import icoArrowDown from '../../Assets/img/donated/arrow.png';
 import personImg from '../../Assets/person.png';
 import styled from 'styled-components';
 import { getChallengesList, getReviews, postReview } from '../../Api/reviewApi';
@@ -21,7 +14,6 @@ const initReview = {
 function ReviewPage() {
   const [challenges, setChallenges] = useState([]);
   const [reviewList, setReviewList] = useState([]);
-  const [selectedChallenge, setSelectedChallenge] = useState(null);
   const [writeReview, setWriteReview] = useState(initReview);
   const [curPage, setCurPage] = useState(1);
   const articlePerPage = 4; // 화면에 리뷰 표시 할 갯수

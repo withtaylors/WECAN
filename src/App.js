@@ -29,7 +29,7 @@ import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
 import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-import ChatPage from './Pages/Chat/Chat.calendar';
+import ChatPage from './Pages/Chat/Chat.main';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import Candy from './Pages/MyPage/Candy/Candy.main';

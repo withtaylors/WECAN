@@ -1,10 +1,10 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
-import React, { useState, useEffect } from "react";
-import { ReactComponent as leftArrowSvg } from "../../Assets/img/leftArrowPagi.svg";
-import { ReactComponent as rightArrowSvg } from "../../Assets/img/rightArrowPagi.svg";
-import styled from "styled-components";
+import React, { useState, useEffect } from 'react';
+import { ReactComponent as leftArrowSvg } from '../../Assets/img/leftArrowPagi.svg';
+import { ReactComponent as rightArrowSvg } from '../../Assets/img/rightArrowPagi.svg';
+import styled from 'styled-components';
 // import { colors } from "constants/colors";
-import { getPagination, getTotalPage } from "./paging";
+import { getPagination, getTotalPage } from './paging';
 
 const Pagination = ({ curPage, data, articlePerPage, setCurPage }) => {
   const pageInfos = getPagination({
@@ -15,10 +15,10 @@ const Pagination = ({ curPage, data, articlePerPage, setCurPage }) => {
   });
   console.log(pageInfos);
   const handleChangePage = (move) => {
-    if (move === "left" && pageInfos.first.movable) {
+    if (move === 'left' && pageInfos.first.movable) {
       setCurPage(curPage - 1);
     }
-    if (move === "right" && pageInfos.last.movable) {
+    if (move === 'right' && pageInfos.last.movable) {
       setCurPage(curPage + 1);
     }
   };
@@ -26,7 +26,7 @@ const Pagination = ({ curPage, data, articlePerPage, setCurPage }) => {
   // 예시
   return (
     <Wrap>
-      <LeftArrowIcon onClick={() => handleChangePage("left")} />
+      {/* <LeftArrowIcon onClick={() => handleChangePage('left')} /> */}
       {pageInfos.pages.map((num) => (
         <PerPage
           key={num}
@@ -36,7 +36,7 @@ const Pagination = ({ curPage, data, articlePerPage, setCurPage }) => {
           {num}
         </PerPage>
       ))}
-      <RightArrowIcon onClick={() => handleChangePage("right")} />
+      {/* <RightArrowIcon onClick={() => handleChangePage('right')} /> */}
     </Wrap>
   );
 };
@@ -46,7 +46,7 @@ const Wrap = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 24px;
+  gap: 10px;
   padding-top: 16px;
   padding: 60px 0;
 `;
@@ -73,10 +73,10 @@ const PerPage = styled.span`
   font-weight: 400;
   font-size: 14px;
   line-height: 100%;
-  padding: 4px 8px;
+  padding: 10px 14px;
   border-radius: 50%;
-  color: ${({ $clicked }) => ($clicked ? "white" : "black")};
-  background-color: ${({ $clicked }) => ($clicked ? "pink" : "#e9ecef")};
+  color: ${({ $clicked }) => ($clicked ? 'white' : 'black')};
+  background-color: ${({ $clicked }) => ($clicked ? '#DD518C' : '#EEEEEE')};
   cursor: pointer;
 `;
 
