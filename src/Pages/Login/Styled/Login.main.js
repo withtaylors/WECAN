@@ -121,8 +121,4 @@ export const kakaoButton = styled.div`
   font-size: 18px;
   background-color: #fee402;
   margin-top: 30px;
-  &:hover {
-    color: white;
-  }
-  cursor: pointer;
 `;

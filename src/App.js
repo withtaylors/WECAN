@@ -27,17 +27,17 @@ import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import NotFoundPage from './Pages/NotFoundPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-import ChatPage from './Pages/Chat/Chat.main';
+import ChatPage from './Pages/Chat/ChatPage';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import Candy from './Pages/MyPage/Candy/Candy.main';
 import KakaoRedirect from './Pages/Login/KakaoRedirect.main';
 import { Info } from './Pages/Challenger/Styled/Challenger.review.main';
+import ChattingRoom from './Pages/Chat/Chat.chat';
 import ChallengeMiracle from './Pages/Recruit/Recruit.total.miracle';
 import ChallengeStudy from './Pages/Recruit/Recruit.total.study';
 import ChallengeExercise from './Pages/Recruit/Recruit.total.exercise';
 import ChallengeEtc from './Pages/Recruit/Recruit.total.etc';
-import TossWidget from './Pages/Toss/Toss.main';
 
 const queryClient = new QueryClient();
 
@@ -99,18 +99,11 @@ function App() {
                   path='/mypage/infochange'
                   element={<InfoChange></InfoChange>}
                 />
-
                 <Route path='/mypage/candy' element={<Candy></Candy>} />
                 <Route path='/chat/:challengeId' element={<ChatPage />} />
                 <Route
                   path='/chattingroom/:challengeId'
                   element={<ChattingRoom />}
-                />
-                <Route path='/mypage/candy' element={<Candy></Candy>} />
-                <Route path='/chat' element={<ChatPage />} />
-                <Route
-                  path='/mypage/candy/tosspage'
-                  element={<TossWidget></TossWidget>}
                 />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route

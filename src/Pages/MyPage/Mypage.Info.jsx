@@ -11,14 +11,12 @@ function MypageInfo() {
   const candyNum = parseInt(candyNumber, 10);
   console.log('캔디 갯수:', candyNum);
   console.log(userName);
-
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
   };
 
-  console.log('candy ' + localStorage.getItem('user-candy'));
   return (
     <myinfo.TotalWrapper>
       <myinfo.ProfileWrapper>
@@ -38,10 +36,7 @@ function MypageInfo() {
               <myinfo.userName2>님</myinfo.userName2>
             </myinfo.userNameWrapper>
             <myinfo.candyNumberWrapper>
-              <myinfo.candyNumber>
-                {localStorage.getItem('user-candy')}
-              </myinfo.candyNumber>
-
+              <myinfo.candyNumber>{candyNumber}</myinfo.candyNumber>
               <myinfo.candy>CANDY</myinfo.candy>
             </myinfo.candyNumberWrapper>
           </myinfo.ProfileTextWrapper>

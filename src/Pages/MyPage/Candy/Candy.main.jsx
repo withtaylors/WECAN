@@ -1,15 +1,12 @@
-import React from "react";
-import * as S from "./Styled/Candy.main";
-import TopNav from "../../../Pages/TopNav/TopNav.main";
-import candyicon from "../../../Assets/img/mypage/candy.png";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React from 'react';
+import * as S from './Styled/Candy.main';
+import TopNav from '../../../Pages/TopNav/TopNav.main';
+import candyicon from '../../../Assets/img/mypage/candy.png';
+import { useNavigate } from 'react-router-dom';
 
 function Candy() {
-  const userName = localStorage.getItem("user-name");
-
-  const userCandy = localStorage.getItem("user-candy");
-
+  const userName = localStorage.getItem('user-name');
+  const userCandy = localStorage.getItem('user-candy');
   const navigate = useNavigate();
 
   const candyOptions = [
@@ -21,32 +18,9 @@ function Candy() {
     { amount: 200, price: 24000 },
   ];
 
-  const handleCandyPurchase = (option) => {
-    console.log(`Purchased ${option.amount} candies`);
-
-    const requestData = {
-      payMethod: "card",
-      totalAmount: option.price,
-      orderName: `캔디 ${option.amount}`,
-    };
-
-    console.log("toss start");
-
-    axios
-      .post(`http://3.35.3.205:8080/payment/toss`, requestData, {
-        headers: {
-          Authorization: "Bearer " + localStorage.getItem("login-token"),
-        },
-      })
-      .then((response) => {
-        console.log(response.data);
-        navigate(
-          `tosspage?amount=${option.amount}&orderId=${response.data.data.orderId}`
-        );
-      })
-      .catch((error) => {
-        console.log(error);
-      });
+  const handleCandyPurchase = (amount) => {
+    console.log(`Purchased ${amount} candies`);
+    navigate('tosspage');
   };
 
   return (
@@ -68,7 +42,7 @@ function Candy() {
             {candyOptions.map((option) => (
               <S.CandyOption
                 key={option.amount}
-                onClick={() => handleCandyPurchase(option)}
+                onClick={() => handleCandyPurchase(option.amount)}
               >
                 <S.CandyTextGroup>
                   <img src={candyicon} alt="Candy Icon" />
