@@ -1,19 +1,19 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
+import * as chat from './Styled/Chat.chatting';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import * as calendar from './Styled/Chat.calendar';
-import Modal from './Auth_Modal';
-import axios from 'axios';
 
-const ChatChat = () => {
+import axios from 'axios';
+import smile from '../../Assets/img/smile.png';
+import sendButton from '../../Assets/img/sendbutton.png';
+import Chatting from './Chat.chatting';
+import * as SockJS from 'sockjs-client';
+function Chat() {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
-
   //////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [chattingInfo, setchattingInfo] = useState([]);
@@ -40,13 +40,11 @@ const ChatChat = () => {
 
     fetchChallengeThree();
   }, []);
-
   //////////////////////////////////////////////////////
   const today = new Date();
   today.setHours(23, 59, 59, 999);
   const chattingRoomId = chattingInfo.chattingRoomId;
   ///////////////////////////////////////////////////////
-  const [selectedDate, setSelectedDate] = useState(new Date());
   const [data, setData] = useState({
     title: '',
     startDate: '',
@@ -55,22 +53,13 @@ const ChatChat = () => {
     chattingRoomId: chattingInfo.chattingRoomId,
     chattingList: [],
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const handleDateChange = (newDate) => {
-    setSelectedDate(newDate);
-    setIsModalOpen(true);
-  };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
   const [stompClient, setStompClient] = useState(null);
   const [messages, setMessages] = useState([]);
   const [inputMessage, setInputMessage] = useState('');
 
   useEffect(() => {
-    // WebSocket 및 STOMP 설정
-    const websocket = new WebSocket('ws://3.35.3.205:8080/ws');
+    // SockJS 및 STOMP 설정
+    const websocket = new SockJS('http://3.35.3.205:8080/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -126,7 +115,7 @@ const ChatChat = () => {
   };
 
   ///////////채팅 메세지 전송
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (stompClient && inputMessage) {
       const now = new Date();
       const currentTime = now.toISOString();
@@ -146,13 +135,38 @@ const ChatChat = () => {
         body: JSON.stringify(chatMessage),
       });
       /////////////////////////////////////////////////////////
-      console.log('Message sent:', chatMessage);
-      fetchChattingRoomInfo();
+      await new Promise((resolve) => setTimeout(resolve, 100));
+      await fetchChattingRoomInfo();
       setInputMessage('');
+      console.log('Message sent:', chatMessage);
     }
   };
 
-  return <calendar.TotalWrapper></calendar.TotalWrapper>;
-};
+  return (
+    <chat.totalWrapper>
+      <chat.messagesWrapper>
+        {chattingInfo &&
+          chattingInfo.chattingList &&
+          chattingInfo.chattingList.map((msg, index) => (
+            <Chatting key={index} data={msg}></Chatting>
+          ))}
+      </chat.messagesWrapper>
+      <chat.inputWrapper>
+        <chat.smileImg src={smile}></chat.smileImg>
+        <chat.realInputWrapper
+          type='text'
+          value={inputMessage}
+          onChange={(e) => setInputMessage(e.target.value)}
+        ></chat.realInputWrapper>
+        <chat.sendButtonWrapper>
+          <chat.sendButoon
+            src={sendButton}
+            onClick={sendMessage}
+          ></chat.sendButoon>
+        </chat.sendButtonWrapper>
+      </chat.inputWrapper>
+    </chat.totalWrapper>
+  );
+}
 
-export default ChatChat;
+export default Chat;

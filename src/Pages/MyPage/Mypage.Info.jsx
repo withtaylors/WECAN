@@ -1,19 +1,22 @@
-import React, { useEffect, useState, useRef } from "react";
-import { useNavigate } from "react-router-dom";
-import * as myinfo from "./Styled/Mypage.main.Info";
-import TopNav from "../TopNav/TopNav.main";
-import profileimg from "../../Assets/img/Group 36.png";
-import settingicon from "../../Assets/img/Vector.png";
+import React, { useEffect, useState, useRef } from 'react';
+import { useNavigate } from 'react-router-dom';
+import * as myinfo from './Styled/Mypage.main.Info';
+import TopNav from '../TopNav/TopNav.main';
+import profileimg from '../../Assets/img/Group 36.png';
+import settingicon from '../../Assets/img/Vector.png';
 
 function MypageInfo() {
-  const userName = localStorage.getItem("user-name");
+  const userName = localStorage.getItem('user-name');
+  const candyNumber = localStorage.getItem('candy!');
+  const candyNum = parseInt(candyNumber, 10);
+  console.log('캔디 갯수:', candyNum);
+  console.log(userName);
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
     navigate(`${type}`);
   };
 
-  console.log("candy " + localStorage.getItem("user-candy"));
   return (
     <myinfo.TotalWrapper>
       <myinfo.ProfileWrapper>
@@ -21,7 +24,7 @@ function MypageInfo() {
           <myinfo.ProfilefixingButton
             src={settingicon}
             onClick={(e) => {
-              NavClick(e, "/mypage/infochange");
+              NavClick(e, '/mypage/infochange');
             }}
           ></myinfo.ProfilefixingButton>
         </myinfo.ProfilefixingWrapper>
@@ -33,9 +36,7 @@ function MypageInfo() {
               <myinfo.userName2>님</myinfo.userName2>
             </myinfo.userNameWrapper>
             <myinfo.candyNumberWrapper>
-              <myinfo.candyNumber>
-                {localStorage.getItem("user-candy")}
-              </myinfo.candyNumber>
+              <myinfo.candyNumber>{candyNumber}</myinfo.candyNumber>
               <myinfo.candy>CANDY</myinfo.candy>
             </myinfo.candyNumberWrapper>
           </myinfo.ProfileTextWrapper>
@@ -44,12 +45,18 @@ function MypageInfo() {
       <myinfo.rightWrapper>
         <myinfo.candyButton
           onClick={(e) => {
-            NavClick(e, "/mypage/candy");
+            NavClick(e, '/mypage/candy');
           }}
         >
           캔디 충전하기
         </myinfo.candyButton>
-        <myinfo.myItemButton>나의 아이템 모아보기</myinfo.myItemButton>
+        <myinfo.myItemButton
+          onClick={(e) => {
+            NavClick(e, '/chattingroom');
+          }}
+        >
+          나의 아이템 모아보기
+        </myinfo.myItemButton>
       </myinfo.rightWrapper>
     </myinfo.TotalWrapper>
   );

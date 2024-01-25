@@ -55,7 +55,7 @@ const DropdownItem = styled.li`
   border-bottom: 1px gray solid;
   background-color: white;
   &:hover {
-    background-color: pink;
+    color: #dd518c;
   }
   cursor: pointer;
 `;

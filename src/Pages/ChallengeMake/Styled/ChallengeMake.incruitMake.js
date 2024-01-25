@@ -69,6 +69,7 @@ export const teamNumberWrapper = styled.div`
   margin-left: 130px;
   font-size: 15px;
 `;
+
 export const teamNumber = styled.input`
   width: 77px;
   height: 34px;
@@ -82,21 +83,12 @@ export const setButton = styled.button`
 
   border-radius: 5px;
   border: 1px solid gray;
-  &:focus {
+  &:hover {
     background-color: #f9dee9;
     border: 1px solid #e06398;
   }
 `;
-export const setButton2 = styled.button`
-  margin-left: 10px;
 
-  border-radius: 5px;
-  border: 1px solid gray;
-  &:focus {
-    background-color: #f9dee9;
-    border: 1px solid #e06398;
-  }
-`;
 export const teamNumberNotify = styled.div`
   width: 60px;
   height: 10px;
@@ -130,7 +122,7 @@ export const weekdayButton = styled.div`
   justify-content: center;
   border: 1px solid gray;
   cursor: pointer;
-  &:hover {
+  &:focus {
     background-color: #f9dee9;
     border: 1px solid #e06398;
   }
@@ -190,4 +182,28 @@ export const explainTextWrapper = styled.div`
   display: flex;
   align-item: center;
   justify-content: center;
+`;
+
+export const topWrapper = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: row;
+`;
+export const uploadPicture = styled.div`
+  border: 2px solid gray;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  font-weight: bold;
+  color: gray;
+  width: 200px;
+  margin-left: 380px;
+  &:hover {
+    color: #dd518c;
+    border: 2px solid #dd518c;
+  }
+  cursor: pointer;
 `;

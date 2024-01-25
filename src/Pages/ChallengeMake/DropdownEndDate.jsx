@@ -20,6 +20,15 @@ const DropdownContainer = styled.div`
   border: 1px solid gray;
   align-items: center;
 `;
+const DropdownContainer2 = styled.div`
+  position: relative;
+  display: flex;
+  width: 85px;
+  height: 34px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  align-items: center;
+`;
 
 const ToggleButton = styled.button`
   color: black;
@@ -30,9 +39,16 @@ const ToggleButton = styled.button`
   display: flex;
   align-items: center;
   justify-content: center;
+  &:hover {
+    background-color: white;
+  }
 `;
+
 const ToggleButtontitle = styled.div`
   width: 90px;
+`;
+const ToggleButtontitleyear = styled.div`
+  width: 110px;
 `;
 const ToggleButtonImg = styled.img``;
 
@@ -59,7 +75,7 @@ const DropdownItem = styled.li`
   border-bottom: 1px gray solid;
   background-color: white;
   &:hover {
-    background-color: pink;
+    color: #dd518c;
   }
 `;
 
@@ -117,7 +133,7 @@ const DropdownEndDate = ({ onChange }) => {
 
   return (
     <DropdownTotalContainer>
-      <DropdownContainer onClick={toggleFirstDropdown}>
+      <DropdownContainer2 onClick={toggleFirstDropdown}>
         <ToggleButton>
           <ToggleButtontitle>{year}년</ToggleButtontitle>
           <ToggleButtonImg src={toggleImg}></ToggleButtonImg>
@@ -129,7 +145,7 @@ const DropdownEndDate = ({ onChange }) => {
             </DropdownItem>
           ))}
         </DropdownMenu>
-      </DropdownContainer>
+      </DropdownContainer2>
       <DropdownContainer onClick={toggleSecondDropdown}>
         <ToggleButton>
           <ToggleButtontitle>{month}월</ToggleButtontitle>

@@ -94,16 +94,6 @@ export const SearchInputIcon = styled.img`
   cursor: pointer;
 `;
 
-export const PaginationWrapper = styled.div`
-  width: 200px;
-  height: 100px;
-
-  display: flex;
-  flex-direction: row;
-  top: 0;
-  justify-content: center;
-  margin-top: 15px;
-`;
 export const PaginationNumber = styled.div`
   width: 40px;
   height: 40px;
@@ -135,4 +125,30 @@ export const ChallengeMakeButton = styled.img`
 export const center = styled.div`
   display: flex;
   justify-content: center;
+`;
+
+export const PaginationWrapper = styled.div`
+  width: 200px;
+  height: 100px;
+
+  display: flex;
+  flex-direction: row;
+  top: 0;
+  justify-content: center;
+  margin-top: 40px;
+  gap: 5px;
+`;
+export const PaginationButton = styled.div`
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50px;
+  border: 0.5px solid #9d9d9d;
+  background-color: white;
+  ${(props) =>
+    props.selected
+      ? 'background-color: #dd518c; color: white; border-color: #dd518c'
+      : ''}
 `;
