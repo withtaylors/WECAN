@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import axios from "axios";
-import { useRecoilState } from "recoil";
-import { isSuccessState } from "../Login/Recoil/Recoil.auth.state";
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
+import { useRecoilState } from 'recoil';
+import { isSuccessState } from '../Login/Recoil/Recoil.auth.state';
 
-import styles from "./Styled/ReviewPage.module.css";
-import TopNav from "../../Pages/TopNav/TopNav.main";
-import Container from "../../Components/Container";
-import icoArrowDown from "../../Assets/img/donated/arrow.png";
-import personImg from "../../Assets/person.png";
-import styled from "styled-components";
-import { getChallengesList, getReviews, postReview } from "../../Api/reviewApi";
-import Balloon from "../../Components/Balloon";
-import Pagination from "./pagination";
+import styles from './Styled/ReviewPage.module.css';
+import TopNav from '../../Pages/TopNav/TopNav.main';
+import Container from '../../Components/Container';
+import icoArrowDown from '../../Assets/img/donated/arrow.png';
+import personImg from '../../Assets/person.png';
+import styled from 'styled-components';
+import { getChallengesList, getReviews, postReview } from '../../Api/reviewApi';
+import Balloon from '../../Components/Balloon';
+import Pagination from './pagination';
 const initReview = {
   challengeId: -1,
-  title: "",
-  content: "",
+  title: '',
+  content: '',
 };
 
 function ReviewPage() {
@@ -26,7 +26,7 @@ function ReviewPage() {
   const [curPage, setCurPage] = useState(1);
   const articlePerPage = 4; // 화면에 리뷰 표시 할 갯수
 
-  const getToken = localStorage.getItem("login-token");
+  const getToken = localStorage.getItem('login-token');
   useEffect(() => {
     if (getToken) {
       getChallengesList(getToken).then((res) => {
@@ -43,15 +43,15 @@ function ReviewPage() {
 
   const handleClickEnteredBtn = async () => {
     if (writeReview.challengeId === -1) {
-      alert("챌린지를 선택해주세요.");
+      alert('챌린지를 선택해주세요.');
       return;
     }
     if (writeReview.content.length <= 9) {
-      alert("10글자 이상의 후기만 등록이 가능합니다.");
+      alert('10글자 이상의 후기만 등록이 가능합니다.');
       return;
     }
     const findTitle =
-      challenges.find((el) => el.id === writeReview.challengeId).title || "";
+      challenges.find((el) => el.id === writeReview.challengeId).title || '';
 
     setWriteReview((prev) => ({
       ...prev,
@@ -60,15 +60,15 @@ function ReviewPage() {
 
     const res = await postReview(getToken, writeReview);
     if (res) {
-      alert("후기가 작성되었습니다.");
+      alert('후기가 작성되었습니다.');
       await handleRefreshReview();
       setWriteReview(initReview);
     }
   };
 
   const textareaPlaceholder = getToken
-    ? "후기를 작성해주세요"
-    : "챌린지 참여 후 후기 작성이 가능합니다.";
+    ? '후기를 작성해주세요'
+    : '챌린지 참여 후 후기 작성이 가능합니다.';
 
   const filteredReviewList = reviewList.slice(
     (curPage - 1) * articlePerPage,
@@ -93,7 +93,7 @@ function ReviewPage() {
             }))
           }
         >
-          <optgroup label="내가 참여한 챌린지" style={{ display: "none" }}>
+          <optgroup label="내가 참여한 챌린지" style={{ display: 'none' }}>
             <option value={-1}>내가 참여한 챌린지</option>
           </optgroup>
           {challenges.map((item) => (
@@ -189,16 +189,16 @@ const EnteredChallengeWrap = styled.div`
 `;
 
 const EnteredSelect = styled.select`
-  width: 500px;
-  height: 40px;
+  width: 700px;
+  height: 50px;
   background-color: black;
   color: #ffffff;
-  padding: 0 14px;
+  padding: 0 20px;
   border-top-left-radius: 8px;
   border-top-right-radius: 8px;
-  margin-top: 24px;
+  margin-top: 30px;
   font-size: 16px;
-
+  font-family: Pretendard-Regular;
   > option {
     background-color: #ffffff;
     color: black;
@@ -207,7 +207,7 @@ const EnteredSelect = styled.select`
 `;
 
 const EnteredTextArea = styled.textarea`
-  width: calc(494px - 30px);
+  width: calc(694px - 28px);
   height: 90px;
   resize: none;
   padding: 16px 16px 32px 16px;
@@ -215,6 +215,7 @@ const EnteredTextArea = styled.textarea`
   border-bottom-left-radius: 8px;
   border-bottom-right-radius: 8px;
   outline: none;
+  font-family: Pretendard-Regular;
 
   &:disabled {
     background-color: initial;
@@ -225,7 +226,7 @@ const EnteredTextArea = styled.textarea`
 const EnteredBtn = styled.button`
   position: absolute;
   bottom: 10px;
-  margin-left: 410px;
+  margin-left: 610px;
   border-radius: 24px;
   border: 1px solid black;
   background-color: transparent;
@@ -236,6 +237,11 @@ const EnteredBtn = styled.button`
   &:disabled {
     background-color: initial;
     color: initial;
+  }
+
+  &:hover {
+    background-color: black;
+    color: white;
   }
 `;
 
