@@ -2,12 +2,16 @@ import React, { useEffect, useState, useRef } from 'react';
 import * as chat from './Styled/Chat.chatting';
 import { useParams, useNavigate } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
-
+import Calendar from 'react-calendar';
+import 'react-calendar/dist/Calendar.css';
+import * as calendar from './Styled/Chat.calendar';
+import Modal from './Auth_Modal';
+import * as SockJS from 'sockjs-client';
 import axios from 'axios';
 import smile from '../../Assets/img/smile.png';
 import sendButton from '../../Assets/img/sendbutton.png';
 import Chatting from './Chat.chatting';
-import * as SockJS from 'sockjs-client';
+
 function Chat() {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
@@ -154,7 +158,7 @@ function Chat() {
       <chat.inputWrapper>
         <chat.smileImg src={smile}></chat.smileImg>
         <chat.realInputWrapper
-          type='text'
+          type="text"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
         ></chat.realInputWrapper>

@@ -1,13 +1,15 @@
-import React, { useEffect, useState, useRef, useId } from 'react';
-import * as login from './Styled/Login.main.js';
-import axios from 'axios';
-import { useNavigate } from 'react-router-dom';
-import Logosrc from '../../Assets/img/Logo.png';
-import checkimg from '../../Assets/img/check.png';
-import request from './../../Api/request';
-import { ACCESS_TOKEN, REFRESH_TOKEN } from './../../Api/request.js';
-import { useRecoilState } from 'recoil';
-import { isSuccessState } from './Recoil/Recoil.auth.state';
+import React, { useEffect, useState, useRef, useId } from "react";
+import * as login from "./Styled/Login.main.js";
+import axios from "axios";
+import { useNavigate } from "react-router-dom";
+import Logosrc from "../../Assets/img/Logo.png";
+import checkimg from "../../Assets/img/check.png";
+import request from "./../../Api/request";
+import { ACCESS_TOKEN, REFRESH_TOKEN } from "./../../Api/request.js";
+import { useRecoilState } from "recoil";
+import { isSuccessState } from "./Recoil/Recoil.auth.state";
+import { initializeApp } from "firebase/app";
+import { getMessaging, getToken } from "firebase/messaging";
 
 function Login(props) {
   const NavClick = (e, type) => {
@@ -28,9 +30,32 @@ function Login(props) {
   };
 
   const handleLogin = async () => {
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyBqlJafy3TZ_S2W9uHqGO5warC8ZbDfewg",
+      authDomain: "wecan-6752c.firebaseapp.com",
+      projectId: "wecan-6752c",
+      storageBucket: "wecan-6752c.appspot.com",
+      messagingSenderId: "358108176427",
+      appId: "1:358108176427:web:f1f476df99158cfc29ca6e",
+      measurementId: "G-XCBNQLE1VV"
+    };
+
+    // Initialize Firebase
+    const app = initializeApp(firebaseConfig);
+    // Get registration token. Initially this makes a network call, once retrieved
+    // subsequent calls to getToken will return from cache.
+    const messaging = getMessaging(app);
+    
+    const fcmToken = await getToken(messaging, { vapidKey: 'BPpWppf9pzrB-RB5QQJG3srwzNLsMWswruVXBZpkN2_hsFYXi-JfnEEn9FfYKlpH1Wnn4q7M2cNQyoHjyLSIPYU' })
+    .catch((err) => {
+      console.log('An error occurred while retrieving token. ', err);
+    });
     const requestData = {
       email: email,
       password: password,
+      fcmToken: fcmToken
     };
 
     try {
