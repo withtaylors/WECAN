@@ -28,12 +28,17 @@ const ChatCalendar = () => {
     chattingRoomId: chattingInfo.chattingRoomId,
     chattingList: [],
   });
+
   // 날짜 선택 핸들러
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
 
+    // 로컬 시간대의 오프셋을 고려하여 날짜 조정
+    const offset = newDate.getTimezoneOffset() * 60000;
+    const adjustedDate = new Date(newDate.getTime() - offset);
+
     // 날짜 형식 변환 (YYYY-MM-DD)
-    const formattedDate = newDate.toISOString().split('T')[0];
+    const formattedDate = adjustedDate.toISOString().split('T')[0];
 
     // Chatcheckroom 컴포넌트로 이동
     navigate(`/challenge/checkroom/${challengeId}/${formattedDate}`);

@@ -66,28 +66,6 @@ function ChallengeReview() {
       console.error('댓글 작성 중 에러 발생', error);
     }
   };
-  /////////////////////////////////////////////////////////////////
-  //useEffect에서 상태를 업데이트할 때에는 해당 상태나 props를 사용해야 하며, 외부 변수나 상수를 사용하면 무한 루프가 발생할 수 있다
-  /*useEffect(() => {
-    // id를 기준으로 그룹화
-    const groupedById = array22.reduce((acc, item) => {
-      if (!acc[item.id]) {
-        acc[item.id] = [];
-      }
-      acc[item.id].push(item);
-      return acc;
-    }, {});
-
-    // Object.values를 사용하여 배열로 변환
-    const resultArray = Object.values(groupedById);
-
-    // 상태 업데이트
-    setGroupedArray(resultArray);
-  }, [id]);
-
-  // 선택한 id에 해당하는 배열 요소 리스트
-  const selectedArray =
-    groupedArray.find((group) => group[0].id === parseInt(id, 10)) || []; */
 
   return (
     <challengerReview.TotalWrapper>
@@ -139,7 +117,7 @@ function ChallengeReview() {
         </challengerReview.myprofileWrapper>
 
         <challengerReview.textWritingReal
-          placeholder='댓글을 입력하세요...'
+          placeholder="댓글을 입력하세요..."
           value={content}
           onChange={(e) => setContent(e.target.value)}
           maxLength={600}
