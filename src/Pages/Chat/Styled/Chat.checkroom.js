@@ -149,6 +149,24 @@ export const dislikewrapper = styled.div`
   margin-left: 10px;
   margin-top: 165px;
 `;
+
+export const DislikeButton = styled.button`
+  background-color: #f4f4f4;
+  width: 50px;
+  height: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border-radius: 20px;
+  margin-left: 10px;
+  margin-top: 165px;
+  border-color: transparent;
+  padding: 15px;
+  background-color: ${(props) => (props.isDisliked ? '#dd518c' : '#f4f4f4')};
+`;
+
 export const dislikeimg = styled.img`
   background-color: #bdbdbd;
   width: 18px;

@@ -6,7 +6,7 @@ import profileimg from '../../Assets/img/profile.png';
 import thumbdown from '../../Assets/img/mypage/thumbdown.png';
 import { GoBackButton } from './Styled/Chat.checkroom';
 import { ProgressBar, ProgressBarValue } from './Styled/Chat.checkroom';
-
+import { DislikeButton } from './Styled/DislikeButton';
 function Chatcheckroom() {
   const { challengeId, checkDate } = useParams();
   const [images, setImages] = useState();
@@ -86,14 +86,23 @@ function Chatcheckroom() {
     fetchCheckRoom();
   }, [challengeId, checkDate]);
 
+  const handleFileInput = (e) => {
+    if (e.target.files && e.target.files[0]) {
+      let img = e.target.files[0];
+      setImages(img);
+      handleImage(img);
+    }
+  };
+
+  const triggerFileInput = () => {
+    hiddenFileInput.current.click();
+  };
+
   // 이미지 처리 함수
-  const handleImage = async () => {
-    // FormData를 사용하여 파일 데이터 전송
+  const handleImage = async (selectedImage) => {
     const formData = new FormData();
     formData.append('challengeId', challengeId);
-    if (images) {
-      formData.append('image', images);
-    }
+    formData.append('image', selectedImage);
 
     try {
       const response = await axios.post(
@@ -102,12 +111,12 @@ function Chatcheckroom() {
         {
           headers: {
             Authorization: `Bearer ` + localStorage.getItem('login-token'),
-            'Content-Type': 'multipart/form-data', // 콘텐츠 타입 설정
+            'Content-Type': 'multipart/form-data',
           },
         }
       );
       console.log('이미지 업로드 완료 및 API 응답:', response);
-      fetchCheckRoom();
+      fetchCheckRoom(); // Fetch the latest checkroom data
     } catch (error) {
       console.error('이미지 업로드 중 에러 발생', error);
     }
@@ -115,11 +124,6 @@ function Chatcheckroom() {
 
   const goBack = () => {
     navigate(`/challenge/info/${challengeId}`);
-  };
-
-  // 파일 선택 핸들러
-  const handleFileInput = (e) => {
-    setImages(e.target.files[0]); // 첫 번째 파일을 상태에 설정
   };
 
   return (
@@ -175,7 +179,7 @@ function Chatcheckroom() {
             onChange={handleFileInput}
             style={{ display: 'none' }}
           />
-          <checkroom.upload onClick={handleImage}>
+          <checkroom.upload onClick={triggerFileInput}>
             <p>사진 업로드</p>
           </checkroom.upload>
         </checkroom.BottomWrapper>

@@ -35,10 +35,11 @@ export const inputWrapper = styled.div`
 `;
 export const smileImg = styled.img`
   cursor: pointer;
-  margin-right: 150px;
+  margin-left: 20px;
+  margin-right: 5px;
 `;
 export const realInputWrapper = styled.input`
-  width: 350px;
+  width: 100%;
   height: 80%;
   background-color: #e6e6e6;
   margin-left: 8px;
