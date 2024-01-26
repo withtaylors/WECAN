@@ -76,81 +76,81 @@ function App() {
   return (
     <RecoilRoot>
       <Router>
-        <div className="app-container">
+        <div className='app-container'>
           <QueryClientProvider client={queryClient}>
             <Navigation />
-            <div className="content">
+            <div className='content'>
               <Routes>
-                <Route path="/login" element={<Login></Login>} />
-                <Route path="/join" element={<Join></Join>} />
-                <Route path="/" element={<Home />} />
-                <Route path="/recruitment" element={<Recruit></Recruit>} />
-                <Route path="/recruitment/all" element={<Recruit></Recruit>} />
+                <Route path='/login' element={<Login></Login>} />
+                <Route path='/join' element={<Join></Join>} />
+                <Route path='/' element={<Home />} />
+                <Route path='/recruitment' element={<Recruit></Recruit>} />
+                <Route path='/recruitment/all' element={<Recruit></Recruit>} />
                 <Route
-                  path="/recruitment/miracle-morning"
+                  path='/recruitment/miracle-morning'
                   element={<ChallengeMiracle></ChallengeMiracle>}
                 />
                 <Route
-                  path="/recruitment/exercise"
+                  path='/recruitment/exercise'
                   element={<ChallengeExercise></ChallengeExercise>}
                 />
                 <Route
-                  path="/recruitment/study"
+                  path='/recruitment/study'
                   element={<ChallengeStudy></ChallengeStudy>}
                 />
                 <Route
-                  path="/recruitment/etc"
+                  path='/recruitment/etc'
                   element={<ChallengeEtc></ChallengeEtc>}
                 />
-                <Route path="/challenge/:id" element={<ChallengeInfo />} />
+                <Route path='/challenge/:id' element={<ChallengeInfo />} />
                 <Route
-                  path="/challengemake"
+                  path='/challengemake'
                   element={<ChallengeMakeMain></ChallengeMakeMain>}
                 />
 
-                <Route path="/recruitment/other" />
-                <Route path="donate">
+                <Route path='/recruitment/other' />
+                <Route path='donate'>
                   <Route index element={<Donate_CharityListPage />} />
-                  <Route path=":charitySlug" element={<Donate_CharityPage />} />
+                  <Route path=':charitySlug' element={<Donate_CharityPage />} />
                 </Route>
-                <Route path="donate/donated">
+                <Route path='donate/donated'>
                   <Route index element={<Donate_DonatedPage />} />
                 </Route>
-                <Route path="/review" element={<ReviewPage />} />
-                <Route path="/shop">
+                <Route path='/review' element={<ReviewPage />} />
+                <Route path='/shop'>
                   <Route index element={<Shop_MainPage />} />
-                  <Route path=":shopSlug" element={<Shop_DetailPage />} />
+                  <Route path=':shopSlug' element={<Shop_DetailPage />} />
                 </Route>
-                <Route path="/coupon">
+                <Route path='/coupon'>
                   <Route index element={<Shop_MainPage />} />
-                  <Route path=":couponSlug" element={<Coupon_DetailPage />} />
+                  <Route path=':couponSlug' element={<Coupon_DetailPage />} />
                 </Route>
-                <Route path="/mypage" element={<Mypage></Mypage>} />
+                <Route path='/mypage' element={<Mypage></Mypage>} />
                 <Route
-                  path="/mypage/infochange"
+                  path='/mypage/infochange'
                   element={<InfoChange></InfoChange>}
                 />
-                <Route path="/mypage/candy" element={<Candy></Candy>} />
+                <Route path='/mypage/candy' element={<Candy></Candy>} />
                 <Route
-                  path="/challenge/info/:challengeId"
+                  path='/challenge/info/:challengeId'
                   element={<ChatPage />}
                 />
                 <Route
-                  path="/chattingroom/:challengeId"
+                  path='/challenge/info/:challengeId'
                   element={<ChattingRoom />}
                 />
                 <Route
-                  path="/challenge/checkroom/:challengeId/:checkDate"
+                  path='/challenge/checkroom/:challengeId/:checkDate'
                   // path="/test"
                   element={<ChatCheckRoom />}
                 />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route
-                  path="/login/oauth/kakao"
+                  path='/login/oauth/kakao'
                   element={<KakaoRedirect />}
                 ></Route>
                 <Route
-                  path="/mypage/candy/tosspage"
+                  path='/mypage/candy/tosspage'
                   element={<TossWidget></TossWidget>}
                 />
               </Routes>

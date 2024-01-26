@@ -56,6 +56,8 @@ export const lineTotalWrapper = styled.div`
   display: flex;
   flex-direction: row;
   margin-top: 3px;
+
+  margin-left: 15px;
 `;
 export const lineTotalWrapper2 = styled.div`
   height: auto;
@@ -64,6 +66,7 @@ export const lineTotalWrapper2 = styled.div`
   flex-direction: row;
   justify-content: flex-end;
   margin-top: 3px;
+  margin-right: 15px;
 `;
 export const profileWrapper = styled.div`
   width: 45px;

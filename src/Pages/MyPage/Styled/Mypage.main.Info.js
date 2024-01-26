@@ -47,26 +47,26 @@ export const ProfileImg = styled.img`
 export const ProfileTextWrapper = styled.div`
   width: 250px;
   height: 90px;
-
+  background-color: yellow;
   margin-left: 26px;
 `;
 export const userNameWrapper = styled.div`
   display: flex;
   flex-direction: row;
+  background-color: pink;
 `;
 export const userName = styled.div`
-  width: 100%;
   height: 47px;
-  font-size: 38px;
-
+  font-size: 35px;
+  background-color: blue;
   margin-bottom: 10px;
 `;
 export const userName2 = styled.div`
-  width: 100%;
   height: 47px;
   font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
+  background-color: beige;
 `;
 export const candyNumberWrapper = styled.div`
   width: 85%;

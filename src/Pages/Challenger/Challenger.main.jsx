@@ -73,6 +73,11 @@ function ChallengeInfo() {
 
       // 참여 상태를 토글
       setIsJoined((prevIsJoined) => !prevIsJoined);
+      if (!isJoined) {
+        alert('챌린지 참여가 완료되었습니다!');
+      } else {
+        alert('챌린지 참여가 취소되었습니다!');
+      }
     } catch (error) {
       console.error('참여 신청 중 에러', error);
     }

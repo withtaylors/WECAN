@@ -16,7 +16,7 @@ function Login(props) {
     e.preventDefault();
     navigate(`${type}`);
   };
-  const baseURL = 'http://3.35.3.205:8080';
+  const baseURL = 'https://we-can-challenge.swygbro.com';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
   const [name, setName] = useState('로그인');

@@ -6,7 +6,7 @@ import 'react-calendar/dist/Calendar.css';
 import * as chat from './Styled/Chat.main';
 // import ChatChat from './Chat.chat';
 import ChatCalendar from './Chat.calendar';
-import ChatChat from './Chat.chatting';
+import Chattingroom from './Chat.chat';
 import axios from 'axios';
 import * as SockJS from 'sockjs-client';
 
@@ -156,7 +156,7 @@ const ChatMain = () => {
   return (
     <chat.TotalWrapper>
       <ChatCalendar></ChatCalendar>
-      <ChatChat></ChatChat>
+      <Chattingroom></Chattingroom>
     </chat.TotalWrapper>
   );
 };
