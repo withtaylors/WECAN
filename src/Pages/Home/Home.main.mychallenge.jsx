@@ -101,7 +101,7 @@ function HomeMyChallenge() {
               <myjoin.challengeLeftDate>D-{4}</myjoin.challengeLeftDate>
               <myjoin.challengeButtonWrapper>
                 <StyledLink
-                  to={`/chattingroom/${
+                  to={`/challenge/info/${
                     currentChallenge && currentChallenge.id
                   }`}
                 >

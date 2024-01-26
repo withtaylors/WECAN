@@ -29,7 +29,8 @@ import Shop_DetailPage from './Pages/Shop/Shop_DetailPage';
 import Coupon_DetailPage from './Pages/Shop/Coupon_DetailPage';
 import ChallengeInfo from './Pages/Challenger/Challenger.main';
 import ChallengeMakeMain from './Pages/ChallengeMake/ChallengeMake.main';
-import ChatPage from './Pages/Chat/Chat.calendar';
+import ChatPage from './Pages/Chat/Chat.main';
+import ChatCheckRoom from './Pages/Chat/Chat.checkroom';
 import Mypage from './Pages/MyPage/Mypage.main';
 import InfoChange from './Pages/MyPage/InfoChange/InfoChange.main';
 import Candy from './Pages/MyPage/Candy/Candy.main';
@@ -130,10 +131,18 @@ function App() {
                   element={<InfoChange></InfoChange>}
                 />
                 <Route path="/mypage/candy" element={<Candy></Candy>} />
-                <Route path="/chat/:challengeId" element={<ChatPage />} />
+                <Route
+                  path="/challenge/info/:challengeId"
+                  element={<ChatPage />}
+                />
                 <Route
                   path="/chattingroom/:challengeId"
                   element={<ChattingRoom />}
+                />
+                <Route
+                  // path="/challenge/checkroom/:challengeId/checkDate"
+                  path="/test"
+                  element={<ChatCheckRoom />}
                 />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route

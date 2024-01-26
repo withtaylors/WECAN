@@ -5,7 +5,7 @@ import Calendar from 'react-calendar';
 // import 'react-calendar/dist/Calendar.css';
 import styles from './Styled/ChatDesign.module.css';
 import * as calendar from './Styled/Chat.calendar';
-import Modal from './Auth_Modal';
+import Modal from './Chat.checkroom';
 import axios from 'axios';
 
 const ChatCalendar = () => {
@@ -28,14 +28,19 @@ const ChatCalendar = () => {
     chattingRoomId: chattingInfo.chattingRoomId,
     chattingList: [],
   });
-  const [isModalOpen, setIsModalOpen] = useState(false);
+  // 날짜 선택 핸들러
   const handleDateChange = (newDate) => {
     setSelectedDate(newDate);
-    setIsModalOpen(true);
+
+    // 날짜 형식 변환 (YYYY-MM-DD)
+    const formattedDate = newDate.toISOString().split('T')[0];
+
+    // Chatcheckroom 컴포넌트로 이동
+    navigate(`/challenge/checkroom/${challengeId}/${formattedDate}`);
   };
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
+
+  // useNavigate 훅 초기화
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchChallengeData = async () => {
@@ -87,13 +92,6 @@ const ChatCalendar = () => {
           maxDate={today}
           formatDay={(locale, date) => date.getDate().toString()}
         />
-
-        <Modal isOpen={isModalOpen} onClose={closeModal} date={selectedDate}>
-          <div>
-            <h3>Selected Date</h3>
-            <p>{selectedDate.toDateString()}</p>
-          </div>
-        </Modal>
       </calendar.calendar>
     </calendar.TotalWrapper>
   );
