@@ -8,8 +8,8 @@ import settingicon from '../../Assets/img/Vector.png';
 function MypageInfo() {
   const userName = localStorage.getItem('user-name');
   const candyNumber = localStorage.getItem('candy!');
-  const candyNum = parseInt(candyNumber, 10);
-  console.log('캔디 갯수:', candyNum);
+
+  console.log('캔디 갯수:', candyNumber);
   console.log(userName);
   const navigate = useNavigate();
   const NavClick = (e, type) => {
@@ -20,14 +20,6 @@ function MypageInfo() {
   return (
     <myinfo.TotalWrapper>
       <myinfo.ProfileWrapper>
-        <myinfo.ProfilefixingWrapper>
-          <myinfo.ProfilefixingButton
-            src={settingicon}
-            onClick={(e) => {
-              NavClick(e, '/mypage/infochange');
-            }}
-          ></myinfo.ProfilefixingButton>
-        </myinfo.ProfilefixingWrapper>
         <myinfo.ProfileRealWrapper>
           <myinfo.ProfileImg src={profileimg}></myinfo.ProfileImg>
           <myinfo.ProfileTextWrapper>
@@ -40,6 +32,14 @@ function MypageInfo() {
               <myinfo.candy>CANDY</myinfo.candy>
             </myinfo.candyNumberWrapper>
           </myinfo.ProfileTextWrapper>
+          <myinfo.ProfilefixingWrapper>
+            <myinfo.ProfilefixingButton
+              src={settingicon}
+              onClick={(e) => {
+                NavClick(e, '/mypage/infochange');
+              }}
+            ></myinfo.ProfilefixingButton>
+          </myinfo.ProfilefixingWrapper>
         </myinfo.ProfileRealWrapper>
       </myinfo.ProfileWrapper>
       <myinfo.rightWrapper>

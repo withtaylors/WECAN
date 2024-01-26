@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import axios from 'axios';
 import * as reviews from './Styled/Home.main.reviews';
-import bubbleCommentImage from '../../Assets/img/bubbleComment.png';
+import bubbleCommentImage from '../../Assets/img/textbubble.png';
 import profileimg from '../../Assets/img/Group 36.png';
 function HomeReviews() {
   const review = [

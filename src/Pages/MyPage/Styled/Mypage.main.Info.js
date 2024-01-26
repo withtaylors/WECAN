@@ -29,11 +29,12 @@ export const ProfileRealWrapper = styled.div`
   margin-left: 30px;
 `;
 export const ProfilefixingWrapper = styled.div`
-  width: 95%;
-  height: 24px;
+  width: 24px;
+  height: 100%;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
+  background-color: blue;
 `;
 export const ProfilefixingButton = styled.img`
   width: 24px;

@@ -99,7 +99,7 @@ function ChallengeInfo() {
             </challenger.infoJoinRate>
             {isJoined ? (
               <challenger.joinButton2 onClick={handleJoin}>
-                챌린저 참여 완료
+                챌린지 참여 완료
               </challenger.joinButton2>
             ) : (
               <challenger.joinButton onClick={handleJoin}>

@@ -21,6 +21,13 @@ function ChallengeMake() {
     const baseURL = 'http://3.35.3.205:8080';
     const response = await fetch(writtenValues.img);
     const blob = await response.blob();
+    const imageFile = new File(
+      [writtenValues.image],
+      `${writtenValues.img}.png`,
+      {
+        type: 'image/png',
+      }
+    );
     const jsonData = {
       charityName: null,
       title: writtenValues.title,
@@ -31,10 +38,11 @@ function ChallengeMake() {
       checkDay: selectedValues.selectedWeekday,
       paymentType: selectedValues.selectedPayment,
       content: writtenValues.content,
-      coverImage: new File([blob], writtenValues.image, { type: 'image/png' }),
+      coverImage: imageFile,
       fine: selectedValues.candyNumber,
     };
     console.log('jasonData', jsonData);
+    console.log(jsonData.coverImage);
 
     const formData = new FormData();
 

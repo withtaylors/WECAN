@@ -1,20 +1,40 @@
 import React, { useEffect, useState, useRef } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import * as mylike from './Styled/Mypage.main.liked';
 import TopNav from '../TopNav/TopNav.main';
-import DonationCard from '../Category/Donation.card';
+import DoanatedListPage from '../Donate/DonateListPage';
+import styles from '../Donate/Styled/Donate_DonatedPage.module.css';
 import axios from 'axios';
 import DonatedItem from '../../Components/DonatedItem';
+import { getCharitys } from '../../Api/getter';
+import donated from '../../Api/donated.json';
+
 function MyDonation() {
-  const samples = [
-    { title: '챌린지 1', challengePeriod: '2023-11-01' },
-    { title: '챌린지 2', challengePeriod: '2023-12-02' },
-    { title: '챌린지 3', challengePeriod: '2023-10-11' },
-    { title: '챌린지 4', challengePeriod: '2023-11-01' },
-    { title: '챌린지 5', challengePeriod: '2023-12-02' },
-    { title: '챌린지 6', challengePeriod: '2023-10-11' },
-  ];
+  const [searchParam, setSearchParam] = useSearchParams();
+  const initKeyword = searchParam.get('keyword');
+  const [keyword, setKeyword] = useState(initKeyword || '');
+  const charitys = getCharitys(initKeyword);
+  const [images, setImages] = useState({});
   ////////////////////////////////////////////////////////////////////////
+  useEffect(() => {
+    // 이미지를 동적으로 불러오는 로직
+    donated.forEach((item) => {
+      import(`../../Assets/img/donated/${item.imageSrc}`)
+        .then((image) => {
+          setImages((prevImages) => ({
+            ...prevImages,
+            [item.id]: image.default,
+          }));
+        })
+        .catch((error) => {
+          console.error('이미지 로딩 오류:', error);
+        });
+    });
+  }, []);
+
+  ////////////////////////////////////////////////////////////////////////
+
   const navigate = useNavigate();
   const NavClick = (e, type) => {
     e.preventDefault();
@@ -24,7 +44,7 @@ function MyDonation() {
   const baseURL = 'http://3.35.3.205:8080';
 
   ////////////////////////////////////////////////////
-  const [loading, setLoading] = useState(false);
+  /*const [loading, setLoading] = useState(false);
   const [donated, setDonated] = useState([]);
   useEffect(() => {
     const fetchChallengeThree = async () => {
@@ -46,7 +66,7 @@ function MyDonation() {
     };
 
     fetchChallengeThree();
-  }, []);
+  }, []);*/
   ///////////////////////////////////////////////////////////////
   const handlePageChange = (newPage) => {
     setCurrentPage(newPage);
@@ -69,9 +89,9 @@ function MyDonation() {
             <DonatedItem
               key={charity.id}
               id={charity.id}
-              challengeName={charity.title}
+              challengeName={charity.challengeName}
               explanation={charity.explanation}
-              imageSrc={charity.imgEndpoint}
+              imageSrc={images[charity.id]}
             />
           ))}
         </mylike.donationcardsWrapper>

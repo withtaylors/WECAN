@@ -11,6 +11,7 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
   const [file, setFile] = useState('');
   const [content, setContent] = useState('');
   const [image, setImage] = useState(null);
+  const [showModal, setShowModal] = useState(false);
   const writtenValues = { title, content, image };
   ///////////////////////////////////////////////////////
   const handleImageChange = (e) => {
@@ -25,6 +26,8 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
     setImage(image);
     console.log(image);
   };
+  const openModal = () => setShowModal(true);
+  const closeModal = () => setShowModal(false);
   useEffect(() => {
     onUpdateWrittenValues(writtenValues);
   }, [writtenValues, onUpdateWrittenValues]);
@@ -47,10 +50,7 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues }) {
               onChange={handleImageChange}
               id='imageInput'
             />
-            <chgincruit.imglabel
-              htmlFor='imageInput'
-              onClick={handleImageChange}
-            >
+            <chgincruit.imglabel htmlFor='imageInput' onClick={openModal}>
               대표 이미지 설정하기
             </chgincruit.imglabel>
           </chgincruit.uploadPicture>
