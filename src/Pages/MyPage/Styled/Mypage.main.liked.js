@@ -52,8 +52,9 @@ export const cardsWrapper = styled.div`
 export const donationcardsWrapper = styled.div`
   width: 908px;
   height: 360px;
-  gap: 5px;
+  gap: 20px;
   display: flex;
   flex-direction: row;
   align-items: center;
+  background-color: blue;
 `;
