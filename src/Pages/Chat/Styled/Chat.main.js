@@ -5,6 +5,6 @@ export const TotalWrapper = styled.div`
   display: flex;
   justify-content: left;
   align-items: left;
-  flex-direction: column;
+  flex-direction: row;
   margin-top: 50px;
 `;

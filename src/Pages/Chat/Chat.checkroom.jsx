@@ -67,7 +67,7 @@ function Chatcheckroom({}) {
 
   // 이전 페이지로 돌아가는 함수
   const goBack = () => {
-    navigate(-1); // 이전 페이지로 이동
+    navigate(`/challenge/info/${challengeId}`);
   };
 
   if (loading) return <div>Loading...</div>;
@@ -87,19 +87,23 @@ function Chatcheckroom({}) {
         </checkroom.TopWrapper>
         <checkroom.scrollView>
           {checkroomData &&
-            checkroomData.map(({ challengeCheckId, nickName, dislike }) => (
-              <checkroom.message key={challengeCheckId}>
-                <checkroom.profile src={profileimg} />
-                <checkroom.sendWrapper>
-                  <checkroom.nickname>{nickName}</checkroom.nickname>
-                  <checkroom.sendimage>{}</checkroom.sendimage>
-                </checkroom.sendWrapper>
-                <checkroom.dislikewrapper>
-                  <checkroom.dislikeimg src={thumbdown} />
-                  <checkroom.dislikenum>{dislike}</checkroom.dislikenum>
-                </checkroom.dislikewrapper>
-              </checkroom.message>
-            ))}
+            checkroomData.map(
+              ({ challengeCheckId, nickName, checkImages, dislike }) => (
+                <checkroom.message key={challengeCheckId}>
+                  <checkroom.profile src={profileimg} />
+                  <checkroom.sendWrapper>
+                    <checkroom.nickname>{nickName}</checkroom.nickname>
+                    <checkroom.sendimage>
+                      <img src={checkImages} />
+                    </checkroom.sendimage>
+                  </checkroom.sendWrapper>
+                  <checkroom.dislikewrapper>
+                    <checkroom.dislikeimg src={thumbdown} />
+                    <checkroom.dislikenum>{dislike}</checkroom.dislikenum>
+                  </checkroom.dislikewrapper>
+                </checkroom.message>
+              )
+            )}
         </checkroom.scrollView>
         <checkroom.BottomWrapper>
           <checkroom.coupon>
