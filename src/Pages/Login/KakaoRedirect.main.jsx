@@ -13,27 +13,29 @@ const KakaoRedirect = () => {
   const handleOAuthKakao = async (code) => {
     try {
       // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-    const firebaseConfig = {
-      apiKey: "AIzaSyBqlJafy3TZ_S2W9uHqGO5warC8ZbDfewg",
-      authDomain: "wecan-6752c.firebaseapp.com",
-      projectId: "wecan-6752c",
-      storageBucket: "wecan-6752c.appspot.com",
-      messagingSenderId: "358108176427",
-      appId: "1:358108176427:web:f1f476df99158cfc29ca6e",
-      measurementId: "G-XCBNQLE1VV"
-    };
+      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+      const firebaseConfig = {
+        apiKey: "AIzaSyBqlJafy3TZ_S2W9uHqGO5warC8ZbDfewg",
+        authDomain: "wecan-6752c.firebaseapp.com",
+        projectId: "wecan-6752c",
+        storageBucket: "wecan-6752c.appspot.com",
+        messagingSenderId: "358108176427",
+        appId: "1:358108176427:web:f1f476df99158cfc29ca6e",
+        measurementId: "G-XCBNQLE1VV",
+      };
 
-    // Initialize Firebase
-    const app = initializeApp(firebaseConfig);
-    // Get registration token. Initially this makes a network call, once retrieved
-    // subsequent calls to getToken will return from cache.
-    const messaging = getMessaging(app);
-    
-    const fcmToken = await getToken(messaging, { vapidKey: 'BPpWppf9pzrB-RB5QQJG3srwzNLsMWswruVXBZpkN2_hsFYXi-JfnEEn9FfYKlpH1Wnn4q7M2cNQyoHjyLSIPYU' })
-    .catch((err) => {
-      console.log('An error occurred while retrieving token. ', err);
-    });
+      // Initialize Firebase
+      const app = initializeApp(firebaseConfig);
+      // Get registration token. Initially this makes a network call, once retrieved
+      // subsequent calls to getToken will return from cache.
+      const messaging = getMessaging(app);
+
+      const fcmToken = await getToken(messaging, {
+        vapidKey:
+          "BPpWppf9pzrB-RB5QQJG3srwzNLsMWswruVXBZpkN2_hsFYXi-JfnEEn9FfYKlpH1Wnn4q7M2cNQyoHjyLSIPYU",
+      }).catch((err) => {
+        console.log("An error occurred while retrieving token. ", err);
+      });
       const response = await axios.get(
         `http://3.35.3.205:8080/oauth/login/kakao?code=${code}&fcm=${fcmToken}`
       );
@@ -59,7 +61,7 @@ const KakaoRedirect = () => {
       console.log(response.data);
       console.log("유저 캔디:", candy);
       if (candy) {
-        localStorage.setItem("user-candy", candy);
+        localStorage.setItem("candy!", candy);
       }
       const email = response.data.email;
       if (email) {

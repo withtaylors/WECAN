@@ -86,6 +86,14 @@ function Login(props) {
       if (candy) {
         localStorage.setItem('candy!', candy);
       }
+      const email = response.data.email;
+      if (email) {
+        localStorage.setItem('user-email', email);
+      }
+      const phone = response.data.phone;
+      if (phone) {
+        localStorage.setItem('user-phone', phone);
+      }
     } catch (error) {
       console.error('로그인 실패:', error);
       setIsSuccess(false);
