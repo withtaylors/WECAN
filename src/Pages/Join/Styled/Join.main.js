@@ -30,7 +30,6 @@ export const joinWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 17px;
-  background-color: beige;
 `;
 export const title = styled.div`
   width: 120px;

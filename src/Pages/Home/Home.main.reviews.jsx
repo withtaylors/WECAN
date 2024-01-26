@@ -81,7 +81,7 @@ function HomeReviews() {
         </reviews.reviewblock>
       </reviews.reviewWrapper>
       <reviews.thirdblock>
-        <reviews.buttoninfo>더보기 {'->'}</reviews.buttoninfo>
+        <reviews.buttoninfo>더보기 {'→'}</reviews.buttoninfo>
       </reviews.thirdblock>
     </reviews.mainWrapper>
   );

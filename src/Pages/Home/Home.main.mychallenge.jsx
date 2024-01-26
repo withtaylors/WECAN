@@ -106,7 +106,7 @@ function HomeMyChallenge() {
                   }`}
                 >
                   <myjoin.challengeAdmitButton>
-                    인증하러 가기{' ->'}
+                    인증하러 가기{'→'}
                   </myjoin.challengeAdmitButton>
                 </StyledLink>
               </myjoin.challengeButtonWrapper>

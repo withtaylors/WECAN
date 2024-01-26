@@ -78,10 +78,10 @@ export const img2 = styled.img`
 `;
 export const content = styled.div`
   position: absolute;
-  top: 40%;
-  left: 50%;
+  top: 35%;
+  left: 51%;
   transform: translate(-50%, -50%);
-  font-size: 20px;
+  font-size: 18px;
   width: 90%;
 `;
 export const thirdblock = styled.div`
