@@ -1,14 +1,14 @@
-import React from "react";
-import * as S from "./Styled/Candy.main";
-import TopNav from "../../../Pages/TopNav/TopNav.main";
-import candyicon from "../../../Assets/img/mypage/candy.png";
-import { useNavigate } from "react-router-dom";
-import axios from "axios";
+import React from 'react';
+import * as S from './Styled/Candy.main';
+import TopNav from '../../../Pages/TopNav/TopNav.main';
+import candyicon from '../../../Assets/img/mypage/candy.png';
+import { useNavigate } from 'react-router-dom';
+import axios from 'axios';
 
 function Candy() {
-  const userName = localStorage.getItem("user-name");
+  const userName = localStorage.getItem('user-name');
 
-  const userCandy = localStorage.getItem("candy!");
+  const userCandy = localStorage.getItem('candy!');
 
   const navigate = useNavigate();
 
@@ -25,17 +25,17 @@ function Candy() {
     console.log(`Purchased ${option.amount} candies`);
 
     const requestData = {
-      payMethod: "card",
+      payMethod: 'card',
       totalAmount: option.price,
       orderName: `캔디 ${option.amount}`,
     };
 
-    console.log("toss start");
+    console.log('toss start');
 
     axios
       .post(`http://3.35.3.205:8080/payment/toss`, requestData, {
         headers: {
-          Authorization: "Bearer " + localStorage.getItem("login-token"),
+          Authorization: 'Bearer ' + localStorage.getItem('login-token'),
         },
       })
       .then((response) => {
@@ -74,7 +74,7 @@ function Candy() {
                   <img src={candyicon} alt="Candy Icon" />
                   캔디 {option.amount}개
                 </S.CandyTextGroup>
-                <S.CandyPrice>₩{option.price}</S.CandyPrice>
+                <S.CandyPrice>&nbsp;₩{option.price}</S.CandyPrice>
               </S.CandyOption>
             ))}
           </S.CandyOptionList>

@@ -6,18 +6,35 @@ import profileimg from '../../Assets/img/profile.png';
 import thumbdown from '../../Assets/img/mypage/thumbdown.png';
 import { GoBackButton } from './Styled/Chat.checkroom';
 import { ProgressBar, ProgressBarValue } from './Styled/Chat.checkroom';
-import { DislikeButton } from './Styled/DislikeButton';
+import ChatCoupon from './Chat.Coupon';
+
 function Chatcheckroom() {
   const { challengeId, checkDate } = useParams();
   const [images, setImages] = useState();
   const baseURL = 'http://3.35.3.205:8080';
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
-
+  // 'dislikes' 상태 변수와 그를 업데이트하는 함수 'setDislikes' 정의
+  const [dislikes, setDislikes] = useState({});
   const [checkRoom, setcheckRoom] = useState({});
   const userName = localStorage.getItem('user-name');
   const [loading, setLoading] = useState(false);
 
+  /////////////////////////////////////////////////////////////////
+  // 모달창 상태 추가
+  const [isModalVisible, setIsModalVisible] = useState(false);
+
+  // 쿠폰 버튼 클릭 이벤트 핸들러
+  const handleCouponClick = () => {
+    setIsModalVisible(true);
+  };
+
+  // 모달창 닫기 함수
+  const closeModal = () => {
+    setIsModalVisible(false);
+  };
+
+  ///////////////////////////////////////////////////////////////////////////
   // 날짜 형식 변환 함수
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -41,6 +58,7 @@ function Chatcheckroom() {
   // 남은 일자 계산
   const daysLeft = calculateDaysLeft(checkRoom.startDate, checkRoom.endDate);
 
+  //////////////////////////////////////////////////////////////////////////////////
   // 챌린지 전체 기간과 남은 일수를 바탕으로 진행률을 계산하는 함수
   const calculateProgress = (startDate, endDate, currentDate) => {
     const start = new Date(startDate);
@@ -60,6 +78,7 @@ function Chatcheckroom() {
     checkRoom.endDate,
     new Date()
   );
+  ///////////////////////////////////////////////////////////////////////
 
   const fetchCheckRoom = async () => {
     setLoading(true);
@@ -72,9 +91,9 @@ function Chatcheckroom() {
           },
         }
       );
-      console.log('해당 챌린지 정보:', response);
+      console.log('서버 응답:', response); // 서버 응답 로그
       setcheckRoom(response.data.data);
-      console.log(checkRoom);
+      console.log('업데이트된 checkRoom 상태:', checkRoom); // 업데이트된 상태 로그
     } catch (error) {
       console.error('챌린지 정보를 가져오는데 실패', error);
     } finally {
@@ -84,11 +103,16 @@ function Chatcheckroom() {
 
   useEffect(() => {
     fetchCheckRoom();
+    initializeDislikes(); // '싫어요' 상태 초기화 함수 호출
   }, [challengeId, checkDate]);
 
+  //////////////////////////////////////////////////////////////////////
   const handleFileInput = (e) => {
+    // 이벤트 객체와 파일 객체 로그
+    console.log('이벤트 객체:', e);
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
+      console.log('선택된 이미지 파일:', img); // 선택된 이미지 파일 로그
       setImages(img);
       handleImage(img);
     }
@@ -102,7 +126,7 @@ function Chatcheckroom() {
   const handleImage = async (selectedImage) => {
     const formData = new FormData();
     formData.append('challengeId', challengeId);
-    formData.append('image', selectedImage);
+    formData.append(['image', selectedImage]);
 
     try {
       const response = await axios.post(
@@ -110,21 +134,59 @@ function Chatcheckroom() {
         formData,
         {
           headers: {
-            Authorization: `Bearer ` + localStorage.getItem('login-token'),
             'Content-Type': 'multipart/form-data',
+            Authorization: `Bearer ` + localStorage.getItem('login-token'),
           },
         }
       );
       console.log('이미지 업로드 완료 및 API 응답:', response);
-      fetchCheckRoom(); // Fetch the latest checkroom data
+      fetchCheckRoom();
     } catch (error) {
       console.error('이미지 업로드 중 에러 발생', error);
     }
   };
+  ////////////////////////////////////////////////////////////////////////////////
 
   const goBack = () => {
     navigate(`/challenge/info/${challengeId}`);
   };
+
+  /////////////////////////////////////////////////////////////////////////////
+
+  // '싫어요' 상태를 초기화하는 함수
+  const initializeDislikes = () => {
+    if (checkRoom.challengeChecks) {
+      const initialDislikes = {};
+      checkRoom.challengeChecks.forEach((item) => {
+        initialDislikes[item.challengeCheckId] = item.dislike; // 각 항목의 '싫어요' 수를 설정
+      });
+      setDislikes(initialDislikes);
+    }
+  };
+
+  // '싫어요' 버튼 클릭 이벤트 처리 함수
+  const handleDislikeClick = async (item) => {
+    try {
+      const response = await axios.post(
+        `${baseURL}/challenge/checkroom/dislike`,
+        { challengeCheckId: item.challengeCheckId },
+        {
+          headers: {
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+          },
+        }
+      );
+
+      // 사용자가 '싫어요'를 누른 항목에 대한 UI 업데이트
+      setDislikes((prev) => ({
+        ...prev,
+        [item.challengeCheckId]: prev[item.challengeCheckId] + 1, // '싫어요' 수 증가
+      }));
+    } catch (error) {
+      console.error('싫어요 상태 변경 실패', error);
+    }
+  };
+  ////////////////////////////////////////////////////////////////////////////////
 
   return (
     <checkroom.TotalWrapper>
@@ -143,36 +205,38 @@ function Chatcheckroom() {
         </checkroom.TopWrapper>
         <checkroom.scrollView>
           {checkRoom.challengeChecks &&
-            checkRoom.challengeChecks.map(
-              (
-                item,
-                index // map 함수 수정
-              ) => (
-                <checkroom.message key={item.id}>
-                  <checkroom.profile src={profileimg} />
-                  <checkroom.sendWrapper>
-                    <checkroom.nickname>
-                      {item.nickName} {/* 각 item의 nickName에 접근 */}
-                    </checkroom.nickname>
-                    <checkroom.sendimage>
-                      <img src={item.checkImages} />
-                    </checkroom.sendimage>
-                  </checkroom.sendWrapper>
-                  <checkroom.dislikewrapper>
-                    <checkroom.dislikeimg src={thumbdown} />
-                    <checkroom.dislikenum>
-                      {item.dislike} {/* 각 item의 dislike에 접근 */}
-                    </checkroom.dislikenum>
-                  </checkroom.dislikewrapper>
-                </checkroom.message>
-              )
-            )}
+            checkRoom.challengeChecks.map((item, index) => (
+              <checkroom.message key={item.challengeCheckId}>
+                <checkroom.profile src={profileimg} />
+                <checkroom.sendWrapper>
+                  <checkroom.nickname>{item.nickName}</checkroom.nickname>
+                  <checkroom.sendimage>
+                    {/* 각 checkImages 배열의 이미지를 렌더링 */}
+                    {item.checkImages.map((image, index) => (
+                      <img key={index} src={image} />
+                    ))}
+                  </checkroom.sendimage>
+                </checkroom.sendWrapper>
+                <checkroom.dislikewrapper
+                  onClick={() => handleDislikeClick(item)}
+                >
+                  <checkroom.dislikeimg src={thumbdown} />
+                  <checkroom.dislikenum>
+                    {dislikes[item.challengeCheckId] !== undefined
+                      ? dislikes[item.challengeCheckId]
+                      : item.dislike}
+                  </checkroom.dislikenum>
+                </checkroom.dislikewrapper>
+              </checkroom.message>
+            ))}
         </checkroom.scrollView>
 
         <checkroom.BottomWrapper>
-          <checkroom.coupon>
+          <checkroom.coupon onClick={handleCouponClick}>
             <p>쿠폰 사용하기</p>
           </checkroom.coupon>
+          {/* 모달창 컴포넌트 - isModalVisible 상태에 따라 표시 */}
+          {isModalVisible && <ChatCoupon onClose={closeModal} />}
           <input
             type="file"
             ref={hiddenFileInput}
