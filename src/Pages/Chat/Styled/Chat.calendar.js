@@ -7,6 +7,7 @@ export const TotalWrapper = styled.div`
   align-items: left;
   flex-direction: column;
   margin-top: 50px;
+  margin-left: 200px;
 `;
 
 export const InfoWrapper = styled.div`

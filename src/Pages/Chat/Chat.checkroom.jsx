@@ -43,6 +43,7 @@ function Chatcheckroom({}) {
           `${baseURL}/challenge/checkroom/${challengeId}/${checkDate}`
         );
         const { challengeChecks, startDate, endDate } = response.data.data;
+        console.log(response.data.data); // Check the data received from the API
 
         setCheckroomData(challengeChecks);
 
@@ -85,18 +86,20 @@ function Chatcheckroom({}) {
           <progress value={progressValue} max="100" />
         </checkroom.TopWrapper>
         <checkroom.scrollView>
-          {checkroomData.map(({ challengeCheckId, nickName, dislike }) => (
-            <checkroom.message key={challengeCheckId}>
-              <checkroom.profile src={profileimg} />
-              <checkroom.sendWrapper>
-                <checkroom.nickname>{nickName}</checkroom.nickname>
-              </checkroom.sendWrapper>
-              <checkroom.dislikewrapper>
-                <checkroom.dislikeimg src={thumbdown} />
-                <checkroom.dislikenum>{dislike}</checkroom.dislikenum>
-              </checkroom.dislikewrapper>
-            </checkroom.message>
-          ))}
+          {checkroomData &&
+            checkroomData.map(({ challengeCheckId, nickName, dislike }) => (
+              <checkroom.message key={challengeCheckId}>
+                <checkroom.profile src={profileimg} />
+                <checkroom.sendWrapper>
+                  <checkroom.nickname>{nickName}</checkroom.nickname>
+                  <checkroom.sendimage>{}</checkroom.sendimage>
+                </checkroom.sendWrapper>
+                <checkroom.dislikewrapper>
+                  <checkroom.dislikeimg src={thumbdown} />
+                  <checkroom.dislikenum>{dislike}</checkroom.dislikenum>
+                </checkroom.dislikewrapper>
+              </checkroom.message>
+            ))}
         </checkroom.scrollView>
         <checkroom.BottomWrapper>
           <checkroom.coupon>

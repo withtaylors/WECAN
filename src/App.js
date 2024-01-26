@@ -140,8 +140,8 @@ function App() {
                   element={<ChattingRoom />}
                 />
                 <Route
-                  // path="/challenge/checkroom/:challengeId/checkDate"
-                  path="/test"
+                  path="/challenge/checkroom/:challengeId/:checkDate"
+                  // path="/test"
                   element={<ChatCheckRoom />}
                 />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}

@@ -4,7 +4,6 @@ import { Client } from '@stomp/stompjs';
 import Calendar from 'react-calendar';
 import 'react-calendar/dist/Calendar.css';
 import * as chat from './Styled/Chat.main';
-import Modal from './Auth_Modal';
 // import ChatChat from './Chat.chat';
 import ChatCalendar from './Chat.calendar';
 import ChatChat from './Chat.chatting';
