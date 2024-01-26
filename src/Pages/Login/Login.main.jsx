@@ -84,7 +84,7 @@ function Login(props) {
       const candy = response.data.data.candy;
       console.log('테스트', candy);
       if (candy) {
-        localStorage.setItem('candy!', candy);
+        localStorage.setItem('candy!', parseInt(candy));
       }
       const email = response.data.email;
       if (email) {
@@ -117,8 +117,8 @@ function Login(props) {
       <login.Logo src={Logosrc}></login.Logo>
       <login.InputWrapper>
         <login.InputBox
-          placeholder='ID'
-          type='id'
+          placeholder="ID"
+          type="id"
           className={props.className}
           value={email}
           onChange={(e) => setEmail(e.target.value)}
@@ -126,8 +126,8 @@ function Login(props) {
       </login.InputWrapper>
       <login.InputWrapper>
         <login.InputBox
-          placeholder='PW'
-          type='password'
+          placeholder="PW"
+          type="password"
           className={props.className}
           value={password}
           onChange={(e) => setPassword(e.target.value)}

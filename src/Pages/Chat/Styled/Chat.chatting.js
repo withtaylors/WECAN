@@ -2,15 +2,18 @@ import styled from 'styled-components';
 import * as tokens from '../../tokens';
 
 export const totalWrapper = styled.div`
-  width: 550px;
-  height: 850px;
+  width: 650px;
+  height: 720px;
   border-radius: 15px;
-  background-color: #e6e6e6;
+  background-color: #f0f0f0;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  padding: 5px;
   gap: 3px;
+  border: 1px solid #c6c6c6;
+  margin-top: 50px;
 `;
 export const messagesWrapper = styled.div`
   width: 100%;
@@ -19,10 +22,10 @@ export const messagesWrapper = styled.div`
   flex-grow: 1;
 `;
 export const inputWrapper = styled.div`
-  width: 476px;
+  width: 630px;
   height: 55px;
   border-radius: 25px;
-  background-color: #c6c6c6;
+  background-color: #e6e6e6;
   margin-top: 10px;
   margin-bottom: 10px;
   display: flex;
@@ -32,11 +35,13 @@ export const inputWrapper = styled.div`
 `;
 export const smileImg = styled.img`
   cursor: pointer;
+  margin-left: 20px;
+  margin-right: 5px;
 `;
 export const realInputWrapper = styled.input`
-  width: 350px;
+  width: 100%;
   height: 80%;
-  background-color: #c6c6c6;
+  background-color: #e6e6e6;
   margin-left: 8px;
   margin-right: 8px;
   border: none;

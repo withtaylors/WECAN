@@ -8,6 +8,7 @@ export const TotalWrapper = styled.div`
   flex-direction: column;
   margin-top: 50px;
   margin-left: 200px;
+  margin-right: 50px;
 `;
 
 export const InfoWrapper = styled.div`
@@ -52,6 +53,5 @@ export const successrate = styled.div`
 export const calendar = styled.div`
   width: 766px;
   height: 620px;
-  margin-top: 50px;
   margin-bottom: 80px;
 `;

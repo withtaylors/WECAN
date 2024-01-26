@@ -90,7 +90,7 @@ export const CandyOptionList = styled.div`
 `;
 export const CandyPrice = styled.span`
   font-weight: bold;
-  margin-left: 130px;
+  margin-left: 115px;
   text-align: right;
 `;
 
