@@ -42,7 +42,7 @@ function ChallengeMake() {
       checkDay: selectedValues.selectedWeekday,
       paymentType: selectedValues.selectedPayment,
       content: writtenValues.content,
-      coverImage: imageFile,
+      coverImage: file,
       fine: selectedValues.candyNumber,
     };
     console.log('jasonData', jsonData);
