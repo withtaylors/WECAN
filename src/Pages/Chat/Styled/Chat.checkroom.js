@@ -74,20 +74,26 @@ export const HighlightedText = styled.span`
   color: #dd518c;
 `;
 
-export const progressbar = styled.div`
+export const ProgressBar = styled.div`
   width: 161px;
   height: 12px;
   margin-top: 20px;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+  background-color: #eee;
+  border-radius: 10px; // 둥근 모서리 추가
+  overflow: hidden; // 내부 바가 경계를 넘지 않도록
+`;
+
+export const ProgressBarValue = styled.div`
+  height: 100%;
+  background-color: #dd518c;
+  transition: width 0.5s ease;
 `;
 
 export const scrollView = styled.div`
   display: flex;
   flex-direction: column; // 새 메시지를 아래에 추가
   overflow-y: auto; // 스크롤 가능하게 설정
-  min-height: 579px; // 최소 높이 설정
+  min-height: 530px; // 최소 높이 설정
   width: 100%; // 너비는 부모 컨테이너에 맞춤
   margin: 25px 0px;
 `;

@@ -5,16 +5,16 @@ import * as checkroom from './Styled/Chat.checkroom';
 import profileimg from '../../Assets/img/profile.png';
 import thumbdown from '../../Assets/img/mypage/thumbdown.png';
 import { GoBackButton } from './Styled/Chat.checkroom';
+import { ProgressBar, ProgressBarValue } from './Styled/Chat.checkroom';
 
 function Chatcheckroom() {
   const { challengeId, checkDate } = useParams();
-  const [progressValue, setProgressValue] = useState(0);
   const [images, setImages] = useState();
   const baseURL = 'http://3.35.3.205:8080';
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
 
-  const [checkRoom, setcheckRoom] = useState([]);
+  const [checkRoom, setcheckRoom] = useState({});
   const userName = localStorage.getItem('user-name');
   const [loading, setLoading] = useState(false);
 
@@ -40,6 +40,26 @@ function Chatcheckroom() {
   };
   // 남은 일자 계산
   const daysLeft = calculateDaysLeft(checkRoom.startDate, checkRoom.endDate);
+
+  // 챌린지 전체 기간과 남은 일수를 바탕으로 진행률을 계산하는 함수
+  const calculateProgress = (startDate, endDate, currentDate) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const today = currentDate || new Date();
+
+    const totalDuration = end - start;
+    const elapsed = today - start;
+    const progress = (elapsed / totalDuration) * 100;
+
+    return Math.min(Math.max(progress, 0), 100); // 0에서 100 사이로 제한
+  };
+
+  // 진행률 계산
+  const progressValue = calculateProgress(
+    checkRoom.startDate,
+    checkRoom.endDate,
+    new Date()
+  );
 
   const fetchCheckRoom = async () => {
     setLoading(true);
@@ -113,7 +133,9 @@ function Chatcheckroom() {
             <checkroom.HighlightedText>{daysLeft}</checkroom.HighlightedText> 일
             남았습니다
           </checkroom.dateleft>
-          {/* <progress value={0} max="100" /> */}
+          <ProgressBar>
+            <ProgressBarValue style={{ width: `${progressValue}%` }} />
+          </ProgressBar>
         </checkroom.TopWrapper>
         <checkroom.scrollView>
           {checkRoom.challengeChecks &&
@@ -123,7 +145,6 @@ function Chatcheckroom() {
                 index // map 함수 수정
               ) => (
                 <checkroom.message key={item.id}>
-                  {/* key 속성 수정 */}
                   <checkroom.profile src={profileimg} />
                   <checkroom.sendWrapper>
                     <checkroom.nickname>
@@ -154,7 +175,6 @@ function Chatcheckroom() {
             onChange={handleFileInput}
             style={{ display: 'none' }}
           />
-          {/* 사용자에게 보이는 업로드 버튼 */}
           <checkroom.upload onClick={handleImage}>
             <p>사진 업로드</p>
           </checkroom.upload>
