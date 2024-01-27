@@ -15,8 +15,8 @@ function Chatcheckroom() {
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
   // 'dislikes' 상태 변수와 그를 업데이트하는 함수 'setDislikes' 정의
-  const [dislikes, setDislikes] = useState({});
-  const [checkRoom, setcheckRoom] = useState({});
+  const [dislikes, setDislikes] = useState([]);
+  const [checkRoom, setcheckRoom] = useState([]);
   const userName = localStorage.getItem('user-name');
   const [loading, setLoading] = useState(false);
 
@@ -107,44 +107,79 @@ function Chatcheckroom() {
   }, [challengeId, checkDate]);
 
   //////////////////////////////////////////////////////////////////////
-  const handleFileInput = (e) => {
-    // 이벤트 객체와 파일 객체 로그
-    console.log('이벤트 객체:', e);
-    if (e.target.files && e.target.files[0]) {
-      let img = e.target.files[0];
-      console.log('선택된 이미지 파일:', img); // 선택된 이미지 파일 로그
-      setImages(img);
-      handleImage(img);
-    }
-  };
+  // const handleFileInput = (e) => {
+  //   // 이벤트 객체와 파일 객체 로그
+  //   console.log('이벤트 객체:', e);
+  //   if (e.target.files && e.target.files[0]) {
+  //     let img = e.target.files[0];
+  //     console.log('선택된 이미지 파일:', img); // 선택된 이미지 파일 로그
+  //     setImages(img);
+  //     handleImage(img);
+  //   }
+  // };
 
   const triggerFileInput = () => {
     hiddenFileInput.current.click();
   };
 
   // 이미지 처리 함수
-  const handleImage = async (selectedImage) => {
-    const formData = new FormData();
-    formData.append('challengeId', challengeId);
-    formData.append(['image', selectedImage]);
-
-    try {
-      const response = await axios.post(
-        `${baseURL}/challenge/checkroom/upload`,
-        formData,
-        {
-          headers: {
-            'Content-Type': 'multipart/form-data',
-            Authorization: `Bearer ` + localStorage.getItem('login-token'),
-          },
-        }
-      );
-      console.log('이미지 업로드 완료 및 API 응답:', response);
-      fetchCheckRoom();
-    } catch (error) {
-      console.error('이미지 업로드 중 에러 발생', error);
+  // const handleImage = async (selectedImage) => {
+  //   const formData = new FormData();
+  //   formData.append('challengeId', challengeId);
+  //   formData.append('image', selectedImage);
+  //   try {
+  //     const response = await axios.post(
+  //       `${baseURL}/challenge/checkroom/upload`,
+  //       formData,
+  //       {
+  //         headers: {
+  //           'Content-Type': 'multipart/form-data',
+  //           Authorization: `Bearer ` + localStorage.getItem('login-token'),
+  //         },
+  //       }
+  //     );
+  //     console.log('이미지 업로드 완료 및 API 응답:', response);
+  //     fetchCheckRoom();
+  //   } catch (error) {
+  //     console.error('이미지 업로드 중 에러 발생', error);
+  //   }
+  // };
+  const [selectedFiles, setSelectedFiles] = useState(null); // State for the selected files
+  // Handler for file input change event
+  const handleFileInput = (e) => {
+    if (e.target.files) {
+      setSelectedFiles(e.target.files); // Update the state with the selected files
     }
   };
+
+  // Handler for the upload button click event
+  const onClickHandler = () => {
+    const formData = new FormData();
+    // Append each file to the formData
+    Array.from(selectedFiles).forEach((file) => {
+      formData.append('uploadImages', file, file.name);
+    });
+
+    const config = {
+      headers: {
+        'content-type': 'multipart/form-data',
+        Authorization: `Bearer ` + localStorage.getItem('login-token'),
+      },
+    };
+
+    // Post request to upload the files
+    axios
+      .post(`${baseURL}/challenge/checkroom/upload`, formData, config)
+      .then((response) => {
+        // Handle the response
+        console.log('Upload successful', response);
+      })
+      .catch((error) => {
+        // Handle any errors
+        console.error('Upload failed', error);
+      });
+  };
+
   ////////////////////////////////////////////////////////////////////////////////
 
   const goBack = () => {
@@ -215,6 +250,12 @@ function Chatcheckroom() {
                     {item.checkImages.map((image, index) => (
                       <img key={index} src={image} />
                     ))}
+                    <input
+                      type="file"
+                      ref={hiddenFileInput}
+                      onChange={handleFileInput}
+                      style={{ display: 'none' }}
+                    />{' '}
                   </checkroom.sendimage>
                 </checkroom.sendWrapper>
                 <checkroom.dislikewrapper
@@ -237,15 +278,11 @@ function Chatcheckroom() {
           </checkroom.coupon>
           {/* 모달창 컴포넌트 - isModalVisible 상태에 따라 표시 */}
           {isModalVisible && <ChatCoupon onClose={closeModal} />}
-          <input
-            type="file"
-            ref={hiddenFileInput}
-            onChange={handleFileInput}
-            style={{ display: 'none' }}
-          />
           <checkroom.upload onClick={triggerFileInput}>
             <p>사진 업로드</p>
           </checkroom.upload>
+          <input type="file" multiple onChange={handleFileInput} />
+          <button onClick={onClickHandler}>저장하기</button>
         </checkroom.BottomWrapper>
       </checkroom.modal>
     </checkroom.TotalWrapper>

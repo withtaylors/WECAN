@@ -2,32 +2,54 @@ import styled from 'styled-components';
 
 export const TotalWrapper = styled.div`
   position: fixed;
-  top: 0;
   left: 0;
   right: 0;
+  top: 0;
   bottom: 0;
-
   display: flex;
   justify-content: center;
-  align-items: center;
+  align-items: flex-end;
   z-index: 1000;
+  padding-bottom: 15vh;
+  background-color: rgba(0, 0, 0, 0.1);
 `;
 
-export const num = styled.div`
-  width: 433px;
+export const infoWrapper = styled.div`
+  min-width: 380px;
   height: 107px;
   background-color: white;
   border-radius: 30px;
   z-index: 1001;
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  padding: 0 40px;
+  border: 1px solid #ababab;
 `;
 
-export const text = styled.div`
-  font-color: #dd518c;
+export const num = styled.div`
+  color: #dd518c;
+  font-weight: bold;
 `;
 
-export const btn = styled.div`
-backrgound=white;
-padding:10px;`;
+export const text = styled.input`
+  width: 200px;
+  padding: 10px 2px;
+  border-width: 0 0 2px;
+  outline: none;
+  border-color: #dd518c;
+`;
+
+export const checkimg = styled.button``;
+
+export const successtext = styled.button``;
+
+export const btn = styled.button`
+  flex: none;
+  background: white;
+  padding: 5px 13px;
+  border-radius: 20px;
+  cursor: pointer;
+  border: 1px solid #ababab;
+`;
