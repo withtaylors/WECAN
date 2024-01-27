@@ -40,10 +40,19 @@ export const text = styled.input`
   outline: none;
   border-color: #dd518c;
 `;
+export const SuccessWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+`;
 
-export const checkimg = styled.button``;
+export const checkimg = styled.div`
+  display: flex;
+  margin-bottom: 10px;
+`;
 
-export const successtext = styled.button``;
+export const successtext = styled.div``;
 
 export const btn = styled.button`
   flex: none;
