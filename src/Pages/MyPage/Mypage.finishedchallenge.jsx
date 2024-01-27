@@ -6,14 +6,6 @@ import Card from '../Category/Category.card';
 import axios from 'axios';
 
 function MyFinished() {
-  const samples = [
-    { title: '챌린지 1', challengePeriod: '2023-11-01' },
-    { title: '챌린지 2', challengePeriod: '2023-12-02' },
-    { title: '챌린지 3', challengePeriod: '2023-10-11' },
-    { title: '챌린지 4', challengePeriod: '2023-11-01' },
-    { title: '챌린지 5', challengePeriod: '2023-12-02' },
-    { title: '챌린지 6', challengePeriod: '2023-10-11' },
-  ];
   ////////////////////////////////////////////////////////////////////////
   const navigate = useNavigate();
   const NavClick = (e, type) => {

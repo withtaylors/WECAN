@@ -32,15 +32,15 @@ function MypageInfo() {
               <myinfo.candy>CANDY</myinfo.candy>
             </myinfo.candyNumberWrapper>
           </myinfo.ProfileTextWrapper>
-          <myinfo.ProfilefixingWrapper>
-            <myinfo.ProfilefixingButton
-              src={settingicon}
-              onClick={(e) => {
-                NavClick(e, '/mypage/infochange');
-              }}
-            ></myinfo.ProfilefixingButton>
-          </myinfo.ProfilefixingWrapper>
         </myinfo.ProfileRealWrapper>
+        <myinfo.ProfilefixingWrapper>
+          <myinfo.ProfilefixingButton
+            src={settingicon}
+            onClick={(e) => {
+              NavClick(e, '/mypage/infochange');
+            }}
+          ></myinfo.ProfilefixingButton>
+        </myinfo.ProfilefixingWrapper>
       </myinfo.ProfileWrapper>
       <myinfo.rightWrapper>
         <myinfo.candyButton

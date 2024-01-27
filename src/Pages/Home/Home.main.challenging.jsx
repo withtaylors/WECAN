@@ -96,7 +96,7 @@ function ChallengeCruiting() {
               NavClick(e, '/recruitment/all');
             }}
           >
-            더보기{'->'}
+            더보기{'→'}
           </challenging.buttoninfo>
         </challenging.thirdblock>
       </challenging.firstblock>
@@ -116,7 +116,7 @@ function ChallengeCruiting() {
               NavClick(e, '/shop');
             }}
           >
-            더보기{'->'}
+            더보기{'→'}
           </challenging.buttoninfo>
         </challenging.thirdblock>
       </challenging.firstblock>

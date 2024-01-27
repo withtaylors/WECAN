@@ -19,15 +19,19 @@ function ChallengeMake() {
 
   const handleMake = async () => {
     const baseURL = 'http://3.35.3.205:8080';
-    const response = await fetch(writtenValues.img);
+
+    // 이미지 URL을 사용하여 이미지 파일을 가져옴
+    const response = await fetch(writtenValues.image);
     const blob = await response.blob();
-    const imageFile = new File(
-      [writtenValues.image],
-      `${writtenValues.img}.png`,
-      {
-        type: 'image/png',
-      }
+
+    // URL에서 파일 이름 추출
+    const fileName = writtenValues.image.substring(
+      writtenValues.image.lastIndexOf('/') + 1
     );
+
+    // File 객체 생성
+    const file = new File([blob], fileName, { type: blob.type });
+
     const jsonData = {
       charityName: null,
       title: writtenValues.title,
@@ -38,7 +42,7 @@ function ChallengeMake() {
       checkDay: selectedValues.selectedWeekday,
       paymentType: selectedValues.selectedPayment,
       content: writtenValues.content,
-      coverImage: imageFile,
+      coverImage: file,
       fine: selectedValues.candyNumber,
     };
     console.log('jasonData', jsonData);

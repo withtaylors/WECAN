@@ -18,23 +18,24 @@ export const ProfileWrapper = styled.div`
   height: 100%;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
 `;
 export const ProfileRealWrapper = styled.div`
-  width: 500px;
+  width: 550px;
   height: 190px;
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  margin-left: 30px;
+
+  margin-top: 30px;
 `;
 export const ProfilefixingWrapper = styled.div`
   width: 24px;
-  height: 100%;
+  height: 170px;
+  margin-top: 35px;
   display: flex;
   justify-content: flex-end;
   cursor: pointer;
-  background-color: blue;
 `;
 export const ProfilefixingButton = styled.img`
   width: 24px;
@@ -47,7 +48,6 @@ export const ProfileImg = styled.img`
 export const ProfileTextWrapper = styled.div`
   width: 250px;
   height: 90px;
-
   margin-left: 26px;
 `;
 export const userNameWrapper = styled.div`
@@ -55,18 +55,16 @@ export const userNameWrapper = styled.div`
   flex-direction: row;
 `;
 export const userName = styled.div`
-  width: 100%;
   height: 47px;
   font-size: 38px;
-
   margin-bottom: 10px;
 `;
 export const userName2 = styled.div`
-  width: 100%;
   height: 47px;
   font-size: 38px;
   font-weight: bold;
   margin-bottom: 10px;
+  margin-left: 10px;
 `;
 export const candyNumberWrapper = styled.div`
   width: 85%;
