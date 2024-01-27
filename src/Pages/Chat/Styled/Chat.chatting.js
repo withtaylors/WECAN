@@ -3,7 +3,7 @@ import * as tokens from '../../tokens';
 
 export const totalWrapper = styled.div`
   width: 650px;
-  height: 720px;
+  height: 710px;
   border-radius: 15px;
   background-color: #f0f0f0;
   display: flex;
@@ -13,7 +13,7 @@ export const totalWrapper = styled.div`
   padding: 5px;
   gap: 3px;
   border: 1px solid #c6c6c6;
-  margin-top: 50px;
+  margin-bottom: 30px;
 `;
 export const messagesWrapper = styled.div`
   width: 100%;

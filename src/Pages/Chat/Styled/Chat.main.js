@@ -7,5 +7,4 @@ export const TotalWrapper = styled.div`
   align-items: center;
   flex-direction: row;
   margin-top: 50px;
-  background-color: beige;
 `;
