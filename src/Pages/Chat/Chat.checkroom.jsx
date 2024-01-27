@@ -132,18 +132,40 @@ function Chatcheckroom() {
     navigate(`/challenge/info/${challengeId}`);
   };
 
+  /////////////////////////////////////////////////////////////////////////////
+
+  // '싫어요' 상태를 초기화하는 함수
+  const initializeDislikes = () => {
+    if (checkRoom.challengeChecks) {
+      const initialDislikes = {};
+      checkRoom.challengeChecks.forEach((item) => {
+        initialDislikes[item.challengeCheckId] = item.dislike; // 각 항목의 '싫어요' 수를 설정
+      });
+      setDislikes(initialDislikes);
+    }
+  };
+  const [isDislike, setIsDislike] = useState(false);
+
   // '싫어요' 버튼 클릭 이벤트 처리 함수
   const handleDislikeClick = async (item) => {
+    setIsDislike((prevIsDislike) => !prevIsDislike);
+
     try {
+      const challengeCheckId = item.challengeCheckId;
       const response = await axios.post(
         `${baseURL}/challenge/checkroom/dislike`,
-        { challengeCheckId: item.challengeCheckId },
+        { challengeCheckId },
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
         }
       );
+
+      console.log('Response code:', response.data.code);
+
+      // API 요청 후에 상태 업데이트
+      setIsDislike((prevIsDislike) => !prevIsDislike);
 
       // 사용자가 '싫어요'를 누른 항목에 대한 UI 업데이트
       setDislikes((prev) => ({
@@ -152,8 +174,16 @@ function Chatcheckroom() {
       }));
     } catch (error) {
       console.error('싫어요 상태 변경 실패', error);
+
+      // 에러가 발생한 경우 다시 이전 상태로 되돌립니다.
+      setIsDislike((prevIsDislike) => !prevIsDislike);
+      setDislikes((prev) => ({
+        ...prev,
+        [item.challengeCheckId]: prev[item.challengeCheckId] - 1, // '싫어요' 수 증가
+      }));
     }
   };
+
   ////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -178,13 +208,14 @@ function Chatcheckroom() {
                 <checkroom.profile src={profileimg} />
                 <checkroom.sendWrapper>
                   <checkroom.nickname>{item.nickName}</checkroom.nickname>
+                  <div>{item.challengeCheckId}</div>
                   <checkroom.sendimage>
                     {item.checkImages.length > 0 ? (
                       item.checkImages.map((image, index) => (
                         <img key={index} src={image} />
                       ))
                     ) : (
-                      <img src={defaultImage} alt="Default Image" />
+                      <img src={defaultImage} alt='Default Image' />
                     )}
                   </checkroom.sendimage>
                 </checkroom.sendWrapper>
@@ -207,7 +238,7 @@ function Chatcheckroom() {
             <p>쿠폰 사용하기</p>
           </checkroom.coupon>
           <input
-            type="file"
+            type='file'
             ref={hiddenFileInput}
             onChange={handleFileInput}
             style={{ display: 'none' }}
