@@ -30,7 +30,6 @@ export const joinWrapper = styled.div`
   display: flex;
   flex-direction: column;
   margin-top: 17px;
-  background-color: beige;
 `;
 export const title = styled.div`
   width: 120px;
@@ -126,6 +125,8 @@ export const agreeinfo = styled.div`
   font-size: 10px;
   color: #616161;
   display: flex;
+  background-color: beige;
+  margin-top: 5px;
 `;
 export const joinButton = styled.div`
   width: 175px;

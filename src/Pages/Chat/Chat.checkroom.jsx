@@ -163,19 +163,28 @@ function Chatcheckroom() {
       setDislikes(initialDislikes);
     }
   };
+  const [isDislike, setIsDislike] = useState(false);
 
   // '싫어요' 버튼 클릭 이벤트 처리 함수
   const handleDislikeClick = async (item) => {
+    setIsDislike((prevIsDislike) => !prevIsDislike);
+
     try {
+      const challengeCheckId = item.challengeCheckId;
       const response = await axios.post(
         `${baseURL}/challenge/checkroom/dislike`,
-        { challengeCheckId: item.challengeCheckId },
+        { challengeCheckId },
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
         }
       );
+
+      console.log('Response code:', response.data.code);
+
+      // API 요청 후에 상태 업데이트
+      setIsDislike((prevIsDislike) => !prevIsDislike);
 
       // 사용자가 '싫어요'를 누른 항목에 대한 UI 업데이트
       setDislikes((prev) => ({
@@ -184,8 +193,16 @@ function Chatcheckroom() {
       }));
     } catch (error) {
       console.error('싫어요 상태 변경 실패', error);
+
+      // 에러가 발생한 경우 다시 이전 상태로 되돌립니다.
+      setIsDislike((prevIsDislike) => !prevIsDislike);
+      setDislikes((prev) => ({
+        ...prev,
+        [item.challengeCheckId]: prev[item.challengeCheckId] - 1, // '싫어요' 수 증가
+      }));
     }
   };
+
   ////////////////////////////////////////////////////////////////////////////////
 
   return (
@@ -210,6 +227,7 @@ function Chatcheckroom() {
                 <checkroom.profile src={profileimg} />
                 <checkroom.sendWrapper>
                   <checkroom.nickname>{item.nickName}</checkroom.nickname>
+                  <div>{item.challengeCheckId}</div>
                   <checkroom.sendimage>
                     {/* 각 checkImages 배열의 이미지를 렌더링 */}
                     {item.checkImages.map((image, index) => (
@@ -238,7 +256,7 @@ function Chatcheckroom() {
           {/* 모달창 컴포넌트 - isModalVisible 상태에 따라 표시 */}
           {isModalVisible && <ChatCoupon onClose={closeModal} />}
           <input
-            type="file"
+            type='file'
             ref={hiddenFileInput}
             onChange={handleFileInput}
             style={{ display: 'none' }}

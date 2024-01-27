@@ -194,6 +194,9 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
               <chgincruit.setButton onClick={handleSetCandyNumber}>
                 설정
               </chgincruit.setButton>
+              <chgincruit.teamNumberNotify>
+                *최소 1개 이상
+              </chgincruit.teamNumberNotify>
             </chgincruit.teamNumberWrapper>
           </chgincruit.subcontent>
         </chgincruit.contentlineWrapper>
@@ -215,8 +218,6 @@ function ChallengeIncruitMake({ onUpdateSelectedValues }) {
           </chgincruit.subsubcontent>
         </chgincruit.contentlineWrapper2>
       </chgincruit.realWrapper>
-      {formattedStartDate}
-      {formattedEndDate}
     </chgincruit.totalWrapper>
   );
 }

@@ -71,10 +71,14 @@ function ChallengeMake() {
         },
       });
       // API 응답에 따른 처리
+      alert('챌린지가 생성되었습니다!');
       console.log('챌린지 만들기 정보 전달:', response);
     } catch (error) {
       console.error('챌린지 만들기 중 에러 발생', error);
       if (error.response) {
+        if (error.response.code == 5003) {
+          alert('챌린지 날짜가 유효하지 않습니다!');
+        }
         console.error('서버 응답 데이터:', error.response.data);
         console.error('서버 응답 상태 코드:', error.response.status);
       }

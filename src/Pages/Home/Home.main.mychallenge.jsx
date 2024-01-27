@@ -77,6 +77,8 @@ function HomeMyChallenge() {
   const StyledLink = styled(Link)`
     text-decoration: none;
   `;
+  /////////////////////////////////////////////////////////////
+  /////////////////////////////////////////////////////////////
   return (
     <myjoin.totalWrapper>
       <myjoin.title>내가 참여중인 챌린지</myjoin.title>
@@ -98,7 +100,20 @@ function HomeMyChallenge() {
                 <myjoin.challengeDateImg></myjoin.challengeDateImg>
               </myjoin.challengeDate>
               {currentChallenge && currentChallenge.challengePeriod}
-              <myjoin.challengeLeftDate>D-{4}</myjoin.challengeLeftDate>
+              <myjoin.challengeLeftDate>
+                D-
+                {currentChallenge &&
+                  parseInt(
+                    currentChallenge.challengePeriod
+                      .split(' ~ ')[1]
+                      .split('-')[2]
+                  ) -
+                    parseInt(
+                      currentChallenge.challengePeriod
+                        .split(' ~ ')[0]
+                        .split('-')[2]
+                    )}
+              </myjoin.challengeLeftDate>
               <myjoin.challengeButtonWrapper>
                 <StyledLink
                   to={`/challenge/info/${
@@ -106,7 +121,7 @@ function HomeMyChallenge() {
                   }`}
                 >
                   <myjoin.challengeAdmitButton>
-                    인증하러 가기{' ->'}
+                    인증하러 가기
                   </myjoin.challengeAdmitButton>
                 </StyledLink>
               </myjoin.challengeButtonWrapper>
