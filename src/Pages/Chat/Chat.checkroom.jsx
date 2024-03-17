@@ -126,7 +126,7 @@ function Chatcheckroom() {
   const handleImage = async (selectedImage) => {
     const formData = new FormData();
     formData.append('challengeId', challengeId);
-    formData.append(['image', selectedImage]);
+    formData.append('images', selectedImage);
 
     try {
       const response = await axios.post(
@@ -181,7 +181,7 @@ function Chatcheckroom() {
         }
       );
 
-      console.log('Response code:', response.data.code);
+      console.log('싫어요 성공:', response);
 
       // API 요청 후에 상태 업데이트
       setIsDislike((prevIsDislike) => !prevIsDislike);

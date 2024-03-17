@@ -16,6 +16,10 @@ function Login(props) {
     e.preventDefault();
     navigate(`${type}`);
   };
+
+  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
+  const URL = `${PROXY}`;
+
   const baseURL = 'http://3.35.3.205:8080';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');

@@ -42,7 +42,7 @@ import ChallengeStudy from './Pages/Recruit/Recruit.total.study';
 import ChallengeExercise from './Pages/Recruit/Recruit.total.exercise';
 import ChallengeEtc from './Pages/Recruit/Recruit.total.etc';
 import TossWidget from './Pages/Toss/Toss.main';
-
+import PayModal2 from './Pages/Challenger/PayModal2';
 const queryClient = new QueryClient();
 const firebaseConfig = {
   apiKey: 'AIzaSyBqlJafy3TZ_S2W9uHqGO5warC8ZbDfewg',
@@ -153,6 +153,11 @@ function App() {
                   path='/mypage/candy/tosspage'
                   element={<TossWidget></TossWidget>}
                 />
+
+                <Route
+                  path='/paymodal_2'
+                  element={<PayModal2></PayModal2>}
+                ></Route>
               </Routes>
             </div>
             <ConditionalFooter />

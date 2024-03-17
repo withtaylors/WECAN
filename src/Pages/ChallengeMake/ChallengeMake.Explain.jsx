@@ -47,7 +47,6 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues, imageSrc }) {
     setTitle(tempTitle);
     setContent(tempContent);
     setImage(images[imageIndex]);
-    console.log(writtenValues);
   };
   const openModal = () => setShowModal(true);
   const closeModal = (image, index) => {

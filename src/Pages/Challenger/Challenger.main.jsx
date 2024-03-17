@@ -4,6 +4,8 @@ import * as challenger from './Styled/Challenger.main';
 import TopNav from '../TopNav/TopNav.main';
 import ChallengeReview from '../Challenger/Challenger.reveiw.main';
 import axios from 'axios';
+import PayModal from './PayModal';
+import PayModal2 from './PayModal2';
 function ChallengeInfo() {
   const { id } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
@@ -11,6 +13,7 @@ function ChallengeInfo() {
   /////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeInfo, setChallengeInfo] = useState([]);
+  const [showModal, setShowModal] = useState(false);
   useEffect(() => {
     const fetchChallengeInfo = async () => {
       setLoading(true);
@@ -47,6 +50,10 @@ function ChallengeInfo() {
     e.preventDefault();
     navigate(`${type}`);
   };
+  const openModal = () => setShowModal(true);
+  const closeModal = () => {
+    setShowModal(false);
+  };
   ///////////////////////////////////////
   const [isJoined, setIsJoined] = useState(false);
 
@@ -68,12 +75,13 @@ function ChallengeInfo() {
           },
         }
       );
-
       console.log(response);
 
       // 참여 상태를 토글
       setIsJoined((prevIsJoined) => !prevIsJoined);
+
       if (!isJoined) {
+        openModal();
         alert('챌린지 참여가 완료되었습니다!');
       } else {
         alert('챌린지 참여가 취소되었습니다!');
@@ -85,6 +93,7 @@ function ChallengeInfo() {
   console.log(isJoined);
   //////////////////////////////////////
 
+  ////////////////////////////////////////
   return (
     <challenger.totalWrapper>
       <TopNav></TopNav>
@@ -108,7 +117,7 @@ function ChallengeInfo() {
               </challenger.joinButton2>
             ) : (
               <challenger.joinButton onClick={handleJoin}>
-                챌린저 함께하기
+                챌린지 함께하기
               </challenger.joinButton>
             )}
           </challenger.realInfoWrapper>
@@ -119,8 +128,8 @@ function ChallengeInfo() {
           </challenger.infoExplainContext>
         </challenger.infoExplain>
       </challenger.InfoWrapper>
-
       <ChallengeReview></ChallengeReview>
+      {showModal && <PayModal closeModal={closeModal} />}
     </challenger.totalWrapper>
   );
 }

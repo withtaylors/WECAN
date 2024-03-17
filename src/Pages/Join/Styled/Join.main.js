@@ -125,7 +125,7 @@ export const agreeinfo = styled.div`
   font-size: 10px;
   color: #616161;
   display: flex;
-  background-color: beige;
+
   margin-top: 5px;
 `;
 export const joinButton = styled.div`
