@@ -18,10 +18,9 @@ function ChallengeIncruitExplain({ onUpdateWrittenValues, imageSrc }) {
   ///////////////////////////////////////////////////////
   const images = [
     require('../../Assets/img/SettingImage/1.png'),
-    require('../../Assets/img/SettingImage/2.png'),
     require('../../Assets/img/SettingImage/3.png'),
     require('../../Assets/img/SettingImage/4.png'),
-    require('../../Assets/img/SettingImage/5.png'),
+    require('../../img/SettingImage/5.png'),
     require('../../Assets/img/SettingImage/6.png'),
     require('../../Assets/img/SettingImage/7.png'),
     require('../../Assets/img/SettingImage/8.png'),
