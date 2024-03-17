@@ -7,6 +7,7 @@ import thumbdown from '../../Assets/img/mypage/thumbdown.png';
 import { GoBackButton } from './Styled/Chat.checkroom';
 import { ProgressBar, ProgressBarValue } from './Styled/Chat.checkroom';
 import ChatCoupon from './Chat.Coupon';
+import defaultImage from '../../Assets/img/default.jpg';
 
 function Chatcheckroom() {
   const { challengeId, checkDate } = useParams();
@@ -15,26 +16,32 @@ function Chatcheckroom() {
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
   // 'dislikes' 상태 변수와 그를 업데이트하는 함수 'setDislikes' 정의
-  const [dislikes, setDislikes] = useState({});
-  const [checkRoom, setcheckRoom] = useState({});
+  const [dislikes, setDislikes] = useState([]);
+  const [checkRoom, setcheckRoom] = useState([]);
   const userName = localStorage.getItem('user-name');
   const [loading, setLoading] = useState(false);
 
-  /////////////////////////////////////////////////////////////////
-  // 모달창 상태 추가
-  const [isModalVisible, setIsModalVisible] = useState(false);
+  // 챌린지 전체 기간과 남은 일수를 바탕으로 진행률을 계산하는 함수
+  const calculateProgress = (startDate, endDate, currentDate) => {
+    const start = new Date(startDate);
+    const end = new Date(endDate);
+    const today = currentDate || new Date();
 
-  // 쿠폰 버튼 클릭 이벤트 핸들러
-  const handleCouponClick = () => {
-    setIsModalVisible(true);
+    const totalDuration = end - start;
+    const elapsed = today - start;
+    const progress = (elapsed / totalDuration) * 100;
+
+    return Math.min(Math.max(progress, 0), 100); // 0에서 100 사이로 제한
   };
 
-  // 모달창 닫기 함수
-  const closeModal = () => {
-    setIsModalVisible(false);
-  };
+  // 진행률 계산
+  const progressValue = calculateProgress(
+    checkRoom.startDate,
+    checkRoom.endDate,
+    new Date()
+  );
+  ///////////////////////////////////////////////////////////////////////
 
-  ///////////////////////////////////////////////////////////////////////////
   // 날짜 형식 변환 함수
   const formatDate = (dateString) => {
     const date = new Date(dateString);
@@ -58,28 +65,6 @@ function Chatcheckroom() {
   // 남은 일자 계산
   const daysLeft = calculateDaysLeft(checkRoom.startDate, checkRoom.endDate);
 
-  //////////////////////////////////////////////////////////////////////////////////
-  // 챌린지 전체 기간과 남은 일수를 바탕으로 진행률을 계산하는 함수
-  const calculateProgress = (startDate, endDate, currentDate) => {
-    const start = new Date(startDate);
-    const end = new Date(endDate);
-    const today = currentDate || new Date();
-
-    const totalDuration = end - start;
-    const elapsed = today - start;
-    const progress = (elapsed / totalDuration) * 100;
-
-    return Math.min(Math.max(progress, 0), 100); // 0에서 100 사이로 제한
-  };
-
-  // 진행률 계산
-  const progressValue = calculateProgress(
-    checkRoom.startDate,
-    checkRoom.endDate,
-    new Date()
-  );
-  ///////////////////////////////////////////////////////////////////////
-
   const fetchCheckRoom = async () => {
     setLoading(true);
     try {
@@ -91,9 +76,9 @@ function Chatcheckroom() {
           },
         }
       );
-      console.log('서버 응답:', response); // 서버 응답 로그
+      console.log('해당 챌린지 정보:', response);
       setcheckRoom(response.data.data);
-      console.log('업데이트된 checkRoom 상태:', checkRoom); // 업데이트된 상태 로그
+      console.log(checkRoom);
     } catch (error) {
       console.error('챌린지 정보를 가져오는데 실패', error);
     } finally {
@@ -103,16 +88,11 @@ function Chatcheckroom() {
 
   useEffect(() => {
     fetchCheckRoom();
-    initializeDislikes(); // '싫어요' 상태 초기화 함수 호출
   }, [challengeId, checkDate]);
 
-  //////////////////////////////////////////////////////////////////////
   const handleFileInput = (e) => {
-    // 이벤트 객체와 파일 객체 로그
-    console.log('이벤트 객체:', e);
     if (e.target.files && e.target.files[0]) {
       let img = e.target.files[0];
-      console.log('선택된 이미지 파일:', img); // 선택된 이미지 파일 로그
       setImages(img);
       handleImage(img);
     }
@@ -124,7 +104,9 @@ function Chatcheckroom() {
 
   // 이미지 처리 함수
   const handleImage = async (selectedImage) => {
+    // FormData를 사용하여 파일 데이터 전송
     const formData = new FormData();
+
     formData.append('challengeId', challengeId);
     formData.append('images', selectedImage);
 
@@ -145,7 +127,6 @@ function Chatcheckroom() {
       console.error('이미지 업로드 중 에러 발생', error);
     }
   };
-  ////////////////////////////////////////////////////////////////////////////////
 
   const goBack = () => {
     navigate(`/challenge/info/${challengeId}`);
@@ -229,10 +210,13 @@ function Chatcheckroom() {
                   <checkroom.nickname>{item.nickName}</checkroom.nickname>
                   <div>{item.challengeCheckId}</div>
                   <checkroom.sendimage>
-                    {/* 각 checkImages 배열의 이미지를 렌더링 */}
-                    {item.checkImages.map((image, index) => (
-                      <img key={index} src={image} />
-                    ))}
+                    {item.checkImages.length > 0 ? (
+                      item.checkImages.map((image, index) => (
+                        <img key={index} src={image} />
+                      ))
+                    ) : (
+                      <img src={defaultImage} alt='Default Image' />
+                    )}
                   </checkroom.sendimage>
                 </checkroom.sendWrapper>
                 <checkroom.dislikewrapper
@@ -250,17 +234,16 @@ function Chatcheckroom() {
         </checkroom.scrollView>
 
         <checkroom.BottomWrapper>
-          <checkroom.coupon onClick={handleCouponClick}>
+          <checkroom.coupon>
             <p>쿠폰 사용하기</p>
           </checkroom.coupon>
-          {/* 모달창 컴포넌트 - isModalVisible 상태에 따라 표시 */}
-          {isModalVisible && <ChatCoupon onClose={closeModal} />}
           <input
             type='file'
             ref={hiddenFileInput}
             onChange={handleFileInput}
             style={{ display: 'none' }}
           />
+          {/* 사용자에게 보이는 업로드 버튼 */}
           <checkroom.upload onClick={triggerFileInput}>
             <p>사진 업로드</p>
           </checkroom.upload>

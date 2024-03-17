@@ -11,9 +11,9 @@ export const CardWrapper = styled.div`
   border-radius: 16px;
   background-color: white;
   margin: 12px;
-  box-shadow: 2px 4px 5px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 1px 2px 2px 1px rgba(0, 0, 0, 0.2);
   &:hover {
-    box-shadow: 6px 6px 5px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 3px 3px 2px rgba(0, 0, 0, 0.2);
   }
 `;
 export const DonationWrapper = styled.div`
@@ -61,8 +61,7 @@ export const ContentInfo = styled.div`
   text-decoration: none;
 `;
 export const Title = styled.div`
-  font-size: 16px;
-  font-weight: bold;
+  font-size: 15px;
   color: black;
   text-decoration: none;
   display: flex;
