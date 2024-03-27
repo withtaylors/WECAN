@@ -23,10 +23,7 @@ function ChallengeCruiting() {
   };
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
-  const PROXY =
-    window.location.hostname === 'localhost'
-      ? baseURL
-      : 'http://3.35.3.205:8080';
+  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
 
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -37,9 +34,7 @@ function ChallengeCruiting() {
       try {
         const response = await axios.get(`${PROXY}/recruits/home`, {
           headers: {
-            Authorization:
-              'Bearer ' +
-              'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcxMTU1MDcxMywiaWQiOjJ9.Z6tbAkEVzwkaJq6gRWAC6ewkyFvpZGEIaLEEX1drxsA',
+            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
         });
         console.log('홈 챌린지 3개 불러오기:', response);
