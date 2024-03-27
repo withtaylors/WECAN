@@ -23,6 +23,8 @@ function ChallengeCruiting() {
   };
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeThree, setChallengeThree] = useState([]);
@@ -30,7 +32,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/recruits/home`, {
+        const response = await axios.get(`${PROXY}/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -53,7 +55,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/shop/home`, {
+        const response = await axios.get(`${PROXY}/shop/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },

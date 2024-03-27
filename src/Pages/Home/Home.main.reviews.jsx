@@ -12,6 +12,8 @@ function HomeReviews() {
 
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeThree, setChallengeThree] = useState([]);
@@ -19,7 +21,7 @@ function HomeReviews() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/reviews/latest`, {});
+        const response = await axios.get(`${PROXY}/reviews/latest`, {});
         console.log('홈 후기 3개 불러오기:', response);
         setChallengeThree(response.data.data);
         console.log(challengeThree);

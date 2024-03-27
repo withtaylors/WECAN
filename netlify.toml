@@ -1,0 +1,5 @@
+[[redirects]]
+from = "/proxy/*"
+  to = "https://http://3.35.3.205:8080/:splat"  
+  status = 200
+  force= true

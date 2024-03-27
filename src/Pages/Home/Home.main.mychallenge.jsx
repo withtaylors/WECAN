@@ -7,7 +7,10 @@ import righticon from '../../Assets/img/righticon.png';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 function HomeMyChallenge() {
+  //////////////////////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+  ///////////////////////////////////////////////////////////////////////////////////////
   const [myChallenge, setMyChallenge] = useState([]);
   const [loading, setLoading] = useState(false);
 
@@ -15,7 +18,7 @@ function HomeMyChallenge() {
     const fetchChallengeArray = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/challenge/active`, {
+        const response = await axios.get(`${PROXY}/challenge/active`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -82,7 +85,7 @@ function HomeMyChallenge() {
   return (
     <myjoin.totalWrapper>
       <myjoin.title>내가 참여중인 챌린지</myjoin.title>
-      {!isExpired ? (
+      {isExpired ? (
         <myjoin.mainCardWrapper>
           <myjoin.moveButton onClick={() => handleMoveButtonClick('prev')}>
             {'<'}
