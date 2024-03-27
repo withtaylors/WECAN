@@ -68,5 +68,6 @@
   },
   "devDependencies": {
     "eslint": "^8.56.0"
-  }
+  },
+  "proxy": "http://3.35.3.205:8080"
 }
