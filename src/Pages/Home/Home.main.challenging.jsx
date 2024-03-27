@@ -34,7 +34,9 @@ function ChallengeCruiting() {
       try {
         const response = await axios.get(`${PROXY}/recruits/home`, {
           headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
+            Authorization:
+              'Bearer ' +
+              'eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJBY2Nlc3NUb2tlbiIsImV4cCI6MTcxMTU1MDcxMywiaWQiOjJ9.Z6tbAkEVzwkaJq6gRWAC6ewkyFvpZGEIaLEEX1drxsA',
           },
         });
         console.log('홈 챌린지 3개 불러오기:', response);
