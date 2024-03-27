@@ -23,7 +23,10 @@ function ChallengeCruiting() {
   };
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
-  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+  const PROXY =
+    window.location.hostname === 'localhost'
+      ? baseURL
+      : 'http://3.35.3.205:8080';
 
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
