@@ -11,7 +11,7 @@ function HomeReviews() {
   ];
 
   /////////////////////////////////////////////////////////////////////
-  const baseURL = 'http://3.35.3.205:8080';
+  const baseURL = 'http://itstime.site';
   const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
 
   ////////////////////////////////////////////////////
