@@ -32,7 +32,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${PROXY}/recruits/home`, {
+        const response = await axios.get(`${baseURL}/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },

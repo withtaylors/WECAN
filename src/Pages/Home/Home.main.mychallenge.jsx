@@ -18,7 +18,7 @@ function HomeMyChallenge() {
     const fetchChallengeArray = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${PROXY}/challenge/active`, {
+        const response = await axios.get(`${baseURL}/challenge/active`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
