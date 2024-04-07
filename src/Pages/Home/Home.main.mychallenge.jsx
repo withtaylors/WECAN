@@ -9,7 +9,10 @@ import styled from 'styled-components';
 function HomeMyChallenge() {
   //////////////////////////////////////////////////////////////////////////////////////
   const baseURL = 'http://itstime.site';
-  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+  const PROXY =
+    window.location.hostname === 'localhost'
+      ? 'http://3.35.3.205:8080'
+      : 'https://itstime.site';
   ///////////////////////////////////////////////////////////////////////////////////////
   const [myChallenge, setMyChallenge] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -18,7 +21,7 @@ function HomeMyChallenge() {
     const fetchChallengeArray = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/challenge/active`, {
+        const response = await axios.get(`${PROXY}/challenge/active`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -86,6 +89,8 @@ function HomeMyChallenge() {
     <myjoin.totalWrapper>
       <myjoin.title>내가 참여중인 챌린지</myjoin.title>
       {isExpired ? (
+        <myjoin.mainCardWrapper2 src={logoutimg}></myjoin.mainCardWrapper2>
+      ) : (
         <myjoin.mainCardWrapper>
           <myjoin.moveButton onClick={() => handleMoveButtonClick('prev')}>
             {'<'}
@@ -134,8 +139,6 @@ function HomeMyChallenge() {
             {'>'}
           </myjoin.moveButton>
         </myjoin.mainCardWrapper>
-      ) : (
-        <myjoin.mainCardWrapper2 src={logoutimg}></myjoin.mainCardWrapper2>
       )}
     </myjoin.totalWrapper>
   );

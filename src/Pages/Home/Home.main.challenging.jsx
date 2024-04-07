@@ -22,8 +22,11 @@ function ChallengeCruiting() {
     navigate(`${type}`);
   };
   /////////////////////////////////////////////////////////////////////
-  const baseURL = 'http://itstime.site';
-  const PROXY = window.location.hostname === 'localhost' ? baseURL : '/proxy';
+  const baseURL = 'https://itstime.site';
+  const PROXY =
+    window.location.hostname === 'localhost'
+      ? 'http://3.35.3.205:8080'
+      : 'https://itstime.site';
 
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -32,7 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/recruits/home`, {
+        const response = await axios.get(`${PROXY}/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
