@@ -17,9 +17,10 @@ function Login(props) {
     navigate(`${type}`);
   };
 
-  const PROXY = window.location.hostname === 'localhost' ? '' : '/proxy';
-  const URL = `${PROXY}`;
-
+  const PROXY =
+    window.location.hostname === 'localhost'
+      ? 'http://3.35.3.205:8080'
+      : 'https://itstime.site';
   const baseURL = 'http://3.35.3.205:8080';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
@@ -65,7 +66,7 @@ function Login(props) {
     };
 
     try {
-      const response = await axios.post(`${baseURL}/user/sign-in`, requestData);
+      const response = await axios.post(`${PROXY}/user/sign-in`, requestData);
       setIsSuccess(true);
       alert('로그인에 성공했습니다.');
       navigate('/');
