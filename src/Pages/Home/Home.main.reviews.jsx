@@ -11,11 +11,11 @@ function HomeReviews() {
   ];
 
   /////////////////////////////////////////////////////////////////////
-  const baseURL = 'http://itstime.site';
+  const baseURL = 'http://wecanomg.shop';
   const PROXY =
     window.location.hostname === 'localhost'
       ? 'http://3.35.3.205:8080'
-      : 'https://itstime.site';
+      : 'https://wecanomg.shop';
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeThree, setChallengeThree] = useState([]);

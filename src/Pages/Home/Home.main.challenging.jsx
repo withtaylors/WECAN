@@ -22,11 +22,11 @@ function ChallengeCruiting() {
     navigate(`${type}`);
   };
   /////////////////////////////////////////////////////////////////////
-  const baseURL = 'https://itstime.site';
+  const baseURL = 'https://wecanomg.shop';
   const PROXY =
     window.location.hostname === 'localhost'
       ? 'http://3.35.3.205:8080'
-      : 'https://itstime.site';
+      : 'https://wecanomg.shop';
 
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -35,7 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(process.env.REACT_APP_DB_HOST+`/recruits/home`, {
+        const response = await axios.get({PROXY}+`/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -58,7 +58,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(process.env.REACT_APP_DB_HOST+`/shop/home`, {
+        const response = await axios.get({PROXY}+`/shop/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
