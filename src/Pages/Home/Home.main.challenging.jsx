@@ -35,7 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({PROXY}+`/recruits/home`);
+        const response = await axios.get(`${PROXY}/recruits/home`);
         console.log('홈 챌린지 3개 불러오기:', response);
         setChallengeThree(response.data.data);
         console.log(challengeThree);
@@ -54,7 +54,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({PROXY}+`/shop/home`);
+        const response = await axios.get(`${PROXY}/shop/home`);
         console.log('굿즈 3개 불러오기:', response);
         setGoodsThree(response.data.data);
         console.log(goodsThree);
