@@ -68,6 +68,5 @@
   },
   "devDependencies": {
     "eslint": "^8.56.0"
-  },
-  "proxy": "http://itstime.site"
+  }
 }
