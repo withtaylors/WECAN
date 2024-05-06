@@ -37,7 +37,7 @@ const KakaoRedirect = () => {
         console.log("An error occurred while retrieving token. ", err);
       });
       const response = await axios.get(
-        `http://3.35.3.205:8080/oauth/login/kakao?code=${code}&fcm=${fcmToken}`
+        `https://wecanomg.shop/oauth/login/kakao?code=${code}&fcm=${fcmToken}`
       );
       setIsSuccess(true);
       alert("로그인에 성공했습니다.");

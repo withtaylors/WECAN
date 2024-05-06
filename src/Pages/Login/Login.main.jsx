@@ -20,7 +20,7 @@ function Login(props) {
   const PROXY =
     window.location.hostname === 'localhost'
       ? 'http://3.35.3.205:8080'
-      : 'https://itstime.site';
+      : 'https://wecanomg.shop';
   const baseURL = 'http://3.35.3.205:8080';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
@@ -106,7 +106,7 @@ function Login(props) {
     }
   };
   const handleKakaoLogin = async () => {
-    window.location.href = 'http://3.35.3.205:8080/oauth/kakao';
+    window.location.href = 'https://wecanomg.shop/oauth/kakao';
   };
   const handleSignup = () => {
     navigate('/agree', {
