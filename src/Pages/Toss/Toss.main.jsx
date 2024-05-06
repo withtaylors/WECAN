@@ -109,7 +109,7 @@ export default function TossWidget() {
               console.log(requestParams);
               axios
                 .get(
-                  `http://3.35.3.205:8080/payment/toss/success?orderId=${requestParams.orderId}&paymentKey=${requestParams.paymentKey}&amount=${requestParams.amount}`
+                  `http://wecanomg.shop/payment/toss/success?orderId=${requestParams.orderId}&paymentKey=${requestParams.paymentKey}&amount=${requestParams.amount}`
                 )
                 .then((response) => {
                   const currentCandy = parseInt(localStorage.getItem("candy!"));

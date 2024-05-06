@@ -8,6 +8,10 @@ import RecruitTop from './Recruit.totoal.main.top';
 
 function RecruitEtcCards() {
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? 'http://3.35.3.205:8080'
+    : 'https://wecanomg.shop';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
   const [challengeArrayPopular, setChallengeArrayPopular] = useState([]);
@@ -18,7 +22,7 @@ function RecruitEtcCards() {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${baseURL}/recruits?page=0&sort=heartNum,desc`,
+          `${PROXY}/recruits?page=0&sort=heartNum,desc`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -41,7 +45,7 @@ function RecruitEtcCards() {
   const sortPopular = async () => {
     try {
       const response = await axios.get(
-        `${baseURL}/recruits?page=0&sort=heartNum,desc`,
+        `${PROXY}/recruits?page=0&sort=heartNum,desc`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -61,7 +65,7 @@ function RecruitEtcCards() {
   const sortLeast = async () => {
     try {
       const response = await axios.get(
-        `${baseURL}/recruits?page=0&sort=heartNum,desc`,
+        `${PROXY}/recruits?page=0&sort=heartNum,desc`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),

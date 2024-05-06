@@ -7,6 +7,10 @@ import challengeMake from '../../Assets/img/challengemake.png';
 
 function RecruitTotalCards() {
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? 'http://3.35.3.205:8080'
+    : 'https://wecanomg.shop';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
   const [currentPage, setCurrentPage] = useState(0);
@@ -19,7 +23,7 @@ function RecruitTotalCards() {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${baseURL}/recruits?page=${currentPage}&sort=heartNum,desc`,
+          `${PROXY}/recruits?page=${currentPage}&sort=heartNum,desc`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -42,7 +46,7 @@ function RecruitTotalCards() {
   const sortPopular = async () => {
     try {
       const response = await axios.get(
-        `${baseURL}/recruits?page=0&sort=heartNum,desc`,
+        `${PROXY}/recruits?page=0&sort=heartNum,desc`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
