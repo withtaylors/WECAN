@@ -69,7 +69,7 @@ function Login(props) {
       const response = await axios.post(`${PROXY}/user/sign-in`, requestData);
       setIsSuccess(true);
       alert('로그인에 성공했습니다.');
-      navigate('/home');
+      navigate('/');
       console.log('로그인 처리 내용:', response);
       console.log('유저이름:', response.data.data.nickName);
       console.log('캔디', response.data.data.candy);
