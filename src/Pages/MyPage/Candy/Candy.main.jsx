@@ -33,7 +33,7 @@ function Candy() {
     console.log('toss start');
 
     axios
-      .post(`http://3.35.3.205:8080/payment/toss`, requestData, {
+      .post({PROXY}+`/payment/toss`, requestData, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('login-token'),
         },

@@ -22,6 +22,10 @@ function MyLike() {
   };
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeLiked, setChallengeLiked] = useState([]);
@@ -29,7 +33,7 @@ function MyLike() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/recruit/heart`, {
+        const response = await axios.get(`${PROXY}/recruit/heart`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },

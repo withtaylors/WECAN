@@ -22,6 +22,10 @@ function MyEnjoying() {
   };
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
   const userId = localStorage.getItem('user-id');
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -30,7 +34,7 @@ function MyEnjoying() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/challenge/active`, {
+        const response = await axios.get(`${PROXY}/challenge/active`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },

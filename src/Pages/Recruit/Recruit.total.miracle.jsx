@@ -11,7 +11,7 @@ function RecruitMiracleCards() {
   const baseURL = 'http://3.35.3.205:8080';
   const PROXY =
   window.location.hostname === 'localhost'
-    ? 'http://3.35.3.205:8080'
+    ? ''
     : 'https://wecanomg.shop';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);

@@ -9,7 +9,7 @@ function RecruitTotalCards() {
   const baseURL = 'http://3.35.3.205:8080';
   const PROXY =
   window.location.hostname === 'localhost'
-    ? 'http://3.35.3.205:8080'
+    ? ''
     : 'https://wecanomg.shop';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
@@ -67,7 +67,7 @@ function RecruitTotalCards() {
   const sortLeast = async () => {
     try {
       const response = await axios.get(
-        `${baseURL}/recruits?page=0&sort=startDate,desc`,
+        `${PROXY}/recruits?page=0&sort=startDate,desc`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
