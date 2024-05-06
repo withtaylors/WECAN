@@ -84,6 +84,7 @@ function App() {
                 <Route path='/login' element={<Login></Login>} />
                 <Route path='/join' element={<Join></Join>} />
                 <Route path='/' element={<Home />} />
+                <Route path="*" element={<Home />} />
                 <Route path='/recruitment' element={<Recruit></Recruit>} />
                 <Route path='/recruitment/all' element={<Recruit></Recruit>} />
                 <Route
