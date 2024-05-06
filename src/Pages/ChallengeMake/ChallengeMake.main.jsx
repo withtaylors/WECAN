@@ -19,6 +19,10 @@ function ChallengeMake() {
 
   const handleMake = async () => {
     const baseURL = 'http://3.35.3.205:8080';
+    const PROXY =
+    window.location.hostname === 'localhost'
+      ? ''
+      : 'https://wecanomg.shop';
 
     // 이미지 URL을 사용하여 이미지 파일을 가져옴
     const response = await fetch(writtenValues.image);
@@ -64,7 +68,7 @@ function ChallengeMake() {
 
     console.log(formData);
     try {
-      const response = await axios.post(`${baseURL}/recruit`, formData, {
+      const response = await axios.post(`${PROXY}/recruit`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data;',
           Authorization: `Bearer ` + localStorage.getItem('login-token'),
