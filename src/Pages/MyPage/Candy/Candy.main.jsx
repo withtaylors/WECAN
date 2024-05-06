@@ -6,6 +6,10 @@ import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 function Candy() {
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
   const userName = localStorage.getItem('user-name');
 
   const userCandy = localStorage.getItem('candy!');
