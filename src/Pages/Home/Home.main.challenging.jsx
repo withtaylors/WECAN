@@ -25,7 +25,7 @@ function ChallengeCruiting() {
   const baseURL = 'https://wecanomg.shop';
   const PROXY =
     window.location.hostname === 'localhost'
-      ? 'http://3.35.3.205:8080'
+      ? ''
       : 'https://wecanomg.shop';
 
   ////////////////////////////////////////////////////
@@ -35,7 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({baseURL}+`/recruits/home`, {
+        const response = await axios.get({PROXY}+`/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -58,7 +58,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({baseURL}+`/shop/home`, {
+        const response = await axios.get({PROXY}+`/shop/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
