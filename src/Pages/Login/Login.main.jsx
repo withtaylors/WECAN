@@ -21,7 +21,7 @@ function Login(props) {
     window.location.hostname === 'localhost'
       ? 'http://3.35.3.205:8080'
       : 'https://wecanomg.shop';
-  const baseURL = 'http://3.35.3.205:8080';
+  const baseURL = 'https://wecanomg.shop';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
   const [type, setType] = useState('login');
   const [name, setName] = useState('로그인');
@@ -66,7 +66,7 @@ function Login(props) {
     };
 
     try {
-      const response = await axios.post(`${PROXY}/user/sign-in`, requestData);
+      const response = await axios.post(`${baseURL}/user/sign-in`, requestData);
       setIsSuccess(true);
       alert('로그인에 성공했습니다.');
       navigate('/home');
