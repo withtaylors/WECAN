@@ -23,7 +23,7 @@ function HomeReviews() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${PROXY}/reviews/latest`, {});
+        const response = await axios.get(`${PROXY}/reviews/latest`);
         console.log('홈 후기 3개 불러오기:', response);
         setChallengeThree(response.data.data);
         console.log(challengeThree);

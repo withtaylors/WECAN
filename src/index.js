@@ -3,7 +3,6 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
-import ScrollToTop from "./APP/Common/ScrollToTop";
 import {
   RecoilRoot,
   atom,
@@ -18,12 +17,11 @@ import {
   Routes,
   useNavigate,
 } from "react-router-dom";
-import "../src/static/fonts/font.css";
+
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <RecoilRoot>
     <BrowserRouter>
-      <ScrollToTop />
       <App />
     </BrowserRouter>
   </RecoilRoot>

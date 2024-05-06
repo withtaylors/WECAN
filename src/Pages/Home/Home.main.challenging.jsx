@@ -35,11 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({PROXY}+`/recruits/home`, {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-          },
-        });
+        const response = await axios.get({PROXY}+`/recruits/home`);
         console.log('홈 챌린지 3개 불러오기:', response);
         setChallengeThree(response.data.data);
         console.log(challengeThree);
@@ -58,11 +54,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get({PROXY}+`/shop/home`, {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-          },
-        });
+        const response = await axios.get({PROXY}+`/shop/home`);
         console.log('굿즈 3개 불러오기:', response);
         setGoodsThree(response.data.data);
         console.log(goodsThree);
@@ -90,7 +82,7 @@ function ChallengeCruiting() {
           </challenging.buttoncruiting>
         </challenging.top>
         <challenging.secondblock>
-          {challengeThree.map((item) => (
+          {challengeThree&&challengeThree.map((item) => (
             <CategoryCard key={item.index} data={item} />
           ))}
         </challenging.secondblock>
@@ -110,7 +102,7 @@ function ChallengeCruiting() {
           <challenging.title>굿즈샵</challenging.title>
         </challenging.top>
         <challenging.secondblock>
-          {goodsThree.map((item) => (
+          {goodsThree&&goodsThree.map((item) => (
             <GoodsCard key={item.id} data={item} />
           ))}
         </challenging.secondblock>
