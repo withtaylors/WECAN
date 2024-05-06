@@ -19,12 +19,17 @@ function Join() {
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [isValid, setIsValid] = useState('');
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? 'http://3.35.3.205:8080'
+    : 'https://wecanomg.shop';
+  
   const [isTimerActive, setIsTimerActive] = useState(false);
 
   const handleSendingCertificate = async () => {
     try {
       const response = await axios.post(
-        `${baseURL}/user/certification-mail`,
+        `${PROXY}/user/certification-mail`,
         email,
         {
           headers: {
@@ -45,7 +50,7 @@ function Join() {
   const handleCertificate = async () => {
     try {
       const response = await axios.post(
-        `${baseURL}/user/certification-num`,
+        `${PROXY}/user/certification-num`,
         {
           certificationNum: certificationNum,
           email: email,
@@ -81,7 +86,7 @@ function Join() {
     };
 
     try {
-      const response = await axios.post(`${baseURL}/user/sign-up`, jsonData);
+      const response = await axios.post(`${PROXY}/user/sign-up`, jsonData);
 
       console.log('회원가입 성공:', response.data);
       navigate('/login');
