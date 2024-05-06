@@ -35,7 +35,7 @@ function ChallengeCruiting() {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${PROXY}/recruits/home`, {
+        const response = await axios.get(process.env.REACT_APP_DB_HOST+`/recruits/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -58,7 +58,7 @@ function ChallengeCruiting() {
     const fetchGoodsThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${PROXY}/shop/home`, {
+        const response = await axios.get(process.env.REACT_APP_DB_HOST+`/shop/home`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
