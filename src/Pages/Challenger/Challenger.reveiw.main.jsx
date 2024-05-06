@@ -15,6 +15,10 @@ function ChallengeReview() {
   const [groupedArray, setGroupedArray] = useState([]);
   const [content, setContent] = useState();
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
   const userName = localStorage.getItem('user-name');
   /////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -23,7 +27,7 @@ function ChallengeReview() {
   const fetchChallengeInfo = async () => {
     setLoading(true);
     try {
-      const response = await axios.get(`${baseURL}/recruit/${id}`, {
+      const response = await axios.get(`${PROXY}/recruit/${id}`, {
         headers: {
           Authorization: 'Bearer ' + localStorage.getItem('login-token'),
         },
@@ -50,7 +54,7 @@ function ChallengeReview() {
     };
     try {
       const response = await axios.post(
-        `${baseURL}/recruit/comment`,
+        `${PROXY}/recruit/comment`,
         jsonData,
         {
           headers: {

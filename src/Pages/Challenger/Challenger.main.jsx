@@ -9,6 +9,10 @@ import PayModal2 from './PayModal2';
 function ChallengeInfo() {
   const { id } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
 
   /////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -18,7 +22,7 @@ function ChallengeInfo() {
     const fetchChallengeInfo = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(`${baseURL}/recruit/${id}`, {
+        const response = await axios.get(`${PROXY}/recruit/${id}`, {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
           },
@@ -66,7 +70,7 @@ function ChallengeInfo() {
   const handleJoin = async () => {
     try {
       const response = await axios.post(
-        `${baseURL}/recruit/participation`,
+        `${PROXY}/recruit/participation`,
         { recruitId: id },
         {
           headers: {
