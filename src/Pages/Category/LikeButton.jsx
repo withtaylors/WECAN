@@ -8,6 +8,12 @@ import axios from 'axios';
 const LikeButton = ({ isLike, id }) => {
   const [initialLikeState, setInitialLikeState] = useState(isLike);
   const recruitId = id;
+
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
+    
   useEffect(() => {
     setInitialLikeState(isLike); // 초기 isLike 값을 설정
   }, [isLike]);
@@ -15,7 +21,7 @@ const LikeButton = ({ isLike, id }) => {
   const handleToggleLike = async () => {
     try {
       const response = await request.post(
-        `/recruit/heart`,
+        `${PROXY}/recruit/heart`,
         { recruitId },
         {
           headers: {
