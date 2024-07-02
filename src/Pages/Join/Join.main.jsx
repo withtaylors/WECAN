@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import * as join from './Styled/Join.main';
 import axios from 'axios';
@@ -18,6 +18,14 @@ function Join() {
   const [phoneNumber, setPhoneNumber] = useState('');
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [isValid, setIsValid] = useState('');
+
+  //오류메세지 저장
+  const [passwordMessage, setPasswordMessage] = useState('')
+  //유효성 검사
+  const [isPassword, setIsPassword] = useState(false)
+  const [isPasswordConfirm, setIsPasswordConfirm] = useState(false);
+
+
   const baseURL = 'http://3.35.3.205:8080';
 
   const PROXY =
@@ -26,6 +34,20 @@ function Join() {
     : 'https://wecanomg.shop';
   
   const [isTimerActive, setIsTimerActive] = useState(false);
+  
+  const onChangePassword = React.useCallback((e)=>{
+    const passwordRegex = /^(?=.*[a-zA-Z])(?=.*[!@#$%^*+=-])(?=.*[0-9]).{8,25}$/
+    const passwordCurrent = e.target.value
+    setPassword(passwordCurrent)
+
+    if(!passwordRegex.test(passwordCurrent)){
+      setPasswordMessage('숫자+영문자+특수문자 조합으로 8자리 이상 입력해 주세요')
+      setIsPassword(false)
+    }else{
+      setPasswordMessage('안전한 비밀번호 입니다 :) ')
+      setIsPassword(true)
+    }
+  }, []);
 
   const handleSendingCertificate = async () => {
     try {
@@ -136,9 +158,10 @@ function Join() {
             <join.realinputWrapper
               placeholder='영어 대소문자/숫자/특수문자 포함 8~20자'
               value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              onChange={onChangePassword}
             ></join.realinputWrapper>
           </join.inputWrapper>
+          <join.passwordEqual>{passwordMessage}</join.passwordEqual>
         </join.joinWrapper>
 
         <join.joinWrapper>
