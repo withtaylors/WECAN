@@ -19,6 +19,7 @@ function Join() {
   const [agreementChecked, setAgreementChecked] = useState(false);
   const [isValid, setIsValid] = useState('');
   const baseURL = 'http://3.35.3.205:8080';
+
   const PROXY =
   window.location.hostname === 'localhost'
     ? ''
@@ -93,6 +94,7 @@ function Join() {
     } catch (error) {
       // 회원가입 실패 시 에러 처리
       console.error('회원가입 실패:', error);
+      console.log(jsonData);
     }
   };
 

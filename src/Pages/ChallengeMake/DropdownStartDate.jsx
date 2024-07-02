@@ -101,6 +101,12 @@ const DropdownStartDate = ({ onChange }) => {
     return `${year}-${formattedMonth}-${formattedDay}`;
   };
 
+  const isValidDate = (year, month, day) => {
+    const selectedDate = new Date(year, month - 1, day);
+    const today = new Date();
+    return selectedDate >= today;
+  };
+
   const toggleFirstDropdown = () => {
     setIsfirstOpen(!isfirstOpen);
   };

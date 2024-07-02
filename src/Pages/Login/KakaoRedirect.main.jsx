@@ -10,6 +10,11 @@ const KakaoRedirect = () => {
   const location = useLocation();
   const navigate = useNavigate();
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
+
+  const PROXY =
+  window.location.hostname === 'localhost'
+    ? ''
+    : 'https://wecanomg.shop';
   const handleOAuthKakao = async (code) => {
     try {
       // Your web app's Firebase configuration
@@ -37,7 +42,7 @@ const KakaoRedirect = () => {
         console.log("An error occurred while retrieving token. ", err);
       });
       const response = await axios.get(
-        `https://wecanomg.shop/oauth/login/kakao?code=${code}&fcm=${fcmToken}`
+        `${PROXY}/oauth/login/kakao?code=${code}&fcm=${fcmToken}`
       );
       setIsSuccess(true);
       alert("로그인에 성공했습니다.");
