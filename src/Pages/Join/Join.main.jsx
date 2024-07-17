@@ -7,7 +7,6 @@ import Timer from './Timer.main';
 import { set } from 'lodash';
 
 function Join() {
-  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [verificationCode, setVerificationCode] = useState('');
@@ -28,9 +27,14 @@ function Join() {
 
   const baseURL = 'http://3.35.3.205:8080';
 
+  const navigate = useNavigate();
+  const NavClick = (e, type) => {
+    e.preventDefault();
+    navigate(`${type}`);
+  };
   const PROXY =
   window.location.hostname === 'localhost'
-    ? ''
+    ? 'https://wecanomg.shop'
     : 'https://wecanomg.shop';
   
   const [isTimerActive, setIsTimerActive] = useState(false);
@@ -123,7 +127,11 @@ function Join() {
   return (
     <join.totalWrapper>
       <join.InnerWrapper>
-        <join.logo src={Logosrc}></join.logo>
+        <join.logo 
+        src={Logosrc}
+              onClick={(e) => {
+                NavClick(e, '/');
+              }}></join.logo>
         <join.joinWrapper>
           <join.title>이메일</join.title>
           <join.inputWrapper>

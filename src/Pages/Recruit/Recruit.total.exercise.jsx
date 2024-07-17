@@ -8,10 +8,7 @@ import RecruitTop from './Recruit.totoal.main.top';
 
 function RecruitExerciseCards() {
   const baseURL = 'http://3.35.3.205:8080';
-  const PROXY =
-  window.location.hostname === 'localhost'
-    ? ''
-    : 'https://wecanomg.shop';
+  const PROXY = 'https://wecanomg.shop';
   const [loading, setLoading] = useState(false);
   const [challengeArray, setChallengeArray] = useState([]);
   const [challengeArrayPopular, setChallengeArrayPopular] = useState([]);

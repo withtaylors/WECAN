@@ -11,6 +11,7 @@ import axios from 'axios';
 const ChatCalendar = () => {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY ='https://wecanomg.shop';
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
@@ -51,7 +52,7 @@ const ChatCalendar = () => {
     const fetchChallengeData = async () => {
       try {
         const response = await axios.get(
-          `${baseURL}/challenge/info/${challengeId}`,
+          `${PROXY}/challenge/info/${challengeId}`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('login-token'),

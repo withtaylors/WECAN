@@ -9,10 +9,7 @@ import PayModal2 from './PayModal2';
 function ChallengeInfo() {
   const { id } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
-  const PROXY =
-  window.location.hostname === 'localhost'
-    ? ''
-    : 'https://wecanomg.shop';
+  const PROXY = 'https://wecanomg.shop';
 
   /////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
@@ -29,6 +26,7 @@ function ChallengeInfo() {
         });
         console.log('해당 챌린지 정보:', response);
         setChallengeInfo(response.data.data);
+        setIsJoined(response.data.data.participate);
         console.log(challengeInfo);
       } catch (error) {
         console.error('챌린지 정보를 가져오는데 실패', error);
@@ -38,7 +36,7 @@ function ChallengeInfo() {
     };
 
     fetchChallengeInfo();
-  }, []);
+  }, [id]);
   /////////////////////////////////
 
   /*useEffect(() => {
@@ -61,17 +59,14 @@ function ChallengeInfo() {
   ///////////////////////////////////////
   const [isJoined, setIsJoined] = useState(false);
 
-  useEffect(() => {
-    if (challengeInfo.participate !== undefined) {
-      setIsJoined(challengeInfo.participate);
-    }
-  }, [challengeInfo.participate]);
+
 
   const handleJoin = async () => {
     try {
+      // 서버에 참여 상태 변경 요청
       const response = await axios.post(
         `${PROXY}/recruit/participation`,
-        { recruitId: id },
+        { recruitId: id, participate: !isJoined },  // 참여 상태를 토글한 값을 보냅니다.
         {
           headers: {
             'Content-Type': 'application/json',
@@ -79,22 +74,24 @@ function ChallengeInfo() {
           },
         }
       );
-      console.log(response);
-
-      // 참여 상태를 토글
-      setIsJoined((prevIsJoined) => !prevIsJoined);
-
-      if (!isJoined) {
-        openModal();
-        alert('챌린지 참여가 완료되었습니다!');
+  
+      if (response.status === 200) {
+        // 서버에서 성공적으로 처리되었을 경우, 클라이언트 상태 업데이트
+        setIsJoined(response.data.participate);  // 응답에서 받은 최신 참여 상태로 업데이트
+  
+        // 모달과 알림 처리
+        response.data.participate ? openModal() : closeModal();
+        alert(`챌린지 ${response.data.participate ? '참여가 완료되었습니다!' : '참여가 취소되었습니다!'}`);
       } else {
-        alert('챌린지 참여가 취소되었습니다!');
+        // 서버에서 에러 응답을 받은 경우
+        console.error('Server responded with an error:', response.status);
       }
     } catch (error) {
-      console.error('참여 신청 중 에러', error);
+      console.error('참여 신청 중 에러 발생', error);
+      alert('참여 처리 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.');
     }
   };
-  console.log(isJoined);
+  
   //////////////////////////////////////
 
   ////////////////////////////////////////

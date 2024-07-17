@@ -9,10 +9,7 @@ import styled from 'styled-components';
 function HomeMyChallenge() {
   //////////////////////////////////////////////////////////////////////////////////////
   const baseURL = 'http://wecanomg.shop';
-  const PROXY =
-    window.location.hostname === 'localhost'
-      ? ''
-      : 'https://wecanomg.shop';
+  const PROXY = 'https://wecanomg.shop';
   ///////////////////////////////////////////////////////////////////////////////////////
   const [myChallenge, setMyChallenge] = useState([]);
   const [loading, setLoading] = useState(false);

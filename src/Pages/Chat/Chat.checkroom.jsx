@@ -13,6 +13,7 @@ function Chatcheckroom() {
   const { challengeId, checkDate } = useParams();
   const [images, setImages] = useState();
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY ='https://wecanomg.shop';
   const navigate = useNavigate();
   const hiddenFileInput = useRef(null);
   // 'dislikes' 상태 변수와 그를 업데이트하는 함수 'setDislikes' 정의
@@ -69,7 +70,7 @@ function Chatcheckroom() {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${baseURL}/challenge/checkroom/${challengeId}/${checkDate}`,
+        `${PROXY}/challenge/checkroom/${challengeId}/${checkDate}`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -112,7 +113,7 @@ function Chatcheckroom() {
 
     try {
       const response = await axios.post(
-        `${baseURL}/challenge/checkroom/upload`,
+        `${PROXY}/challenge/checkroom/upload`,
         formData,
         {
           headers: {
@@ -153,7 +154,7 @@ function Chatcheckroom() {
     try {
       const challengeCheckId = item.challengeCheckId;
       const response = await axios.post(
-        `${baseURL}/challenge/checkroom/dislike`,
+        `${PROXY}/challenge/checkroom/dislike`,
         { challengeCheckId },
         {
           headers: {

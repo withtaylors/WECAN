@@ -1,11 +1,7 @@
-import React, { useEffect, useState, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import * as chat from './Styled/Chat.chatting';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams } from 'react-router-dom';
 import { Client } from '@stomp/stompjs';
-import Calendar from 'react-calendar';
-import 'react-calendar/dist/Calendar.css';
-import * as calendar from './Styled/Chat.calendar';
-import Modal from './Auth_Modal';
 import * as SockJS from 'sockjs-client';
 import axios from 'axios';
 import smile from '../../Assets/img/smile.png';
@@ -14,27 +10,27 @@ import Chatting from './Chat.chatting';
 
 function Chat() {
   const { challengeId } = useParams();
-  const baseURL = 'http://3.35.3.205:8080';
+  const PROXY = 'https://wecanomg.shop';
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
-  //////////////////////////////////////////////////////
+
   const [loading, setLoading] = useState(false);
-  const [chattingInfo, setchattingInfo] = useState([]);
+  const [chattingInfo, setChattingInfo] = useState({});
+  const [stompClient, setStompClient] = useState(null);
+  const [messages, setMessages] = useState([]);
+  const [inputMessage, setInputMessage] = useState('');
+
   useEffect(() => {
     const fetchChallengeThree = async () => {
       setLoading(true);
       try {
-        const response = await axios.get(
-          `${baseURL}/challenge/info/${challengeId}`,
-          {
-            headers: {
-              Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-            },
-          }
-        );
+        const response = await axios.get(`${PROXY}/challenge/info/${challengeId}`, {
+          headers: { Authorization: 'Bearer ' + localStorage.getItem('login-token') },
+        });
         console.log('채팅방 정보:', response);
-        setchattingInfo(response.data.data);
+        setChattingInfo(response.data.data);
+        setMessages(response.data.data.chattingList || []);
       } catch (error) {
         console.error('채팅방 정보 불러오기 실패', error);
       } finally {
@@ -43,27 +39,10 @@ function Chat() {
     };
 
     fetchChallengeThree();
-  }, []);
-  //////////////////////////////////////////////////////
-  const today = new Date();
-  today.setHours(23, 59, 59, 999);
-  const chattingRoomId = chattingInfo.chattingRoomId;
-  ///////////////////////////////////////////////////////
-  const [data, setData] = useState({
-    title: '',
-    startDate: '',
-    endDate: '',
-    successRate: '',
-    chattingRoomId: chattingInfo.chattingRoomId,
-    chattingList: [],
-  });
-  const [stompClient, setStompClient] = useState(null);
-  const [messages, setMessages] = useState([]);
-  const [inputMessage, setInputMessage] = useState('');
+  }, [challengeId]);
 
   useEffect(() => {
-    // SockJS 및 STOMP 설정
-    const websocket = new SockJS('http://3.35.3.205:8080/ws');
+    const websocket = new SockJS('https://wecanomg.shop/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -72,101 +51,59 @@ function Chat() {
 
     stomp.onConnect = () => {
       console.log('STOMP Connection');
-
-      // 채팅방 구독
-      stomp.subscribe(`/sub/chat/room/` + { chattingRoomId }, (chat) => {
+      stomp.subscribe(`/sub/chat/room/${chattingInfo.chattingRoomId}`, (chat) => {
         const content = JSON.parse(chat.body);
-        console.log('Received Message:', content);
-        setMessages((prev) => [...prev, content]);
-        console.log(content);
+        setMessages(prevMessages => [...prevMessages, content]);
       });
-    };
-    stomp.onWebSocketClose = (event) => {
-      console.error('WebSocket Closed:', event);
-      // 웹소켓이 닫힌 경우 재연결 노력 등을 수행할 수 있습니다.
-    };
-
-    stomp.onWebSocketError = (event) => {
-      console.error('WebSocket Error:', event);
-      // 웹소켓 에러 처리를 수행할 수 있습니다.
     };
 
     setStompClient(stomp);
 
-    return () => {
-      stomp.deactivate();
-    };
-  }, [data.chattingRoomId]);
-  ///////////////////////////////////////////////
-  const fetchChattingRoomInfo = async () => {
-    setLoading(true);
-    try {
-      const response = await axios.get(
-        `${baseURL}/challenge/info/${challengeId}`,
-        {
-          headers: {
-            Authorization: 'Bearer ' + localStorage.getItem('login-token'),
-          },
-        }
-      );
-      console.log('채팅방 정보:', response);
-      setchattingInfo(response.data.data);
-    } catch (error) {
-      console.error('채팅방 정보 불러오기 실패', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+    return () => stomp.deactivate();
+  }, [chattingInfo.chattingRoomId]);
 
-  ///////////채팅 메세지 전송
   const sendMessage = async () => {
     if (stompClient && inputMessage) {
       const now = new Date();
-      const currentTime = now.toISOString();
-
       const chatMessage = {
         type: 'TALK',
         roomId: chattingInfo.chattingRoomId,
         userId: userIdLong,
         nickName: userName,
         message: inputMessage,
-        time: currentTime,
+        time: now.toISOString(),
       };
-
+  
       stompClient.publish({
         destination: '/pub/sendMessage',
-        headers: {},
         body: JSON.stringify(chatMessage),
       });
-      /////////////////////////////////////////////////////////
-      await new Promise((resolve) => setTimeout(resolve, 100));
-      await fetchChattingRoomInfo();
+  
+      // 메시지 로컬에 추가
+      setMessages(prevMessages => [...prevMessages, chatMessage]);
       setInputMessage('');
-      console.log('Message sent:', chatMessage);
+  
+      // 서버에 메시지 저장
     }
   };
+  
 
   return (
     <chat.totalWrapper>
       <chat.messagesWrapper>
-        {chattingInfo &&
-          chattingInfo.chattingList &&
-          chattingInfo.chattingList.map((msg, index) => (
-            <Chatting key={index} data={msg}></Chatting>
-          ))}
+        {messages.map((msg, index) => (
+          <Chatting key={index} data={msg}></Chatting>
+        ))}
       </chat.messagesWrapper>
       <chat.inputWrapper>
-        <chat.smileImg src={smile}></chat.smileImg>
+        <chat.smileImg src={smile} />
         <chat.realInputWrapper
           type="text"
           value={inputMessage}
           onChange={(e) => setInputMessage(e.target.value)}
-        ></chat.realInputWrapper>
+        />
         <chat.sendButtonWrapper>
-          <chat.sendButoon
-            src={sendButton}
-            onClick={sendMessage}
-          ></chat.sendButoon>
+          <chat.sendButoon src={sendButton} onClick={sendMessage} />
         </chat.sendButtonWrapper>
       </chat.inputWrapper>
     </chat.totalWrapper>

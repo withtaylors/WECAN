@@ -13,6 +13,7 @@ import * as SockJS from 'sockjs-client';
 const ChatMain = () => {
   const { challengeId } = useParams();
   const baseURL = 'http://3.35.3.205:8080';
+  const PROXY ='https://wecanomg.shop';
   const userName = localStorage.getItem('user-name');
   const userId = localStorage.getItem('user-id');
   const userIdLong = parseInt(userId, 10);
@@ -25,7 +26,7 @@ const ChatMain = () => {
       setLoading(true);
       try {
         const response = await axios.get(
-          `${baseURL}/challenge/info/${challengeId}`,
+          `${PROXY}/challenge/info/${challengeId}`,
           {
             headers: {
               Authorization: 'Bearer ' + localStorage.getItem('login-token'),
@@ -73,7 +74,7 @@ const ChatMain = () => {
 
   useEffect(() => {
     // WebSocket 및 STOMP 설정
-    const websocket = new SockJS('http://3.35.3.205:8080/ws');
+    const websocket = new SockJS('https://wecanomg.shop/ws');
     const stomp = new Client({
       webSocketFactory: () => websocket,
     });
@@ -110,7 +111,7 @@ const ChatMain = () => {
     setLoading(true);
     try {
       const response = await axios.get(
-        `${baseURL}/challenge/info/${challengeId}`,
+        `${PROXY}/challenge/info/${challengeId}`,
         {
           headers: {
             Authorization: 'Bearer ' + localStorage.getItem('login-token'),

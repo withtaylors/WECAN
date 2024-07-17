@@ -22,7 +22,7 @@ export const messagesWrapper = styled.div`
   flex-grow: 1;
 `;
 export const inputWrapper = styled.div`
-  width: 630px;
+  width: 95%;
   height: 55px;
   border-radius: 25px;
   background-color: #e6e6e6;
@@ -35,11 +35,10 @@ export const inputWrapper = styled.div`
 `;
 export const smileImg = styled.img`
   cursor: pointer;
-  margin-left: 20px;
-  margin-right: 5px;
+  margin-left: 7px;
 `;
 export const realInputWrapper = styled.input`
-  width: 100%;
+width: 80%;
   height: 80%;
   background-color: #e6e6e6;
   margin-left: 8px;
@@ -52,29 +51,29 @@ export const realInputWrapper = styled.input`
     font-family: 'Pretendard';
   }
 `;
-export const sendButtonWrapper = styled.div``;
+export const sendButtonWrapper = styled.div`
+margin-left:5px `;
 export const sendButoon = styled.img``;
 ///////////////////////////////////////////////////
 export const lineTotalWrapper = styled.div`
   height: auto;
-
   display: flex;
   flex-direction: row;
-  margin-top: 3px;
-
+  margin-top: 6px;
   margin-left: 15px;
 `;
 export const lineTotalWrapper2 = styled.div`
   height: auto;
-
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
-  margin-top: 3px;
+  margin-top: 6px;
   margin-right: 15px;
 `;
 export const profileWrapper = styled.div`
   width: 45px;
+  display: flex;
+  
 `;
 export const profileWrapper2 = styled.div`
   width: 45px;
@@ -87,7 +86,8 @@ export const profileImg = styled.img`
   border-radius: 50px;
 `;
 export const innerWrapper = styled.div`
-  height: auto;
+
+
 `;
 export const userName = styled.div`
   height: 25px;
@@ -108,7 +108,6 @@ export const TextWrapper = styled.div`
   height: 45px;
   border-radius: 20px;
   background-color: white;
-
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,6 +129,7 @@ export const TimeWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   margin-left: 10px;
+  margin-top:3px;
   font-size: 10px;
   color: gray;
 `;

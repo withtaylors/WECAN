@@ -12,10 +12,7 @@ function HomeReviews() {
 
   /////////////////////////////////////////////////////////////////////
   const baseURL = 'http://wecanomg.shop';
-  const PROXY =
-    window.location.hostname === 'localhost'
-      ? ''
-      : 'https://wecanomg.shop';
+  const PROXY ='https://wecanomg.shop';
   ////////////////////////////////////////////////////
   const [loading, setLoading] = useState(false);
   const [challengeThree, setChallengeThree] = useState([]);

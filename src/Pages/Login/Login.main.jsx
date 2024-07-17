@@ -19,7 +19,7 @@ function Login(props) {
 
   const PROXY =
     window.location.hostname === 'localhost'
-      ? ''
+      ? 'https://wecanomg.shop'
       : 'https://wecanomg.shop';
   const baseURL = 'https://wecanomg.shop';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
