@@ -19,7 +19,7 @@ function Login(props) {
 
   const PROXY =
     window.location.hostname === 'localhost'
-      ? 'https://wecanomg.shop'
+      ? 'https://localhost:3000'
       : 'https://wecanomg.shop';
   const baseURL = 'https://wecanomg.shop';
   const [isSuccess, setIsSuccess] = useRecoilState(isSuccessState);
@@ -106,15 +106,10 @@ function Login(props) {
     }
   };
   const handleKakaoLogin = async () => {
-    window.location.href = 'https://wecanomg.shop/oauth/kakao';
-  };
-  const handleSignup = () => {
-    navigate('/agree', {
-      state: {
-        email: '',
-        type: 'general',
-      },
-    });
+    const kakaoClientId = "36986d114ad59653f81d96adc6f76389";
+    const redirectUri = `${PROXY}/oauth/kakao`;
+    window.location.href = `https://kauth.kakao.com/oauth/authorize?client_id=${kakaoClientId}&redirect_uri=${redirectUri}&response_type=code`;
+
   };
 
   return (

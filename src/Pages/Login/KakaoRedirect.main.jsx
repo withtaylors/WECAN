@@ -13,8 +13,9 @@ const KakaoRedirect = () => {
 
   const PROXY =
   window.location.hostname === 'localhost'
-    ? ''
-    : 'https://wecanomg.shop';
+    ? 'https://localhost:3000'
+    : 'https://wecanomg.shop'; 
+    
   const handleOAuthKakao = async (code) => {
     try {
       // Your web app's Firebase configuration
@@ -85,8 +86,11 @@ const KakaoRedirect = () => {
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const code = searchParams.get("code");
+    console.log("인가코드",code);
     if (code) {
       handleOAuthKakao(code);
+    }else{
+      console.log("인가 코드가 없습니다!")
     }
   }, [location]);
 };

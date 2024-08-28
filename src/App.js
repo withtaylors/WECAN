@@ -147,7 +147,7 @@ function App() {
                 />
                 {/* <Route path="*" element={<NotFoundPage />} /> */}
                 <Route
-                  path='/login/oauth/kakao'
+                  path='/oauth/kakao'
                   element={<KakaoRedirect />}
                 ></Route>
                 <Route
